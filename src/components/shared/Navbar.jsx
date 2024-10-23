@@ -4,8 +4,11 @@ import Link from "next/link";
 import { LiaBarsSolid } from "react-icons/lia";
 import { CiHeart } from "react-icons/ci";
 import { PiShoppingCartLight } from "react-icons/pi";
+import { CiUser } from "react-icons/ci";
+import useCart from "../useCart/useCart";
 
 export default function Navbar() {
+  const { cartItems } = useCart();
   const navItems = [
     {
       title: "Home",
@@ -27,6 +30,7 @@ export default function Navbar() {
       title: "Sign In",
       path: "/signIn",
     },
+    
   ];
   return (
     <div className="p-2 md:pt-11 pt-5 md:pb-4 px-4">
@@ -87,8 +91,24 @@ export default function Navbar() {
             </div>
           </div>
           <div className="flex gap-3">
-            <CiHeart className="text-3xl" />
-            <PiShoppingCartLight className="text-3xl" />
+            <Link href="/wishlist"><CiHeart className="text-3xl" /></Link>
+            <Link href='/cart'><div className="indicator mt-1 ">
+                  <span className="indicator-item badge w-5 text-[10px] bg-red-600 text-white border-none">
+                    +{cartItems.length}
+                  </span>
+                  <button className="text-3xl">
+                  <PiShoppingCartLight />
+                  </button>
+                </div></Link>
+
+
+            
+
+
+
+
+            <Link href='/profile/personalInformation'><CiUser className="text-3xl"/></Link>
+            
           </div>
         </div>
       </div>
