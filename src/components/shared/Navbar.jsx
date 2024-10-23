@@ -21,7 +21,11 @@ export default function Navbar() {
     },
     {
       title: "Sign Up",
-      path: "/sign In",
+      path: "/signUp",
+    },
+    {
+      title: "Sign In",
+      path: "/signIn",
     },
   ];
   return (

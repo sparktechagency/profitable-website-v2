@@ -2,8 +2,11 @@ import React from 'react'
 
 export default function Footer() {
   return (
-    <div>
-      <footer className="footer bg-neutral text-neutral-content p-10">
+    <div className='mt-28'>
+      <div className='bg-[#CB4E01] ;
+'>
+      <footer className="footer 
+ text-neutral-content p-10">
   <nav>
     <h6 className="footer-title">Services</h6>
     <a className="link link-hover">Branding</a>
@@ -19,12 +22,13 @@ export default function Footer() {
     <a className="link link-hover">Press kit</a>
   </nav>
   <nav>
-    <h6 className="footer-title">Legal</h6>
+    <h6 className="footer-title ">Legal</h6>
     <a className="link link-hover">Terms of use</a>
     <a className="link link-hover">Privacy policy</a>
     <a className="link link-hover">Cookie policy</a>
   </nav>
 </footer>
+    </div>
     </div>
   )
 }

@@ -1,4 +1,4 @@
-export const product = [
+export const newarrival = [
   {
       "id": 1,
       "title": "Stylish Sneakers",

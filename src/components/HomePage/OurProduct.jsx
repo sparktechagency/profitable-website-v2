@@ -1,10 +1,10 @@
-
+import { product } from "@/lib/product";
 import Title from "../shared/Title";
-
 import ProductCard from "../card/ProductCard";
-import { newarrival } from "@/lib/newArival";
+import Link from "next/link";
 
-const NewProduct = () => {
+
+const OurProduct = () => {
   return (
     <div>
       <div className="flex mx-4 justify-between">
@@ -14,12 +14,16 @@ const NewProduct = () => {
         </div>
       </div>
       <div className="grid grid-cols-4">
-        {newarrival.slice(0,4).map((item) => (
+        {product.slice(0,8).map((item) => (
           <ProductCard item={item}></ProductCard>
         ))}
+        
+      </div>
+      <div className="flex justify-center">
+      <Link href={'/allproduct'}><button className="bg-[#fe6201] px-6 mt-5   py-2 text-white rounded-sm">View All Product</button></Link>
       </div>
     </div>
   );
 };
 
-export default NewProduct;
+export default OurProduct;

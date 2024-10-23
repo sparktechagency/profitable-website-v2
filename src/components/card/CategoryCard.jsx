@@ -1,5 +1,7 @@
 import Image from "next/image";
 
+
+
 const CategoryCard = ({ item }) => {
   const { title, img, id } = item;
   return (
