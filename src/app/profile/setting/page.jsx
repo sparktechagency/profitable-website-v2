@@ -4,7 +4,7 @@ import { Form, Field } from 'react-final-form';
 import { FaRegEyeSlash } from 'react-icons/fa6';
 import { TiEyeOutline } from "react-icons/ti";
 
-const page = () => {
+const ChangePasswordPage = () => {
     const [showCurrentPassword, setShowCurrentPassword] = useState(false);
     const [showNewPassword, setShowNewPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -118,4 +118,4 @@ const page = () => {
     );
 };
 
-export default page;
+export default ChangePasswordPage;

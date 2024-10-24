@@ -6,13 +6,13 @@ const Hero = () => {
       <div className="lg:grid grid-cols-5 gap-6">
         <div className="col-span-1 border-r ">
           <div className="flex flex-col gap-2 pl-3 lg:pt-11 lg:bg-white bg-slate-100 py-5 lg:py-0">
-            <li>Woman's Fashion</li>
-            <li>Men's Fashion</li>
+            <li>Woman&apos;s Fashion</li>
+            <li>Men&apos;s Fashion</li>
             <li>Electronics</li>
             <li>Home & Lifestyle</li>
             <li>Medicine</li>
             <li>Sports & Outdoor</li>
-            <li>Baby's & Toys</li>
+            <li>Baby&apos;s & Toys</li>
             <li>Groceries & pets</li>
             <li>Health & Beauty</li>
           </div>

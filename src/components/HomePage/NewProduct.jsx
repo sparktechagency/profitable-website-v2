@@ -17,7 +17,7 @@ const NewProduct = () => {
       </div>
       <div className="grid lg:grid-cols-4 md:grid-cols-2">
         {newarrival.slice(0,4).map((item) => (
-          <NewArivalCard item={item}></NewArivalCard>
+          <NewArivalCard key={item.id} item={item}></NewArivalCard>
         ))}
       </div>
     </div>

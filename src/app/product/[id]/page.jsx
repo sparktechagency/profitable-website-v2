@@ -106,7 +106,7 @@ const page = async ({ params }) => {
             <p className="">{product_description}</p>
             <p className="mt-2">
               Symbol of lightness and delicacy, the hummingbird evokes curiosity
-              and joy. Studio Design' PolyFaune collection features classic
+              and joy. Studio Design&apos; PolyFaune collection features classic
               products with colorful patterns, inspired by traditional Japanese
               origami. To wear with a chino or jeans. The sublimation textile
               printing process provides an exceptional color rendering and a

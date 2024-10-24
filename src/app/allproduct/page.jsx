@@ -2,9 +2,10 @@
 "use client"
 import ProductCard from "@/components/card/ProductCard";
 import { product } from "@/lib/product";
+import Image from "next/image";
 import { useState } from "react";
 import { FaStar } from "react-icons/fa";
-export default function page() {
+export default function ProductPage() {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 8;
 
@@ -32,14 +33,14 @@ export default function page() {
   return (
     <div>
       <div className="my-11">
-        <img className="w-full" src="/img/productBanner.png" />
+        <Image className="w-full" src="/img/productBanner.png" width={100} height={80} alt="img"/>
       </div>
 
       <div className="flex justify-center">
         <div className="flex">
           <div className="flex items-center mr-3">
             <div className="bg-blue-300 w-[60px] rounded-lg p-2">
-              <img className="w-[60px]" src="/img/productLogo.png" />
+              <Image className="w-[60px]" src="/img/productLogo.png" width={100} height={80} alt="img"/>
             </div>
           </div>
           <div>
