@@ -48,7 +48,7 @@ export default function SignIn() {
             </div>
 
             <div className="flex items-center justify-between">
-              <p className="text-sm text-gray-600">Don't have an account? <a href="#" className="text-orange-500 hover:underline">Register</a></p>
+              <p className="text-sm text-gray-600">Don&apos;t have an account? <a href="#" className="text-orange-500 hover:underline">Register</a></p>
             </div>
 
             <button
