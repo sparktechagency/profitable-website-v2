@@ -60,7 +60,7 @@ const getStatusColor = (status) => {
 
 const OrderHistory = () => {
   return (
-    <div className="p-11">
+    <div className="md:p-11 p-4">
       <h1 className="text-xl font-bold mb-4 text-primary">Order History:</h1>
       
       {/* Responsive Table */}

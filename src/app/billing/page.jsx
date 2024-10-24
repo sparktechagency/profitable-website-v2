@@ -50,7 +50,7 @@ const CheckoutPage = () => {
         </div>
       </div>
       {/* Form Section */}
-      <div className="grid grid-cols-2 gap-36">
+      <div className="grid md:grid-cols-2 md:gap-36">
         <div>
           <form className="space-y-4">
             <div>

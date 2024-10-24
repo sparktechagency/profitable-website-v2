@@ -16,7 +16,7 @@ const page = () => {
     };
 
     return (
-        <div className='p-10'>
+        <div className='md:p-10 p-4'>
             <h1 className="text-xl font-bold mb-4 text-primary">Change Password</h1>
 
             <div className="max-w-full p-4">
@@ -29,7 +29,7 @@ const page = () => {
                                 <label htmlFor="currentPassword" className="block mb-1">Current Password</label>
                                 <Field name="currentPassword" validate={value => (value ? undefined : 'Required')}>
                                     {({ input, meta }) => (
-                                        <div className="relative w-1/2">
+                                        <div className="relative md:w-1/2">
                                             <input
                                                 {...input}
                                                 type={showCurrentPassword ? "text" : "password"}
@@ -56,7 +56,7 @@ const page = () => {
                                 <label htmlFor="newPassword" className="block mb-1">New Password</label>
                                 <Field name="newPassword" validate={value => (value ? undefined : 'Required')}>
                                     {({ input, meta }) => (
-                                        <div className="relative w-1/2">
+                                        <div className="relative md:w-1/2">
                                             <input
                                                 {...input}
                                                 type={showNewPassword ? "text" : "password"}
@@ -83,7 +83,7 @@ const page = () => {
                                 <label htmlFor="confirmPassword" className="block mb-1">Confirm Password</label>
                                 <Field name="confirmPassword" validate={value => (value ? undefined : 'Required')}>
                                     {({ input, meta }) => (
-                                        <div className="relative w-1/2">
+                                        <div className="relative md:w-1/2">
                                             <input
                                                 {...input}
                                                 type={showConfirmPassword ? "text" : "password"}

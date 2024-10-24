@@ -4,7 +4,7 @@ import Link from 'next/link';
 const page = () => {
   return (
     <div>
-      <div className=" p-11">
+      <div className=" md:p-11 p-4">
       <h2 className="text-xl font-bold mb-4 text-primary">Personal Information :</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-4">
         {/* Name Input */}
