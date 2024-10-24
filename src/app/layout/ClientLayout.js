@@ -8,7 +8,7 @@ import Footer from "@/components/shared/Footer";
 export default function ClientLayout({ children }) {
   const pathname = usePathname();
 
-  const hideNavbarFooter = pathname === "/signIn" || pathname === "/signUp"; 
+  const hideNavbarFooter = pathname === "/signIn" || pathname === "/signUp" || pathname === "/signIn/forgot" || pathname === "/signIn/verify" || pathname === "/signIn/newpass" || pathname === "/signUp/done" || pathname === "/signUp/seller"; 
 
   return (
     <>

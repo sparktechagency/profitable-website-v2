@@ -1,5 +1,6 @@
 import Image from 'next/image';
-import React from 'react';
+import Link from 'next/link';
+
 
 export default function SignIn() {
   return (
@@ -10,23 +11,25 @@ export default function SignIn() {
         <div className="w-1/2 p-8 flex justify-center items-center">
           <div className="text-center">
             <div className=" text-white ">
-              <Image className='w-[400px]' src={'/img/login.png'} width={300} height={200} alt='login'/>
+              <Image className='w-[400px]' src={'/img/login.png'} width={500} height={200} alt='login'/>
             </div>
           </div>
         </div>
 
         {/* Right Side - Form */}
         <div className="w-1/2 ">
-        <Image className='w-[200px]' src={'/img/loginl.png'} width={100} height={70} alt='login'/>
-          <h2 className="text-2xl text-center font-bold text-gray-800 mb-4">Great to have you back!</h2>
+         <div className='flex justify-center mb-6'>
+         <Image className='w-[200px]' src={'/img/loginl.png'} width={300} height={70} alt='login'/>
+         </div>
+          <h2 className="text-2xl text-center my-11  font-bold text-gray-800 mb-8">Great to have you back!</h2>
           
           <form className="space-y-6">
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700">User Name or Email</label>
+              <label htmlFor="email" className="block text-sm font-semibold text-gray-700">User Name or Email</label>
               <input
                 type="email"
                 id="email"
-                className="mt-1 w-full p-2 border border-black rounded-md focus:outline-none focus:ring-2 focus:ring-orange-400 bg-[#00000000]"
+                className="mt-1 w-full p-2 border  border-black rounded-md focus:outline-none focus:ring-2 focus:ring-orange-400 bg-[#00000000]"
                 placeholder="Email"
                 required
               />
@@ -34,26 +37,31 @@ export default function SignIn() {
             </div>
 
             <div>
-              <label htmlFor="password" className="block text-sm font-medium text-gray-700">Password</label>
-              <div className="flex justify-between items-center">
+              <div className='flex justify-between'>
+              <label htmlFor="password" className="block text-sm font-semibold text-gray-700">Password</label>
+              <Link href="/signIn/forgot" className="text-sm 
+              
+              text-orange-500 hover:underline">Forgot</Link>
+              </div>
+              <div className="flex items-center">
                 <input
                   type="password"
                   id="password"
-                  className="mt-1 w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-400"
+                  className="mt-1 w-full p-2 border border-black bg-[#00000000] rounded-md focus:outline-none focus:ring-2 focus:ring-orange-400"
                   placeholder="Password"
                   required
                 />
-                <a href="#" className="text-sm text-orange-500 hover:underline">Forgot</a>
+                
               </div>
             </div>
 
-            <div className="flex items-center justify-between">
-              <p className="text-sm text-gray-600">Don&apos;t have an account? <a href="#" className="text-orange-500 hover:underline">Register</a></p>
+            <div className="flex items-center justify-center">
+              <p className="text-sm text-gray-600 text-center">Don&apos;t have an account? <Link href="/signUp" className="text-orange-500   hover:underline">Register</Link></p>
             </div>
 
             <button
               type="submit"
-              className="w-full py-2 px-4 bg-orange-500 text-white font-semibold rounded-md hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-400"
+              className="w-full py-2 px-4 bg-orange-500 text-white font-semibold rounded hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-400"
             >
               SIGN IN
             </button>
