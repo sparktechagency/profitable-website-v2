@@ -1,5 +1,6 @@
 import { review } from "@/lib/review";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import { BiSolidQuoteAltRight } from "react-icons/bi";
 export default function About() {
@@ -7,7 +8,7 @@ export default function About() {
     <div className="container mx-auto px-4 py-8">
       {/* Breadcrumb */}
       <div className="text-sm text-gray-500 mb-6">
-        <a href="/" className="hover:underline">Home</a> / <span>About</span>
+        <Link href="/" className="hover:underline">Home</Link> / <span>About</span>
       </div>
 
       {/* Our Story Section */}

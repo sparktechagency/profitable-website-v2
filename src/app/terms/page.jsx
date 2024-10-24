@@ -1,12 +1,13 @@
+import Link from "next/link";
 
 
 const page = () => {
   return (
     <div>
       <div className="text-sm text-gray-500 mb-6 mt-7 ml-3">
-        <a href="/" className="hover:underline">
+        <Link href="/" className="hover:underline">
           Home
-        </a>{" "}
+        </Link>{" "}
         / <span>Terms & Condition</span>
       </div>
       <div className="space-y-4 p-4">
