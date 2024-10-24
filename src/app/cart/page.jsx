@@ -3,6 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import useCart from "@/components/useCart/useCart"; // Custom hook import
+import Link from "next/link";
 
 export default function Cart() {
   const { cartItems } = useCart(); // Get cart items using custom hook
@@ -57,7 +58,7 @@ export default function Cart() {
 
             {/* Buttons */}
             <div className="flex justify-between mt-4">
-              <button className="border border-gray-500 text-gray-500 px-4 py-2 rounded">Return To Shop</button>
+              <Link href={'/allproduct'}><button className="border border-gray-500 text-gray-500 px-4 py-2 rounded">Return To Shop</button></Link>
               <button className="border border-gray-500 text-gray-500 px-4 py-2 rounded">Update Cart</button>
             </div>
           </div>
@@ -78,7 +79,8 @@ export default function Cart() {
               <span>${totalPrice}</span>
             </div>
             <div className="flex justify-center">
-            <button className="bg-[#fe6201] text-white px-11 py-2 rounded">Proceed to Checkout</button>
+            
+            <Link href='/billing' ><button className="bg-[#fe6201] text-white px-11 py-2 rounded">Proceed to Checkout</button></Link>
             </div>
           </div>
         </div>

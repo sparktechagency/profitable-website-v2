@@ -12,10 +12,10 @@ const NewProduct = () => {
       <div className="flex mx-4 justify-between">
         <Title head={"This Month"} title={"New Arrival"}></Title>
         <div>
-          <Link href={'/allnewproduct'}><button className="bg-[#fe6201] px-8 mt-24  py-2 text-white rounded-sm">View All</button></Link>
+          <Link href={'/allnewproduct'}><button className="bg-[#fe6201] md:px-8 md:mt-24 mt-14  md:py-2 py-1 px-4 text-white rounded-sm">View All</button></Link>
         </div>
       </div>
-      <div className="grid grid-cols-4">
+      <div className="grid lg:grid-cols-4 md:grid-cols-2">
         {newarrival.slice(0,4).map((item) => (
           <NewArivalCard item={item}></NewArivalCard>
         ))}

@@ -4,6 +4,7 @@ import { FaStar } from "react-icons/fa";
 import { CiHeart } from "react-icons/ci";
 import Link from "next/link";
 import useCart from "../useCart/useCart";
+import useWish from "../useCart/useWish";
 
 
 const ProductCard = ({ item }) => {
@@ -12,11 +13,21 @@ const ProductCard = ({ item }) => {
   // Use the custom hook
   const { addToCart } = useCart();
 
+const { addToWish } = useWish();
+
+
   const handleAddToCart = () => {
     const product = { title, img, price, id };
     addToCart(product); 
     alert(`${title} added to the cart!`);
   };
+
+  const handleAddToWish = () => {
+    const product = { title, img, price, id };
+    addToWish(product); 
+    alert(`${title} added to the cart!`);
+  };
+
 
   return (
     <div className="m-4">
@@ -31,7 +42,7 @@ const ProductCard = ({ item }) => {
               alt={title}
             />
           </Link>
-          <div className="absolute top-3 right-3 bg-white p-1 rounded-full text-black text-xl">
+          <div onClick={handleAddToWish} className="absolute top-3 right-3 bg-white p-1 rounded-full text-black text-xl">
             <CiHeart />
           </div>
 

@@ -7,21 +7,18 @@ const Category = () => {
   console.log(category);
   return (
     <div className="mb-11">
-      <div>
+      <div className="ml-4">
         <Title head={"category"} title={"Browse By Category"}></Title>
         <div></div>
       </div>
 
       <div>
-        <div className="grid grid-cols-5">
+        <div className="grid lg:grid-cols-5 md:grid-cols-2">
           {category.map((item, index) => (
             <CategoryCard key={index} item={item}></CategoryCard>
           ))}
         </div>
-        <div className="flex gap-4">
-          <button className="bg-black text-white px-5 py-1">Prev</button>
-          <button className="bg-black text-white px-5 py-1">next</button>
-        </div>
+        
       </div>
     </div>
   );

@@ -188,5 +188,196 @@ export const product = [
           "https://i.ibb.co/SXjPV3V/Frame-608-3.png",
           "https://i.ibb.co/SXjPV3V/Frame-608-3.png"
       ]
-  }
+  },
+  {
+    "id": 11,
+    "title": "Premium Yoga Mat",
+    "description": "Non-slip mat for a comfortable yoga experience.",
+    "img": "https://i.ibb.co/SXjPV3V/Frame-608-3.png",
+    "rating": 4.8,
+    "category": "Health & Fitness",
+    "price": 29.99,
+    "product_stock": 60,
+    "brand_name": "Brand J",
+    "size": "N/A",
+    "product_description": "This premium yoga mat provides excellent grip and cushioning for a comfortable practice. Made from eco-friendly materials, it’s perfect for yoga enthusiasts of all levels. Lightweight and portable, it’s easy to carry to classes or use at home.",
+    "img_gallery": [
+        "https://i.ibb.co/SXjPV3V/Frame-608-3.png",
+        "https://i.ibb.co/SXjPV3V/Frame-608-3.png",
+        "https://i.ibb.co/SXjPV3V/Frame-608-3.png",
+        "https://i.ibb.co/SXjPV3V/Frame-608-3.png"
+    ]
+},
+{
+    "id": 12,
+    "title": "Premium Yoga Mat",
+    "description": "Non-slip mat for a comfortable yoga experience.",
+    "img": "https://i.ibb.co/SXjPV3V/Frame-608-3.png",
+    "rating": 4.8,
+    "category": "Health & Fitness",
+    "price": 29.99,
+    "product_stock": 60,
+    "brand_name": "Brand J",
+    "size": "N/A",
+    "product_description": "This premium yoga mat provides excellent grip and cushioning for a comfortable practice. Made from eco-friendly materials, it’s perfect for yoga enthusiasts of all levels. Lightweight and portable, it’s easy to carry to classes or use at home.",
+    "img_gallery": [
+        "https://i.ibb.co/SXjPV3V/Frame-608-3.png",
+        "https://i.ibb.co/SXjPV3V/Frame-608-3.png",
+        "https://i.ibb.co/SXjPV3V/Frame-608-3.png",
+        "https://i.ibb.co/SXjPV3V/Frame-608-3.png"
+    ]
+},
+{
+    "id": 13,
+    "title": "Premium Yoga Mat",
+    "description": "Non-slip mat for a comfortable yoga experience.",
+    "img": "https://i.ibb.co/SXjPV3V/Frame-608-3.png",
+    "rating": 4.8,
+    "category": "Health & Fitness",
+    "price": 29.99,
+    "product_stock": 60,
+    "brand_name": "Brand J",
+    "size": "N/A",
+    "product_description": "This premium yoga mat provides excellent grip and cushioning for a comfortable practice. Made from eco-friendly materials, it’s perfect for yoga enthusiasts of all levels. Lightweight and portable, it’s easy to carry to classes or use at home.",
+    "img_gallery": [
+        "https://i.ibb.co/SXjPV3V/Frame-608-3.png",
+        "https://i.ibb.co/SXjPV3V/Frame-608-3.png",
+        "https://i.ibb.co/SXjPV3V/Frame-608-3.png",
+        "https://i.ibb.co/SXjPV3V/Frame-608-3.png"
+    ]
+},
+{
+    "id": 14,
+    "title": "Premium Yoga Mat",
+    "description": "Non-slip mat for a comfortable yoga experience.",
+    "img": "https://i.ibb.co/SXjPV3V/Frame-608-3.png",
+    "rating": 4.8,
+    "category": "Health & Fitness",
+    "price": 29.99,
+    "product_stock": 60,
+    "brand_name": "Brand J",
+    "size": "N/A",
+    "product_description": "This premium yoga mat provides excellent grip and cushioning for a comfortable practice. Made from eco-friendly materials, it’s perfect for yoga enthusiasts of all levels. Lightweight and portable, it’s easy to carry to classes or use at home.",
+    "img_gallery": [
+        "https://i.ibb.co/SXjPV3V/Frame-608-3.png",
+        "https://i.ibb.co/SXjPV3V/Frame-608-3.png",
+        "https://i.ibb.co/SXjPV3V/Frame-608-3.png",
+        "https://i.ibb.co/SXjPV3V/Frame-608-3.png"
+    ]
+},
+{
+    "id": 15,
+    "title": "Premium Yoga Mat",
+    "description": "Non-slip mat for a comfortable yoga experience.",
+    "img": "https://i.ibb.co/SXjPV3V/Frame-608-3.png",
+    "rating": 4.8,
+    "category": "Health & Fitness",
+    "price": 29.99,
+    "product_stock": 60,
+    "brand_name": "Brand J",
+    "size": "N/A",
+    "product_description": "This premium yoga mat provides excellent grip and cushioning for a comfortable practice. Made from eco-friendly materials, it’s perfect for yoga enthusiasts of all levels. Lightweight and portable, it’s easy to carry to classes or use at home.",
+    "img_gallery": [
+        "https://i.ibb.co/SXjPV3V/Frame-608-3.png",
+        "https://i.ibb.co/SXjPV3V/Frame-608-3.png",
+        "https://i.ibb.co/SXjPV3V/Frame-608-3.png",
+        "https://i.ibb.co/SXjPV3V/Frame-608-3.png"
+    ]
+},
+
+{
+    "id": 16,
+    "title": "Premium Yoga Mat",
+    "description": "Non-slip mat for a comfortable yoga experience.",
+    "img": "https://i.ibb.co/SXjPV3V/Frame-608-3.png",
+    "rating": 4.8,
+    "category": "Health & Fitness",
+    "price": 29.99,
+    "product_stock": 60,
+    "brand_name": "Brand J",
+    "size": "N/A",
+    "product_description": "This premium yoga mat provides excellent grip and cushioning for a comfortable practice. Made from eco-friendly materials, it’s perfect for yoga enthusiasts of all levels. Lightweight and portable, it’s easy to carry to classes or use at home.",
+    "img_gallery": [
+        "https://i.ibb.co/SXjPV3V/Frame-608-3.png",
+        "https://i.ibb.co/SXjPV3V/Frame-608-3.png",
+        "https://i.ibb.co/SXjPV3V/Frame-608-3.png",
+        "https://i.ibb.co/SXjPV3V/Frame-608-3.png"
+    ]
+},
+{
+    "id": 17,
+    "title": "Premium Yoga Mat",
+    "description": "Non-slip mat for a comfortable yoga experience.",
+    "img": "https://i.ibb.co/SXjPV3V/Frame-608-3.png",
+    "rating": 4.8,
+    "category": "Health & Fitness",
+    "price": 29.99,
+    "product_stock": 60,
+    "brand_name": "Brand J",
+    "size": "N/A",
+    "product_description": "This premium yoga mat provides excellent grip and cushioning for a comfortable practice. Made from eco-friendly materials, it’s perfect for yoga enthusiasts of all levels. Lightweight and portable, it’s easy to carry to classes or use at home.",
+    "img_gallery": [
+        "https://i.ibb.co/SXjPV3V/Frame-608-3.png",
+        "https://i.ibb.co/SXjPV3V/Frame-608-3.png",
+        "https://i.ibb.co/SXjPV3V/Frame-608-3.png",
+        "https://i.ibb.co/SXjPV3V/Frame-608-3.png"
+    ]
+},{
+    "id": 18,
+    "title": "Premium Yoga Mat",
+    "description": "Non-slip mat for a comfortable yoga experience.",
+    "img": "https://i.ibb.co/SXjPV3V/Frame-608-3.png",
+    "rating": 4.8,
+    "category": "Health & Fitness",
+    "price": 29.99,
+    "product_stock": 60,
+    "brand_name": "Brand J",
+    "size": "N/A",
+    "product_description": "This premium yoga mat provides excellent grip and cushioning for a comfortable practice. Made from eco-friendly materials, it’s perfect for yoga enthusiasts of all levels. Lightweight and portable, it’s easy to carry to classes or use at home.",
+    "img_gallery": [
+        "https://i.ibb.co/SXjPV3V/Frame-608-3.png",
+        "https://i.ibb.co/SXjPV3V/Frame-608-3.png",
+        "https://i.ibb.co/SXjPV3V/Frame-608-3.png",
+        "https://i.ibb.co/SXjPV3V/Frame-608-3.png"
+    ]
+},
+{
+    "id": 19,
+    "title": "Premium Yoga Mat",
+    "description": "Non-slip mat for a comfortable yoga experience.",
+    "img": "https://i.ibb.co/SXjPV3V/Frame-608-3.png",
+    "rating": 4.8,
+    "category": "Health & Fitness",
+    "price": 29.99,
+    "product_stock": 60,
+    "brand_name": "Brand J",
+    "size": "N/A",
+    "product_description": "This premium yoga mat provides excellent grip and cushioning for a comfortable practice. Made from eco-friendly materials, it’s perfect for yoga enthusiasts of all levels. Lightweight and portable, it’s easy to carry to classes or use at home.",
+    "img_gallery": [
+        "https://i.ibb.co/SXjPV3V/Frame-608-3.png",
+        "https://i.ibb.co/SXjPV3V/Frame-608-3.png",
+        "https://i.ibb.co/SXjPV3V/Frame-608-3.png",
+        "https://i.ibb.co/SXjPV3V/Frame-608-3.png"
+    ]
+},
+{
+    "id": 20,
+    "title": "Premium Yoga Mat",
+    "description": "Non-slip mat for a comfortable yoga experience.",
+    "img": "https://i.ibb.co/SXjPV3V/Frame-608-3.png",
+    "rating": 4.8,
+    "category": "Health & Fitness",
+    "price": 29.99,
+    "product_stock": 60,
+    "brand_name": "Brand J",
+    "size": "N/A",
+    "product_description": "This premium yoga mat provides excellent grip and cushioning for a comfortable practice. Made from eco-friendly materials, it’s perfect for yoga enthusiasts of all levels. Lightweight and portable, it’s easy to carry to classes or use at home.",
+    "img_gallery": [
+        "https://i.ibb.co/SXjPV3V/Frame-608-3.png",
+        "https://i.ibb.co/SXjPV3V/Frame-608-3.png",
+        "https://i.ibb.co/SXjPV3V/Frame-608-3.png",
+        "https://i.ibb.co/SXjPV3V/Frame-608-3.png"
+    ]
+}
+
 ]

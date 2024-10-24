@@ -43,7 +43,7 @@ export default function page() {
             </div>
           </div>
           <div>
-            <h1 className="text-5xl text-orange-600">Game Haven</h1>
+            <h1 className="md:text-5xl text-2xl text-orange-600">Game Haven</h1>
             <p className="flex text-[#FFAD33] my-2">
               <FaStar />
               <FaStar />
@@ -61,7 +61,7 @@ export default function page() {
       <div>
         <h1 className="text-3xl font-semibold pb-8 pl-4 pt-11">All Product</h1>
         <div className="flex mx-4 justify-between"></div>
-        <div className="grid grid-cols-4">
+        <div className="grid lg:grid-cols-4 md:grid-cols-2">
         {currentItems.map((item) => (
               <ProductCard key={item.id} item={item}></ProductCard>
             ))}

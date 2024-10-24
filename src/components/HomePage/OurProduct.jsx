@@ -8,19 +8,19 @@ const OurProduct = () => {
   return (
     <div>
       <div className="flex mx-4 justify-between">
-        <Title head={"This Month"} title={"New Arrival"}></Title>
+        <Title head={"Our Product"} title={"Explore Our Products"}></Title>
         <div>
-          <button className="bg-[#fe6201] px-8 mt-24  py-2 text-white rounded-sm">View All</button>
+          <button className="bg-[#fe6201] md:px-8 md:mt-24 mt-14 md:py-2 py-1 px-4 text-white rounded-sm">View All</button>
         </div>
       </div>
-      <div className="grid grid-cols-4">
+      <div className="grid lg:grid-cols-4 md:grid-cols-2">
         {product.slice(0,8).map((item) => (
           <ProductCard item={item}></ProductCard>
         ))}
         
       </div>
       <div className="flex justify-center">
-      <Link href={'/allproduct'}><button className="bg-[#fe6201] px-6 mt-5   py-2 text-white rounded-sm">View All Product</button></Link>
+      <Link href={'/allproduct'}><button className="bg-[#fe6201] md:px-8 md:mt-24 mt-5  md:py-2 py-1 px-4 text-white rounded-sm">View All Product</button></Link>
       </div>
     </div>
   );

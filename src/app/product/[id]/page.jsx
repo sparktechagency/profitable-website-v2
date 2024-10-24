@@ -20,15 +20,16 @@ const page = async ({ params }) => {
   } = productItem;
 
   return (
-    <div>
-      <div className="grid grid-cols-2 gap-8 mt-20">
+    <div className="m-3 lg:m-0">
+      <div className="lg:grid lg:grid-cols-3 gap-8 lg:mt-20">
+        <div className="lg:col-span-2">
         <div className="flex">
           <div>
             {img_gallery.map((imgg, index) => (
               <div key={index} className="bg-slate-300 m-2">
                 <Image
                   src={imgg}
-                  className="h-[119px]"
+                  className="lg:h-[119px] h-[90px]"
                   width={200}
                   height={50}
                   alt={`Gallery Image ${index + 1}`}
@@ -36,7 +37,7 @@ const page = async ({ params }) => {
               </div>
             ))}
           </div>
-          <div className="bg-slate-300 m-2 h-[500px] w-full flex items-center justify-center">
+          <div className="bg-slate-300 m-2 lg:h-[500px] w-full flex items-center justify-center">
             <Image
               className="w-[200px]"
               src={img}
@@ -46,7 +47,8 @@ const page = async ({ params }) => {
             />
           </div>
         </div>
-        <div className="">
+        </div>
+        <div className="lg:col-span-1 my-6 lg:my-0">
           <h1 className="text-xl font-semibold">{title}</h1>
           <h1 className="text-orange-600 text-xl ">{category}</h1>
           <h1 className="text-[20px] font-medium">${price}</h1>
@@ -83,7 +85,7 @@ const page = async ({ params }) => {
             <button className="w-[40px] hover:bg-[#fe6201] hover:text-white  border border-black">
               +
             </button>
-            <button className="bg-[#fe6201] mx-3 px-20 text-white border-none">
+            <button className="bg-[#fe6201] mx-3 px-4 text-white border-none">
               Bye Now
             </button>
             <div className="flex gap-3">
