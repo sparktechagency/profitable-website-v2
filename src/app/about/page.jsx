@@ -26,7 +26,7 @@ export default function About() {
 
         {/* Image Section */}
         <div className="m-8">
-          <Image src='/img/about.png' className="w-full" width={100} height={100} alt="img"/>
+          <Image src='/img/about.png' className="w-full" width={900} height={900} alt="img"/>
         </div>
       </div>
 

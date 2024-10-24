@@ -1,9 +1,7 @@
 import localFont from "next/font/local";
 import "./globals.css";
-import ClientLayout from "./layout/ClientLayout";
- // আপনার ClientLayout এর সঠিক পাথ
 
-// ফন্ট সংজ্ঞা
+
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -15,13 +13,11 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
-// মেটাডেটা
 export const metadata = {
   title: "JusBuy Website",
   description: "E-commerce",
 };
 
-// RootLayout ফাংশন
 export default function RootLayout({ children }) {
   return (
     <html lang="en" data-theme="product">
@@ -29,7 +25,7 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} bg-white ${geistMono.variable} antialiased`}
       >
         <div className="max-w-[1400px] m-auto text-black">
-          <ClientLayout>{children}</ClientLayout>
+          {children}
         </div>
       </body>
     </html>

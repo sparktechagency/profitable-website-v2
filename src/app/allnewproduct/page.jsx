@@ -13,7 +13,7 @@ export default function Page() {
 
   const totalPages = Math.ceil(newarrival.length / itemsPerPage);
 
-  // Category filter function
+  
   const handleCategoryChange = (category) => {
     setSelectedCategories((prev) =>
       prev.includes(category)
@@ -22,12 +22,12 @@ export default function Page() {
     );
   };
 
-  // Price filter function
+  
   const handlePriceChange = (range) => {
     setSelectedPriceRange(range);
   };
 
-  // Filtered data based on category and price
+  
   const filteredItems = newarrival.filter((item) => {
     const categoryMatch =
       selectedCategories.length === 0 || selectedCategories.includes(item.category);

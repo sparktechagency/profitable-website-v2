@@ -1,5 +1,8 @@
 import Image from "next/image";
-
+export const metadata = {
+  title: "JusBuy Website",
+  description: "E-commerce",
+};
 const Hero = () => {
   return (
     <div className=" bg-white lg:mb-28 mb-10">
@@ -23,7 +26,7 @@ const Hero = () => {
               alt="logo"
               src="/img/banner.png"
               height={400}
-              width={500}
+              width={800}
               className="w-full"
             />
           </div>

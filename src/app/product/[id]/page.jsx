@@ -41,7 +41,7 @@ const page = async ({ params }) => {
             <Image
               className="w-[200px]"
               src={img}
-              width={200}
+              width={400}
               height={50}
               alt="Main Image"
             />
