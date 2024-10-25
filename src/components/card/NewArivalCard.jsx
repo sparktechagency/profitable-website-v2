@@ -69,9 +69,7 @@ const NewArivalCard = ({ item }) => {
                 />
           <span className="-mt-1 ml-2 text-neutral-500">(65)</span>
         </div>
-        <h1>
-          {category}
-        </h1>
+        
       </div>
     
   );
