@@ -8,6 +8,10 @@ import { PiShoppingCartLight } from "react-icons/pi";
 import Link from "next/link";
 import { useState } from "react";
 import { useParams } from "next/navigation";
+import StarRatings from "react-star-ratings";
+import Title from "@/components/shared/Title";
+import NewArivalCard from "@/components/card/NewArivalCard";
+import { newarrival } from "@/lib/newArival";
 const Page = () => {
   const sizes = ["XS", "M", "L", "XL", "XXL"];
   const { id } = useParams();
@@ -155,24 +159,37 @@ const Page = () => {
                 alt="Main Image"
               />
 
-              <div className="ml-4">
+              <div className="ml-4 ">
                 <h2 className="text-lg">{revie.client_name}</h2>
-                <p className="flex text-[#FFAD33]">
-                  <FaStar />
-                  <FaStar />
-                  <FaStar />
-                  <FaStar />
-                  <FaStar />
-                </p>
+                
+                <StarRatings
+                  rating={revie.rating}
+                  starRatedColor="orange"
+                  numberOfStars={5}
+                  name="rating"
+                  starDimension="20px"
+                  starSpacing="3px"
+                  isSelectable={false}
+                />
               </div>
+              <p className="text-primary">Just Now</p>
             </div>
-            <div>
+            <div className="mt-5">
               {description}
             </div>
             </div><hr />
             </div>
           
         ))}
+      </div>
+      <div>
+        <Title head={'Related Item'}></Title>
+
+        <div className="grid lg:grid-cols-4 md:grid-cols-2">
+        {newarrival.slice(0,4).map((item) => (
+          <NewArivalCard key={item.id} item={item}></NewArivalCard>
+        ))}
+      </div>
       </div>
     </div>
   );

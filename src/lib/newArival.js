@@ -7,6 +7,7 @@ export const newarrival = [
       "rating": 4.5,
       "category": "Woman's Fashion",
       "price": 59.99,
+      
       "product_stock": 25,
       "brand_name": "Brand A",
       "size": "8",

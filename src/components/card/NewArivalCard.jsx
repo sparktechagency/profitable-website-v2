@@ -5,9 +5,10 @@ import { CiHeart } from "react-icons/ci";
 import Link from "next/link";
 import useCart from "../useCart/useCart";
 import useWish from "../useCart/useWish";
+import StarRatings from "react-star-ratings";
 
 const NewArivalCard = ({ item }) => {
-  const { title, img, id, price ,category} = item;
+  const { title, img, id, price ,category, rating} = item;
 
   const { addToCart } = useCart();
   const {addToWish}= useWish();
@@ -56,14 +57,18 @@ const NewArivalCard = ({ item }) => {
 
         <h1 className="pt-2">{title}</h1>
         <h1 className="text-lg text-[#fe6201] py-1">{price}</h1>
-        <p className="flex text-[#FFAD33]">
-          <FaStar />
-          <FaStar />
-          <FaStar />
-          <FaStar />
-          <FaStar />
+        <div className="flex text-[#FFAD33]">
+        <StarRatings
+                  rating={rating}
+                  starRatedColor="orange"
+                  numberOfStars={5}
+                  name="rating"
+                  starDimension="20px"
+                  starSpacing="3px"
+                  isSelectable={false}
+                />
           <span className="-mt-1 ml-2 text-neutral-500">(65)</span>
-        </p>
+        </div>
         <h1>
           {category}
         </h1>
