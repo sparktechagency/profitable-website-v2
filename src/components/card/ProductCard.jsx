@@ -62,6 +62,7 @@ const { addToWish } = useWish();
       <div className="flex">
         <h1 className="text-lg text-[#fe6201] py-1">{price}</h1>
         <div className="flex text-[#FFAD33] mt-2 ml-3">
+        <div className="-mt-1">
         <StarRatings
                   rating={rating}
                   starRatedColor="orange"
@@ -71,7 +72,8 @@ const { addToWish } = useWish();
                   starSpacing="3px"
                   isSelectable={false}
                 />
-          <span className="-mt-1 ml-2 text-neutral-500">(65)</span>
+        </div>
+          <span className=" ml-2 text-neutral-500">(65)</span>
         </div>
       </div>
     </div>

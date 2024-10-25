@@ -58,7 +58,8 @@ const NewArivalCard = ({ item }) => {
         <h1 className="pt-2">{title}</h1>
         <h1 className="text-lg text-[#fe6201] py-1">{price}</h1>
         <div className="flex text-[#FFAD33]">
-        <StarRatings
+        <div className="-mt-2">
+        <StarRatings 
                   rating={rating}
                   starRatedColor="orange"
                   numberOfStars={5}
@@ -67,6 +68,7 @@ const NewArivalCard = ({ item }) => {
                   starSpacing="3px"
                   isSelectable={false}
                 />
+        </div>
           <span className="-mt-1 ml-2 text-neutral-500">(65)</span>
         </div>
         
