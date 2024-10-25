@@ -4,6 +4,7 @@ import { review } from "@/lib/review";
 import Image from "next/image";
 import { CiHeart } from "react-icons/ci";
 import { PiShoppingCartLight } from "react-icons/pi";
+import Link from "next/link";
 const page = async ({ params }) => {
   const { id } = await params;
   const productItem = product.find((item) => item.id == id);
@@ -21,6 +22,9 @@ const page = async ({ params }) => {
 
   return (
     <div className="m-3 lg:m-0">
+      <div className="text-sm text-gray-500 mb-6">
+        <Link href="/" className="hover:underline">Account</Link> / <span>Men&apos;s Fashion</span> / <span className="text-black">{title}</span>
+      </div>
       <div className="lg:grid lg:grid-cols-3 gap-8 lg:mt-20">
         <div className="lg:col-span-2">
         <div className="flex">
@@ -150,7 +154,6 @@ const page = async ({ params }) => {
           </>
         ))}
       </div>
-
     </div>
   );
 };

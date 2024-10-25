@@ -5,10 +5,10 @@ import Link from "next/link";
 const forgot = () => {
   return (
     <div className="flex h-screen items-center justify-center bg-gradient-to-r from-white via-orange-50 to-white">
-      <div className="flex w-3/4 max-w-5xl rounded-lg overflow-hidden">
+      <div className="md:flex md:w-3/4 md:max-w-5xl rounded-lg overflow-hidden m-4 md:m-0">
         
         {/* Left Side - Image/Illustration */}
-        <div className="w-1/2 p-8 flex justify-center items-center">
+        <div className="md:w-1/2 p-8 flex justify-center items-center">
           <div className="text-center">
             <div className=" text-white ">
               <Image className='w-[400px]' src={'/img/forgot.png'} width={500} height={200} alt='login'/>
@@ -17,7 +17,7 @@ const forgot = () => {
         </div>
 
         {/* Right Side - Form */}
-        <div className="w-1/2 mt-14">
+        <div className="md:w-1/2 mt-14">
           <h2 className="text-2xl  my-11  font-bold text-gray-800 ">Forgot Password ?</h2>
           <p className="my-6">Enter your details below to request an your capture award account password reset.</p>
           

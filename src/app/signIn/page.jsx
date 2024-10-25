@@ -5,10 +5,10 @@ import Link from 'next/link';
 export default function SignIn() {
   return (
     <div className="flex h-screen items-center justify-center bg-gradient-to-r from-white via-orange-50 to-white">
-      <div className="flex w-3/4 max-w-5xl rounded-lg overflow-hidden">
+      <div className="md:flex md:w-3/4 md:max-w-5xl rounded-lg overflow-hidden m-4 md:m-0">
         
         {/* Left Side - Image/Illustration */}
-        <div className="w-1/2 p-8 flex justify-center items-center">
+        <div className="md:w-1/2 p-8 flex justify-center items-center">
           <div className="text-center">
             <div className=" text-white ">
               <Image className='w-[400px]' src={'/img/login.png'} width={500} height={200} alt='login'/>
@@ -17,7 +17,7 @@ export default function SignIn() {
         </div>
 
         {/* Right Side - Form */}
-        <div className="w-1/2 ">
+        <div className="md:w-1/2 ">
          <div className='flex justify-center mb-6'>
          <Image className='w-[200px]' src={'/img/loginl.png'} width={300} height={70} alt='login'/>
          </div>

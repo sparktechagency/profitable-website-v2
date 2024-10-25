@@ -8,7 +8,7 @@ const Hero = () => {
     <div className=" bg-white lg:mb-28 mb-10">
       <div className="lg:grid grid-cols-5 gap-6">
         <div className="col-span-1 border-r ">
-          <div className="flex flex-col gap-2 pl-3 lg:pt-11 lg:bg-white bg-slate-100 py-5 lg:py-0">
+          <div className="flex flex-col gap-2 pl-4 lg:pt-11 lg:bg-white bg-slate-100 py-5 lg:py-0">
             <li>Woman&apos;s Fashion</li>
             <li>Men&apos;s Fashion</li>
             <li>Electronics</li>
@@ -20,7 +20,7 @@ const Hero = () => {
             <li>Health & Beauty</li>
           </div>
         </div>
-        <div className="col-span-4 lg:pt-11 lg:lg:pl-5">
+        <div className="col-span-4 lg:pt-11 lg:lg:pl-5 m-4 lg:m-0">
           <div>
             <Image
               alt="logo"

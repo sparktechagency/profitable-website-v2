@@ -1,24 +1,72 @@
+"use client";
+
 import { category } from "@/lib/category";
 import Title from "../shared/Title";
-
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import CategoryCard from "../card/CategoryCard";
+import { Splide, SplideSlide } from "@splidejs/react-splide";
+import "@splidejs/react-splide/css";
+import { useRef } from "react";
 
 const Category = () => {
-  console.log(category);
+  const splideRef = useRef(null);
+
+  const handlePrevClick = () => {
+    if (splideRef.current) {
+      splideRef.current.splide.go("<"); // Go to previous slide
+    }
+  };
+
+  const handleNextClick = () => {
+    if (splideRef.current) {
+      splideRef.current.splide.go(">"); // Go to next slide
+    }
+  };
+
   return (
     <div className="mb-11">
       <div className="ml-4">
-        <Title head={"category"} title={"Browse By Category"}></Title>
+        <div className="flex justify-between">
+          <Title head={"category"} title={"Browse By Category"}></Title>
+          <div className="flex gap-2 md:mt-20 mt-11 mr-4">
+            <div onClick={handlePrevClick}>
+              <div className="bg-neutral-300 hover:bg-orange-600 hover:text-white rounded-full text-2xl p-2 text-gray-500 cursor-pointer">
+                <FaArrowLeft />
+              </div>
+            </div>
+            <div onClick={handleNextClick}>
+              <div className="bg-neutral-300 hover:bg-orange-600 hover:text-white rounded-full text-2xl p-2 text-gray-500 cursor-pointer">
+                <FaArrowRight />
+              </div>
+            </div>
+          </div>
+        </div>
         <div></div>
       </div>
 
       <div>
-        <div className="grid lg:grid-cols-5 md:grid-cols-2">
+        <Splide
+          ref={splideRef}
+          options={{
+            type: "loop",
+            perPage: 5,
+            gap: "1rem",
+            arrows: false, // Disable default arrows
+            pagination: false,
+            breakpoints: {
+              1024: { perPage: 3 },
+              768: { perPage: 2 },
+              640: { perPage: 1 },
+            },
+          }}
+          aria-label="Category Slide"
+        >
           {category.map((item, index) => (
-            <CategoryCard key={index} item={item}></CategoryCard>
+            <SplideSlide key={index}>
+              <CategoryCard item={item} />
+            </SplideSlide>
           ))}
-        </div>
-        
+        </Splide>
       </div>
     </div>
   );
