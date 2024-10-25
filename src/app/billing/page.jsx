@@ -3,9 +3,9 @@ import Image from "next/image";
 const CheckoutPage = () => {
   return (
     <div className="p-6 ">
-      {/* Left Section - Full width for product table and form */}
+     
       <div className=" space-y-6">
-        {/* Billing Details Section */}
+        
         <h2 className="text-2xl font-semibold mb-4">Billing Details</h2>
         <div className="overflow-x-auto">
           <table className="w-full mb-6 border-collapse border border-orange-500 text-center">
@@ -108,7 +108,6 @@ const CheckoutPage = () => {
           </div>
         </div>
 
-        {/* Right Section - Cart Total and Order Summary */}
         <div className=" p-6 rounded mt-8 lg:mt-0">
           <h2 className="text-xl font-semibold mb-4">Cart Total</h2>
           <div className="mb-4">

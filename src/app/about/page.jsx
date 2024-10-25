@@ -14,24 +14,24 @@ export default function About() {
 
   const handlePrevClick = () => {
     if (splideRef.current) {
-      splideRef.current.splide.go("<"); // Go to previous slide
+      splideRef.current.splide.go("<"); 
     }
   };
 
   const handleNextClick = () => {
     if (splideRef.current) {
-      splideRef.current.splide.go(">"); // Go to next slide
+      splideRef.current.splide.go(">"); 
     }
   };
 
   return (
     <div className="container mx-auto px-4 py-8">
-      {/* Breadcrumb */}
+     
       <div className="text-sm text-gray-500 mb-6">
         <Link href="/" className="hover:underline">Home</Link> / <span>About</span>
       </div>
 
-      {/* Our Story Section */}
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
         <div>
           <h2 className="text-4xl font-bold mb-4">Our Story</h2>
@@ -47,10 +47,7 @@ export default function About() {
         </div>
       </div>
 
-      {/* Statistics Section */}
-      {/* (Your Statistics Section Code Remains Same) */}
-
-      {/* Happy Customers Section */}
+    
       <div>
         <div className="flex justify-between">
           <h1 className="mt-20 mb-7 md:text-4xl text-xl">Happy Customers Says</h1>

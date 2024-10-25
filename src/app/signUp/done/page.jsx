@@ -6,7 +6,6 @@ const page = () => {
   return (
     <div className="flex h-screen items-center justify-center bg-gradient-to-r from-white via-orange-50 to-white">
       <div className="w-full max-w-md p-8  rounded-lg text-center">
-        {/* Logo */}
         <div className="flex flex-col items-center mb-6">
         <Image className='w-[300px]' src={'/img/done.png'} width={500} height={70} alt='login'/>
 

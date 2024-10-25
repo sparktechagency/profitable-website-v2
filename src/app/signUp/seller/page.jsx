@@ -5,14 +5,14 @@ const page = () => {
   return (
     <div className="flex h-screen items-center justify-center bg-gradient-to-r from-white via-orange-50 to-white">
       <div className="w-full max-w-md p-8 bg-white rounded-lg">
-        {/* Logo */}
+       
         <div className="flex flex-col items-center mb-6">
           <Image className="w-[200px]" src={'/img/logo.png'} width={300} height={70} alt='login' />
         </div>
 
-        {/* Form */}
+        
         <form className="space-y-6">
-          {/* Shop Name */}
+          
           <div>
             <label htmlFor="name" className="block text-sm font-medium text-gray-700">
               Shop Name
@@ -25,7 +25,7 @@ const page = () => {
             />
           </div>
 
-          {/* License Number */}
+    
           <div>
             <label htmlFor="contact" className="block text-sm font-medium text-gray-700">
               License Number
@@ -38,7 +38,7 @@ const page = () => {
             />
           </div>
 
-          {/* Front Side of Your ID */}
+     
           <div>
             <label htmlFor="back-id" className="block text-sm font-medium text-gray-700">
               Front Side of Your ID (or Passport)
@@ -55,7 +55,7 @@ const page = () => {
             </div>
           </div>
 
-          {/* Back Side of Your ID */}
+        
           <div>
             <label htmlFor="back-id" className="block text-sm font-medium text-gray-700">
               Back Side of Your ID (or Passport)
@@ -73,7 +73,7 @@ const page = () => {
           </div>
 
 
-          {/* Submit Button */}
+          
           <Link href={'/signUp/accountverify'}>
             <button
               type="submit"

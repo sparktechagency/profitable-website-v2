@@ -8,21 +8,20 @@ const Page = () => {
 
   const inputRefs = useRef([]);
 
-  // Handle OTP input field focus move
+
   const handleInputChange = (e, index) => {
     if (e.target.value.length === 1 && index < 5) {
-      // Move to the next input field if it's not the last one
+    
       inputRefs.current[index + 1].focus();
     } else if (e.target.value.length === 1 && index === 5) {
-      // Optionally, submit the form if on the last input
+      
     }
   };
   
   return (
     <div className="flex h-screen items-center justify-center bg-gradient-to-r from-white via-orange-50 to-white">
     <div className="md:flex md:w-3/4 md:max-w-5xl rounded-lg overflow-hidden m-4 md:m-0">
-      
-      {/* Left Side - Image/Illustration */}
+    
       <div className="md:w-1/2 p-8 flex justify-center items-center">
         <div className="text-center">
           <div className=" text-white ">
@@ -31,7 +30,7 @@ const Page = () => {
         </div>
       </div>
 
-      {/* Right Side - Form */}
+
       <div className="md:w-1/2 mt-14">
         <h2 className="text-xl  my-11  font-bold text-gray-800 ">Verify Otp</h2>
         <p className="my-6">We&apos;ll send a verification code to your email. Check your inbox and enter the code here.</p>

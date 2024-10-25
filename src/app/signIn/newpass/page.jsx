@@ -7,7 +7,7 @@ const New = () => {
     <div className="flex h-screen items-center justify-center bg-gradient-to-r from-white via-orange-50 to-white">
       <div className="md:flex md:w-3/4 md:max-w-5xl rounded-lg overflow-hidden m-4 md:m-0">
         
-        {/* Left Side - Image/Illustration */}
+
         <div className="md:w-1/2 p-8 flex justify-center items-center">
           <div className="text-center">
             <div className=" text-white ">
@@ -16,7 +16,6 @@ const New = () => {
           </div>
         </div>
 
-        {/* Right Side - Form */}
         <div className="md:w-1/2 mt-14">
           
           

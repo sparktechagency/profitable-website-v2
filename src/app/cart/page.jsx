@@ -1,12 +1,12 @@
-"use client"; // Add this line to make this a Client Component
+"use client"; 
 
 import React from "react";
 import Image from "next/image";
-import useCart from "@/components/useCart/useCart"; // Custom hook import
+import useCart from "@/components/useCart/useCart"; 
 import Link from "next/link";
 
 export default function Cart() {
-  const { cartItems } = useCart(); // Get cart items using custom hook
+  const { cartItems } = useCart(); 
 
   // Calculate total price
   const totalPrice = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
@@ -18,7 +18,7 @@ export default function Cart() {
         <p>Your cart is empty.</p>
       ) : (
         <div className="flex flex-col gap-8">
-          {/* Cart Items Table */}
+         
           <div className="w-full rounded-lg ">
             <table className="min-w-full table-auto text-left">
               <thead className="shadow ">
@@ -56,14 +56,14 @@ export default function Cart() {
               </tbody>
             </table>
 
-            {/* Buttons */}
+            
             <div className="flex justify-between mt-4">
               <Link href={'/allproduct'}><button className="border border-gray-500 text-gray-500 px-4 py-2 rounded">Return To Shop</button></Link>
               <button className="border border-gray-500 text-gray-500 px-4 py-2 rounded">Update Cart</button>
             </div>
           </div>
 
-          {/* Cart Summary */}
+       
           <div className="w-full border border-gray-300 rounded p-4">
             <h2 className="text-xl font-bold mb-4">Cart Total</h2>
             <div className="flex justify-between mb-2">

@@ -13,13 +13,13 @@ const Category = () => {
 
   const handlePrevClick = () => {
     if (splideRef.current) {
-      splideRef.current.splide.go("<"); // Go to previous slide
+      splideRef.current.splide.go("<"); 
     }
   };
 
   const handleNextClick = () => {
     if (splideRef.current) {
-      splideRef.current.splide.go(">"); // Go to next slide
+      splideRef.current.splide.go(">"); 
     }
   };
 
@@ -51,7 +51,7 @@ const Category = () => {
             type: "loop",
             perPage: 5,
             gap: "1rem",
-            arrows: false, // Disable default arrows
+            arrows: false, 
             pagination: false,
             breakpoints: {
               1024: { perPage: 3 },

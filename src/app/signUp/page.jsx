@@ -6,13 +6,12 @@ export default function SignUp() {
   return (
     <div className="flex h-screen items-center justify-center bg-gradient-to-r from-white via-orange-50 to-white">
       <div className="w-full max-w-md p-8 bg-white rounded-lg ">
-        {/* Logo */}
+     
         <div className="flex flex-col items-center mb-6">
         <Image className='w-[200px]' src={'/img/logo.png'} width={300} height={70} alt='login'/>
           
         </div>
 
-        {/* Buyer or Seller */}
         <div className="flex justify-center mb-4">
           <label className="inline-flex items-center">
             <input type="radio" name="role" value="buyer" className="form-radio text-orange-500" />
@@ -24,9 +23,9 @@ export default function SignUp() {
           </label>
         </div>
 
-        {/* Form */}
+
         <form className="space-y-6">
-          {/* Full Name */}
+         
           <div>
             <label htmlFor="name" className="block text-sm font-medium text-gray-700">
               Full Name
@@ -39,7 +38,7 @@ export default function SignUp() {
             />
           </div>
 
-          {/* Contact Number */}
+         
           <div>
             <label htmlFor="contact" className="block text-sm font-medium text-gray-700">
               Contact Number
@@ -52,7 +51,7 @@ export default function SignUp() {
             />
           </div>
 
-          {/* Email */}
+         
           <div>
             <label htmlFor="email" className="block text-sm font-medium text-gray-700">
               Email
@@ -65,7 +64,7 @@ export default function SignUp() {
             />
           </div>
 
-          {/* New Password */}
+   
           <div>
             <label htmlFor="password" className="block text-sm font-medium text-gray-700">
               New Password
@@ -78,7 +77,7 @@ export default function SignUp() {
             />
           </div>
 
-          {/* Confirm Password */}
+        
           <div>
             <label htmlFor="confirm-password" className="block text-sm font-medium text-gray-700">
               Confirm Password
@@ -91,7 +90,7 @@ export default function SignUp() {
             />
           </div>
 
-          {/* Address */}
+
           <div>
             <label htmlFor="address" className="block text-sm font-medium text-gray-700">
               Address
@@ -104,7 +103,7 @@ export default function SignUp() {
             />
           </div>
 
-          {/* Sign Up Button */}
+        
           <Link href={'/signUp/done'}><button
             type="submit"
             className="w-full py-2 mt-5 px-4 bg-orange-500 text-white font-semibold rounded hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-400"

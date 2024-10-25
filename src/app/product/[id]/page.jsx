@@ -22,7 +22,7 @@ const page = async ({ params }) => {
 
   return (
     <div className="m-3 lg:m-0">
-      <div className="text-sm text-gray-500 mb-6">
+      <div className="text-sm text-gray-500 mb-6 md:mt-11">
         <Link href="/" className="hover:underline">Account</Link> / <span>Men&apos;s Fashion</span> / <span className="text-black">{title}</span>
       </div>
       <div className="lg:grid lg:grid-cols-3 gap-8 lg:mt-20">

@@ -7,7 +7,7 @@ const forgot = () => {
     <div className="flex h-screen items-center justify-center bg-gradient-to-r from-white via-orange-50 to-white">
       <div className="md:flex md:w-3/4 md:max-w-5xl rounded-lg overflow-hidden m-4 md:m-0">
         
-        {/* Left Side - Image/Illustration */}
+       
         <div className="md:w-1/2 p-8 flex justify-center items-center">
           <div className="text-center">
             <div className=" text-white ">
@@ -16,7 +16,7 @@ const forgot = () => {
           </div>
         </div>
 
-        {/* Right Side - Form */}
+
         <div className="md:w-1/2 mt-14">
           <h2 className="text-2xl  my-11  font-bold text-gray-800 ">Forgot Password ?</h2>
           <p className="my-6">Enter your details below to request an your capture award account password reset.</p>
