@@ -6,29 +6,45 @@ import Link from "next/link";
 import useCart from "../useCart/useCart";
 import useWish from "../useCart/useWish";
 import StarRatings from "react-star-ratings";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ProductCard = ({ item }) => {
-  const { title, img, id, price , rating} = item;
+  const { title, img, id, price, rating } = item;
 
   // Use the custom hook
   const { addToCart } = useCart();
-
-const { addToWish } = useWish();
-
+  const { addToWish } = useWish();
 
   const handleAddToCart = () => {
     const product = { title, img, price, id };
     addToCart(product); 
-    alert(`${title} added to the cart!`);
+    toast.success(`${title} added to the cart!`, {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
   };
 
   const handleAddToWish = () => {
     const product = { title, img, price, id };
     addToWish(product); 
-    alert(`${title} added to the cart!`);
+    toast.success(`${title} added to wishlist!`, {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
   };
-
 
   return (
     <div className="m-4">
@@ -62,20 +78,23 @@ const { addToWish } = useWish();
       <div className="flex">
         <h1 className="text-lg text-[#fe6201] py-1">{price}</h1>
         <div className="flex text-[#FFAD33] mt-2 ml-3">
-        <div className="-mt-1">
-        <StarRatings
-                  rating={rating}
-                  starRatedColor="orange"
-                  numberOfStars={5}
-                  name="rating"
-                  starDimension="20px"
-                  starSpacing="3px"
-                  isSelectable={false}
-                />
-        </div>
+          <div className="-mt-1">
+            <StarRatings
+              rating={rating}
+              starRatedColor="orange"
+              numberOfStars={5}
+              name="rating"
+              starDimension="20px"
+              starSpacing="3px"
+              isSelectable={false}
+            />
+          </div>
           <span className=" ml-2 text-neutral-500">(65)</span>
         </div>
       </div>
+
+      {/* Add ToastContainer at the end */}
+      <ToastContainer />
     </div>
   );
 };
