@@ -352,7 +352,7 @@ export const product = [
     "product_stock": 60,
     "brand_name": "Brand J",
     "size": "N/A",
-    "product_description": "This premium yoga mat provides excellent grip and cushioning for a comfortable practice. Made from eco-friendly materials, it’s perfect for yoga enthusiasts of all levels. Lightweight and portable, it’s easy to carry to classes or use at home.",
+    "product_description": "This premium yoga mat provides excellent grip and cushioning for a comfortabl practice. Made from eco-friendly materials, it’s perfect for yoga enthusiasts of all levels. Lightweight and portable, it’s easy to carry to classes or use at home.",
     "img_gallery": [
         "https://i.ibb.co/SXjPV3V/Frame-608-3.png",
         "https://i.ibb.co/SXjPV3V/Frame-608-3.png",
