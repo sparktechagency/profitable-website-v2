@@ -34,10 +34,6 @@ const forgot = () => {
             
             </div>
 
-           
-
-            
-
             <Link href={'/signIn/verify'} ><button
             type="submit"
             className="w-full py-2 px-4 mt-5 bg-orange-500 text-white font-semibold rounded hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-400"
