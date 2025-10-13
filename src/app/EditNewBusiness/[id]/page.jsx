@@ -23,6 +23,8 @@ import { imageUrl } from "@/redux/Api/baseApi";
 import { useParams } from "next/navigation";
 import { Navigate } from "@/components/shared/Navigate";
 import toast from "react-hot-toast";
+import Image from "next/image";
+const { Option } = Select;
 dayjs.extend(customParseFormat);
 
 const EditNewBusiness = () => {
@@ -287,7 +289,7 @@ const { id: businessId } = useParams();
       setSubCategories(defaultCategory?.subCategories || []);
       form.setFieldsValue({ category: defaultCategory?.categoryName });
     }
-  }, [categorie]);
+  }, [categorie,form]);
 
   return (
     <div className="container m-auto lg:mt-8 mt-16 lg:px-0 px-4 pb-20 ">
@@ -401,15 +403,18 @@ const { id: businessId } = useParams();
         label={country?.name}
       >
         <div className="flex items-center gap-2">
-          <img
-            src={`https://flagcdn.com/w20/${country?.isoCode.toLowerCase()}.png`}
-            alt={country?.name}
-            className="w-5 h-3 object-cover"
-          />
+          <Image
+        src={`https://flagcdn.com/w20/${country?.isoCode.toLowerCase()}.png`}
+        alt={country?.name}
+        width={20}
+        height={12}
+        className="object-cover"
+      />
           {country?.name}
         </div>
       </Select.Option>
     ))}
+    
   </Select>
 </Form.Item>
 

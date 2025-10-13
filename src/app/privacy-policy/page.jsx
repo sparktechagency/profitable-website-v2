@@ -2,16 +2,17 @@
 import Header from "@/components/shared/Header";
 import { useGetPrivecyQuery } from "@/redux/Api/metaApi";
 import { Typography } from "antd";
-
 import { useEffect } from "react";
 
 const { Text } = Typography;
 
-const page = () => {
+const Page = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
   const { data: privecy } = useGetPrivecyQuery();
+
   return (
     <div className="text-[#000000]">
       <Header
@@ -29,7 +30,7 @@ const page = () => {
                 dangerouslySetInnerHTML={{ __html: privecy?.data?.description }}
               />
             ) : (
-              <p>Not Data</p>
+              <p>No Data</p>
             )}
           </div>
         </div>
@@ -38,4 +39,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

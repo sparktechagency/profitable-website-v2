@@ -106,6 +106,13 @@ const Review = () => {
       review:
         "The investor subscription is worth it. I discovered fresh ideas and had early access to listings before anyone else.",
     },
+    {
+      name: "Test User",
+      role: "Entrepreneur",
+      img: img4,
+      review:
+        "Whether you&apos;re buying or selling, our platform makes the process seamless and straightforward. Here&apos;s how it works according to our satisfied users.",
+    },
   ];
 
   const splideRef = useRef(null);
@@ -127,8 +134,8 @@ const Review = () => {
             What our customers say
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Whether you're buying or selling, our platform makes the process
-            seamless and straightforward. Here’s how it works according to our
+            Whether you&apos;re buying or selling, our platform makes the process
+            seamless and straightforward. Here&apos;s how it works according to our
             satisfied users:
           </p>
         </div>

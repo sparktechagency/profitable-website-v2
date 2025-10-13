@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   Card,
   Input,
@@ -11,8 +11,8 @@ import {
   Spin,
 } from "antd";
 
-
 const { Title, Paragraph, Text } = Typography;
+
 const Sell = () => {
   return (
     <div>
@@ -28,18 +28,20 @@ const Sell = () => {
       <Paragraph className="mb-4">
         <strong>Seller Non-Disclosure Agreement</strong>
         <br />
-        This Non-Disclosure Agreement ("Agreement") is entered into by and
+        This Non-Disclosure Agreement (&quot;Agreement&quot;) is entered into by and
         between:
       </Paragraph>
+
       <Paragraph className="mb-2">
         <strong>First Party (Disclosing Party):</strong> The Seller, an
         individual or entity listing a business for sale on
-        ProfitableBusinessesForSale.com ("Disclosing Party").
+        ProfitableBusinessesForSale.com (&quot;Disclosing Party&quot;).
       </Paragraph>
+
       <Paragraph className="mb-2">
         <strong>Second Party (Receiving Party):</strong>{" "}
         ProfitableBusinessesForSale.com, operated by Global IPQ LLC under
-        license no. 2430223.01 ("Receiving Party").
+        license no. 2430223.01 (&quot;Receiving Party&quot;).
       </Paragraph>
 
       <Paragraph className="mb-2">
@@ -58,7 +60,7 @@ const Sell = () => {
 
       <Title level={5}>2. Definition of Confidential Information</Title>
       <Paragraph>
-        "Confidential Information" includes but is not limited to:
+        &quot;Confidential Information&quot; includes but is not limited to:
         <br />
         - Financial statements
         <br />
@@ -66,12 +68,13 @@ const Sell = () => {
         <br />
         - Customer/vendor lists
         <br />
-        - Contracts & proprietary agreements
+        - Contracts &amp; proprietary agreements
         <br />
         - Operational details
         <br />
         - Marketing plans
-        <br />- Employee payroll summaries
+        <br />
+        - Employee payroll summaries
       </Paragraph>
 
       <Title level={5}>3. Obligations</Title>
@@ -81,7 +84,8 @@ const Sell = () => {
         - No third-party sharing without permission
         <br />
         - Secure data storage
-        <br />- Public listing without sensitive content
+        <br />
+        - Public listing without sensitive content
       </Paragraph>
 
       <Title level={5}>4. Exceptions</Title>
@@ -91,7 +95,8 @@ const Sell = () => {
         - Third-party lawful data
         <br />
         - Independently developed info
-        <br />- Required disclosures (with notice)
+        <br />
+        - Required disclosures (with notice)
       </Paragraph>
 
       <Title level={5}>5. No Guarantee</Title>
@@ -109,7 +114,8 @@ const Sell = () => {
         - EU GDPR
         <br />
         - UK Data Protection
-        <br />- Other applicable laws
+        <br />
+        - Other applicable laws
       </Paragraph>
 
       <Title level={5}>7. Duration & Enforcement</Title>

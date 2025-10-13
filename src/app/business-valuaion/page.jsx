@@ -1,5 +1,4 @@
-
-'use client'
+"use client";
 import React, { useEffect, useState } from "react";
 import {
   Form,
@@ -11,27 +10,28 @@ import {
   message,
   Spin,
 } from "antd";
+
 import ReactPhoneInput from "react-phone-input-2";
 import { UploadOutlined } from "@ant-design/icons";
 import { User, DollarSign } from "lucide-react";
 
-
 import { Country } from "country-state-city";
-import { useAddBusinessValuationMutation, useGetCategtoryQuery } from "@/redux/Api/businessApi";
+import {
+  useAddBusinessValuationMutation,
+  useGetCategtoryQuery,
+} from "@/redux/Api/businessApi";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
+import Image from "next/image";
 
 const { Option } = Select;
-const page = () => {
-     useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+const Page = () => {
   const [form] = Form.useForm();
   const [loading, setLoading] = useState(false);
   const [countries, setCountries] = useState([]);
   const { data: categorie, isLoading, isError } = useGetCategtoryQuery();
   const [subCategories, setSubCategories] = useState([]);
-const router = useRouter();
+  const router = useRouter();
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [addBusinessValuation] = useAddBusinessValuationMutation();
 
@@ -113,7 +113,6 @@ const router = useRouter();
       setLoading(false);
       form.resetFields();
       router.push("/business-valuaion-submission");
-   
     } catch (error) {
       console.error(error);
       setLoading(false);
@@ -128,7 +127,7 @@ const router = useRouter();
       setSubCategories(defaultCategory?.subCategories || []);
       form.setFieldsValue({ category: defaultCategory?.categoryName });
     }
-  }, [categorie]);
+  }, [categorie, form]);
 
   return (
     <div className="container mx-auto px-5 pt-20 pb-10">
@@ -142,16 +141,17 @@ const router = useRouter();
         </div>
       </div>
       <p className="text-gray-700 mb-10 max-w-4xl">
-        Are you wondering what your business is really worth? Our professional
-        business valuation service provides an accurate and reliable assessment
-        of your company's true market value. This helps you set the right asking
-        price, attract qualified buyers, and maximize your returns. Don't risk
-        undervaluing your company. A certified business valuation ensures your
-        business is positioned correctly in the market-saving time and improving
-        your chances of a successful sale. Simply submit the form below, and our
-        team will review your details and contact you with a custom quotation
-        for your business valuation report.
-      </p>
+  Are you wondering what your business is really worth? Our professional
+  business valuation service provides an accurate and reliable assessment
+  of your company&apos;s true market value. This helps you set the right asking
+  price, attract qualified buyers, and maximize your returns. Don&apos;t risk
+  undervaluing your company. A certified business valuation ensures your
+  business is positioned correctly in the market-saving time and improving
+  your chances of a successful sale. Simply submit the form below, and our
+  team will review your details and contact you with a custom quotation
+  for your business valuation report.
+</p>
+
       <div className="flex items-center gap-2 mb-6">
         <User className="h-5 w-5 text-green-500" />
         <h3 className="text-lg font-semibold text-blue-600">
@@ -239,10 +239,12 @@ const router = useRouter();
                   label={country?.name}
                 >
                   <div className="flex items-center gap-2">
-                    <img
+                    <Image
                       src={`https://flagcdn.com/w20/${country?.isoCode.toLowerCase()}.png`}
                       alt={country?.name}
-                      className="w-5 h-3 object-cover"
+                      width={20}
+                      height={12}
+                      className="object-cover"
                     />
                     {country?.name}
                   </div>
@@ -601,20 +603,7 @@ const router = useRouter();
         </Form.Item>
       </Form>
     </div>
-  )
-}
+  );
+};
 
-export default page
-
-
-
-
-
-
-
-
-
-
-
-
-
+export default Page;

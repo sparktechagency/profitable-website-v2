@@ -30,7 +30,7 @@ export default function ContactUs() {
         email: email?.email,
       });
     }
-  }, [profileData]);
+  }, [profileData,form]);
   const [form] = Form.useForm();
   const [addContact] = useAddContactMutation();
 
@@ -124,10 +124,10 @@ export default function ContactUs() {
               </h2>
               <p className="text-gray-600 mb-8 leading-relaxed">
                 At ProfitableBusinessesForSale.com, our team is here to guide
-                you every step of the way. Whether you need help creating your
-                listing, choosing the right subscription, or understanding how
-                to attract serious buyers and investors, we're only a message
-                away.
+  you every step of the way. Whether you need help creating your
+  listing, choosing the right subscription, or understanding how
+  to attract serious buyers and investors, we&apos;re only a message
+  away.
               </p>
 
               <Form

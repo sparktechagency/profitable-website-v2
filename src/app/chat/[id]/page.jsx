@@ -1,50 +1,32 @@
-
 'use client';
 
 import React, { useEffect, useRef, useState } from "react";
 import { Send, ArrowLeft, Menu } from "lucide-react";
-
-import Link from "next/link"; // Replace react-router-dom Link
-import { useParams } from "next/navigation"; // Replace react-router-dom useParams
+import Link from "next/link";
+import { useParams } from "next/navigation";
 import img from "../../../../public/Home/user.png";
 import { useGetProfileQuery } from "@/redux/Api/userApi";
 import { imageUrl } from "@/redux/Api/baseApi";
 import { useSocket } from "@/components/context/ContextProvider";
 import SidbarChat from "@/components/chatPage/SidbarChat";
-import Image from "next/image"; // Import Image from next/image
+import Image from "next/image";
 import { Navigate } from "@/components/shared/Navigate";
 
 const Chat = () => {
   const { id: chatId } = useParams();
   const { socket } = useSocket();
   const { data: profileData } = useGetProfileQuery();
+
   const userId = profileData?.data?._id;
   const role = profileData?.data?.role;
-  console.log(role);
   const price = profileData?.data?.subscriptionPlanPrice;
-  console.log(profileData);
+
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState([]);
   const [receiverId, setReceiverId] = useState(null);
   const [info, setInfo] = useState(null);
-  const scrollRef = useRef();
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-
-  // ⚡ Block chat if subscription price is 0
-  if (price === 0 && role !== "Business Idea Lister") {
-    return (
-      <div className="flex flex-col items-center justify-center h-screen text-center p-4">
-        <p className="text-xl font-semibold mb-4">
-          Please buy a subscription to access the chat.
-        </p>
-        <Link href={"/plane"}>
-          <button className="bg-[#0091FF] px-4 py-2 rounded text-white">
-            Buy Subscription
-          </button>
-        </Link>
-      </div>
-    );
-  }
+  const scrollRef = useRef();
 
   // ✅ Fetch chat messages
   useEffect(() => {
@@ -87,6 +69,11 @@ const Chat = () => {
     return () => socket.off("send_message", handleMessage);
   }, [socket, userId, receiverId]);
 
+  // ✅ Scroll to latest message
+  useEffect(() => {
+    scrollRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
+
   // ✅ Send message
   const sendMessage = () => {
     if (!input.trim() || !receiverId) return;
@@ -99,15 +86,28 @@ const Chat = () => {
     if (e.key === "Enter") sendMessage();
   };
 
-  // Scroll to latest message
-  useEffect(() => {
-    scrollRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages]);
+  // ✅ Render starts here (no hooks inside conditions)
+  const shouldBlockChat = price === 0 && role !== "Business Idea Lister";
+
+  if (shouldBlockChat) {
+    return (
+      <div className="flex flex-col items-center justify-center h-screen text-center p-4">
+        <p className="text-xl font-semibold mb-4">
+          Please buy a subscription to access the chat.
+        </p>
+        <Link href="/plane">
+          <button className="bg-[#0091FF] px-4 py-2 rounded text-white">
+            Buy Subscription
+          </button>
+        </Link>
+      </div>
+    );
+  }
 
   return (
     <div className="container m-auto">
       <div className="mt-16 md:mt-7">
-        <Navigate title={"Message"} />
+        <Navigate title="Message" />
       </div>
 
       {/* Mobile menu button */}
@@ -137,10 +137,9 @@ const Chat = () => {
                       : img
                   }
                   alt="User avatar"
-                  width={40} // Match h-10 w-10
+                  width={40}
                   height={40}
                   className="h-full w-full object-cover"
-                  priority={false}
                 />
               </div>
               <div>
@@ -161,10 +160,9 @@ const Chat = () => {
                       : img
                   }
                   alt="User avatar"
-                  width={150} // Match h-[150px] w-[150px]
+                  width={150}
                   height={150}
                   className="h-[150px] w-[150px] object-cover rounded-full"
-                  priority={false}
                 />
               </div>
               <h2 className="font-semibold text-2xl">{info?.name}</h2>
@@ -177,9 +175,7 @@ const Chat = () => {
                 <div
                   key={msg?._id || i}
                   ref={i === messages?.length - 1 ? scrollRef : null}
-                  className={`mb-4 flex ${
-                    isMe ? "justify-end" : "justify-start"
-                  }`}
+                  className={`mb-4 flex ${isMe ? "justify-end" : "justify-start"}`}
                 >
                   <div
                     className={`p-3 rounded-lg max-w-[70%] whitespace-pre-wrap break-all ${

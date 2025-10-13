@@ -44,28 +44,17 @@ const nextConfig = {
         hostname: "flagcdn.com",
         pathname: "/**",
       },
+      
     ],
+    domains: ['flagcdn.com', 'your-image-host.com'],
+    
     // Modern image formats
     formats: ["image/avif", "image/webp"],
   },
 
-  // GZIP compression
-  compress: true,
 
-  // React strict mode
-  reactStrictMode: true,
 
-  // SWC minify
-  swcMinify: true,
-
-  // SEO friendly redirects
-  async redirects() {
-    return [
-      { source: "/FaqAsset", destination: "/faq-asset", permanent: true },
-      { source: "/search", destination: "/asset-seller", permanent: true },
-      // Add more redirects here
-    ];
-  },
+ 
 };
 
 export default nextConfig;

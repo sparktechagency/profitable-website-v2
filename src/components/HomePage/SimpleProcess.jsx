@@ -1,9 +1,12 @@
+'use client';
+
 import React from "react";
 import backImg from "../../../public/Home/bb.png";
 import img from "../../../public/Home/mmm.png";
 
 import Image from "next/image";
 import Link from "next/link";
+
 const SimpleProcess = () => {
   const steps = [
     {
@@ -12,23 +15,22 @@ const SimpleProcess = () => {
       description:
         "Create your account on ProfitableBusinessesForSale.com (PBFS) and get access to a global marketplace of business buyers, sellers, brokers, investors, franchisors, and business idea listers. ",
     },
- {
-  number: 2,
-  title: "Add or Explore Listings",
-  description: (
-    <>
-      Sellers & Brokers – List your business, franchise, or business assets for
-      sale with complete details and reach serious buyers worldwide. <br /> <br />
-      Buyers & Investors – Browse thousands of businesses for sale, franchise
-      opportunities, and business assets across multiple industries and
-      countries. <br /> <br />
-      Business Idea Listers – Share your startup ideas and innovative business
-      concepts for free, and connect with the right investors to bring them to
-      life.
-    </>
-  ),
-},
-
+    {
+      number: 2,
+      title: "Add or Explore Listings",
+      description: (
+        <>
+          Sellers & Brokers – List your business, franchise, or business assets for
+          sale with complete details and reach serious buyers worldwide. <br /> <br />
+          Buyers & Investors – Browse thousands of businesses for sale, franchise
+          opportunities, and business assets across multiple industries and
+          countries. <br /> <br />
+          Business Idea Listers – Share your startup ideas and innovative business
+          concepts for free, and connect with the right investors to bring them to
+          life.
+        </>
+      ),
+    },
     {
       number: 3,
       title: " Connect Directly",
@@ -54,10 +56,11 @@ const SimpleProcess = () => {
         "From business valuation tools to investor matchmaking, asset promotion, and franchise marketing, PBFS helps you grow even after the deal is done.",
     },
   ];
+
   return (
     <div>
-      <section className="py-16  ">
-        <div className="">
+      <section className="py-16">
+        <div>
           {/* Header */}
           <div className="text-center mb-12">
             <p className="text-blue-500 font-medium mb-2">Our Simple Process</p>
@@ -66,8 +69,8 @@ const SimpleProcess = () => {
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
               Whether you want to sell a business, buy a business, find investors, list business assets, promote a
-franchise, or share your business ideas, our process is designed to make everything simple and
-effective. Here's how it works:
+              franchise, or share your business ideas, our process is designed to make everything simple and
+              effective. Here&apos;s how it works:
             </p>
           </div>
 
@@ -97,13 +100,14 @@ effective. Here's how it works:
           </div>
         </div>
       </section>
+
       <div>
         <div
           className="bg-[#0A0D53] md:grid grid-cols-2 md:px-11 px-4 py-11 w-full gap-6 text-white mt-20 bg-cover bg-center md:h-[60vh] h-[70vh]"
-       style={{ backgroundImage: `url(${backImg.src})` }}
+          style={{ backgroundImage: `url(${backImg.src})` }}
         >
-          <div className=" md:flex justify-center items-center">
-            <div className="">
+          <div className="md:flex justify-center items-center">
+            <div>
               <h1 className="md:text-6xl text-4xl pb-4 text-black font-bold">
                 ── Start Your <span className="text-[#22C55E]">Business</span>{" "}
                 Journey
@@ -113,9 +117,11 @@ effective. Here's how it works:
                 listing with a clear description and image ── and let motivated
                 buyers discover your opportunity.
               </p>
-              <Link href={'/auth/login'}><button className="bg-[#0091FF] md:mt-11 mt-5 mb-5 py-3 px-4 rounded">
-                Create Listing Now
-              </button></Link>
+              <Link href={'/auth/login'}>
+                <button className="bg-[#0091FF] md:mt-11 mt-5 mb-5 py-3 px-4 rounded">
+                  Create Listing Now
+                </button>
+              </Link>
             </div>
           </div>
           <div className="w-full relative h-full">

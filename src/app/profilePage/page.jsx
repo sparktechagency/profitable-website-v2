@@ -1,21 +1,19 @@
 'use client'
 import React, { useEffect } from "react";
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
-
-
-
+import Image from "next/image";
 import { User } from "lucide-react";
 import { useGetProfileQuery } from "@/redux/Api/userApi";
 import Link from "next/link";
 import { Navigate } from "@/components/shared/Navigate";
 import { imageUrl } from "@/redux/Api/baseApi";
 
-
-const page = () => {
-     useEffect(() => {
+const ProfilePage = () => { 
+  useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-     const { data: profileData, isLoading } = useGetProfileQuery();
+
+  const { data: profileData, isLoading } = useGetProfileQuery();
 
   const user = profileData?.data;
 
@@ -30,15 +28,16 @@ const page = () => {
         <div className="flex justify-between items-start mb-4">
           <div className="flex items-center gap-4">
             {user?.image ? (
-              <img
+              <Image
                 src={`${imageUrl}/uploads/profile-image/${user?.image}`}
                 alt={user?.name || "User"}
+                width={64}
+                height={64}
                 className="w-16 h-16 rounded-full object-cover"
               />
             ) : (
               <div className="w-16 h-16 rounded-full bg-gray-200 flex items-center justify-center">
-                <User className="w-8 h-8 text-gray-500" />{" "}
-             
+                <User className="w-8 h-8 text-gray-500" />
               </div>
             )}
 
@@ -69,9 +68,7 @@ const page = () => {
           </div>
           <div className="flex items-center gap-2">
             <FaMapMarkerAlt className="text-blue-500" />
-            <span>
-              {user?.country}
-            </span>
+            <span>{user?.country}</span>
           </div>
         </div>
 
@@ -83,11 +80,7 @@ const page = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default page
-
-
-
-
+export default ProfilePage; 

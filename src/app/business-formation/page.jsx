@@ -1,15 +1,14 @@
-'use client'
-import React, { useEffect } from "react";
-
-import { ArrowRight, Star } from "lucide-react";
+'use client';
+import React from "react";
+import { ArrowRight } from "lucide-react";
 import { useGetAllFormateQuery } from "@/redux/Api/businessApi";
 import Link from "next/link";
 import { imageUrl } from "@/redux/Api/baseApi";
+import Image from "next/image"; // Added for image optimization
 
-const page = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+const Page = () => { // Changed 'page' to 'Page'
+
+
   const { data: getAllFormat, isLoading, isError } = useGetAllFormateQuery();
 
   if (isLoading) {
@@ -19,12 +18,12 @@ const page = () => {
   if (isError || !getAllFormat?.data) {
     return <p>Failed to load business formation data.</p>;
   }
+
   return (
     <div className="container mx-auto px-5 pt-20 pb-10">
       {/* Header Section */}
       <div className="relative flex flex-col items-start gap-5 pl-5 mb-5">
         <div className="absolute top-0 left-0 w-2 h-full bg-[#22C55E] z-[1] rounded-r-full"></div>
-
         <div className="ml-5">
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#0091FF] mb-6 leading-tight">
             Business Formation
@@ -46,9 +45,11 @@ const page = () => {
             >
               {/* Service Image */}
               <div className="relative aspect-[4/3] overflow-hidden">
-                <img
-                  src={`${imageUrl}/uploads/formation-image/${service?.image}`}
+                <Image
+                  src={`${imageUrl}/Uploads/formation-image/${service?.image}`}
                   alt={service?.title}
+                  width={400} // Adjust based on your design
+                  height={300} // Adjust based on your design
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
@@ -79,4 +80,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

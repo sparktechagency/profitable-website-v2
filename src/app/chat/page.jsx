@@ -1,23 +1,17 @@
 
 'use client';
 
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import Link from "next/link"; 
 import { MessageSquareText } from "lucide-react";
 import { useGetProfileQuery } from "@/redux/Api/userApi";
 import SidbarChat from "@/components/chatPage/SidbarChat";
 import { Navigate } from "@/components/shared/Navigate";
-import ProtectedRoute from "@/components/protectedRoute/ProtectedRoute";
+
 
 const MainChat = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
- <ProtectedRoute>
-      <div>
-        <h1>Chat Page (Protected)</h1>
-      </div>
-    </ProtectedRoute>
+
+
   const { data: profileData } = useGetProfileQuery();
   const price = profileData?.data?.subscriptionPlanPrice;
   const role = profileData?.data?.role;

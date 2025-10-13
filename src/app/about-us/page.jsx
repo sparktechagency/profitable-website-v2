@@ -1,12 +1,10 @@
-'use client'
+'use client';
 
 import Image from "next/image";
 import Header from "@/components/shared/Header";
+import React from 'react';
 
-
-import React from 'react'
-
-const page = () => {
+const AboutPage = () => {
   return (
     <div>
       <Header
@@ -35,34 +33,15 @@ const page = () => {
               </span>
 
               <h2 className="mb-5 text-3xl font-bold text-dark sm:text-[40px]/[48px]">
-                Your Trusted Partner in{" "}
-                <span className="text-[#22C55E]">Buying</span> &{" "}
-                <span className="text-[#22C55E]">
-                  Selling Businesses Online
-                </span>
+                Your Trusted Partner in <span className="text-[#22C55E]">Buying</span> & <span className="text-[#22C55E]">Selling Businesses Online</span>
               </h2>
 
               <p className="mb-5 text-base text-[#000000]">
-                At PBFS{" "}
-                <span className="font-semibold">
-                  (Profitable Businesses For Sale)
-                </span>
-                , we make it easier than ever for aspiring entrepreneurs,
-                seasoned investors, and business owners to connect in a safe,
-                transparent, and reliable online marketplace. Whether you’re
-                planning to{" "}
-                <span className="font-semibold">
-                  buy a business, sell your existing business
-                </span>
-                , or explore fresh investment opportunities, PBFS is your
-                step-by-step guide to business success.
+                At PBFS <span className="font-semibold">(Profitable Businesses For Sale)</span>, we make it easier than ever for aspiring entrepreneurs, seasoned investors, and business owners to connect in a safe, transparent, and reliable online marketplace. Whether you’re planning to <span className="font-semibold">buy a business, sell your existing business</span>, or explore fresh investment opportunities, PBFS is your step-by-step guide to business success.
               </p>
 
               <p className="text-[#000000]">
-                We understand that buying or selling a business is a big
-                decision. That’s why our platform is designed to simplify the
-                entire process—helping you find the right buyer, the right
-                seller, and the right deal with confidence.
+                We understand that buying or selling a business is a big decision. That’s why our platform is designed to simplify the entire process—helping you find the right buyer, the right seller, and the right deal with confidence.
               </p>
 
               {/* Mission Section */}
@@ -75,21 +54,9 @@ const page = () => {
                   className="rounded-2xl"
                 />
                 <div>
-                  <h1 className="text-2xl font-bold text-[#000000]">
-                    Our Mission
-                  </h1>
+                  <h1 className="text-2xl font-bold text-[#000000]">Our Mission</h1>
                   <p className="text-base text-[#000000]">
-                    Our mission is simple: to{" "}
-                    <span className="font-semibold">
-                      empower entrepreneurs, investors, and business owners
-                    </span>{" "}
-                    by creating a smarter, streamlined way to explore new
-                    business opportunities or exit successfully. At PBFS, we
-                    believe business ownership should be more{" "}
-                    <span className="font-semibold">
-                      accessible, profitable, and rewarding
-                    </span>{" "}
-                    for everyone.
+                    Our mission is simple: to <span className="font-semibold">empower entrepreneurs, investors, and business owners</span> by creating a smarter, streamlined way to explore new business opportunities or exit successfully. At PBFS, we believe business ownership should be more <span className="font-semibold">accessible, profitable, and rewarding</span> for everyone.
                   </p>
                 </div>
               </div>
@@ -104,32 +71,14 @@ const page = () => {
                   className="rounded-2xl"
                 />
                 <div>
-                  <h1 className="text-2xl font-bold text-[#000000]">
-                    What We Do
-                  </h1>
+                  <h1 className="text-2xl font-bold text-[#000000]">What We Do</h1>
                   <p className="text-[#000000]">
-                    At ProfitableBusinessesForSale.com, we provide more than just
-                    listings—we provide opportunities. Our platform allows:
+                    At ProfitableBusinessesForSale.com, we provide more than just listings—we provide opportunities. Our platform allows:
                   </p>
                   <ul className="list-disc pl-6 mb-6 text-[#000000]">
-                    <li>
-                      Entrepreneurs to{" "}
-                      <span className="font-semibold">
-                        start fresh with the right business.
-                      </span>
-                    </li>
-                    <li>
-                      Buyers and Investors to{" "}
-                      <span className="font-semibold">
-                        scale their portfolios with profitable businesses.
-                      </span>
-                    </li>
-                    <li>
-                      Business owners to{" "}
-                      <span className="font-semibold">
-                        successfully sell and maximize returns.
-                      </span>
-                    </li>
+                    <li>Entrepreneurs to <span className="font-semibold">start fresh with the right business.</span></li>
+                    <li>Buyers and Investors to <span className="font-semibold">scale their portfolios with profitable businesses.</span></li>
+                    <li>Business owners to <span className="font-semibold">successfully sell and maximize returns.</span></li>
                   </ul>
                 </div>
               </div>
@@ -138,10 +87,7 @@ const page = () => {
         </div>
       </section>
     </div>
-  )
+  );
 }
 
-export default page
-
-
-
+export default AboutPage;

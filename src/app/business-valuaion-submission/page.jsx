@@ -18,10 +18,10 @@ export default function BusinessValuationSubmission() {
           Your business valuation request has been received.
         </p>
         <p className="text-[#000000] max-w-2xl mx-auto leading-relaxed">
-          We're reviewing the information you provided to calculate an accurate
-          and personalized valuation. Our team may reach out if any further
-          details are needed.
-        </p>
+  We&apos;re reviewing the information you provided to calculate an accurate
+  and personalized valuation. Our team may reach out if any further
+  details are needed.
+</p>
       </div>
 
       {/* What Happens Next Section */}
@@ -61,10 +61,10 @@ export default function BusinessValuationSubmission() {
               <h3 className="text-lg font-semibold text-[#000000] mb-2">
                 — Valuation Delivery
               </h3>
-              <p className="text-[#000000]">
-                You'll receive your business valuation via email within 3–5
-                business days.
-              </p>
+             <p className="text-[#000000]">
+  You&apos;ll receive your business valuation via email within 3–5
+  business days.
+</p>
             </div>
           </div>
         </div>

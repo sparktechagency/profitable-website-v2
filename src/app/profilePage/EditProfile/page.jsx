@@ -22,6 +22,7 @@ import { useGetProfileQuery, useUpdateProfileMutation } from "@/redux/Api/userAp
 import { imageUrl } from "@/redux/Api/baseApi";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
+import Image from "next/image";
 const EditProfile = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -89,20 +90,24 @@ const EditProfile = () => {
         <Form form={form} onFinish={handleSubmit} layout="vertical">
           <div className="text-center mb-6">
             <div className="relative w-[140px] h-[124px] mx-auto">
-              <input
+                <input
                 type="file"
                 onChange={handleImageChange}
                 id="img"
                 style={{ display: "none" }}
               />
-              <img
-                className="w-[140px] h-[140px] rounded-full object-cover"
-                src={`${
+
+              {/* ✅ Use Next.js Image */}
+              <Image
+                src={
                   image
                     ? URL.createObjectURL(image)
                     : `${imageUrl}/uploads/profile-image/${profileData?.data?.image}`
-                }`}
+                }
                 alt="Admin Profile"
+                width={140}
+                height={140}
+                className="rounded-full object-cover"
               />
 
               <label
@@ -180,10 +185,12 @@ const EditProfile = () => {
                   label={country?.name}
                 >
                   <div className="flex items-center gap-2">
-                    <img
+                 <Image
                       src={`https://flagcdn.com/w20/${country?.isoCode.toLowerCase()}.png`}
                       alt={country?.name}
-                      className="w-5 h-3 object-cover"
+                      width={20}
+                      height={15}
+                      className="object-cover"
                     />
                     {country?.name}
                   </div>

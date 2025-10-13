@@ -25,6 +25,7 @@ import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import { useAddBusinessMutation, useGetCategtoryQuery } from "@/redux/Api/businessApi";
 import { useGetProfileQuery } from "@/redux/Api/userApi";
+import Image from "next/image";
 dayjs.extend(customParseFormat);
 
 const AddNewBusiness = () => {
@@ -252,14 +253,14 @@ const router = useRouter();
     ],
   };
 
-  useEffect(() => {
-    if (categorie?.data?.length) {
-      const defaultCategory = categorie?.data[0];
-      setSelectedCategory(defaultCategory?.categoryName);
-      setSubCategories(defaultCategory?.subCategories || []);
-      form.setFieldsValue({ category: defaultCategory?.categoryName });
-    }
-  }, [categorie]);
+useEffect(() => {
+  if (categorie?.data?.length) {
+    const defaultCategory = categorie?.data[0];
+    setSelectedCategory(defaultCategory?.categoryName);
+    setSubCategories(defaultCategory?.subCategories || []);
+    form.setFieldsValue({ category: defaultCategory?.categoryName });
+  }
+}, [categorie, form]);
 
   return (
     <div className="container m-auto lg:mt-8 mt-16 lg:px-0 px-4 pb-20 ">
@@ -366,22 +367,24 @@ const router = useRouter();
       option?.label?.toLowerCase().includes(input.toLowerCase())
     }
   >
-    {countries?.map((country) => (
-      <Select.Option
-        key={country?.isoCode}
-        value={country?.isoCode}
-        label={country?.name}
-      >
-        <div className="flex items-center gap-2">
-          <img
-            src={`https://flagcdn.com/w20/${country?.isoCode.toLowerCase()}.png`}
-            alt={country?.name}
-            className="w-5 h-3 object-cover"
-          />
-          {country?.name}
-        </div>
-      </Select.Option>
-    ))}
+   {countries?.map((country) => (
+  <Select.Option
+    key={country?.isoCode}
+    value={country?.isoCode}
+    label={country?.name}
+  >
+    <div className="flex items-center gap-2">
+      <Image
+        src={`https://flagcdn.com/w20/${country?.isoCode.toLowerCase()}.png`}
+        alt={country?.name}
+        width={20}
+        height={12}
+        className="object-cover"
+      />
+      {country?.name}
+    </div>
+  </Select.Option>
+))}
   </Select>
 </Form.Item>
 

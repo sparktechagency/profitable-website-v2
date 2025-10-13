@@ -11,37 +11,38 @@ import { useGetProfileQuery } from "@/redux/Api/userApi";
 import Image from "next/image"; // Import Image from next/image
 import { useSocket } from "../context/ContextProvider";
 
-const SidbarChat = ({ chatId }) => {
+const SidbarChat = () => {
   const { socket, socketLoading, socketError } = useSocket();
   const [chats, setChats] = useState([]);
   const { data: profileData } = useGetProfileQuery();
   const userId = profileData?.data?._id;
 
-  useEffect(() => {
-    if (!socket || socketLoading || socketError) {
-      return;
-    }
+useEffect(() => {
+  if (!socket || socketLoading || socketError) {
+    return;
+  }
 
-    const requestMessageList = () => {
-      socket.emit("chat_list", { userId });
-    };
+  const requestMessageList = () => {
+    socket.emit("chat_list", { userId });
+  };
 
-    const handleMessageList = (data) => {
-      setChats(data);
-    };
+  const handleMessageList = (data) => {
+    setChats(data);
+  };
 
-    if (socket.connected) {
-      requestMessageList();
-    }
+  if (socket.connected) {
+    requestMessageList();
+  }
 
-    socket.on("connect", requestMessageList);
-    socket.on("chat_list", handleMessageList);
+  socket.on("connect", requestMessageList);
+  socket.on("chat_list", handleMessageList);
 
-    return () => {
-      socket.off("connect", requestMessageList);
-      socket.off("chat_list", handleMessageList);
-    };
-  }, [socket, socketLoading, socketError]);
+  return () => {
+    socket.off("connect", requestMessageList);
+    socket.off("chat_list", handleMessageList);
+  };
+}, [socket, socketLoading, socketError, userId]); 
+
 
   return (
     <div>

@@ -3,15 +3,13 @@ import Header from "@/components/shared/Header";
 import { useGetTermsConditionsQuery } from "@/redux/Api/metaApi";
 import { Typography } from "antd";
 
-
 const { Text } = Typography;
 
-const page = () => {
-      const { data: terms } = useGetTermsConditionsQuery();
-
+const TermsAndConditionsPage = () => { // ✅ Capital Letter
+  const { data: terms } = useGetTermsConditionsQuery();
 
   return (
-     <div className="text-[#000000]">
+    <div className="text-[#000000]">
       <Header
         title="Terms and Conditions"
         description="Please read these terms and conditions carefully before using our services."
@@ -27,13 +25,13 @@ const page = () => {
                 dangerouslySetInnerHTML={{ __html: terms?.data?.description }}
               />
             ) : (
-              <p>Not Data</p>
+              <p>No Data</p>
             )}
           </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default page
+export default TermsAndConditionsPage;

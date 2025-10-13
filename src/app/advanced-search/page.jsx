@@ -37,9 +37,7 @@ const ownerShipType = [
 ];
 
 export default function AdvanceSearch() {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+
 
   const { data: categorie, isLoading, isError } = useGetCategtoryQuery();
   const [form] = Form.useForm();
@@ -94,14 +92,15 @@ export default function AdvanceSearch() {
     form.setFieldsValue({ city: undefined });
   };
 
-  useEffect(() => {
-    if (categorie?.data?.length) {
-      const defaultCategory = categorie?.data[0];
-      setSelectedCategory(defaultCategory?.categoryName);
-      setSubCategories(defaultCategory?.subCategories || []);
-      form.setFieldsValue({ category: defaultCategory?.categoryName });
-    }
-  }, [categorie]);
+ useEffect(() => {
+  if (categorie?.data?.length) {
+    const defaultCategory = categorie.data[0];
+    setSelectedCategory(defaultCategory?.categoryName);
+    setSubCategories(defaultCategory?.subCategories || []);
+    form.setFieldsValue({ category: defaultCategory?.categoryName });
+  }
+}, [categorie?.data, form]);
+
 
   return (
     <div className="relative max-w-7xl mx-auto px-5 pt-20 pb-10 rounded-lg shadow-sm">
