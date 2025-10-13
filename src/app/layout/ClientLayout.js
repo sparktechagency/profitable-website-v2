@@ -1,12 +1,15 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-
 import Footer from "@/components/shared/Footer";
-import { Navbar } from "@/components/shared/Navbar";
+import Navbar from "@/components/shared/Navbar";
 
 export default function ClientLayout({ children }) {
   const pathname = usePathname();
+
+
+  const hideFooter =
+    pathname === "/chat" || pathname.startsWith("/chat/");
 
   const hideNavbarFooter =
     pathname === "/signIn" ||
@@ -19,21 +22,14 @@ export default function ClientLayout({ children }) {
     pathname === "/signUp/accountverify";
 
   return (
-    <>
-      <div className="flex flex-col min-h-screen">
-        {!hideNavbarFooter && (
-          <div>
-            <Navbar />
-          </div>
-        )}
-       
-        <div className=" text-black flex-grow">{children}</div>
-        {!hideNavbarFooter && (
-          <div>
-            <Footer />
-          </div>
-        )}
-      </div>
-    </>
+    <div className="flex flex-col min-h-screen">
+     
+      {!hideNavbarFooter && <Navbar />}
+
+      <div className="text-black flex-grow">{children}</div>
+
+ 
+      {!hideNavbarFooter && !hideFooter && <Footer />}
+    </div>
   );
 }

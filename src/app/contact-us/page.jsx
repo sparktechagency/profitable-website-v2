@@ -1,0 +1,263 @@
+'use client'
+import { useEffect, useState } from "react";
+import { Form, Input, Button, message, Spin } from "antd";
+import {
+  Facebook,
+
+  Instagram,
+
+} from "lucide-react";
+
+import img from "../../../public/contact-us.png";
+
+import { IoMailOpenOutline } from "react-icons/io5";
+import { useGetProfileQuery } from "@/redux/Api/userApi";
+import { useAddContactMutation } from "@/redux/Api/businessApi";
+import Header from "@/components/shared/Header";
+import toast from "react-hot-toast";
+export default function ContactUs() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  const { data: profileData, isLoading: profileLoading } = useGetProfileQuery();
+
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    if (profileData) {
+      const email = profileData?.data;
+
+      form.setFieldsValue({
+        email: email?.email,
+      });
+    }
+  }, [profileData]);
+  const [form] = Form.useForm();
+  const [addContact] = useAddContactMutation();
+
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (values) => {
+    setLoading(true);
+    const data = {
+      firstName: values.firstName,
+      lastName: values.lastName,
+      email: values.email,
+      phone: values.phone,
+      message: values.message,
+    };
+
+    try {
+      const res = await addContact(data).unwrap();
+      toast.success(res?.message);
+      setLoading(false);
+      form.resetFields();
+    } catch (error) {
+      console.error(error);
+      setLoading(false);
+      toast.error(error?.data?.message || "Failed to schedule call.");
+    }
+  };
+  return (
+    <>
+      <Header
+        title="Contact Us"
+        description="Get in touch with us for any inquiries or questions."
+      />
+      <div className="flex items-center justify-center px-5 md:py-10">
+        <div className="container mx-auto w-full bg-white rounded-2xl shadow-2xl overflow-hidden my-20">
+          <div className="flex flex-col lg:flex-row">
+            <section
+              style={{
+                backgroundImage: `url(${img})`,
+                backgroundSize: "cover",
+              }}
+              className="lg:w-2/6 bg-gradient-to-br from-blue-500 via-blue-400 to-green-400 p-5 lg:p-10 flex flex-col justify-between relative overflow-hidden"
+            >
+              {/* Contact Us Text */}
+              <div className="flex-1 flex items-center"></div>
+
+              {/* Social Media Section */}
+              <div className="mt-8">
+                <h3 className="text-white text-lg font-semibold mb-4">
+                  Follow Us On
+                </h3>
+                <div className="flex space-x-4">
+                  <a
+                    href="https://www.facebook.com/share/1J7PbBaf1G/?mibextid=wwXIfr"
+                    className="w-10 h-10 bg-black bg-opacity-20 rounded-lg flex items-center justify-center hover:bg-opacity-30 transition-all"
+                  >
+                    <Facebook className="w-5 h-5 text-white" />
+                  </a>
+
+                  <a
+                    href="https://www.instagram.com/profitablebusinessesforsale?igsh=MTc5bTVrcWJoZHNtbQ%3D%3D&utm_source=…"
+                    className="w-10 h-10 bg-black bg-opacity-20 rounded-lg flex items-center justify-center hover:bg-opacity-30 transition-all"
+                  >
+                    <Instagram className="w-5 h-5 text-white" />
+                  </a>
+                  <a
+                    href="mailto:info@profitablebusinessesforsale.com?subject=Subject%20Here&body=Body%20Text%20Here"
+                    className="w-10 h-10 bg-black bg-opacity-20 rounded-lg flex items-center justify-center hover:bg-opacity-30 transition-all"
+                  >
+                    <IoMailOpenOutline className="w-5 h-5 text-white" />
+                  </a>
+                </div>
+              </div>
+            </section>
+            <section className="lg:w-4/6 p-5 lg:p-10">
+              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+                Get In Touch With Us
+              </h2>
+              <p className="text-gray-600 mb-8 leading-relaxed">
+                At ProfitableBusinessesForSale.com, our team is here to guide
+                you every step of the way. Whether you need help creating your
+                listing, choosing the right subscription, or understanding how
+                to attract serious buyers and investors, we're only a message
+                away.
+              </p>
+
+              <Form
+                form={form}
+                requiredMark={false}
+                layout="vertical"
+                onFinish={handleSubmit}
+                className="grid grid-cols-2 gap-4"
+              >
+                {/* Name Fields */}
+                <Form.Item
+                  label="First Name"
+                  name="firstName"
+                  rules={[
+                    {
+                      required: true,
+                      message: "Please input your first name!",
+                    },
+                  ]}
+                  className="col-span-2 md:col-span-1"
+                >
+                  <Input
+                    className="!border-t-0 !border-l-0 !h-10 !rounded-none !border-r-0 !ring-0 !focus:ring-0 !border-b-1 !border-gray-300 !focus:border-b-1 !focus:border-gray-300"
+                    placeholder="First Name"
+                    value={formData.firstName}
+                    onChange={handleInputChange}
+                  />
+                </Form.Item>
+                <Form.Item
+                  label="Last Name"
+                  name="lastName"
+                  rules={[
+                    { required: true, message: "Please input your last name!" },
+                  ]}
+                  className="col-span-2 md:col-span-1"
+                >
+                  <Input
+                    className="!border-t-0 !border-l-0 !h-10 !rounded-none !border-r-0 !ring-0 !focus:ring-0 !border-b-1 !border-gray-300 !focus:border-b-1 !focus:border-gray-300"
+                    placeholder="Last Name"
+                    value={formData.lastName}
+                    onChange={handleInputChange}
+                  />
+                </Form.Item>
+
+                {/* Email Field */}
+                <Form.Item
+                  label="Email Address"
+                  name="email"
+                  rules={[
+                    {
+                      required: true,
+                      message: "Please input your email address!",
+                    },
+                  ]}
+                  className="col-span-2"
+                >
+                  <Input
+                    type="email"
+                    className="!border-t-0 !border-l-0 !h-10 !rounded-none !border-r-0 !ring-0 !focus:ring-0 !border-b-1 !border-gray-300 !focus:border-b-1 !focus:border-gray-300"
+                    placeholder="Email Address"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                  />
+                </Form.Item>
+
+                {/* Phone Field */}
+                <Form.Item
+                  label="Phone Number"
+                  name="phone"
+                  rules={[
+                    {
+                      required: true,
+                      message: "Please input your phone number!",
+                    },
+                  ]}
+                  className="col-span-2"
+                >
+                  <Input
+                    type="tel"
+                    className="!border-t-0 !border-l-0 !h-10 !rounded-none !border-r-0 !ring-0 !focus:ring-0 !border-b-1 !border-gray-300 !focus:border-b-1 !focus:border-gray-300"
+                    placeholder="Phone Number"
+                    value={formData?.phone}
+                    onChange={handleInputChange}
+                  />
+                </Form.Item>
+
+                {/* Message Field */}
+                <Form.Item
+                  label="Message"
+                  name="message"
+                  rules={[
+                    { required: true, message: "Please input your message!" },
+                  ]}
+                  className="col-span-2"
+                >
+                  <Input.TextArea
+                    rows={4}
+                    className="!border-t-0 !border-l-0 !h-32 !rounded-none !border-r-0 !ring-0 !focus:ring-0 !border-b-1 !border-gray-300 !focus:border-b-1 !focus:border-gray-300"
+                    placeholder="Type Your Message"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                  />
+                </Form.Item>
+
+                {/* Submit Button */}
+                <Form.Item>
+                  <button
+                    className={`w-full py-3 rounded text-white flex justify-center items-center gap-2 transition-all duration-300 ${
+                      loading
+                        ? "bg-blue-400 cursor-not-allowed"
+                        : "bg-[#3b82f6] hover:bg-blue-500"
+                    }`}
+                    type="submit"
+                    disabled={loading}
+                  >
+                    {loading ? (
+                      <>
+                        <Spin size="small" />
+                        <span>Submitting...</span>
+                      </>
+                    ) : (
+                      "Send Message"
+                    )}
+                  </button>
+                </Form.Item>
+              </Form>
+            </section>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}

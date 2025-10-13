@@ -2,24 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+:where(.css-dev-only-do-not-override-7ny38l).ant-collapse-ghost
+  > .ant-collapse-item {
+  border-bottom: 1px solid black;
+  padding: 10px 0px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    font-family: sans-serif;
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:where(.css-dev-only-do-not-override-7ny38l).ant-collapse
+  > .ant-collapse-item
+  > .ant-collapse-header
+  .ant-collapse-header-text {
+  margin-inline-end: auto;
+  font-weight: 500;
+  font-size: 17px;
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+.no-scrollbar {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
 }
-li{
-  list-style: none;
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 }

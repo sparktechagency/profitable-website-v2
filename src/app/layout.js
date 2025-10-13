@@ -2,7 +2,8 @@ import localFont from "next/font/local";
 import "./globals.css";
 import ClientLayout from "./layout/ClientLayout";
 import ReduxProvider from "@/provider/ReduxProvider";
-
+import { Toaster } from "react-hot-toast";
+import { SocketProvider } from "@/components/context/ContextProvider";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -16,8 +17,9 @@ const geistMono = localFont({
 });
 
 export const metadata = {
-  title: "JusBuy Website",
-  description: "E-commerce",
+  title: "Profitable Website",
+  description: "Profitable Website",
+
 };
 
 
@@ -27,17 +29,13 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} bg-white ${geistMono.variable} antialiased`}
       >
-
-
-
-        
-         <ReduxProvider>
-       
-            <div className="">
-          
-              <ClientLayout>{children}</ClientLayout>
-            </div>
-     
+        <ReduxProvider>
+          <div className="">
+            <SocketProvider>
+            <Toaster />
+            <ClientLayout>{children}</ClientLayout>
+            </SocketProvider>
+          </div>
         </ReduxProvider>
       </body>
     </html>
