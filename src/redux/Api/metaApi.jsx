@@ -22,6 +22,7 @@ const businessApi = baseApi.injectEndpoints({
       providesTags: ["updateProfile"],
     }),
 
+
     // getAllBusiness: builder.query({
     //     query: () => {
     //         return {
