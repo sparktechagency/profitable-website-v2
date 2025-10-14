@@ -4,16 +4,11 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import {
   FaFacebookF,
-  FaLinkedinIn,
-  FaTwitter,
-  FaYoutube,
 } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa";
 import { IoMailOpenOutline } from "react-icons/io5";
 import Logo from "../../../public/Home/logo2.png";
 import backImg from "../../../public/Home/footer.png";
-
-// Dynamic footer configuration
 const footerConfig = {
   company: {
     name: "P B F S",

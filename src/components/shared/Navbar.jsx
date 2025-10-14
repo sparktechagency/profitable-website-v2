@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useState, useEffect, useRef } from "react";
 import { ChevronDown, Menu, X, Globe, User, LogOut } from "lucide-react";
 import Link from "next/link";
@@ -22,7 +21,7 @@ import { useGetProfileQuery } from "@/redux/Api/userApi";
 import { imageUrl } from "@/redux/Api/baseApi";
 import { Country } from "country-state-city";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion"; // Import Framer Motion
+import { motion, AnimatePresence } from "framer-motion"; 
 import toast from "react-hot-toast";
 
 const countryFlags = {
@@ -37,8 +36,7 @@ const countryFlags = {
 
 const Navbar = () => {
   const searchParams = useSearchParams();
-  const country = searchParams.get("country");
-  const router = useRouter();
+
   const { data: profileData, isLoading } = useGetProfileQuery();
   const role = profileData?.data?.role;
   const accessToken = localStorage.getItem("accessToken");
