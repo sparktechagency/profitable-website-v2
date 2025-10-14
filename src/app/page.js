@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Suspense } from "react";
 
 import hero from "../../public/Home/hero.png";
 
@@ -54,13 +55,25 @@ export default function Home() {
         </div>
       </section>
 
-      <Hero></Hero>
+      <Suspense fallback={<div />}> 
+        <Hero></Hero>
+      </Suspense>
       <div className="container m-auto lg:px-4 px-4">
-        <BusinessCard></BusinessCard>
-        <Category></Category>
-        <Country></Country>
-        <SimpleProcess></SimpleProcess>
-        <Review></Review>
+        <Suspense fallback={<div />}> 
+          <BusinessCard></BusinessCard>
+        </Suspense>
+        <Suspense fallback={<div />}> 
+          <Category></Category>
+        </Suspense>
+        <Suspense fallback={<div />}> 
+          <Country></Country>
+        </Suspense>
+        <Suspense fallback={<div />}> 
+          <SimpleProcess></SimpleProcess>
+        </Suspense>
+        <Suspense fallback={<div />}> 
+          <Review></Review>
+        </Suspense>
       </div>
     </main>
   );

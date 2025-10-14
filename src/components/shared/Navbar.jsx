@@ -39,7 +39,8 @@ const Navbar = () => {
 
   const { data: profileData, isLoading } = useGetProfileQuery();
   const role = profileData?.data?.role;
-  const accessToken = localStorage.getItem("accessToken");
+  const isBrowser = typeof window !== "undefined" && typeof localStorage !== "undefined";
+  const accessToken = isBrowser ? localStorage.getItem("accessToken") : null;
   const users = profileData?.data;
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [profileMenuOpen, setProfileMenuOpen] = useState(false);
@@ -47,7 +48,7 @@ const Navbar = () => {
   const [countryModalOpen, setCountryModalOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [scrolled, setScrolled] = useState(false);
-  const token = localStorage.getItem("user");
+  const token = isBrowser ? localStorage.getItem("user") : null;
   const user = token === null;
 
   const dropdownRef = useRef(null);

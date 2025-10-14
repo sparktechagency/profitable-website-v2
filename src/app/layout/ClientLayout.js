@@ -3,6 +3,7 @@
 import { usePathname } from "next/navigation";
 import Footer from "@/components/shared/Footer";
 import Navbar from "@/components/shared/Navbar";
+import { Suspense } from "react";
 
 export default function ClientLayout({ children }) {
   const pathname = usePathname();
@@ -23,12 +24,14 @@ export default function ClientLayout({ children }) {
 
   return (
     <div className="flex flex-col min-h-screen">
-     
-      {!hideNavbarFooter && <Navbar />}
+
+      {!hideNavbarFooter && <Suspense>
+        <Navbar />
+      </Suspense>}
 
       <div className="text-black flex-grow">{children}</div>
 
- 
+
       {!hideNavbarFooter && !hideFooter && <Footer />}
     </div>
   );

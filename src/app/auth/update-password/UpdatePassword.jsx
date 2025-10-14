@@ -13,6 +13,7 @@ import toast from 'react-hot-toast';
 const { Title, Text } = Typography;
 
 function NewPassword() {
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -24,7 +25,8 @@ function NewPassword() {
   const [confirmPassword, setConfirmPassword] = useState('');
 
   const onFinish = async () => {
-    const email = localStorage.getItem('email');
+    const isBrowser = typeof window !== 'undefined' && typeof localStorage !== 'undefined';
+    const email = isBrowser ? localStorage.getItem('email') : null;
 
     if (!email) {
       toast.error('Email not found in local storage');
@@ -53,7 +55,10 @@ function NewPassword() {
       if (res?.success) {
         toast.success(res?.message);
         setLoading(false);
-        localStorage.removeItem('email');
+        if (isBrowser) {
+          localStorage.removeItem('email');
+        }
+
         setTimeout(() => {
         router.push('/auth/login'); 
         }, 300);// Use router.push for navigation

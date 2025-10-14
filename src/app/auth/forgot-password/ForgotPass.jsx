@@ -37,8 +37,11 @@ function ForgotPassword() {
 
       if (res?.success) {
         toast.success(res?.message);
-        localStorage.setItem("email", values.email);
-        localStorage.setItem("role", values.role);
+        const isBrowser = typeof window !== "undefined" && typeof localStorage !== "undefined";
+        if (isBrowser) {
+          localStorage.setItem("email", values.email);
+          localStorage.setItem("role", values.role);
+        }
         setTimeout(() => {
         router.push("/auth/verification");
         }, 300);

@@ -8,7 +8,8 @@ import { SOCKET_BASE } from './baseApi';
 
  
 export const useSocket = () => {
-      const token = localStorage.getItem("accessToken");
+      const isBrowser = typeof window !== 'undefined' && typeof localStorage !== 'undefined';
+      const token = isBrowser ? localStorage.getItem("accessToken") : null;
   
   const [socket, setSocket] = useState(null);
 

@@ -6,12 +6,10 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 const baseUrl = "https://api.profitablebusinessesforsale.com/api/v1";
 // Helper function to get the token
 const getToken = () => {
-  if (typeof window === "undefined") {
+  if (typeof window === "undefined" || typeof localStorage === "undefined") {
     return null;
-  } else {
-    // Client-side logic
-    return localStorage.getItem("accessToken");
   }
+  return localStorage.getItem("accessToken");
 };
 //24.144.126.228
 export const baseApi = createApi({

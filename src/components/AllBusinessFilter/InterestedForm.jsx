@@ -15,7 +15,8 @@ export default function InterestForm({ businessId, businessRole }) {
   }, []);
    const [loading, setLoading] = useState(false);
   const [addInterest] = useAddInterestMutation();
-  const user = JSON.parse(localStorage.getItem("user"));
+  const isBrowser = typeof window !== 'undefined' && typeof localStorage !== 'undefined';
+  const user = isBrowser ? JSON.parse(localStorage.getItem("user")) : null;
   const userId = user?._id;
   const { data: profileData, isLoading: profileLoading } = useGetProfileQuery();
 

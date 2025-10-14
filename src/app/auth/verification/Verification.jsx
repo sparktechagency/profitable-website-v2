@@ -28,12 +28,13 @@ function Verification() {
   };
 
   const onFinish = async (values) => {
-    const email = localStorage.getItem("email");
+    const isBrowser = typeof window !== "undefined" && typeof localStorage !== "undefined";
+    const email = isBrowser ? localStorage.getItem("email") : null;
     const code = values.otp;
 
     const data = {
-      email: localStorage.getItem("email"),
-      role: localStorage.getItem("role"),
+      email: isBrowser ? localStorage.getItem("email") : null,
+      role: isBrowser ? localStorage.getItem("role") : null,
       code: code,
     };
 
@@ -50,9 +51,12 @@ function Verification() {
       if (res?.success) {
         toast.success(res?.message);
         setLoading(false);
-        localStorage.setItem("otp", code);
+        if (isBrowser) {
+          localStorage.setItem("otp", code);
+        }
+
         setTimeout(() => {
-        router.push("/auth/update-password");
+          router.push("/auth/update-password");
         }, 300); // Use router.push for navigation
       } else {
         toast.error(res?.message || "Verification failed");
@@ -66,9 +70,10 @@ function Verification() {
 
   const resendOtp = async () => {
     const data = {
-      email: localStorage.getItem("email"),
-      role: localStorage.getItem("role"),
+      email: (typeof window !== "undefined" && typeof localStorage !== "undefined") ? localStorage.getItem("email") : null,
+      role: (typeof window !== "undefined" && typeof localStorage !== "undefined") ? localStorage.getItem("role") : null,
     };
+
     try {
       await resentOtp(data)
         .unwrap()

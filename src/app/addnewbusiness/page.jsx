@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react'
+import { Suspense } from 'react'
 
 
 import AddNewBusiness from './AddNewBusiness'
@@ -6,7 +6,7 @@ import AddNewBusiness from './AddNewBusiness'
 const Page = () => {
   return (
     <div>
-       <Suspense fallback={<p>loading..</p>}>
+       <Suspense>
       <AddNewBusiness></AddNewBusiness>
       </Suspense>
     </div>

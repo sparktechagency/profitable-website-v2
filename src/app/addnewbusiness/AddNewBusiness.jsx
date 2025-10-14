@@ -17,7 +17,8 @@ import { InboxOutlined } from "@ant-design/icons";
 import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
 
-import JoditEditor from "jodit-react";
+import dynamic from "next/dynamic";
+const JoditEditor = dynamic(() => import("jodit-react"), { ssr: false });
 import { Country, State, City } from "country-state-city";
 
 import { Navigate } from "@/components/shared/Navigate";

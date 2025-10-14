@@ -57,6 +57,9 @@ const BusinessCard = () => {
   console.log("yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy", MostbusinessData);
   const mostBusiness = MostbusinessData?.data || [];
 
+  const isBrowser = typeof window !== "undefined" && typeof localStorage !== "undefined";
+  const hasAccessToken = isBrowser ? localStorage.getItem("accessToken") : null;
+
   if (isLoading) return <p className="text-center mt-10">Loading...</p>;
   if (isError)
     return (
@@ -375,8 +378,7 @@ const BusinessCard = () => {
             </p>
           )}
         </div>
-        {(!localStorage.getItem("accessToken") ||
-          (localStorage.getItem("accessToken") && role === "Investor")) && (
+        {(!hasAccessToken || (hasAccessToken && role === "Investor")) && (
           <div>
             <div className="flex justify-between items-center mb-6 mt-16">
               <div className="flex items-center">

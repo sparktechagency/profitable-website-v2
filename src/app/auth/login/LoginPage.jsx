@@ -60,8 +60,11 @@ useEffect(() => {
       if (res?.success) {
         toast.success(res?.message);
         setLoading(false);
-        localStorage.setItem("accessToken", res.data.accessToken);
-        localStorage.setItem("user", JSON.stringify(res.data.user));
+        const isBrowser = typeof window !== "undefined" && typeof localStorage !== "undefined";
+        if (isBrowser) {
+          localStorage.setItem("accessToken", res.data.accessToken);
+          localStorage.setItem("user", JSON.stringify(res.data.user));
+        }
         setTimeout(() => {
           window.location.href = "/";
        

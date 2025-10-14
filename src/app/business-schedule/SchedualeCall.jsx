@@ -11,7 +11,8 @@ const SchedualeCall = () => {
   const [loading, setLoading] = useState(false);
   const { data: profileData, isLoading: profileLoading } = useGetProfileQuery();
   const userId = profileData?.data?._id;
-  const user = JSON.parse(localStorage.getItem("user"));
+  const isBrowser = typeof window !== "undefined" && typeof localStorage !== "undefined";
+  const user = isBrowser ? JSON.parse(localStorage.getItem("user")) : null;
 
   const [addSchedule] = usePostScheduleMutation();
   const [form] = Form.useForm();

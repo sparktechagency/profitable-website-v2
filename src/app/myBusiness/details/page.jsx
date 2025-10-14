@@ -20,7 +20,9 @@ const MyBusiness = () => {
 
   const [deleteBusinesss] = useDeleteBusinessMutation();
   const { data: businessData, isLoading } = useGetAllBusinessQuery();
-  const user = JSON.parse(localStorage.getItem("user"));
+  const isBrowser = typeof window !== "undefined" && typeof localStorage !== "undefined";
+  const hasAccessToken = isBrowser && localStorage.getItem("accessToken");
+  const user = isBrowser ? JSON.parse(localStorage.getItem("user")) : null;
   const { data: profileData, isLoading: profileLoading } = useGetProfileQuery();
   const role = profileData?.data?.role;
 
@@ -325,7 +327,7 @@ const MyBusiness = () => {
         </>
       ) : role === "Broker" ? (
         <>
-          {role !== "Investor" && localStorage.getItem("accessToken") && (
+          {role !== "Investor" && hasAccessToken && (
             <div className="flex justify-end mt-4">
               <Link href={"/addnewbusiness"}>
                 <button className="bg-blue-400 px-4 py-2 text-white rounded hover:underline">
@@ -362,7 +364,7 @@ const MyBusiness = () => {
         </>
       ) : (
         <>
-          {role !== "Investor" && localStorage.getItem("accessToken") && (
+          {role !== "Investor" && hasAccessToken && (
             <div className="flex justify-end mt-4">
               <Link href={"/addnewbusiness"}>
                 <button className="bg-blue-400 px-4 py-2 text-white rounded hover:underline">

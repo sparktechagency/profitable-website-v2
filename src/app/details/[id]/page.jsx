@@ -10,7 +10,6 @@ import { useParams } from "next/navigation"; // Replace react-router-dom usePara
 
 
 
-import { message } from "antd";
 import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
 import { Lock } from "lucide-react";
 import Image from "next/image"; // Import Image from next/image
@@ -34,7 +33,9 @@ const MyBusinessDetails = () => {
     libraries,
   });
 
-  const user = JSON.parse(localStorage.getItem("user"));
+  const user = typeof window !== "undefined" && typeof localStorage !== "undefined" ? JSON.parse(localStorage.getItem("user")) : null;
+  const hasAccessToken = typeof window !== "undefined" && typeof localStorage !== "undefined" ? localStorage.getItem("accessToken") : null;
+
   const { data: profileData, isLoading: profileLoading } = useGetProfileQuery();
   const price = profileData?.data?.subscriptionPlanPrice;
   const role = profileData?.data?.role;
@@ -88,7 +89,7 @@ const MyBusinessDetails = () => {
       {role &&
         role !== "Buyer" &&
         role !== "Investor" &&
-        localStorage.getItem("accessToken") &&
+        hasAccessToken &&
         checkUserId === checkBusinessId && (
           <div className="lg:grid grid-cols-3 gap-9">
             <div className="bg-white shadow p-4 text-center rounded">
@@ -194,7 +195,7 @@ const MyBusinessDetails = () => {
             {role &&
               role !== "Buyer" &&
               role !== "Investor" &&
-              localStorage.getItem("accessToken") &&
+              hasAccessToken &&
               checkUserId === checkBusinessId && (
                 <Link href={`/EditNewBusiness/${businessDetails?.data?.business?._id}`}>
                   <button className="bg-[#0091FF] px-4 py-1 rounded text-white">
@@ -204,7 +205,7 @@ const MyBusinessDetails = () => {
               )}
 
             {role &&
-              localStorage.getItem("accessToken") &&
+              hasAccessToken &&
               checkUserId === checkBusinessId &&
               role !== "Buyer" &&
               role !== "Investor" && (
@@ -235,7 +236,7 @@ const MyBusinessDetails = () => {
               )}
 
             {role &&
-              localStorage.getItem("accessToken") &&
+              hasAccessToken &&
               checkUserId !== checkBusinessId &&
               ((role === "Buyer" &&
                 businessDetails?.data?.business?.businessRole !==
@@ -254,7 +255,7 @@ const MyBusinessDetails = () => {
               )}
 
             {role &&
-              localStorage.getItem("accessToken") &&
+              hasAccessToken &&
               checkUserId !== checkBusinessId &&
               ((role === "Buyer" &&
                 businessDetails?.data?.business?.businessRole !==
@@ -289,7 +290,7 @@ const MyBusinessDetails = () => {
             {role &&
               role !== "Buyer" &&
               role !== "Investor" &&
-              localStorage.getItem("accessToken") &&
+              hasAccessToken &&
               checkUserId === checkBusinessId && (
                 <button
                   onClick={handleSoldToggle}

@@ -33,13 +33,14 @@ function VerifyRegister() {
   };
 
   const onFinish = async (values) => {
-    const email = localStorage.getItem("email");
+    const isBrowser = typeof window !== "undefined" && typeof localStorage !== "undefined";
+    const email = isBrowser ? localStorage.getItem("email") : null;
     const code = values.otp;
 
     const data = {
-      email: localStorage.getItem("email"),
+      email: isBrowser ? localStorage.getItem("email") : null,
       code: code,
-      role: localStorage.getItem("role"),
+      role: isBrowser ? localStorage.getItem("role") : null,
     };
     setLoading(true);
     if (!email || !code) {
@@ -52,7 +53,9 @@ function VerifyRegister() {
       await verify({ data: data })
         .unwrap()
         .then((res) => {
-          localStorage.setItem("accessToken", res?.data?.accessToken);
+          if (isBrowser) {
+            localStorage.setItem("accessToken", res?.data?.accessToken);
+          }
           toast.success(res?.message);
           setLoading(false);
 
@@ -68,8 +71,8 @@ function VerifyRegister() {
 
   const resendOtp = async () => {
     const data = {
-      email: localStorage.getItem("email"),
-      role: localStorage.getItem("role"),
+      email: (typeof window !== "undefined" && typeof localStorage !== "undefined") ? localStorage.getItem("email") : null,
+      role: (typeof window !== "undefined" && typeof localStorage !== "undefined") ? localStorage.getItem("role") : null,
     };
     try {
       await resentOtp(data)
