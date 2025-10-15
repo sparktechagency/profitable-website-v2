@@ -2,9 +2,10 @@
 
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-// const baseUrl = "https://api.kidsknowrights.com";  
-const baseUrl = "https://api.profitablebusinessesforsale.com/api/v1";
-// Helper function to get the token
+
+const baseUrl = process.env.NEXT_PUBLIC_BASE_MAIN_URL;
+
+
 const getToken = () => {
   if (typeof window === "undefined" || typeof localStorage === "undefined") {
     return null;
@@ -60,5 +61,5 @@ export const fetchServerData = async (endpoint) => {
 };
 
 export default baseApi;
-export const imageUrl = 'https://api.profitablebusinessesforsale.com'
-export const SOCKET_BASE = "https://api.profitablebusinessesforsale.com";
+export const imageUrl = process.env.NEXT_PUBLIC_IMAGE_URL;
+export const SOCKET_BASE = process.env.NEXT_PUBLIC_SOCKET_URL;

@@ -8,7 +8,8 @@ import { useRouter } from "next/navigation"; // Replace useNavigate with useRout
 
 import Image from "next/image"; // Import Image from next/image
 import { useResendOtpMutation, useVerifyOtpMutation } from "@/redux/Api/userApi";
-import toast from "react-hot-toast";
+import { toast } from "react-toastify";
+
 
 const { Title, Text } = Typography;
 

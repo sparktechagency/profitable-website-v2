@@ -10,7 +10,8 @@ import { message } from "antd";
 import { useDeleteNotificationMutation, useGetNotificationQuery, useUpdateNotificationMutation } from "@/redux/Api/metaApi";
 import { useGetProfileQuery } from "@/redux/Api/userApi";
 import { Navigate } from "@/components/shared/Navigate";
-import toast from "react-hot-toast";
+import { toast } from "react-toastify";
+
 
 const Notification = () => {
      useEffect(() => {

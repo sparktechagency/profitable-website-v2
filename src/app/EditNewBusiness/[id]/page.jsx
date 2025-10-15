@@ -22,8 +22,9 @@ import { useGetCategtoryQuery, useGetSingleBusinessQuery, useUpdateSingleMutatio
 import { imageUrl } from "@/redux/Api/baseApi";
 import { useParams } from "next/navigation";
 import { Navigate } from "@/components/shared/Navigate";
-import toast from "react-hot-toast";
+
 import Image from "next/image";
+import { toast } from "react-toastify";
 const { Option } = Select;
 dayjs.extend(customParseFormat);
 

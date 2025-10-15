@@ -20,7 +20,8 @@ import { ArrowLeft } from "lucide-react";
 import loginImg from "../../../../public/Home/login.png";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useLoginUserMutation } from "@/redux/Api/userApi";
-import toast from "react-hot-toast";
+import { toast } from "react-toastify";
+
 
 const { Title, Text } = Typography;
 const { Option } = Select;

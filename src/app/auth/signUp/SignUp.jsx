@@ -22,7 +22,8 @@ import ReactPhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { Country } from "country-state-city";
 import { useRegisterUserMutation } from "@/redux/Api/userApi";
-import toast from "react-hot-toast";
+import { toast } from "react-toastify";
+
 
 const { Title, Text } = Typography;
 

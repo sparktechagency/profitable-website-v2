@@ -23,10 +23,11 @@ import { Country, State, City } from "country-state-city";
 
 import { Navigate } from "@/components/shared/Navigate";
 import { useRouter } from "next/navigation";
-import toast from "react-hot-toast";
+
 import { useAddBusinessMutation, useGetCategtoryQuery } from "@/redux/Api/businessApi";
 import { useGetProfileQuery } from "@/redux/Api/userApi";
 import Image from "next/image";
+import { toast } from "react-toastify";
 dayjs.extend(customParseFormat);
 
 const AddNewBusiness = () => {

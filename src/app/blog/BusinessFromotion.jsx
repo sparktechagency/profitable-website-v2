@@ -1,23 +1,18 @@
-'use client';
+'use client'
 import React from "react";
 import { ArrowRight } from "lucide-react";
 import { useGetAllFormateQuery } from "@/redux/Api/businessApi";
 import Link from "next/link";
 import { imageUrl } from "@/redux/Api/baseApi";
-import Image from "next/image"; // Added for image optimization
+import Image from "next/image";
+import dayjs from "dayjs";
 
-const BusinessFromationppage = () => { // Changed 'page' to 'Page'
-
-
+const BusinessFormationPage = () => {
   const { data: getAllFormat, isLoading, isError } = useGetAllFormateQuery();
 
-  if (isLoading) {
-    return <p>Loading...</p>;
-  }
-
-  if (isError || !getAllFormat?.data) {
+  if (isLoading) return <p>Loading...</p>;
+  if (isError || !getAllFormat?.data)
     return <p>Failed to load business formation data.</p>;
-  }
 
   return (
     <div className="container mx-auto px-5 pt-20 pb-10">
@@ -26,10 +21,10 @@ const BusinessFromationppage = () => { // Changed 'page' to 'Page'
         <div className="absolute top-0 left-0 w-2 h-full bg-[#22C55E] z-[1] rounded-r-full"></div>
         <div className="ml-5">
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#0091FF] mb-6 leading-tight">
-            Business Formation
+            Blogs
           </h1>
           <p className="text-lg md:text-xl text-[#000000] leading-relaxed max-w-2xl">
-            Find the perfect business opportunity by applying detailed filters
+            Find the perfect blog opportunity by applying detailed filters
             to narrow down your search.
           </p>
         </div>
@@ -48,8 +43,8 @@ const BusinessFromationppage = () => { // Changed 'page' to 'Page'
                 <Image
                   src={`${imageUrl}/Uploads/formation-image/${service?.image}`}
                   alt={service?.title}
-                  width={400} // Adjust based on your design
-                  height={300} // Adjust based on your design
+                  width={400}
+                  height={300}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
@@ -60,6 +55,12 @@ const BusinessFromationppage = () => { // Changed 'page' to 'Page'
                   <h3 className="text-xl font-bold text-gray-900 mb-2 line-clamp-2">
                     {service?.title}
                   </h3>
+
+                  {/* Date & Time Display */}
+                  <p className="text-gray-400 text-sm mb-2">
+                    {dayjs(service?.createdAt).format("MMMM D, YYYY, h:mm A")}
+                  </p>
+
                   <p className="text-gray-600 text-sm mb-4 line-clamp-3">
                     {service?.detail}
                   </p>
@@ -80,4 +81,4 @@ const BusinessFromationppage = () => { // Changed 'page' to 'Page'
   );
 };
 
-export default BusinessFromationppage;
+export default BusinessFormationPage;

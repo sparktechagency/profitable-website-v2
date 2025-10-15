@@ -1,23 +1,16 @@
 "use client";
 
 import { useEffect } from "react";
-import { Tag } from "antd";
 import Image from "next/image";
 import { useParams } from "next/navigation";
-
-import InterenstFormation from "@/components/AllBusinessFilter/InterenstFormation";
 import { useGetSingleFormatQuery } from "@/redux/Api/businessApi";
 import { imageUrl } from "@/redux/Api/baseApi";
-
+import dayjs from "dayjs";
 
 const FormationPage = () => {
   const { id: formationId } = useParams();
 
-  const {
-    data: singleData,
-    isLoading,
-    isError,
-  } = useGetSingleFormatQuery({ formationId });
+  const { data: singleData, isLoading, isError } = useGetSingleFormatQuery({ formationId });
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -42,39 +35,37 @@ const FormationPage = () => {
   const formation = singleData?.data;
 
   return (
-    <div className="container mx-auto flex flex-col md:flex-row gap-5 w-full px-5 pb-10">
-      {/* Left Side (Details) */}
-      <div className="p-5 space-y-8 w-full md:w-1/2">
-        <div className="flex flex-col gap-5 mt-11">
-          {/* Image Section */}
-          <div className="md:flex gap-5 items-center">
-            <div className="relative w-[100px] h-[100px]">
-              <Image
-                src={`${imageUrl}/uploads/formation-image/${formation?.image}`}
-                alt={formation?.title}
-                fill
-                className="object-cover rounded-full"
-              />
-            </div>
-            <div className="space-y-3 mt-6 md:mt-0">
-              <h1 className="text-3xl font-bold text-[#0091FF]">
-                {formation?.title}
-              </h1>
-            </div>
-          </div>
+    <div className="container mx-auto px-5 py-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+        
+        {/* Left Side: Image */}
+        <div className="w-full h-full rounded-lg overflow-hidden shadow-lg">
+          <Image
+            src={`${imageUrl}/uploads/formation-image/${formation?.image}`}
+            alt={formation?.title}
+            width={800}
+            height={600}
+            className="w-full h-full object-cover"
+          />
+      
 
-          {/* Business Details */}
-          <div className="space-y-5">
-            <p className="text-gray-700 leading-relaxed">
-              {formation?.detail}
-            </p>
-          </div>
+                  {/* Date & Time Display */}
+                 
         </div>
-      </div>
 
-      {/* Right Side (Interest Form) */}
-      <div className="w-full mt-11 md:w-1/2">
-        <InterenstFormation formationId={formationId} />
+        {/* Right Side: Title + Description */}
+        <div className="flex flex-col justify-start">
+           <p className="text-gray-400 text-sm mb-2">
+                    {dayjs(formation?.createdAt).format("MMMM D, YYYY, h:mm A")}
+                  </p>
+          <h1 className="text-4xl md:text-4xl font-bold text-[#0091FF] mb-6">
+            {formation?.title}
+          </h1>
+          <p className="text-gray-700 leading-relaxed text-lg md:text-xl">
+            {formation?.detail}
+          </p>
+        </div>
+
       </div>
     </div>
   );

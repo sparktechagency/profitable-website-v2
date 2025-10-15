@@ -29,7 +29,7 @@ export default function ClientLayout({ children }) {
         <Navbar />
       </Suspense>}
 
-      <div className="text-black flex-grow">{children}</div>
+      <div className="text-black flex-grow ">{children}</div>
 
 
       {!hideNavbarFooter && !hideFooter && <Footer />}

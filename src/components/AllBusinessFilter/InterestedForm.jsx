@@ -5,7 +5,8 @@ import { Form, Input, Select, Button, message, Spin } from "antd";
 import { useForm } from "antd/es/form/Form";
 
 import { useEffect, useState } from "react";
-import toast from "react-hot-toast";
+import { toast } from "react-toastify";
+
 
 const { TextArea } = Input;
 

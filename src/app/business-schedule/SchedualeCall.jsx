@@ -4,7 +4,8 @@ import { Form, Select, Spin } from "antd";
 import { useState } from "react";
 import { useGetProfileQuery } from "@/redux/Api/userApi";
 import { usePostScheduleMutation } from "@/redux/Api/metaApi";
-import toast from "react-hot-toast";
+import { toast } from "react-toastify";
+
 const { Option } = Select;
 
 const SchedualeCall = () => {

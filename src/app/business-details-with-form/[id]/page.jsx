@@ -1,18 +1,18 @@
 
 'use client';
 
-import { useParams } from "next/navigation"; // Replace react-router-dom useParams
+import { useParams } from "next/navigation"; 
 import { useEffect, useState } from "react";
 import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
 import { useGetSingleIterestUserQuery } from "@/redux/Api/businessApi";
 import { Navigate } from "@/components/shared/Navigate";
 import InterestForm from "@/components/AllBusinessFilter/InterestedForm";
 import { imageUrl } from "@/redux/Api/baseApi";
-import Image from "next/image"; // Import Image from next/image
+import Image from "next/image"; 
 
 const libraries = ["places"];
 const mapContainerStyle = { width: "100%", height: "300px" };
-const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY; // Use Next.js env variable convention
+const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY; 
 
 export default function BussinessDetailsWithForm() {
   useEffect(() => {

@@ -1,18 +1,14 @@
 import { ArrowLeft } from "lucide-react";
-import cover from '../../../public/header.png'
+import cover from "../../../public/header.png";
 export default function Header({ title, description }) {
   return (
     <div
       className="relative w-full min-h-[350px] bg-cover bg-center bg-no-repeat flex items-center  md:px-0"
-     style={{ backgroundImage: `url(${cover.src})` }}
+      style={{ backgroundImage: `url(${cover.src})` }}
     >
-      {/* Dark overlay */}
       <div className="absolute inset-0 bg-black/60" />
-
-      {/* Content */}
       <div className="relative container mx-auto z-10 w-full py-5 px-4">
         <div>
-          {/* Back button */}
           <button
             className="mb-8 md:mb-12 flex items-center text-white hover:text-gray-300 transition-colors group"
             onClick={() => window.history.back()}

@@ -30,7 +30,7 @@ export default function RootLayout({ children }) {
         <ReduxProvider>
           <SocketProvider>
             <Toaster />
-            <div className="max-w-[1400px] m-auto text-black">{children}</div>
+            <div className="max-w-[1400px] m-auto text-black ">{children}</div>
           </SocketProvider>
         </ReduxProvider>
       </body>

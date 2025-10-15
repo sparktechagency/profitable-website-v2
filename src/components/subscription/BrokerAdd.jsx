@@ -8,7 +8,8 @@ import { useRouter } from "next/navigation";
 
 import { useLazySingleGetCouponQuery, usePostCheckoutMutation } from "@/redux/Api/businessApi";
 import { useGetProfileQuery } from "@/redux/Api/userApi";
-import toast from "react-hot-toast";
+import { toast } from "react-toastify";
+
 
 const BrokerAdd = ({ openAddModal, setOpenAddModal, subscriptionId }) => {
   const [form] = Form.useForm();

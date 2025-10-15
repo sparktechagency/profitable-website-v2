@@ -1,9 +1,12 @@
+import Script from "next/script";
 import localFont from "next/font/local";
 import "./globals.css";
 import ClientLayout from "./layout/ClientLayout";
 import ReduxProvider from "@/provider/ReduxProvider";
 import { Toaster } from "react-hot-toast";
 import { SocketProvider } from "@/components/context/ContextProvider";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -18,25 +21,78 @@ const geistMono = localFont({
 
 export const metadata = {
   title: "Profitable Website",
-  description: "Profitable Website",
-
+  icons: {
+    icon: "/logo2.png",
+  },
 };
-
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en" data-theme="product">
+      <head>
+        {/* ✅ Google Tag Manager */}
+        <Script id="gtm-script" strategy="afterInteractive">
+          {`
+            (function(w,d,s,l,i){
+              w[l]=w[l]||[];
+              w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
+              var f=d.getElementsByTagName(s)[0],
+                  j=d.createElement(s),
+                  dl=l!='dataLayer'?'&l='+l:'';
+              j.async=true;
+              j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+              f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-N4TGRV75');
+          `}
+        </Script>
+      </head>
+
       <body
         className={`${geistSans.variable} bg-white ${geistMono.variable} antialiased`}
       >
+        {/* ✅ Google Tag Manager (noscript) */}
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-N4TGRV75"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          ></iframe>
+        </noscript>
+
         <ReduxProvider>
-          <div className="">
-            <SocketProvider>
+          <SocketProvider>
             <Toaster />
+            <ToastContainer
+              position="top-center"
+              autoClose={3000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+            />
             <ClientLayout>{children}</ClientLayout>
-            </SocketProvider>
-          </div>
+          </SocketProvider>
         </ReduxProvider>
+
+        {/* ✅ Tawk.to live chat */}
+        <Script id="tawkto-script" strategy="afterInteractive">
+          {`
+            var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+            (function () {
+              var s1 = document.createElement("script"),
+                  s0 = document.getElementsByTagName("script")[0];
+              s1.async = true;
+              s1.src = "https://embed.tawk.to/68b29c4fcbdd78615202bb4e/1j3sr5616";
+              s1.charset = "UTF-8";
+              s1.setAttribute("crossorigin", "*");
+              s0.parentNode.insertBefore(s1, s0);
+            })();
+          `}
+        </Script>
       </body>
     </html>
   );

@@ -9,7 +9,7 @@ import {
   usePostCheckoutMutation,
 } from "@/redux/Api/businessApi";
 import { useGetProfileQuery } from "@/redux/Api/userApi";
-import toast from "react-hot-toast";
+import { toast } from "react-toastify";
 
 const AddSubPlane = ({ openAddModal, setOpenAddModal, subscriptionId }) => {
   const [loading, setLoading] = useState(false);

@@ -12,6 +12,8 @@ import {
 } from "antd";
 
 import ReactPhoneInput from "react-phone-input-2";
+
+import "react-phone-input-2/lib/style.css";
 import { UploadOutlined } from "@ant-design/icons";
 import { User, DollarSign } from "lucide-react";
 
@@ -21,8 +23,10 @@ import {
   useGetCategtoryQuery,
 } from "@/redux/Api/businessApi";
 import { useRouter } from "next/navigation";
-import toast from "react-hot-toast";
+
 import Image from "next/image";
+import { toast } from "react-toastify";
+
 
 const { Option } = Select;
 const BusinessValuationPage = () => {
@@ -197,24 +201,24 @@ const BusinessValuationPage = () => {
           </Form.Item>
 
           <div className=" gap-4">
-            <Form.Item
-              label="Phone Number"
-              name="mobile"
-              required
-              rules={[
-                {
-                  required: true,
-                  message: "Please enter your phone number!",
-                },
-              ]}
-            >
-              <ReactPhoneInput
-                country={"us"}
-                value={contactNo}
-                onChange={(value) => setContactNo(value)}
-                inputStyle={{ width: "100%", height: "48px" }}
-              />
-            </Form.Item>
+          <Form.Item
+                  label="Phone Number"
+                  name="mobile"
+                  required
+                  rules={[
+                    {
+                      required: true,
+                      message: "Please enter your phone number!",
+                    },
+                  ]}
+                >
+                  <ReactPhoneInput
+                    country={"us"}
+                    value={contactNo}
+                    onChange={(value) => setContactNo(value)}
+                    inputStyle={{ width: "100%", height: "48px" }}
+                  />
+                </Form.Item>
           </div>
         </div>
 

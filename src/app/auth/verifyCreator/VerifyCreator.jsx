@@ -12,7 +12,8 @@ import {
 } from "@/redux/Api/userApi";
 import Image from "next/image";
 import { imageUrl } from "@/redux/Api/baseApi";
-import toast from "react-hot-toast";
+import { toast } from "react-toastify";
+
 
 const { Title, Text } = Typography;
 

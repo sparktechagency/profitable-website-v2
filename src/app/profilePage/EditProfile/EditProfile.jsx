@@ -21,8 +21,9 @@ import { Navigate } from "@/components/shared/Navigate";
 import { useGetProfileQuery, useUpdateProfileMutation } from "@/redux/Api/userApi";
 import { imageUrl } from "@/redux/Api/baseApi";
 import { useRouter } from "next/navigation";
-import toast from "react-hot-toast";
+
 import Image from "next/image";
+import { toast } from "react-toastify";
 const EditProfile = () => {
   useEffect(() => {
     window.scrollTo(0, 0);

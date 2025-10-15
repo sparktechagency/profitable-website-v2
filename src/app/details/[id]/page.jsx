@@ -17,7 +17,8 @@ import { useGetProfileQuery } from "@/redux/Api/userApi";
 import { useGetSingleIterestUserQuery, useUpdateSoldMutation } from "@/redux/Api/businessApi";
 import { imageUrl } from "@/redux/Api/baseApi";
 import { Navigate } from "@/components/shared/Navigate";
-import toast from "react-hot-toast";
+import { toast } from "react-toastify";
+
 
 const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
 const libraries = ["places"];

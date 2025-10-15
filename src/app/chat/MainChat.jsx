@@ -48,7 +48,7 @@ const MainChat = () => {
 
         {/* Main Chat Area */}
         <div
-          className={`flex justify-center items-center w-full pt-20 
+          className={`flex justify-center flex-col flex-1 items-center w-full pt-20 
           ${selectedChat ? "block" : "hidden"} 
           md:block`}
         >

@@ -11,7 +11,7 @@ import { imageUrl } from "@/redux/Api/baseApi";
 import { Navigate } from "@/components/shared/Navigate";
 import Image from "next/image"; // Import Image from next/image
 import { useGetProfileQuery } from "@/redux/Api/userApi";
-import toast from "react-hot-toast";
+import { toast } from "react-toastify";
 
 const MyBusiness = () => {
   useEffect(() => {

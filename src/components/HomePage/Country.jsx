@@ -8,7 +8,8 @@ import { usePostSubscriberMutation } from "@/redux/Api/metaApi";
 import { useGetTopCountryQuery } from "@/redux/Api/businessApi";
 
 import backImg from "../../../public/Home/aaa.png";
-import toast from "react-hot-toast";
+import { toast } from "react-toastify";
+
 
 const Country = () => {
   const [addSubscriber] = usePostSubscriberMutation();

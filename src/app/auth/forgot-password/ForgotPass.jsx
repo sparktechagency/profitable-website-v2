@@ -5,8 +5,9 @@ import { Button, Card, Col, Form, Input, Row, Select, Spin, Typography } from "a
 import loginImg from "../../../../public/Home/login.png";
 import { useRouter } from "next/navigation";
 import { useForgotPasswordMutation } from "@/redux/Api/userApi";
-import toast from "react-hot-toast";
+
 import Image from "next/image";
+import { toast } from "react-toastify";
 
 const { Title, Text } = Typography;
 const { Option } = Select;

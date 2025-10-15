@@ -1,18 +1,9 @@
-'use client';
+"use client";
 
 import React, { useEffect, useState } from "react";
-import {
-  Card,
-  Input,
-  Button,
-  Upload,
-  Form,
-  Typography,
-  Spin,
-} from "antd";
+import { Card, Input, Button, Upload, Form, Typography, Spin } from "antd";
 import { UploadOutlined } from "@ant-design/icons";
 import Image from "next/image";
-import toast from "react-hot-toast";
 
 import { useAddNdaMutation } from "@/redux/Api/businessApi";
 import { useGetProfileQuery } from "@/redux/Api/userApi";
@@ -27,6 +18,7 @@ import Buyer from "@/components/nda/Buyer";
 
 import Logo from "../../../public/Home/logo2.png";
 import sign from "../../../public/country-icons/sign.png";
+import { toast } from "react-toastify";
 
 const { Title, Paragraph, Text } = Typography;
 
@@ -123,72 +115,153 @@ const Seller = () => {
                 <Form.Item
                   label="Seller Full Name"
                   name="name"
-                  rules={[{ required: true, message: "Please enter your full name" }]}
+                  rules={[
+                    { required: true, message: "Please enter your full name" },
+                  ]}
                 >
-                  <Input size="large" placeholder="Enter full name" />
+                  <Input
+                    className="w-full bg-transparent  py-3"
+                    size="large"
+                    placeholder="Enter full name"
+                  />
                 </Form.Item>
 
                 <Form.Item
                   label="Email Address"
                   name="email"
-                  rules={[{ required: true, message: "Please enter your email" }]}
+                  rules={[
+                    { required: true, message: "Please enter your email" },
+                  ]}
                 >
-                  <Input size="large" placeholder="Enter email address" />
+                  <Input
+                    className="w-full bg-transparent  py-3"
+                    size="large"
+                    placeholder="Enter email address"
+                  />
                 </Form.Item>
 
                 <Form.Item
                   label="Phone Number"
                   name="phone"
-                  rules={[{ required: true, message: "Please enter your phone number" }]}
+                  rules={[
+                    {
+                      required: true,
+                      message: "Please enter your phone number",
+                    },
+                  ]}
                 >
-                  <Input size="large" placeholder="Enter phone number" />
+                  <Input
+                    className="w-full bg-transparent  py-3"
+                    size="large"
+                    placeholder="Enter phone number"
+                  />
                 </Form.Item>
-
                 <Form.Item
                   label="Passport/National ID Number"
                   name="nidPassportNumber"
-                  rules={[{ required: true, message: "Please enter ID number" }]}
+                  rules={[
+                    { required: true, message: "Please enter ID number" },
+                  ]}
                 >
-                  <Input size="large" placeholder="Enter ID number" />
+                  <Input
+                    className="w-full bg-transparent py-3"
+                    size="large"
+                    placeholder="Enter ID number"
+                  />
                 </Form.Item>
 
                 <div className="grid md:grid-cols-3 gap-4">
-                  {[
-                    { label: "Passport/National ID File", name: "passportNationalIDNumber" },
-                    { label: "Upload Trade License", name: "uploadTradeLicense" },
-                    { label: "Signature", name: "signature" },
-                  ].map(({ label, name }) => (
-                    <Form.Item
-                      key={name}
-                      label={label}
-                      name={name}
-                      valuePropName="fileList"
-                      getValueFromEvent={(e) => Array.isArray(e) ? e : e?.fileList}
+                  <Form.Item
+                    label="Passport/National ID Number"
+                    name="passportNationalIDNumber"
+                    valuePropName="fileList"
+                    getValueFromEvent={(e) =>
+                      Array.isArray(e) ? e : e?.fileList
+                    }
+                  >
+                    <Upload
+                      style={{ width: "100%" }}
+                      beforeUpload={beforeUpload}
+                      maxCount={1}
+                      accept=".pdf"
+                      listType="text"
                     >
-                      <Upload
-                        beforeUpload={beforeUpload}
-                        maxCount={1}
-                        accept=".pdf"
-                        listType="text"
+                      <Button
+                        style={{ width: "100%", height: "48px" }}
+                        icon={<UploadOutlined />}
                       >
-                        <Button
-                          style={{ width: "100%", height: "48px" }}
-                          icon={<UploadOutlined />}
-                        >
-                          Upload PDF
-                        </Button>
-                      </Upload>
-                    </Form.Item>
-                  ))}
+                        Upload PDF
+                      </Button>
+                    </Upload>
+                  </Form.Item>
+
+                  <Form.Item
+                    label="Upload Trade License"
+                    name="uploadTradeLicense"
+                    valuePropName="fileList"
+                    getValueFromEvent={(e) =>
+                      Array.isArray(e) ? e : e?.fileList
+                    }
+                  >
+                    <Upload
+                      style={{ width: "100%" }}
+                      beforeUpload={beforeUpload}
+                      maxCount={1}
+                      accept=".pdf"
+                      listType="text"
+                    >
+                      <Button
+                        style={{ width: "100%", height: "48px" }}
+                        icon={<UploadOutlined />}
+                      >
+                        Upload PDF
+                      </Button>
+                    </Upload>
+                  </Form.Item>
+
+                  <Form.Item
+                    label="Signature"
+                    name="signature"
+                    valuePropName="fileList"
+                    getValueFromEvent={(e) =>
+                      Array.isArray(e) ? e : e?.fileList
+                    }
+                  >
+                    <Upload
+                      style={{ width: "100%" }}
+                      beforeUpload={beforeUpload}
+                      maxCount={1}
+                      accept=".pdf"
+                      listType="text"
+                    >
+                      <Button
+                        style={{ width: "100%", height: "48px" }}
+                        icon={<UploadOutlined />}
+                      >
+                        Upload PDF
+                      </Button>
+                    </Upload>
+                  </Form.Item>
                 </div>
 
                 <Form.Item>
-                  <button
+                   <button
+                    className={`w-full py-3 rounded text-white flex justify-center items-center gap-2 transition-all duration-300 ${
+                      loading
+                        ? "bg-blue-400 cursor-not-allowed"
+                        : "bg-[#3b82f6] hover:bg-blue-500"
+                    }`}
                     type="submit"
-                    className="w-full mt-8 py-2 bg-[#0091FF] text-white rounded hover:bg-gray-800 focus:ring-2 focus:ring-gray-500"
                     disabled={loading}
                   >
-                    {loading ? <Spin size="small" /> : "Submit"}
+                    {loading ? (
+                      <>
+                        <Spin size="small" />
+                        <span>Submitting...</span>
+                      </>
+                    ) : (
+                      "Submit"
+                    )}
                   </button>
                 </Form.Item>
               </div>
@@ -199,7 +272,8 @@ const Seller = () => {
                   Second Party (ProfitableBusinessesForSale.com)
                 </Title>
                 <Paragraph className="mb-1">
-                  <strong>Full Name:</strong> Global IPQ LLC (ProfitableBusinessesForSale.com)
+                  <strong>Full Name:</strong> Global IPQ LLC
+                  (ProfitableBusinessesForSale.com)
                 </Paragraph>
                 <Paragraph className="mb-1">
                   <strong>Email:</strong> info@ProfitableBusinessesForSale.com
@@ -208,14 +282,22 @@ const Seller = () => {
                   <strong>Signature:</strong>
                 </Paragraph>
 
-                <Image src={sign} alt="Signature" width={128} height={64} className="mb-2" />
+                <Image
+                  src={sign}
+                  alt="Signature"
+                  width={128}
+                  height={64}
+                  className="mb-2"
+                />
                 <Text type="secondary">{formattedTime}</Text>
 
                 <div className="flex items-center space-x-4 mt-4">
                   <div className="flex items-center gap-3">
                     <Image src={Logo} alt="Logo" width={50} height={50} />
                     <div>
-                      <h1 className="text-2xl font-bold text-[#F59E0B]">P B F S</h1>
+                      <h1 className="text-2xl font-bold text-[#F59E0B]">
+                        P B F S
+                      </h1>
                       <p className="text-[#F59E0B]">From Listings to Legacy</p>
                     </div>
                   </div>

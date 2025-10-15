@@ -2,14 +2,13 @@
   "name": "bd-calling-interview-task",
   "version": "0.1.0",
   "private": true,
-"scripts": {
-  "dev": "next dev -H 0.0.0.0 -p 4173",
-  "build": "next build",
-  "start": "next start -H 0.0.0.0 -p 4173",
-  "preview": "next start -H 0.0.0.0 -p 4173",
-  "lint": "next lint"
-},
- 
+  "scripts": {
+    "dev": "next dev -H 0.0.0.0 -p 4173",
+    "build": "next build",
+    "start": "next start -H 0.0.0.0 -p 4173",
+    "preview": "next start -H 0.0.0.0 -p 4173",
+    "lint": "next lint"
+  },
   "dependencies": {
     "@react-google-maps/api": "^2.20.7",
     "@reduxjs/toolkit": "^2.9.0",

@@ -12,12 +12,10 @@ import {
   Collapse,
   Card,
   Checkbox,
-  Radio,
   Pagination,
 } from "antd";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-
 
 import { City, Country, State } from "country-state-city";
 import { Menu, X } from "lucide-react";
@@ -26,8 +24,6 @@ import { useGetAllBusinesFilterQuery, useGetCategtoryQuery } from "@/redux/Api/b
 import { imageUrl } from "@/redux/Api/baseApi";
 
 const { Panel } = Collapse;
-
-
 
 const askingPrice = [
   "Under $50K",
@@ -56,7 +52,6 @@ const ownerShipType = [
 ];
 
 const sortBy = ["Newest First", "Price Low to High", "Most Viewed"];
-
 const ageListing = [
   "Anytime",
   "Last 3 Days",
@@ -92,25 +87,52 @@ export default function AllBusinessFilterAnt() {
     setCountries(Country.getAllCountries());
   }, []);
 
-  const handleCountryChange = (value) => {
-    setSelectedCountry(value);
-    setStates(State.getStatesOfCountry(value));
-    setCities([]);
-    setSelectedState(null);
-    setSelectedCity(null);
+  const handleCountryChange = (value, checked) => {
+    if (checked) {
+      setSelectedCountry(value);
+      setStates(State.getStatesOfCountry(value));
+      setCities([]);
+      setSelectedState(null);
+      setSelectedCity(null);
+    } else {
+      setSelectedCountry(null);
+      setStates([]);
+      setSelectedState(null);
+      setCities([]);
+      setSelectedCity(null);
+    }
   };
 
-  const handleStateChange = (value) => {
-    setSelectedState(value);
-    const selectedStateObj = states?.find((s) => s.name === value);
-    setCities(
-      City.getCitiesOfState(selectedCountry, selectedStateObj?.isoCode)
-    );
-    setSelectedCity(null);
+  const handleStateChange = (value, checked) => {
+    if (checked) {
+      setSelectedState(value);
+      const selectedStateObj = states?.find((s) => s.name === value);
+      setCities(
+        City.getCitiesOfState(selectedCountry, selectedStateObj?.isoCode)
+      );
+      setSelectedCity(null);
+    } else {
+      setSelectedState(null);
+      setCities([]);
+      setSelectedCity(null);
+    }
   };
 
-  const handleCityChange = (value) => {
-    setSelectedCity(value);
+  const handleCityChange = (value, checked) => {
+    if (checked) {
+      setSelectedCity(value);
+    } else {
+      setSelectedCity(null);
+    }
+  };
+
+  // Helper function to handle checkbox changes with single selection logic
+  const handleCheckboxChange = (value, checked, setter) => {
+    if (checked) {
+      setter(value);
+    } else {
+      setter(null);
+    }
   };
 
   useEffect(() => {
@@ -172,67 +194,79 @@ export default function AllBusinessFilterAnt() {
         )}
       >
         <Panel header="Business Category" key="1">
-          <Radio.Group
-            value={selectedCategory}
-            onChange={(e) => {
-              setSelectedCategory(e.target.value);
-              setSelectedSubCategory(null);
-            }}
-          >
-            {categorys?.data?.map((category) => (
-              <div key={category?.categoryName} className="mb-2">
-                <Radio value={category?.categoryName}>
-                  {category?.categoryName}
-                </Radio>
+          {categorys?.data?.map((category) => (
+            <div key={category?.categoryName} className="mb-2">
+              <Checkbox
+                checked={selectedCategory === category?.categoryName}
+                onChange={(e) => {
+                  handleCheckboxChange(
+                    category?.categoryName,
+                    e.target.checked,
+                    setSelectedCategory
+                  );
+                  if (e.target.checked) {
+                    setSelectedSubCategory(null);
+                  }
+                }}
+              >
+                {category?.categoryName}
+              </Checkbox>
 
-                {selectedCategory === category?.categoryName &&
-                  category?.subCategories?.length > 0 && (
-                    <div className="ml-6 mt-2">
-                      <Radio.Group
-                        value={selectedSubCategory}
-                        onChange={(e) => setSelectedSubCategory(e.target.value)}
-                      >
-                        {category?.subCategories.map((sub) => (
-                          <div key={sub?.name} className="mb-1">
-                            <Radio value={sub?.name}>{sub?.name}</Radio>
-                          </div>
-                        ))}
-                      </Radio.Group>
-                    </div>
-                  )}
-              </div>
-            ))}
-          </Radio.Group>
+              {selectedCategory === category?.categoryName &&
+                category?.subCategories?.length > 0 && (
+                  <div className="ml-6 mt-2">
+                    {category?.subCategories.map((sub) => (
+                      <div key={sub?.name} className="mb-1">
+                        <Checkbox
+                          checked={selectedSubCategory === sub?.name}
+                          onChange={(e) =>
+                            handleCheckboxChange(
+                              sub?.name,
+                              e.target.checked,
+                              setSelectedSubCategory
+                            )
+                          }
+                        >
+                          {sub?.name}
+                        </Checkbox>
+                      </div>
+                    ))}
+                  </div>
+                )}
+            </div>
+          ))}
         </Panel>
       </Collapse>
 
       <div className="my-2">
         <Collapse
+        
           expandIcon={({ isActive }) => (
             <DownOutlined rotate={isActive ? 180 : 0} />
           )}
         >
           <Panel header="Country" key="1">
             <div style={{ maxHeight: "200px", overflowY: "auto" }}>
-              <Radio.Group
-                value={selectedCountry}
-                onChange={(e) => handleCountryChange(e.target.value)}
-              >
-                {countries?.map((country) => (
-                  <Radio key={country?.isoCode} value={country?.isoCode}>
-                    <div className="flex items-center gap-2">
-                      <Image
-                        src={`https://flagcdn.com/w20/${country?.isoCode.toLowerCase()}.png`}
-                        alt={country?.name}
-                        width={20}
-                        height={15}
-                        className="object-cover"
-                      />
-                      {country?.name}
-                    </div>
-                  </Radio>
-                ))}
-              </Radio.Group>
+              {countries?.map((country) => (
+                <Checkbox
+                  key={country?.isoCode}
+                  checked={selectedCountry === country?.isoCode}
+                  onChange={(e) =>
+                    handleCountryChange(country?.isoCode, e.target.checked)
+                  }
+                >
+                  <div className="flex items-center gap-2">
+                    <Image
+                      src={`https://flagcdn.com/w20/${country?.isoCode.toLowerCase()}.png`}
+                      alt={country?.name}
+                      width={20}
+                      height={15}
+                      className="object-cover"
+                    />
+                    {country?.name}
+                  </div>
+                </Checkbox>
+              ))}
             </div>
           </Panel>
         </Collapse>
@@ -246,16 +280,17 @@ export default function AllBusinessFilterAnt() {
         >
           <Panel header="State" key="2">
             <div style={{ maxHeight: "200px", overflowY: "auto" }}>
-              <Radio.Group
-                value={selectedState}
-                onChange={(e) => handleStateChange(e.target.value)}
-              >
-                {states?.map((state) => (
-                  <Radio key={state?.isoCode} value={state?.name}>
-                    {state?.name}
-                  </Radio>
-                ))}
-              </Radio.Group>
+              {states?.map((state) => (
+                <Checkbox
+                  key={state?.isoCode}
+                  checked={selectedState === state?.name}
+                  onChange={(e) =>
+                    handleStateChange(state?.name, e.target.checked)
+                  }
+                >
+                  {state?.name}
+                </Checkbox>
+              ))}
             </div>
           </Panel>
         </Collapse>
@@ -269,16 +304,17 @@ export default function AllBusinessFilterAnt() {
         >
           <Panel header="City" key="3">
             <div style={{ maxHeight: "200px", overflowY: "auto" }}>
-              <Radio.Group
-                value={selectedCity}
-                onChange={(e) => handleCityChange(e.target.value)}
-              >
-                {cities?.map((city) => (
-                  <Radio key={city?.name} value={city?.name}>
-                    {city?.name}
-                  </Radio>
-                ))}
-              </Radio.Group>
+              {cities?.map((city) => (
+                <Checkbox
+                  key={city?.name}
+                  checked={selectedCity === city?.name}
+                  onChange={(e) =>
+                    handleCityChange(city?.name, e.target.checked)
+                  }
+                >
+                  {city?.name}
+                </Checkbox>
+              ))}
             </div>
           </Panel>
         </Collapse>
@@ -291,16 +327,18 @@ export default function AllBusinessFilterAnt() {
           )}
         >
           <Panel header="Asking Price" key="1">
-            <Radio.Group
-              value={selectedAskingPrice}
-              onChange={(e) => setSelectedAskingPrice(e.target.value)}
-            >
-              {askingPrice.map((category) => (
-                <div key={category} className="mb-2">
-                  <Radio value={category}>{category}</Radio>
-                </div>
-              ))}
-            </Radio.Group>
+            {askingPrice.map((option) => (
+              <div key={option} className="mb-2">
+                <Checkbox
+                  checked={selectedAskingPrice === option}
+                  onChange={(e) =>
+                    handleCheckboxChange(option, e.target.checked, setSelectedAskingPrice)
+                  }
+                >
+                  {option}
+                </Checkbox>
+              </div>
+            ))}
           </Panel>
         </Collapse>
       </div>
@@ -312,16 +350,18 @@ export default function AllBusinessFilterAnt() {
           )}
         >
           <Panel header="Business Type" key="1">
-            <Radio.Group
-              value={selectedBusinessType}
-              onChange={(e) => setSelectedBusinessType(e.target.value)}
-            >
-              {businessType.map((category) => (
-                <div key={category} className="mb-2">
-                  <Radio value={category}>{category}</Radio>
-                </div>
-              ))}
-            </Radio.Group>
+            {businessType.map((option) => (
+              <div key={option} className="mb-2">
+                <Checkbox
+                  checked={selectedBusinessType === option}
+                  onChange={(e) =>
+                    handleCheckboxChange(option, e.target.checked, setSelectedBusinessType)
+                  }
+                >
+                  {option}
+                </Checkbox>
+              </div>
+            ))}
           </Panel>
         </Collapse>
       </div>
@@ -333,16 +373,18 @@ export default function AllBusinessFilterAnt() {
           )}
         >
           <Panel header="Ownership Type" key="1">
-            <Radio.Group
-              value={selectedOwnerShipType}
-              onChange={(e) => setSelectedOwnerShipType(e.target.value)}
-            >
-              {ownerShipType.map((category) => (
-                <div key={category} className="mb-2">
-                  <Radio value={category}>{category}</Radio>
-                </div>
-              ))}
-            </Radio.Group>
+            {ownerShipType.map((option) => (
+              <div key={option} className="mb-2">
+                <Checkbox
+                  checked={selectedOwnerShipType === option}
+                  onChange={(e) =>
+                    handleCheckboxChange(option, e.target.checked, setSelectedOwnerShipType)
+                  }
+                >
+                  {option}
+                </Checkbox>
+              </div>
+            ))}
           </Panel>
         </Collapse>
       </div>
@@ -354,16 +396,18 @@ export default function AllBusinessFilterAnt() {
           )}
         >
           <Panel header="Sort By" key="1">
-            <Radio.Group
-              value={selectedSortBy}
-              onChange={(e) => setSelectedSortBy(e.target.value)}
-            >
-              {sortBy.map((category) => (
-                <div key={category} className="mb-2">
-                  <Radio value={category}>{category}</Radio>
-                </div>
-              ))}
-            </Radio.Group>
+            {sortBy.map((option) => (
+              <div key={option} className="mb-2">
+                <Checkbox
+                  checked={selectedSortBy === option}
+                  onChange={(e) =>
+                    handleCheckboxChange(option, e.target.checked, setSelectedSortBy)
+                  }
+                >
+                  {option}
+                </Checkbox>
+              </div>
+            ))}
           </Panel>
         </Collapse>
       </div>
@@ -375,16 +419,18 @@ export default function AllBusinessFilterAnt() {
           )}
         >
           <Panel header="Age Of Listing" key="1">
-            <Radio.Group
-              value={selectedAgeListing}
-              onChange={(e) => setSelectedAgeListing(e.target.value)}
-            >
-              {ageListing.map((category) => (
-                <div key={category} className="mb-2">
-                  <Radio value={category}>{category}</Radio>
-                </div>
-              ))}
-            </Radio.Group>
+            {ageListing.map((option) => (
+              <div key={option} className="mb-2">
+                <Checkbox
+                  checked={selectedAgeListing === option}
+                  onChange={(e) =>
+                    handleCheckboxChange(option, e.target.checked, setSelectedAgeListing)
+                  }
+                >
+                  {option}
+                </Checkbox>
+              </div>
+            ))}
           </Panel>
         </Collapse>
       </div>
@@ -395,6 +441,7 @@ export default function AllBusinessFilterAnt() {
     setCurrentPage(page);
   };
 
+  // Rest of the component remains the same...
   return (
     <div className="container m-auto">
       <div className="flex min-h-screen bg-white my-11">
@@ -490,7 +537,7 @@ export default function AllBusinessFilterAnt() {
                       src={`${imageUrl}/Uploads/business-image/${business.image}`}
                       width={300}
                       height={250}
-                         style={{
+                      style={{
                         height: 250,
                         objectFit: "cover",
                       }}
@@ -516,7 +563,7 @@ export default function AllBusinessFilterAnt() {
                       src={`${imageUrl}/Uploads/business-image/${business.image}`}
                       width={400}
                       height={300}
-                       style={{
+                      style={{
                         width: "400px",
                         height: "300px",
                         objectFit: "cover",

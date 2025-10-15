@@ -8,7 +8,8 @@ import img from "../../../public/contact-us.png";
 import { useGetProfileQuery } from "@/redux/Api/userApi";
 import { useAddContactMutation } from "@/redux/Api/businessApi";
 import Header from "@/components/shared/Header";
-import toast from "react-hot-toast";
+import { toast } from "react-toastify";
+
 
 export default function ContactUs() {
   const [form] = Form.useForm();

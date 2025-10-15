@@ -22,7 +22,8 @@ import { imageUrl } from "@/redux/Api/baseApi";
 import { Country } from "country-state-city";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion"; 
-import toast from "react-hot-toast";
+import { toast } from "react-toastify";
+
 
 const countryFlags = {
   US: "https://flagcdn.com/w20/us.png",
@@ -108,8 +109,8 @@ const Navbar = () => {
     { key: "valuation", label: "Valuation", submenu: menuItems.valuation },
     {
       key: "business",
-      label: "Business Formation",
-      path: "/business-formation",
+      label: "Blog",
+      path: "/blog",
     },
     {
       key: "resources",
