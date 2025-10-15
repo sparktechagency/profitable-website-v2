@@ -10,13 +10,15 @@ import { useAddContactMutation } from "@/redux/Api/businessApi";
 import Header from "@/components/shared/Header";
 import { toast } from "react-toastify";
 
+import ReactPhoneInput from "react-phone-input-2";
 
+import "react-phone-input-2/lib/style.css";
 export default function ContactUs() {
   const [form] = Form.useForm();
   const { data: profileData } = useGetProfileQuery();
   const [addContact] = useAddContactMutation();
   const [loading, setLoading] = useState(false);
-
+  const [contactNo, setContactNo] = useState("");
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -115,9 +117,10 @@ export default function ContactUs() {
                 requiredMark={false}
                 layout="vertical"
                 onFinish={handleSubmit}
-                className="grid grid-cols-2 gap-4"
+                
               >
-                <Form.Item
+               <div className="grid grid-cols-2 gap-4">
+                 <Form.Item
                   label="First Name"
                   name="firstName"
                   rules={[
@@ -129,6 +132,7 @@ export default function ContactUs() {
                   className="col-span-2 md:col-span-1"
                 >
                   <Input
+                    className="w-full bg-transparent  py-3"
                     placeholder="First Name"
                     name="firstName"
                     value={formData.firstName}
@@ -145,22 +149,26 @@ export default function ContactUs() {
                   className="col-span-2 md:col-span-1"
                 >
                   <Input
+                    className="w-full bg-transparent  py-3"
                     placeholder="Last Name"
                     name="lastName"
                     value={formData.lastName}
                     onChange={handleInputChange}
                   />
                 </Form.Item>
+               </div>
 
-                <Form.Item
+               <div className="grid grid-cols-2 gap-4">
+                 <Form.Item
                   label="Email Address"
                   name="email"
                   rules={[
                     { required: true, message: "Please input your email!" },
                   ]}
-                  className="col-span-2"
+                
                 >
                   <Input
+                    className="w-full bg-transparent  py-3"
                     type="email"
                     placeholder="Email Address"
                     name="email"
@@ -172,19 +180,22 @@ export default function ContactUs() {
                 <Form.Item
                   label="Phone Number"
                   name="phone"
+                  required
                   rules={[
-                    { required: true, message: "Please input your phone!" },
+                    {
+                      required: true,
+                      message: "Please enter your phone number!",
+                    },
                   ]}
-                  className="col-span-2"
                 >
-                  <Input
-                    type="tel"
-                    placeholder="Phone Number"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleInputChange}
+                  <ReactPhoneInput
+                    country={"us"}
+                    value={contactNo}
+                    onChange={(value) => setContactNo(value)}
+                    inputStyle={{ width:'100%', height: "48px" }}
                   />
                 </Form.Item>
+               </div>
 
                 <Form.Item
                   label="Message"
