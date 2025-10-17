@@ -126,7 +126,7 @@ const Review = () => {
   };
 
   return (
-    <div className="mt-20">
+    <div className="md:mt-20 mt-5">
       <div className="mb-11">
         <div className="text-center mb-12">
           <p className="text-blue-500 font-medium mb-2">Our Testimonials</p>

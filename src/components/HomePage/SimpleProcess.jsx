@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import React from "react";
 import backImg from "../../../public/Home/bb.png";
@@ -20,14 +20,15 @@ const SimpleProcess = () => {
       title: "Add or Explore Listings",
       description: (
         <>
-          Sellers & Brokers – List your business, franchise, or business assets for
-          sale with complete details and reach serious buyers worldwide. <br /> <br />
-          Buyers & Investors – Browse thousands of businesses for sale, franchise
-          opportunities, and business assets across multiple industries and
-          countries. <br /> <br />
-          Business Idea Listers – Share your startup ideas and innovative business
-          concepts for free, and connect with the right investors to bring them to
-          life.
+          Sellers & Brokers – List your business, franchise, or business assets
+          for sale with complete details and reach serious buyers worldwide.{" "}
+          <br /> <br />
+          Buyers & Investors – Browse thousands of businesses for sale,
+          franchise opportunities, and business assets across multiple
+          industries and countries. <br /> <br />
+          Business Idea Listers – Share your startup ideas and innovative
+          business concepts for free, and connect with the right investors to
+          bring them to life.
         </>
       ),
     },
@@ -68,9 +69,10 @@ const SimpleProcess = () => {
               How It Works
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Whether you want to sell a business, buy a business, find investors, list business assets, promote a
-              franchise, or share your business ideas, our process is designed to make everything simple and
-              effective. Here&apos;s how it works:
+              Whether you want to sell a business, buy a business, find
+              investors, list business assets, promote a franchise, or share
+              your business ideas, our process is designed to make everything
+              simple and effective. Here&apos;s how it works:
             </p>
           </div>
 
@@ -103,11 +105,12 @@ const SimpleProcess = () => {
 
       <div>
         <div
-          className="bg-[#0A0D53] md:grid grid-cols-2 md:px-11 px-4 py-11 w-full gap-6 text-white mt-20 bg-cover bg-center md:h-[60vh] h-[70vh]"
+          className="bg-[#0A0D53] grid lg:grid-cols-2 lg:px-11 px-4 py-11 w-full gap-6 text-white  bg-cover bg-center lg:h-[60vh] h-auto"
           style={{ backgroundImage: `url(${backImg.src})` }}
         >
-          <div className="md:flex justify-center items-center">
-            <div>
+          {/* Left side text */}
+          <div className="flex justify-center items-center">
+            <div className="text-center md:text-left">
               <h1 className="md:text-6xl text-4xl pb-4 text-black font-bold">
                 ── Start Your <span className="text-[#22C55E]">Business</span>{" "}
                 Journey
@@ -117,20 +120,24 @@ const SimpleProcess = () => {
                 listing with a clear description and image ── and let motivated
                 buyers discover your opportunity.
               </p>
-              <Link href={'/auth/login'}>
+              <Link href={"/auth/login"}>
                 <button className="bg-[#0091FF] md:mt-11 mt-5 mb-5 py-3 px-4 rounded">
                   Create Listing Now
                 </button>
               </Link>
             </div>
           </div>
-          <div className="w-full relative h-full">
-            <Image
-              src={img}
-              alt="Business illustration"
-              fill
-              className="object-contain"
-            />
+
+          {/* Right side image */}
+          <div className="w-full flex justify-center items-center mt-6 md:mt-0">
+            <div className="relative w-full h-[300px] lg:w-full lg:h-[400px]">
+              <Image
+                src={img}
+                alt="Business illustration"
+                fill
+                className="object-contain"
+              />
+            </div>
           </div>
         </div>
       </div>
