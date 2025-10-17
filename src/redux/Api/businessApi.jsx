@@ -279,8 +279,16 @@ const businessApi = baseApi.injectEndpoints({
           params.push(`askingPrice=${encodeURIComponent(askingPrice)}`);
         if (searchText)
           params.push(`searchText=${encodeURIComponent(searchText)}`);
-        if (businessRole)
-          params.push(`businessRole=${encodeURIComponent(businessRole)}`);
+       if (businessRole) {
+  if (Array.isArray(businessRole)) {
+    businessRole.forEach(role =>
+      params.push(`businessRole=${encodeURIComponent(role)}`)
+    );
+  } else {
+    params.push(`businessRole=${encodeURIComponent(businessRole)}`);
+  }
+}
+
 
         if (params.length > 0) {
           url += `?${params.join("&")}`;

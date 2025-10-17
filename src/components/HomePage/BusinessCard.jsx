@@ -161,7 +161,7 @@ const BusinessCard = () => {
             </div>
           </div>
           <Link
-            href="/search?businessRole=Seller"
+            href="/search"
             className="text-blue-500 hover:underline text-sm md:text-lg"
           >
             Explore More
