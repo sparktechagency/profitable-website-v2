@@ -1,11 +1,12 @@
 import React, { Suspense } from "react";
 import MainChat from "./MainChat";
+import ProtectedRoute from "@/components/ProtectedRoute";
 
 const Page = () => {
   return (
     <div>
       <Suspense fallback={<p>loading..</p>}>
-        <MainChat></MainChat>
+        <ProtectedRoute><MainChat></MainChat></ProtectedRoute>
       </Suspense>
     </div>
   );

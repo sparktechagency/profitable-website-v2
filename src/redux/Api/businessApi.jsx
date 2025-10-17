@@ -355,7 +355,7 @@ const businessApi = baseApi.injectEndpoints({
     getAllFormate: builder.query({
       query: () => {
         return {
-          url: "/formation/get-all-format",
+          url: "/formation/get-all-format-website",
           method: "GET",
         };
       },

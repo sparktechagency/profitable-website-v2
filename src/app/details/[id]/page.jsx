@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import React, { useEffect, useState } from "react";
 import img1 from "../../../../public/Home/mm.png";
@@ -8,17 +8,17 @@ import img3 from "../../../../public/Home/oo.png";
 import Link from "next/link"; // Replace react-router-dom Link
 import { useParams } from "next/navigation"; // Replace react-router-dom useParams
 
-
-
 import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
 import { Lock } from "lucide-react";
 import Image from "next/image"; // Import Image from next/image
 import { useGetProfileQuery } from "@/redux/Api/userApi";
-import { useGetSingleIterestUserQuery, useUpdateSoldMutation } from "@/redux/Api/businessApi";
+import {
+  useGetSingleIterestUserQuery,
+  useUpdateSoldMutation,
+} from "@/redux/Api/businessApi";
 import { imageUrl } from "@/redux/Api/baseApi";
 import { Navigate } from "@/components/shared/Navigate";
 import { toast } from "react-toastify";
-
 
 const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
 const libraries = ["places"];
@@ -34,8 +34,14 @@ const MyBusinessDetails = () => {
     libraries,
   });
 
-  const user = typeof window !== "undefined" && typeof localStorage !== "undefined" ? JSON.parse(localStorage.getItem("user")) : null;
-  const hasAccessToken = typeof window !== "undefined" && typeof localStorage !== "undefined" ? localStorage.getItem("accessToken") : null;
+  const user =
+    typeof window !== "undefined" && typeof localStorage !== "undefined"
+      ? JSON.parse(localStorage.getItem("user"))
+      : null;
+  const hasAccessToken =
+    typeof window !== "undefined" && typeof localStorage !== "undefined"
+      ? localStorage.getItem("accessToken")
+      : null;
 
   const { data: profileData, isLoading: profileLoading } = useGetProfileQuery();
   const price = profileData?.data?.subscriptionPlanPrice;
@@ -159,7 +165,9 @@ const MyBusinessDetails = () => {
 
         <div className="mt-5 lg:mt-0">
           <button className="bg-[#C1E1FF] border border-[#0091FF] px-2 py-2 rounded">
-            {businessDetails?.data?.business?.businessRole}
+            {role === "Francise Seller"
+              ? "Franchise Seller"
+              : businessDetails?.data?.business?.businessRole}
           </button>
           <h1 className="text-2xl text-[#0091FF]">
             {businessDetails?.data?.business?.title}
@@ -198,7 +206,9 @@ const MyBusinessDetails = () => {
               role !== "Investor" &&
               hasAccessToken &&
               checkUserId === checkBusinessId && (
-                <Link href={`/EditNewBusiness/${businessDetails?.data?.business?._id}`}>
+                <Link
+                  href={`/EditNewBusiness/${businessDetails?.data?.business?._id}`}
+                >
                   <button className="bg-[#0091FF] px-4 py-1 rounded text-white">
                     Edit {businessDetails?.data?.business?.title}
                   </button>
@@ -217,7 +227,9 @@ const MyBusinessDetails = () => {
                         <Lock className="w-4 h-4 text-gray-400" />
                       </div>
                     )}
-                  <Link href={`/interestBuyer/${businessDetails?.data?.business?._id}`}>
+                  <Link
+                    href={`/interestBuyer/${businessDetails?.data?.business?._id}`}
+                  >
                     <button
                       disabled={
                         (price === 0 || price === null) &&

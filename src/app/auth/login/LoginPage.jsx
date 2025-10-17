@@ -190,7 +190,7 @@ useEffect(() => {
                     <Option value="Buyer">Become a Buyer</Option>
                     <Option value="Seller">Become a Seller</Option>
                     <Option value="Broker">Become a Broker</Option>
-                    <Option value="Franchise Seller">
+                    <Option value="Francise Seller">
                       Become a Franchise Seller
                     </Option>
                     <Option value="Investor">Become Investor</Option>

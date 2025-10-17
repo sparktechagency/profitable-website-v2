@@ -9,6 +9,7 @@ import dayjs from "dayjs";
 
 const BusinessFormationPage = () => {
   const { data: getAllFormat, isLoading, isError } = useGetAllFormateQuery();
+  console.log(getAllFormat)
 
   if (isLoading) return <p>Loading...</p>;
   if (isError || !getAllFormat?.data)

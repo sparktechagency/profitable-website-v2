@@ -15,7 +15,7 @@ const footerConfig = {
     tagline: "From Listings to Legacy",
     logo: Logo,
     backgroundImage: backImg,
-    copyright: "© 2023 PBFS.com",
+    copyright: "© 2023 PBFS",
   },
 
   socialLinks: [
@@ -57,7 +57,7 @@ const footerConfig = {
         { text: "Businesses for Sale", to: "/auth/login", state: "Business seller" },
         { text: "Business Assets for Sale", to: "/auth/login", state: "Business asset seller" },
         { text: "Business Ideas for Investors", to: "/auth/login", state: "Business idea seller" },
-        { text: "Franchises for Sale", to: "/auth/login", state: "Franchise seller" },
+        { text: "Franchises for Sale", to: "/auth/login", state: "Francise seller" },
       ],
     },
     {

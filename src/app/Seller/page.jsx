@@ -1,16 +1,16 @@
-import React, { Suspense } from 'react'
+import React, { Suspense } from "react";
 
-import Seller from './SellerPage'
+import Seller from "./SellerPage";
+import ProtectedRoute from "@/components/ProtectedRoute";
 
 const Page = () => {
   return (
     <div>
-       <Suspense fallback={<p>loading..</p>}>
-  <Seller></Seller>
-
+      <Suspense fallback={<p>loading..</p>}>
+        <ProtectedRoute><Seller></Seller></ProtectedRoute>
       </Suspense>
     </div>
-  )
-}
+  );
+};
 
-export default Page
+export default Page;

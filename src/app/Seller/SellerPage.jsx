@@ -58,40 +58,37 @@ const Seller = () => {
   const { data: profileData } = useGetProfileQuery();
   const role = profileData?.data?.role;
 
-  const onFinish = async (values) => {
-    setLoading(true);
-    try {
-      const formData = new FormData();
+const onFinish = async (values) => {
+  setLoading(true);
+  try {
+    const formData = new FormData();
 
-      Object.entries(values).forEach(([key, value]) => {
-        if (!Array.isArray(value)) {
-          formData.append(key, value);
-        }
-      });
+    // Append text fields
+    formData.append("name", values.name);
+    formData.append("email", values.email);
+    formData.append("phone", values.phone);
+    formData.append("nidPassportNumber", values.nidPassportNumber);
 
-      const pdfFields = [
-        "passportNationalIDNumber",
-        "uploadTradeLicense",
-        "signature",
-      ];
+    // Append all PDF files under the same key 'nda-file'
+    const pdfFields = ["passportNationalIDNumber", "uploadTradeLicense", "signature"];
+    pdfFields.forEach((field) => {
+      const fileList = values[field];
+      if (fileList?.[0]?.originFileObj) {
+        formData.append("nda-file", fileList[0].originFileObj);
+      }
+    });
 
-      pdfFields.forEach((fieldName) => {
-        const fileList = values[fieldName];
-        if (fileList?.[0]) {
-          formData.append(fieldName, fileList[0].originFileObj);
-        }
-      });
+    const res = await addNda(formData).unwrap();
+    toast.success(res.message);
+    form.resetFields();
+  } catch (error) {
+    console.error(error);
+    toast.error(error?.data?.message || "Something went wrong!");
+  } finally {
+    setLoading(false);
+  }
+};
 
-      const res = await addNda(formData).unwrap();
-      toast.success(res.message);
-      form.resetFields();
-    } catch (error) {
-      console.error(error);
-      toast.error(error?.data?.message);
-    } finally {
-      setLoading(false);
-    }
-  };
 
   return (
     <div className="pt-11 lg:pt-0">
@@ -172,7 +169,7 @@ const Seller = () => {
 
                 <div className="grid md:grid-cols-3 gap-4">
                   <Form.Item
-                    label="Passport/National ID Number"
+                    label="Passport/National ID PDF"
                     name="passportNationalIDNumber"
                     valuePropName="fileList"
                     getValueFromEvent={(e) =>

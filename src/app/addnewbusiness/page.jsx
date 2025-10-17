@@ -1,16 +1,17 @@
-import { Suspense } from 'react'
 
 
-import AddNewBusiness from './AddNewBusiness'
+import { Suspense } from "react";
+import AddNewBusiness from "./AddNewBusiness";
+import ProtectedRoute from "@/components/ProtectedRoute";
 
 const Page = () => {
   return (
-    <div>
-       <Suspense>
-      <AddNewBusiness></AddNewBusiness>
-      </Suspense>
-    </div>
-  )
-}
+    <Suspense>
+      <ProtectedRoute>
+        <AddNewBusiness />
+      </ProtectedRoute>
+    </Suspense>
+  );
+};
 
-export default Page
+export default Page;

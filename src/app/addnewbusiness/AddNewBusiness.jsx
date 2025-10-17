@@ -201,7 +201,7 @@ const router = useRouter();
 - Use the right industry/category<br>
 - Keep listings updated<br><br>
 💡 Tip for Brokers: Quality and transparency attract serious buyers.`;
-  } else if (role === "Franchise Seller" || role === "Francise Seller") {
+  } else if (role === "Francise Seller" || role === "Francise Seller") {
     placeholderText = `
 ❌ Don’ts (What NOT to Do)<br><br>
 - Do not include personal contact details<br>
@@ -487,7 +487,7 @@ useEffect(() => {
             >
               <Select
                 style={{ height: "48px" }}
-                placeholder="Select Inquiry"
+                placeholder="Select Business Type"
                 className="w-full"
               >
                 <Option>Select</Option>

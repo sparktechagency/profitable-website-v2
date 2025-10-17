@@ -2,13 +2,14 @@ import React, { Suspense } from 'react'
 
 
 import ProfilePage from './ProfilePage'
+import ProtectedRoute from '@/components/ProtectedRoute'
 
 const Page = () => {
   return (
     <div>
        <Suspense fallback={<p>loading..</p>}>
   
-<ProfilePage></ProfilePage>
+<ProtectedRoute><ProfilePage></ProfilePage></ProtectedRoute>
       </Suspense>
     </div>
   )

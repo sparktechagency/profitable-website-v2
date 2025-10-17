@@ -28,7 +28,7 @@ function ForgotPassword() {
     }
 
     const data = {
-      email: values.email,
+      email: values.email.toLowerCase(),
       role: values.role,
     };
 

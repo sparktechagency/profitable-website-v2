@@ -515,7 +515,7 @@ const { id: businessId } = useParams();
             >
               <Select
                 style={{ height: "48px" }}
-                placeholder="Select Inquiry"
+                placeholder="Select Business Type"
                 className="w-full"
               >
                 <Option>Select</Option>
