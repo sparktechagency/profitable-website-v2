@@ -275,7 +275,7 @@ const BusinessValuationPage = () => {
           >
             <Select
               style={{ height: "48px" }}
-              placeholder="Select Inquiry"
+              placeholder="Buisiness Type"
               className="w-full"
             >
               <Option>Select</Option>
