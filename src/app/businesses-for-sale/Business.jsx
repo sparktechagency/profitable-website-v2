@@ -1,5 +1,4 @@
-
-"use client"
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -12,10 +11,9 @@ import SimpleProcess from "@/components/HomePage/SimpleProcess";
 import Review from "@/components/HomePage/Review";
 import { Suspense } from "react";
 
-
 const Business = () => {
   return (
-  <main className="min-h-screen">
+    <main className="min-h-screen">
       {/* Hero Section */}
       <section className="relative pb-16">
         {/* Background Image with Overlay */}
@@ -58,19 +56,19 @@ const Business = () => {
       </section>
 
       <Suspense fallback={<p>loading..</p>}>
-     <Hero></Hero>
+        <Hero></Hero>
       </Suspense>
       <div className="container m-auto lg:px-4 px-4">
         <Suspense fallback={<p>loading..</p>}>
-  <BusinessCard></BusinessCard>
-        <Category></Category>
-        <Country></Country>
-        <SimpleProcess></SimpleProcess>
-        <Review></Review>
-      </Suspense>
+          <BusinessCard></BusinessCard>
+          <Category></Category>
+          <Country></Country>
+          <SimpleProcess></SimpleProcess>
+          <Review></Review>
+        </Suspense>
       </div>
     </main>
-  )
-}
+  );
+};
 
-export default Business
+export default Business;

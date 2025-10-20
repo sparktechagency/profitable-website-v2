@@ -71,9 +71,9 @@ const MyBusiness = () => {
               />
             </div>
             <div className="p-4">
-              <h3 className="text-xl font-semibold text-gray-800 mb-2">
+              <h1 className="text-xl font-semibold text-gray-800 mb-2">
                 {item?.businessId?.title}
-              </h3>
+              </h1>
               <p className="text-gray-600 mb-2">{item?.businessId?.location}</p>
               <div className="mb-2">
                 <span className="text-blue-500">
@@ -128,9 +128,9 @@ const MyBusiness = () => {
               />
             </div>
             <div className="p-4">
-              <h3 className="text-xl font-semibold text-gray-800 mb-2">
+              <h1 className="text-xl font-semibold text-gray-800 mb-2">
                 {item?.title}
-              </h3>
+              </h1>
               <p className="text-gray-600 mb-2">{item?.location}</p>
               <div className="mb-2">
                 <span className="text-blue-500">{item?.category}</span> ||{" "}
@@ -183,9 +183,9 @@ const MyBusiness = () => {
               />
             </div>
             <div className="p-4">
-              <h3 className="text-xl font-semibold text-gray-800 mb-2">
+              <h1 className="text-xl font-semibold text-gray-800 mb-2">
                 {item?.businessId?.title}
-              </h3>
+              </h1>
               <p className="text-gray-600 mb-2">{item?.businessId?.location}</p>
               <div className="mb-2">
                 <span className="text-blue-500">
@@ -244,9 +244,9 @@ const MyBusiness = () => {
             />
           </div>
           <div className="p-4">
-            <h3 className="text-xl font-semibold text-gray-800 mb-2">
+            <h1 className="text-xl font-semibold text-gray-800 mb-2">
               {item?.title}
-            </h3>
+            </h1>
             <p className="text-gray-600 mb-2">{item?.location}</p>
             <div className="mb-2">
               <span className="text-blue-500">{item?.category}</span> ||{" "}

@@ -10,8 +10,20 @@ import Category from "@/components/HomePage/Category";
 import Country from "@/components/HomePage/Country";
 import Review from "@/components/HomePage/Review";
 import SimpleProcess from "@/components/HomePage/SimpleProcess";
+export const metadata = {
+  title: "PBFS – Best Website to Sell a Business in Dubai, UAE",
+  description:
+    "Explore Our Profitable Businesses For Sale in Dubai, UAE. Buy or sell your business confidently on the best website for profitable business deals.",
+  keywords: [
+    "Best website to sell a business",
+    "Profitable Business For Sale Dubai",
+    "Business for sale UAE",
+    "Buy business in Dubai",
+  ],
+};
 
 export default function Home() {
+  
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
@@ -37,14 +49,14 @@ export default function Home() {
               <span className="text-[#0091FF]"> Worldwide</span>
             </h1>
 
-            <h1 className="text-white text-lg mb-8">
+            <h2 className="text-white text-lg mb-8">
               Connect with serious buyers, sellers, brokers, investors,
               franchisors, and business idea listers on{" "}
               <span className="font-semibold">
                 ProfitableBusinessesForSale.com
               </span>{" "}
               — the trusted marketplace that helps you grow.
-            </h1>
+            </h2>
 
             <Link href="/auth/login">
               <button className="bg-[#0091FF] hover:bg-blue-600 text-white px-8 py-3 rounded text-lg">
