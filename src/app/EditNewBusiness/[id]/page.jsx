@@ -25,6 +25,7 @@ import { Navigate } from "@/components/shared/Navigate";
 
 import Image from "next/image";
 import { toast } from "react-toastify";
+import { useGetProfileQuery } from "@/redux/Api/userApi";
 const { Option } = Select;
 dayjs.extend(customParseFormat);
 
@@ -38,7 +39,9 @@ const { id: businessId } = useParams();
   const [fileList, setFileList] = useState([]);
   const [updateSingleData] = useUpdateSingleMutation();
   const { data: businessDetails } = useGetSingleBusinessQuery({ businessId });
+ const { data: profileData, isLoading: profileLoading } = useGetProfileQuery();
 
+  const role = profileData?.data?.role;
   const [countries, setCountries] = useState([]);
   const [states, setStates] = useState([]);
   const [cities, setCities] = useState([]);
@@ -507,7 +510,7 @@ const { id: businessId } = useParams();
               </Select>
             </Form.Item>
             <Form.Item
-              label="Buisiness Type"
+              label="Business Type"
               name="businessType"
               rules={[
                 { required: true, message: "Please input business Type!" },
@@ -528,10 +531,17 @@ const { id: businessId } = useParams();
             </Form.Item>
           </div>
 
-          <Form.Item label="Reason For Listing" name="reason">
+            <Form.Item
+                      label={
+                        role === "Business Idea Lister" ? "Reason for Required Funding" : "Reason for Selling"
+                      }
+                      name="reason"
+                    >
             <Input
               className="w-full bg-transparent py-3"
-              placeholder="Reason for Required Funding"
+              placeholder={
+                        role === "Business Idea Lister" ? "Reason for Required Funding" : "Reason for Selling"
+                      }
             />
           </Form.Item>
 

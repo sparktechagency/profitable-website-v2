@@ -91,15 +91,15 @@ export default function AdvanceSearch() {
     );
     form.setFieldsValue({ city: undefined });
   };
-
- useEffect(() => {
+useEffect(() => {
   if (categorie?.data?.length) {
-    const defaultCategory = categorie.data[0];
-    setSelectedCategory(defaultCategory?.categoryName);
-    setSubCategories(defaultCategory?.subCategories || []);
-    form.setFieldsValue({ category: defaultCategory?.categoryName });
+   
+    setSelectedCategory(null);
+    setSubCategories([]);
   }
-}, [categorie?.data, form]);
+}, [categorie?.data]);
+
+
 
 
   return (
@@ -121,19 +121,20 @@ export default function AdvanceSearch() {
       <Form form={form} onFinish={handleSearch} layout="vertical" className="">
         <div className="">
           <Form.Item label="Business Category" name="category">
-            <Select
-              style={{ height: "48px" }}
-              placeholder="Select Category"
-              onChange={handleCategoryChange}
-              value={selectedCategory}
-            >
-              {categorie?.data?.map((cat) => (
-                <Option key={cat._id} value={cat?.categoryName}>
-                  {cat?.categoryName}
-                </Option>
-              ))}
-            </Select>
-          </Form.Item>
+  <Select
+    style={{ height: "48px" }}
+    placeholder="Select Category"
+    onChange={handleCategoryChange}
+    allowClear
+    value={selectedCategory || undefined}
+  >
+    {categorie?.data?.map((cat) => (
+      <Option key={cat._id} value={cat?.categoryName}>
+        {cat?.categoryName}
+      </Option>
+    ))}
+  </Select>
+</Form.Item>
 
           {subCategories?.length > 0 && (
             <Form.Item label="Sub Category" name="subCategory">

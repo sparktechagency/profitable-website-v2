@@ -1,6 +1,8 @@
 "use client";
 import { Form, Select, Spin } from "antd";
+import ReactPhoneInput from "react-phone-input-2";
 
+import "react-phone-input-2/lib/style.css";
 import { useState } from "react";
 import { useGetProfileQuery } from "@/redux/Api/userApi";
 import { usePostScheduleMutation } from "@/redux/Api/metaApi";
@@ -12,9 +14,10 @@ const SchedualeCall = () => {
   const [loading, setLoading] = useState(false);
   const { data: profileData, isLoading: profileLoading } = useGetProfileQuery();
   const userId = profileData?.data?._id;
-  const isBrowser = typeof window !== "undefined" && typeof localStorage !== "undefined";
+  const isBrowser =
+    typeof window !== "undefined" && typeof localStorage !== "undefined";
   const user = isBrowser ? JSON.parse(localStorage.getItem("user")) : null;
-
+  const [contactNo, setContactNo] = useState("");
   const [addSchedule] = usePostScheduleMutation();
   const [form] = Form.useForm();
 
@@ -25,6 +28,7 @@ const SchedualeCall = () => {
       userId,
       name: values?.fullName,
       email: values?.email,
+      phone: values?.phone,
       date: values?.preferredDate,
       time: values?.preferredTime,
       timeZone: values?.timeZone,
@@ -110,59 +114,84 @@ const SchedualeCall = () => {
           />
         </Form.Item>
 
-        <Form.Item
-          label="Time Zone"
-          name="timeZone"
-          className="col-span-2"
-          rules={[{ required: true, message: "Please select your time zone" }]}
-        >
-          <Select
-            style={{ height: "50px" }}
-            placeholder="Select your time zone"
+        <div className="md:grid grid-cols-2 gap-4">
+          <Form.Item
+            label="Time Zone"
+            name="timeZone"
+            className="col-span-2"
+            rules={[
+              { required: true, message: "Please select your time zone" },
+            ]}
           >
-            <Option value="UTC-12:00">GMT -12:00</Option>
-            <Option value="UTC-11:00">GMT -11:00</Option>
-            <Option value="UTC-10:00">GMT -10:00</Option>
-            <Option value="UTC-09:30">GMT -09:30</Option>
-            <Option value="UTC-09:00">GMT -09:00</Option>
-            <Option value="UTC-08:00">GMT -08:00</Option>
-            <Option value="UTC-07:00">GMT -07:00</Option>
-            <Option value="UTC-06:00">GMT -06:00</Option>
-            <Option value="UTC-05:00">GMT -05:00</Option>
-            <Option value="UTC-04:30">GMT -04:30</Option>
-            <Option value="UTC-04:00">GMT -04:00</Option>
-            <Option value="UTC-03:30">GMT -03:30</Option>
-            <Option value="UTC-03:00">GMT -03:00</Option>
-            <Option value="UTC-02:00">GMT -02:00</Option>
-            <Option value="UTC-01:00">GMT -01:00</Option>
-            <Option value="UTC+00:00">GMT +00:00 (UTC)</Option>
-            <Option value="UTC+01:00">GMT +01:00</Option>
-            <Option value="UTC+02:00">GMT +02:00</Option>
-            <Option value="UTC+03:00">GMT +03:00</Option>
-            <Option value="UTC+03:30">GMT +03:30</Option>
-            <Option value="UTC+04:00">GMT +04:00</Option>
-            <Option value="UTC+04:30">GMT +04:30</Option>
-            <Option value="UTC+05:00">GMT +05:00</Option>
-            <Option value="UTC+05:30">GMT +05:30</Option>
-            <Option value="UTC+05:45">GMT +05:45</Option>
-            <Option value="UTC+06:00">
-              GMT +06:00 (Bangladesh / Sri Lanka)
-            </Option>
-            <Option value="UTC+06:30">GMT +06:30</Option>
-            <Option value="UTC+07:00">GMT +07:00</Option>
-            <Option value="UTC+08:00">GMT +08:00</Option>
-            <Option value="UTC+08:30">GMT +08:30</Option>
-            <Option value="UTC+09:00">GMT +09:00</Option>
-            <Option value="UTC+09:30">GMT +09:30</Option>
-            <Option value="UTC+10:00">GMT +10:00</Option>
-            <Option value="UTC+10:30">GMT +10:30</Option>
-            <Option value="UTC+11:00">GMT +11:00</Option>
-            <Option value="UTC+12:00">GMT +12:00</Option>
-            <Option value="UTC+12:45">GMT +12:45</Option>
-            <Option value="UTC+13:00">GMT +13:00</Option>
-            <Option value="UTC+14:00">GMT +14:00</Option>
-          </Select>
-        </Form.Item>
+            <Select
+              style={{ height: "50px" }}
+              placeholder="Select your time zone"
+            >
+              <Option value="UTC-12:00">GMT -12:00</Option>
+              <Option value="UTC-11:00">GMT -11:00</Option>
+              <Option value="UTC-10:00">GMT -10:00</Option>
+              <Option value="UTC-09:30">GMT -09:30</Option>
+              <Option value="UTC-09:00">GMT -09:00</Option>
+              <Option value="UTC-08:00">GMT -08:00</Option>
+              <Option value="UTC-07:00">GMT -07:00</Option>
+              <Option value="UTC-06:00">GMT -06:00</Option>
+              <Option value="UTC-05:00">GMT -05:00</Option>
+              <Option value="UTC-04:30">GMT -04:30</Option>
+              <Option value="UTC-04:00">GMT -04:00</Option>
+              <Option value="UTC-03:30">GMT -03:30</Option>
+              <Option value="UTC-03:00">GMT -03:00</Option>
+              <Option value="UTC-02:00">GMT -02:00</Option>
+              <Option value="UTC-01:00">GMT -01:00</Option>
+              <Option value="UTC+00:00">GMT +00:00 (UTC)</Option>
+              <Option value="UTC+01:00">GMT +01:00</Option>
+              <Option value="UTC+02:00">GMT +02:00</Option>
+              <Option value="UTC+03:00">GMT +03:00</Option>
+              <Option value="UTC+03:30">GMT +03:30</Option>
+              <Option value="UTC+04:00">GMT +04:00</Option>
+              <Option value="UTC+04:30">GMT +04:30</Option>
+              <Option value="UTC+05:00">GMT +05:00</Option>
+              <Option value="UTC+05:30">GMT +05:30</Option>
+              <Option value="UTC+05:45">GMT +05:45</Option>
+              <Option value="UTC+06:00">
+                GMT +06:00 (Bangladesh / Sri Lanka)
+              </Option>
+              <Option value="UTC+06:30">GMT +06:30</Option>
+              <Option value="UTC+07:00">GMT +07:00</Option>
+              <Option value="UTC+08:00">GMT +08:00</Option>
+              <Option value="UTC+08:30">GMT +08:30</Option>
+              <Option value="UTC+09:00">GMT +09:00</Option>
+              <Option value="UTC+09:30">GMT +09:30</Option>
+              <Option value="UTC+10:00">GMT +10:00</Option>
+              <Option value="UTC+10:30">GMT +10:30</Option>
+              <Option value="UTC+11:00">GMT +11:00</Option>
+              <Option value="UTC+12:00">GMT +12:00</Option>
+              <Option value="UTC+12:45">GMT +12:45</Option>
+              <Option value="UTC+13:00">GMT +13:00</Option>
+              <Option value="UTC+14:00">GMT +14:00</Option>
+            </Select>
+          </Form.Item>
+
+          <div className=" gap-4">
+            <Form.Item
+              label="Phone Number"
+              name="phone"
+              required
+              rules={[
+                {
+                  required: true,
+                  message: "Please enter your phone number!",
+                },
+              ]}
+            >
+              <ReactPhoneInput
+                country={"us"}
+                value={contactNo}
+                onChange={(value) => setContactNo(value)}
+                inputStyle={{ width: "100%", height: "48px" }}
+              />
+            </Form.Item>
+          </div>
+        </div>
 
         <Form.Item
           label="Meeting Topic"

@@ -479,7 +479,7 @@ useEffect(() => {
               </Select>
             </Form.Item>
             <Form.Item
-              label="Buisiness Type"
+              label="Business Type"
               name="businessType"
               rules={[
                 { required: true, message: "Please input business Type!" },
@@ -503,13 +503,15 @@ useEffect(() => {
 
           <Form.Item
             label={
-              role === "Business Idea Lister" ? "Reason" : "Reason for Selling"
+              role === "Business Idea Lister" ? "Reason for Required Funding" : "Reason for Selling"
             }
             name="reason"
           >
             <Input
               className="w-full bg-transparent py-3"
-              placeholder="Reason for selling"
+              placeholder={
+                        role === "Business Idea Lister" ? "Reason for Required Funding" : "Reason for Selling"
+                      }
             />
           </Form.Item>
 

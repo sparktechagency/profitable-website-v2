@@ -25,7 +25,22 @@ const MyBusiness = () => {
   const user = isBrowser ? JSON.parse(localStorage.getItem("user")) : null;
   const { data: profileData, isLoading: profileLoading } = useGetProfileQuery();
   const role = profileData?.data?.role;
+let currentTitle = "Current for sale";
+let soldTitle = "Previous that have been sold";
 
+if (role === "Seller") {
+  currentTitle = "Current Business(es) Listed for Sale";
+  soldTitle = "Previous Business(es) that have been Sold";
+} else if (role === "Asset Seller") {
+  currentTitle = "Current Asset(s) Listed for Sale";
+  soldTitle = "Previous Asset(s) that have been Sold";
+} else if (role === "Business Idea Lister") {
+  currentTitle = "Current Business Ideas Listed";
+  soldTitle = "Past Business Idea Listings";
+} else if (role === "Franchise Seller") {
+  currentTitle = "Current Franchise(es) Listed for Sale";
+  soldTitle = "Previous Franchise(es) that have been Sold";
+}
   if (isLoading) return <p className="text-center mt-10">Loading...</p>;
 
   const {
@@ -374,12 +389,12 @@ const MyBusiness = () => {
             </div>
           )}
           <Section
-            title={`Current ${role} for sale`}
+            title={currentTitle}
             data={myBusiness}
             renderCard={renderCard}
           />
           <Section
-            title={`Previous ${role} that have been sold`}
+            title={soldTitle}
             data={mySoldBusiness}
             renderCard={renderCard}
           />
@@ -410,3 +425,11 @@ const Section = ({ title, data, renderCard }) => (
 );
 
 export default MyBusiness;
+
+//seller == Current Business(es) Listed for Sale  -  Previous Business(es) that have been Sold
+// broker == Current Business(es) Listed for Sale - Previous Business(es) that have been Sold
+// francise == Current Franchise(es) Listed for Sale  -  Previous Franchise(es) that have been Sold
+// assets == Current Asset(s) Listed for Sale  -  Previous Asset(s) that have been Sold
+// Idea lister == Current Business Ideas Listed  -  Past Business Idea Listings
+
+

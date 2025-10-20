@@ -89,7 +89,7 @@ const MyBusinessDetails = () => {
   }, [businessDetails, isLoaded]);
 
   if (!isLoaded) return <div>Loading map...</div>;
-
+console.log(businessDetails?.data?.business?.businessRole)
   return (
     <div className="container m-auto pb-20 lg:mt-8 mt-16 lg:px-0 px-4">
       <Navigate title={businessDetails?.data?.business?.title}></Navigate>
@@ -165,9 +165,11 @@ const MyBusinessDetails = () => {
 
         <div className="mt-5 lg:mt-0">
           <button className="bg-[#C1E1FF] border border-[#0091FF] px-2 py-2 rounded">
-            {role === "Francise Seller"
-              ? "Franchise Seller"
-              : businessDetails?.data?.business?.businessRole}
+            {businessDetails?.data?.business?.businessRole === "Francise Seller"
+  ? "Franchise Seller"
+  : businessDetails?.data?.business?.businessRole}
+
+
           </button>
           <h1 className="text-2xl text-[#0091FF]">
             {businessDetails?.data?.business?.title}
@@ -227,24 +229,27 @@ const MyBusinessDetails = () => {
                         <Lock className="w-4 h-4 text-gray-400" />
                       </div>
                     )}
-                  <Link
-                    href={`/interestBuyer/${businessDetails?.data?.business?._id}`}
-                  >
-                    <button
-                      disabled={
+
+                  <button
+                    onClick={() => {
+                      if (
                         (price === 0 || price === null) &&
                         !(role === "Business Idea Lister" && price === 0)
+                      ) {
+                        toast.error("Please buy subscription");
+                      } else {
+                        window.location.href = `/interestBuyer/${businessDetails?.data?.business?._id}`;
                       }
-                      className={`px-4 py-1 rounded text-white transition-all ${
-                        (price === 0 || price === null) &&
-                        !(role === "Business Idea Lister" && price === 0)
-                          ? "bg-gray-400 cursor-not-allowed"
-                          : "bg-[#0091FF] hover:bg-[#0091FF]"
-                      }`}
-                    >
-                      interested buyers
-                    </button>
-                  </Link>
+                    }}
+                    className={`px-4 py-1 rounded text-white transition-all ${
+                      (price === 0 || price === null) &&
+                      !(role === "Business Idea Lister" && price === 0)
+                        ? "bg-gray-400 hover:bg-gray-400"
+                        : "bg-[#0091FF] hover:bg-[#0091FF]"
+                    }`}
+                  >
+                    interested buyers
+                  </button>
                 </div>
               )}
 
@@ -267,48 +272,42 @@ const MyBusinessDetails = () => {
                 </Link>
               )}
 
-          
-{role &&
-  hasAccessToken &&
-  checkUserId !== checkBusinessId &&
-  ((role === "Buyer" &&
-    businessDetails?.data?.business?.businessRole !==
-      "Business Idea Lister") ||
-    role === "Investor" ||
-    (role === "Broker" &&
-      businessDetails?.data?.business?.businessRole !==
-        "Business Idea Lister")) && (
-    <div className="relative inline-block">
-      {(price === 0 || price === null) && (
-        <div className="absolute -top-3 -right-3 bg-white rounded-full shadow p-1">
-          <Lock className="w-4 h-4 text-gray-400" />
-        </div>
-      )}
+            {role &&
+              hasAccessToken &&
+              checkUserId !== checkBusinessId &&
+              ((role === "Buyer" &&
+                businessDetails?.data?.business?.businessRole !==
+                  "Business Idea Lister") ||
+                role === "Investor" ||
+                (role === "Broker" &&
+                  businessDetails?.data?.business?.businessRole !==
+                    "Business Idea Lister")) && (
+                <div className="relative inline-block">
+                  {(price === 0 || price === null) && (
+                    <div className="absolute -top-3 -right-3 bg-white rounded-full shadow p-1">
+                      <Lock className="w-4 h-4 text-gray-400" />
+                    </div>
+                  )}
 
-      {price === 0 || price === null ? (
-        // 🔒 Locked button (shows popup on click)
-        <button
-          onClick={() => toast.error('Please buy subscription')}
-          className="px-5 py-1 rounded text-white bg-gray-400 cursor-not-allowed"
-        >
-          Contact
-        </button>
-      ) : (
-        // ✅ Active button (normal link)
-        <Link
-          href={`/buyer-contact-info/${businessDetails?.data?.business?.user}`}
-        >
-          <button className="px-5 py-1 rounded text-white bg-[#0091FF] hover:bg-[#0077DD] transition-all">
-            Contact
-          </button>
-        </Link>
-      )}
-    </div>
-  )}
-
-
-
-
+                  {price === 0 || price === null ? (
+                    <button
+                      onClick={() => toast.error("Please buy subscription")}
+                      className="px-5 py-1 rounded text-white bg-gray-400 cursor-not-allowed"
+                    >
+                      Contact
+                    </button>
+                  ) : (
+                    // ✅ Active button (normal link)
+                    <Link
+                      href={`/buyer-contact-info/${businessDetails?.data?.business?.user}`}
+                    >
+                      <button className="px-5 py-1 rounded text-white bg-[#0091FF] hover:bg-[#0077DD] transition-all">
+                        Contact
+                      </button>
+                    </Link>
+                  )}
+                </div>
+              )}
 
             {role &&
               role !== "Buyer" &&
