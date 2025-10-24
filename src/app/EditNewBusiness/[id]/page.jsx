@@ -1,13 +1,5 @@
-'use client'
-import {
-  
-  Form,
-  Input,
-
-  Select,
-  Spin,
-  Upload,
-} from "antd";
+"use client";
+import { Form, Input, Select, Spin, Upload } from "antd";
 
 import React, { useEffect, useRef, useState } from "react";
 import { InboxOutlined, PlusOutlined } from "@ant-design/icons";
@@ -16,7 +8,11 @@ import customParseFormat from "dayjs/plugin/customParseFormat";
 
 import JoditEditor from "jodit-react";
 import { Country, State, City } from "country-state-city";
-import { useGetCategtoryQuery, useGetSingleBusinessQuery, useUpdateSingleMutation } from "@/redux/Api/businessApi";
+import {
+  useGetCategtoryQuery,
+  useGetSingleBusinessQuery,
+  useUpdateSingleMutation,
+} from "@/redux/Api/businessApi";
 import { imageUrl } from "@/redux/Api/baseApi";
 import { useParams } from "next/navigation";
 import { Navigate } from "@/components/shared/Navigate";
@@ -32,12 +28,12 @@ const EditNewBusiness = () => {
     window.scrollTo(0, 0);
   }, []);
   const [loading, setLoading] = useState(false);
-const { id: businessId } = useParams();
+  const { id: businessId } = useParams();
 
   const [fileList, setFileList] = useState([]);
   const [updateSingleData] = useUpdateSingleMutation();
   const { data: businessDetails } = useGetSingleBusinessQuery({ businessId });
- const { data: profileData, isLoading: profileLoading } = useGetProfileQuery();
+  const { data: profileData, isLoading: profileLoading } = useGetProfileQuery();
 
   const role = profileData?.data?.role;
   const [countries, setCountries] = useState([]);
@@ -76,10 +72,8 @@ const { id: businessId } = useParams();
     const country = countries.find((c) => c.isoCode === value);
     setSelectedCountry(country);
 
-
     const countryStates = State.getStatesOfCountry(value) || [];
     setStates(countryStates);
-
 
     if (!countryStates.length) {
       setSelectedState(null);
@@ -87,7 +81,6 @@ const { id: businessId } = useParams();
       setCities([]);
       form.setFieldsValue({ state: undefined, city: undefined });
     } else {
-
       setSelectedState(null);
       setSelectedCity(null);
       setCities([]);
@@ -291,7 +284,7 @@ const { id: businessId } = useParams();
       setSubCategories(defaultCategory?.subCategories || []);
       form.setFieldsValue({ category: defaultCategory?.categoryName });
     }
-  }, [categorie,form]);
+  }, [categorie, form]);
 
   return (
     <div className="container m-auto lg:mt-8 mt-16 lg:px-0 px-4 pb-20 ">
@@ -382,43 +375,44 @@ const { id: businessId } = useParams();
 
           <div className="grid md:grid-cols-3 gap-4">
             {/* Country */}
-           <Form.Item
-  label="Select Your Country"
-  name="country"
-  rules={[{ required: true, message: "Please select your country!" }]}
->
-  <Select
-    placeholder="Select your country"
-    style={{ height: "48px" }}
-    showSearch
-    allowClear
-    onChange={handleCountryChange}
-    optionLabelProp="label"
-    filterOption={(input, option) =>
-      option?.label?.toLowerCase().includes(input.toLowerCase())
-    }
-  >
-    {countries?.map((country) => (
-      <Select.Option
-        key={country?.isoCode}
-        value={country?.isoCode}
-        label={country?.name}
-      >
-        <div className="flex items-center gap-2">
-          <Image
-        src={`https://flagcdn.com/w20/${country?.isoCode.toLowerCase()}.png`}
-        alt={country?.name}
-        width={20}
-        height={12}
-        className="object-cover"
-      />
-          {country?.name}
-        </div>
-      </Select.Option>
-    ))}
-    
-  </Select>
-</Form.Item>
+            <Form.Item
+              label="Select Your Country"
+              name="country"
+              rules={[
+                { required: true, message: "Please select your country!" },
+              ]}
+            >
+              <Select
+                placeholder="Select your country"
+                style={{ height: "48px" }}
+                showSearch
+                allowClear
+                onChange={handleCountryChange}
+                optionLabelProp="label"
+                filterOption={(input, option) =>
+                  option?.label?.toLowerCase().includes(input.toLowerCase())
+                }
+              >
+                {countries?.map((country) => (
+                  <Select.Option
+                    key={country?.isoCode}
+                    value={country?.isoCode}
+                    label={country?.name}
+                  >
+                    <div className="flex items-center gap-2">
+                      <Image
+                        src={`https://flagcdn.com/w20/${country?.isoCode.toLowerCase()}.png`}
+                        alt={country?.name}
+                        width={20}
+                        height={12}
+                        className="object-cover"
+                      />
+                      {country?.name}
+                    </div>
+                  </Select.Option>
+                ))}
+              </Select>
+            </Form.Item>
 
             {/* State */}
             <Form.Item label="Select State" name="state">
@@ -529,17 +523,21 @@ const { id: businessId } = useParams();
             </Form.Item>
           </div>
 
-            <Form.Item
-                      label={
-                        role === "Business Idea Lister" ? "Reason for Required Funding" : "Reason for Selling"
-                      }
-                      name="reason"
-                    >
+          <Form.Item
+            label={
+              role === "Business Idea Lister"
+                ? "Reason for Required Funding"
+                : "Reason for Selling"
+            }
+            name="reason"
+          >
             <Input
               className="w-full bg-transparent py-3"
               placeholder={
-                        role === "Business Idea Lister" ? "Reason for Required Funding" : "Reason for Selling"
-                      }
+                role === "Business Idea Lister"
+                  ? "Reason for Required Funding"
+                  : "Reason for Selling"
+              }
             />
           </Form.Item>
 

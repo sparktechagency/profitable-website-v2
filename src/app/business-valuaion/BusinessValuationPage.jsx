@@ -269,13 +269,13 @@ const BusinessValuationPage = () => {
 
         <div className="">
           <Form.Item
-            label="Buisiness Type"
+            label="Business Type"
             name="businessType"
             rules={[{ required: true, message: "Please input business Type!" }]}
           >
             <Select
               style={{ height: "48px" }}
-              placeholder="Buisiness Type"
+              placeholder="Business Type"
               className="w-full"
             >
               <Option>Select</Option>

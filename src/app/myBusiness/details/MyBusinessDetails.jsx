@@ -383,7 +383,7 @@ if (role === "Seller") {
             <div className="flex justify-end mt-4">
               <Link href={"/addnewbusiness"}>
                 <button className="bg-blue-400 px-4 py-2 text-white rounded hover:underline">
-                  Sale a New One
+                  List a New One
                 </button>
               </Link>
             </div>
