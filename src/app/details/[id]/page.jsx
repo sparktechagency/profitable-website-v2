@@ -89,7 +89,7 @@ const MyBusinessDetails = () => {
   }, [businessDetails, isLoaded]);
 
   if (!isLoaded) return <div>Loading map...</div>;
-console.log(businessDetails?.data?.business?.businessRole)
+  console.log(businessDetails?.data?.business?.businessRole);
   return (
     <div className="container m-auto pb-20 lg:mt-8 mt-16 lg:px-0 px-4">
       <Navigate title={businessDetails?.data?.business?.title}></Navigate>
@@ -166,10 +166,8 @@ console.log(businessDetails?.data?.business?.businessRole)
         <div className="mt-5 lg:mt-0">
           <button className="bg-[#C1E1FF] border border-[#0091FF] px-2 py-2 rounded">
             {businessDetails?.data?.business?.businessRole === "Francise Seller"
-  ? "Franchise Seller"
-  : businessDetails?.data?.business?.businessRole}
-
-
+              ? "Franchise Seller"
+              : businessDetails?.data?.business?.businessRole}
           </button>
           <h1 className="text-2xl text-[#0091FF]">
             {businessDetails?.data?.business?.title}

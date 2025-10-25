@@ -155,7 +155,17 @@ const Navbar = () => {
       transition: { delay: i * 0.1, duration: 0.3 },
     }),
   };
+  const [hasToken, setHasToken] = useState(false);
 
+  useEffect(() => {
+    // Check accessToken from localStorage (only runs in client)
+    const token = localStorage.getItem("accessToken");
+    if (token) {
+      setHasToken(true);
+    } else {
+      setHasToken(false);
+    }
+  }, []);
   return (
     <>
       <header
@@ -190,7 +200,8 @@ const Navbar = () => {
               href="/myBusiness/details"
               onClick={() => setMobileMenuOpen(false)}
             >
-              {role !== "Buyer" && role !== "Investor" && (
+             
+              { hasToken && role !== "Buyer" && role !== "Investor" && (
                 <button className="w-fit hidden md:block px-4 py-2 bg-[#22C55E] text-white text-center rounded-lg font-medium">
                   List Your Business
                 </button>
@@ -366,7 +377,7 @@ const Navbar = () => {
                   href="/myBusiness/details"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  {role !== "Buyer" && role !== "Investor" && (
+                  { hasToken && role !== "Buyer" && role !== "Investor" && (
                     <button className="block w-full md:hidden bg-[#22C55E] text-white text-center py-3 rounded-lg font-medium">
                       List Your Business
                     </button>

@@ -107,10 +107,10 @@ const onFinish = async (values) => {
             <div className="md:grid grid-cols-2 gap-8">
               {/* Left Side */}
               <div>
-                <Title level={4}>First Party (Seller)</Title>
+                <Title level={4}>First Party</Title>
 
                 <Form.Item
-                  label="Seller Full Name"
+                  label=" Full Name"
                   name="name"
                   rules={[
                     { required: true, message: "Please enter your full name" },

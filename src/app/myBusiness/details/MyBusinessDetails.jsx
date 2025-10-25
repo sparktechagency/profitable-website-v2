@@ -37,7 +37,7 @@ if (role === "Seller") {
 } else if (role === "Business Idea Lister") {
   currentTitle = "Current Business Ideas Listed";
   soldTitle = "Past Business Idea Listings";
-} else if (role === "Franchise Seller") {
+} else if (role === "Francise Seller") {
   currentTitle = "Current Franchise(es) Listed for Sale";
   soldTitle = "Previous Franchise(es) that have been Sold";
 }
