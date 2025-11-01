@@ -10,7 +10,11 @@ import dayjs from "dayjs";
 const FormationPage = () => {
   const { id: formationId } = useParams();
 
-  const { data: singleData, isLoading, isError } = useGetSingleFormatQuery({ formationId });
+  const {
+    data: singleData,
+    isLoading,
+    isError,
+  } = useGetSingleFormatQuery({ formationId });
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -36,8 +40,7 @@ const FormationPage = () => {
 
   return (
     <div className="container mx-auto px-5 py-10">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-        
+      <div className="">
         {/* Left Side: Image */}
         <div className="w-full h-full rounded-lg overflow-hidden shadow-lg">
           <Image
@@ -45,19 +48,17 @@ const FormationPage = () => {
             alt={formation?.title}
             width={800}
             height={600}
-            className="w-full h-full object-cover"
+            className="w-full h-[70vh] object-cover"
           />
-      
 
-                  {/* Date & Time Display */}
-                 
+          {/* Date & Time Display */}
         </div>
 
         {/* Right Side: Title + Description */}
         <div className="flex flex-col justify-start">
-           <p className="text-gray-400 text-sm mb-2">
-                    {dayjs(formation?.createdAt).format("MMMM D, YYYY, h:mm A")}
-                  </p>
+          <p className="text-gray-400 text-sm mb-2">
+            {dayjs(formation?.createdAt).format("MMMM D, YYYY, h:mm A")}
+          </p>
           <h1 className="text-4xl md:text-4xl font-bold text-[#0091FF] mb-6">
             {formation?.title}
           </h1>
@@ -65,7 +66,6 @@ const FormationPage = () => {
             {formation?.detail}
           </p>
         </div>
-
       </div>
     </div>
   );

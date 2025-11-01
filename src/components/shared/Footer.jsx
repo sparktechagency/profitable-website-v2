@@ -15,7 +15,7 @@ const footerConfig = {
     tagline: "From Listings to Legacy",
     logo: Logo,
     backgroundImage: backImg,
-    copyright: "© 2023 PBFS",
+    copyright: "© 2025 PBFS",
   },
 
   socialLinks: [

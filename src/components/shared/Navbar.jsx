@@ -200,8 +200,7 @@ const Navbar = () => {
               href="/myBusiness/details"
               onClick={() => setMobileMenuOpen(false)}
             >
-             
-              { hasToken && role !== "Buyer" && role !== "Investor" && (
+              {hasToken && role !== "Buyer" && role !== "Investor" && (
                 <button className="w-fit hidden md:block px-4 py-2 bg-[#22C55E] text-white text-center rounded-lg font-medium">
                   List Your Business
                 </button>
@@ -377,7 +376,7 @@ const Navbar = () => {
                   href="/myBusiness/details"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  { hasToken && role !== "Buyer" && role !== "Investor" && (
+                  {hasToken && role !== "Buyer" && role !== "Investor" && (
                     <button className="block w-full md:hidden bg-[#22C55E] text-white text-center py-3 rounded-lg font-medium">
                       List Your Business
                     </button>
@@ -465,103 +464,104 @@ const Navbar = () => {
                 </div>
 
                 <nav className="space-y-4">
-  {[
-    ...(role === "Buyer" || role === "Investor"
-      ? [
-          {
-            icon: BusinessIcon,
-            label: "Interested Businesses",
-            path: "/myBusiness/details",
-          },
-        ]
-      : role === "Broker"
-      ? [
-          {
-            icon: BusinessIcon,
-            label: "Listed Businesses",
-            path: "/myBusiness/details",
-          },
-        ]
-      : role === "Asset Seller"
-      ? [
-          {
-            icon: BusinessIcon,
-            label: "Listed Business Asset(s)",
-            path: "/myBusiness/details",
-          },
-        ]
-      : role === "Business Idea Lister"
-      ? [
-          {
-            icon: BusinessIcon,
-            label: "Listed Idea(s)",
-            path: "/myBusiness/details",
-          },
-        ]
-      : role === "Francise Seller"
-      ? [
-          {
-            icon: BusinessIcon,
-            label: "Listed Franchise(s)",
-            path: "/myBusiness/details",
-          },
-        ]
-      : [
-          {
-            icon: BusinessIcon,
-            label: "Listed Businesses",
-            path: "/myBusiness/details",
-          },
-        ]),
-    { icon: MessageIcon, label: "Message", path: "/chat" },
-    {
-      icon: BelIcon,
-      label: "Notification",
-      path: "/notification",
-      showBadge: true,
-    },
-    {
-      icon: CrownIcon,
-      label: "Subscription",
-      path: "/subscription",
-    },
-    {
-      icon: SettingIcon,
-      label: "Profile Settings",
-      path: "/profilePage",
-    },
-    { icon: NdaIcon, label: "NDA", path: "/Seller" },
-    {
-      icon: HelpIcon,
-      label: "Help & Support",
-      path: "/contact-us",
-    },
-    // { icon: InfoIcon, label: "FAQs", path: "/faqs" },
-  ].map((item, index) => (
-    <motion.div
-      key={index}
-      custom={index}
-      variants={itemVariants}
-      initial="hidden"
-      animate="visible"
-    >
-      <Link
-        href={item.path}
-        onClick={() => setProfileMenuOpen(false)}
-        className="flex cursor-pointer items-center space-x-3 hover:bg-gray-100 p-2 rounded-lg transition-colors relative"
-      >
-        <item.icon className="w-5 h-5 text-gray-600" />
-        <span className="text-sm font-medium">{item.label}</span>
-        {item?.showBadge && notificationCount?.data > 0 && (
-          <span className="ml-auto bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded-full">
-            {notificationCount?.data}
-          </span>
-        )}
-      </Link>
-    </motion.div>
-  ))}
-</nav>
-
+                  {[
+                    ...(role === "Buyer" || role === "Investor"
+                      ? [
+                          {
+                            icon: BusinessIcon,
+                            label: "Interested Businesses",
+                            path: "/myBusiness/details",
+                          },
+                        ]
+                      : role === "Broker"
+                      ? [
+                          {
+                            icon: BusinessIcon,
+                            label: "Listed Businesses",
+                            path: "/myBusiness/details",
+                          },
+                        ]
+                      : role === "Asset Seller"
+                      ? [
+                          {
+                            icon: BusinessIcon,
+                            label: "Listed Business Asset(s)",
+                            path: "/myBusiness/details",
+                          },
+                        ]
+                      : role === "Business Idea Lister"
+                      ? [
+                          {
+                            icon: BusinessIcon,
+                            label: "Listed Idea(s)",
+                            path: "/myBusiness/details",
+                          },
+                        ]
+                      : role === "Francise Seller"
+                      ? [
+                          {
+                            icon: BusinessIcon,
+                            label: "Listed Franchise(s)",
+                            path: "/myBusiness/details",
+                          },
+                        ]
+                      : [
+                          {
+                            icon: BusinessIcon,
+                            label: "Listed Businesses",
+                            path: "/myBusiness/details",
+                          },
+                        ]),
+                    { icon: MessageIcon, label: "Message", path: "/chat" },
+                    {
+                      icon: BelIcon,
+                      label: "Notification",
+                      path: "/notification",
+                      showBadge: true,
+                    },
+                    {
+                      icon: CrownIcon,
+                      label: "Subscription",
+                      path: "/subscription",
+                    },
+                    {
+                      icon: SettingIcon,
+                      label: "Profile Settings",
+                      path: "/profilePage",
+                    },
+                    { icon: NdaIcon, label: "NDA", path: "/Seller" },
+                    {
+                      icon: HelpIcon,
+                      label: "Help & Support",
+                      path: "/contact-us",
+                    },
+                    // { icon: InfoIcon, label: "FAQs", path: "/faqs" },
+                  ].map((item, index) => (
+                    <motion.div
+                      key={index}
+                      custom={index}
+                      variants={itemVariants}
+                      initial="hidden"
+                      animate="visible"
+                    >
+                      <Link
+                        href={item.path}
+                        onClick={() => setProfileMenuOpen(false)}
+                        className="flex cursor-pointer items-center space-x-3 hover:bg-gray-100 p-2 rounded-lg transition-colors relative"
+                      >
+                        <item.icon className="w-5 h-5 text-gray-600" />
+                        <span className="text-sm font-medium">
+                          {item.label}
+                        </span>
+                        {item?.showBadge && notificationCount?.data > 0 && (
+                          <span className="ml-auto bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded-full">
+                            {notificationCount?.data}
+                          </span>
+                        )}
+                      </Link>
+                    </motion.div>
+                  ))}
+                </nav>
 
                 <div className="border-t border-gray-200 mt-6 pt-4">
                   <motion.div

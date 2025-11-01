@@ -6,8 +6,8 @@ import { useForm } from "antd/es/form/Form";
 
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
-
-
+import ReactPhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 const { TextArea } = Input;
 
 export default function InterestForm({ businessId, businessRole }) {
@@ -15,6 +15,7 @@ export default function InterestForm({ businessId, businessRole }) {
     window.scrollTo(0, 0);
   }, []);
    const [loading, setLoading] = useState(false);
+     const [contactNo, setContactNo] = useState("");
   const [addInterest] = useAddInterestMutation();
   const isBrowser = typeof window !== 'undefined' && typeof localStorage !== 'undefined';
   const user = isBrowser ? JSON.parse(localStorage.getItem("user")) : null;
@@ -24,24 +25,27 @@ export default function InterestForm({ businessId, businessRole }) {
   const email = profileData?.data?.email;
 
   const [form] = useForm();
-  useEffect(() => {
-    if (profileData?.data) {
-      const admin = profileData?.data;
-      form.setFieldsValue({
-        name: admin?.name,
-        email: admin?.email,
-        mobile: admin?.mobile || "",
-      });
-    }
-  }, [profileData, form]);
+useEffect(() => {
+  if (profileData?.data) {
+    const admin = profileData?.data;
+    const mobileStr = String(admin?.mobile || "").replace(/^\+880/, "0");
+    
+    form.setFieldsValue({
+      name: admin?.name,
+      email: admin?.email,
+      mobile: mobileStr,
+    });
+    
+    setContactNo(mobileStr);
+  }
+}, [profileData, form]);
   const onFinish = async (values) => {
     const data = {
       userId: userId,
       name: values?.name,
       email: values?.email,
-      countryCode: values?.countryCode,
       activity: values?.activity,
-      mobile: values?.mobile,
+      mobile: `+${contactNo}`,
       serviceZone: values?.serviceZone,
       message: values?.message,
       businessRole: businessRole,
@@ -108,39 +112,26 @@ setLoading(true);
               <Input style={{ height: "48px" }} placeholder="Enter Full Name" />
             </Form.Item>
 
-            {/* Country Code & Mobile */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <Form.Item
-                label="Country Code"
-                name="countryCode"
-                className="md:col-span-1"
-              >
-                <Select style={{ height: "48px" }}>
-                  <Select.Option value="+971">🇦🇪 +971</Select.Option>
-                  <Select.Option value="+1">🇺🇸 +1</Select.Option>
-                  <Select.Option value="+44">🇬🇧 +44</Select.Option>
-                  <Select.Option value="+91">🇮🇳 +91</Select.Option>
-                  <Select.Option value="+880">🇧🇩 +880</Select.Option>
-                </Select>
-              </Form.Item>
-
-              <Form.Item
-                label="Mobile"
-                name="mobile"
-                className="md:col-span-2"
-                rules={[
-                  {
-                    required: true,
-                    message: "Please enter your mobile number",
-                  },
-                ]}
-              >
-                <Input
-                  style={{ height: "48px" }}
-                  type="tel"
-                  placeholder="Enter mobile number"
-                />
-              </Form.Item>
+            
+            <div className="">
+            <Form.Item
+  label="Phone Number"
+  name="mobile"
+  rules={[
+    { required: true, message: "Please enter your phone number!" },
+  ]}
+>
+  <ReactPhoneInput
+    country="bd" 
+    value={contactNo}
+    onChange={(value) => {
+      setContactNo(value);
+      form.setFieldsValue({ mobile: value }); 
+    }}
+    inputStyle={{ width: "100%", height: "48px" }}
+    placeholder="Enter phone number"
+  />
+</Form.Item>
             </div>
 
             {/* Sector and Activity */}

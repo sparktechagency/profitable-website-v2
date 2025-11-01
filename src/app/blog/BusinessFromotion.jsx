@@ -22,11 +22,10 @@ const BusinessFormationPage = () => {
         <div className="absolute top-0 left-0 w-2 h-full bg-[#22C55E] z-[1] rounded-r-full"></div>
         <div className="ml-5">
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#0091FF] mb-6 leading-tight">
-            Blogs
+            Explore Expert Business Insights & Growth Strategies
           </h1>
           <p className="text-lg md:text-xl text-[#000000] leading-relaxed max-w-2xl">
-            Find the perfect blog opportunity by applying detailed filters
-            to narrow down your search.
+            Read blogs that guide you through buying, selling, and growing profitable businesses. Discover tips, trends, and success stories from global entrepreneurs.
           </p>
         </div>
       </div>

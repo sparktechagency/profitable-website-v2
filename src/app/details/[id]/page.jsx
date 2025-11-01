@@ -246,7 +246,7 @@ const MyBusinessDetails = () => {
                         : "bg-[#0091FF] hover:bg-[#0091FF]"
                     }`}
                   >
-                    interested buyers
+                    {role === "Business Idea Lister" ? "Interested Investor" : "Interested Buyers"}
                   </button>
                 </div>
               )}
