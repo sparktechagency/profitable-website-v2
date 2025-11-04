@@ -48,7 +48,7 @@ const FormationPage = () => {
             alt={formation?.title}
             width={800}
             height={600}
-            className="w-full h-[70vh] object-cover"
+            className="w-full  object-cover"
           />
 
           {/* Date & Time Display */}
@@ -62,9 +62,9 @@ const FormationPage = () => {
           <h1 className="text-4xl md:text-4xl font-bold text-[#0091FF] mb-6">
             {formation?.title}
           </h1>
-          <p className="text-gray-700 leading-relaxed text-lg md:text-xl">
-            {formation?.detail}
-          </p>
+         <div
+                dangerouslySetInnerHTML={{ __html: formation?.detail }}
+              />
         </div>
       </div>
     </div>

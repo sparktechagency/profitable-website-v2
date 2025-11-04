@@ -61,9 +61,9 @@ const BusinessFormationPage = () => {
                     {dayjs(service?.createdAt).format("MMMM D, YYYY, h:mm A")}
                   </p>
 
-                  <p className="text-gray-600 text-sm mb-4 line-clamp-3">
-                    {service?.detail}
-                  </p>
+                  {/* <div
+                dangerouslySetInnerHTML={{ __html: service?.detail }}
+              /> */}
                 </div>
 
                 <Link href={`/business-formation-details/${service?._id}`}>
