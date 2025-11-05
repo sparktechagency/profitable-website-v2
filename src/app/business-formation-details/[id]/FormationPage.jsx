@@ -42,7 +42,7 @@ const FormationPage = () => {
     <div className="container mx-auto px-5 py-10">
       <div className="">
         {/* Left Side: Image */}
-        <div className="w-full h-full rounded-lg overflow-hidden shadow-lg">
+        <div className="w-full h-full rounded-md ">
           <Image
             src={`${imageUrl}/uploads/formation-image/${formation?.image}`}
             alt={formation?.title}
@@ -56,7 +56,7 @@ const FormationPage = () => {
 
         {/* Right Side: Title + Description */}
         <div className="flex flex-col justify-start">
-          <p className="text-gray-400 text-sm mb-2">
+          <p className="text-gray-400 text-sm mb-2 mt-3">
             {dayjs(formation?.createdAt).format("MMMM D, YYYY, h:mm A")}
           </p>
           <h1 className="text-4xl md:text-4xl font-bold text-[#0091FF] mb-6">

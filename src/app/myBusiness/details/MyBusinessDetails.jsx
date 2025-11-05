@@ -271,19 +271,25 @@ if (role === "Seller") {
               Starting from{" "}
               <span className="font-semibold">{item?.askingPrice}</span>
             </p>
-            <Link href={`/details/${item?._id}`}>
-              <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md transition-colors">
+           <div className="grid grid-cols-2 gap-4">
+             <Link href={`/details/${item?._id}`}>
+              <button className="bg-blue-500 hover:bg-blue-600 text-white w-full py-2 rounded-md transition-colors">
                 View Details
               </button>
             </Link>
-            <Popconfirm
+        
+             <button className="bg-blue-600  text-white w-full py-2 rounded-md transition-colors">
+                Interested Buyer
+              </button>
+           </div>
+               <Popconfirm
               title="Are you sure you want to delete this Business?"
               onConfirm={() => handleDeletebusiness(item?._id)}
               okText="Yes"
               cancelText="No"
               okType="danger"
             >
-              <button className="bg-red-600 ml-5 text-white px-4 py-2 rounded-md transition-colors">
+              <button className="bg-red-600  text-white w-full mt-4 py-2 rounded-md transition-colors">
                 Delete
               </button>
             </Popconfirm>

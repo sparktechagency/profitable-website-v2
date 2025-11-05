@@ -537,10 +537,7 @@ export default function AllBusinessFilterAnt() {
                       src={`${imageUrl}/Uploads/business-image/${business.image}`}
                       width={300}
                       height={250}
-                      style={{
-                        height: 250,
-                        objectFit: "cover",
-                      }}
+                     
                       priority={false}
                     />
                   ) : null
