@@ -65,7 +65,7 @@ const businessApi = baseApi.injectEndpoints({
     getSingleFormat: builder.query({
       query: ({ formationId }) => {
         return {
-          url: `/formation/single-format?formationId=${formationId}`,
+          url: `/formation/single-format?slug=${formationId}`,
           method: "GET",
         };
       },

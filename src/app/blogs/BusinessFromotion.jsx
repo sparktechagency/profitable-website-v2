@@ -77,7 +77,7 @@ const BusinessFormationPage = () => {
                     /> */}
                   </div>
 
-                  <Link href={`/blog/${slug}`}>
+                  <Link href={`/blog/${service?.slug}`}>
                     <button className="mt-auto w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-medium py-3 px-4 rounded-lg flex items-center justify-center gap-2 transition-all duration-200 group-hover:shadow-lg">
                       View Details
                       <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-200" />
