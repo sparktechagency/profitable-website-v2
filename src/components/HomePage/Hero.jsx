@@ -2,6 +2,10 @@
 import { useRouter } from "next/navigation";
 import SearchIcon from "../../../public/icons/SearchIcon";
 import Link from "next/link";
+import hero from "../../../public/Home/hero.png";
+import Image from "next/image";
+import { useEffect, useState } from "react";
+
 const Hero = () => {
     const router = useRouter();
   
@@ -13,10 +17,61 @@ const Hero = () => {
         router.push(`/search?query=${encodeURIComponent(query)}`);
       }
     };
- 
+      const [accessToken, setHasToken] = useState(false);
+
+  useEffect(() => {
+
+    const token = localStorage.getItem("accessToken");
+    if (token) {
+      setHasToken(true);
+    } else {
+      setHasToken(false);
+    }
+  }, []);
+
+console.log(accessToken);
+   const linkPath = accessToken ? "/myBusiness/details" : "/auth/login";
   return (
  <>
- 
+   <section className="relative pb-16">
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src={hero}
+            alt="Business meeting background"
+            fill
+            className="object-cover brightness-75"
+            priority
+          />
+        </div>
+
+        {/* Hero Content */}
+        <div className="relative z-10 px-4 py-20 md:py-32 lg:py-40 container mx-auto">
+          <div className="max-w-4xl">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+              Buy, Sell & Invest in{" "}
+              <span className="text-[#22C55E]">Business</span>, Franchises,
+              Assets & Business Ideas
+              <span className="text-[#0091FF]"> Worldwide</span>
+            </h1>
+
+            <h2 className="text-white text-lg mb-8">
+              Connect with serious buyers, sellers, brokers, investors,
+              franchisors, and business idea listers on{" "}
+              <span className="font-semibold">
+                ProfitableBusinessesForSale.com
+              </span>{" "}
+              — the trusted marketplace that helps you grow.
+            </h2>
+
+            <Link href={linkPath}>
+              <button className="bg-[#0091FF] hover:bg-blue-600 text-white px-8 py-3 rounded text-lg">
+                Get Started
+              </button>
+            </Link>
+          </div>
+        </div>
+      </section>
   {/* Search Section */}
       <section className="relative z-20 -mt-28 px-4">
         <div className="mx-auto w-full max-w-4xl">
