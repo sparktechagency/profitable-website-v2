@@ -110,12 +110,12 @@ const Navbar = () => {
     {
       key: "business",
       label: "Blog",
-      path: "/blog",
+      path: "/blogs",
     },
     {
       key: "resources",
       label: "Resources",
-      path: "/blog",
+      path: "/blogs",
       submenu: menuItems.resources,
       state: menuItems.resources.state,
     },
