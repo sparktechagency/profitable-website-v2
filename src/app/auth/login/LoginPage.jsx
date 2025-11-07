@@ -187,17 +187,17 @@ useEffect(() => {
                     placeholder="Select Role"
                     className="w-full"
                   >
-                    <Option value="Buyer">Become a Buyer</Option>
-                    <Option value="Seller">Become a Seller</Option>
-                    <Option value="Broker">Become a Broker</Option>
+                    <Option value="Buyer">Log in as a Buyer</Option>
+                    <Option value="Seller">Log in as a Seller</Option>
+                    <Option value="Broker">Log in as a Broker</Option>
                     <Option value="Francise Seller">
-                      Become a Franchise Seller
+                      Log in as a Franchise Seller
                     </Option>
-                    <Option value="Investor">Become Investor</Option>
+                    <Option value="Investor">Log in as an Investor</Option>
                     <Option value="Business Idea Lister">
-                      Become Business Idea Lister
+                      Log in as a Business Idea Lister
                     </Option>
-                    <Option value="Asset Seller">Business Asset Seller</Option>
+                    <Option value="Asset Seller">Log in as a Business Asset Seller</Option>
                   </Select>
                 </Form.Item>
 

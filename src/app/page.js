@@ -23,7 +23,12 @@ export const metadata = {
 };
 
 export default function Home() {
-  
+const isBrowser =
+  typeof window !== "undefined" && typeof localStorage !== "undefined";
+const accessToken = isBrowser ? localStorage.getItem("accessToken") : null;
+console.log(accessToken);
+
+const linkPath = accessToken ? "/myBusiness/details" : "/auth/login";
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
@@ -58,11 +63,11 @@ export default function Home() {
               — the trusted marketplace that helps you grow.
             </h2>
 
-            <Link href="/auth/login">
-              <button className="bg-[#0091FF] hover:bg-blue-600 text-white px-8 py-3 rounded text-lg">
-                Get Started
-              </button>
-            </Link>
+            <Link href={linkPath}>
+    <button className="bg-[#0091FF] hover:bg-blue-600 text-white px-8 py-3 rounded text-lg">
+      Get Started
+    </button>
+  </Link>
           </div>
         </div>
       </section>

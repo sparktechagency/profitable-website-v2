@@ -13,7 +13,7 @@ const Hero = () => {
         router.push(`/search?query=${encodeURIComponent(query)}`);
       }
     };
-  
+ 
   return (
  <>
  

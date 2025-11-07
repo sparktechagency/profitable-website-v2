@@ -170,13 +170,13 @@ setLoading(true);
               </Form.Item>
 
               <Form.Item
-                label="Activity"
+                label="Intended Offer"
                 name="activity"
             
               >
                 <Input
                   style={{ height: "48px" }}
-                  placeholder="Enter Activity"
+                  placeholder="Enter Intended Offer"
                 />
               </Form.Item>
             </div>
@@ -195,13 +195,13 @@ setLoading(true);
               </Form.Item>
 
               <Form.Item
-                label="Service Zone"
+                label="Willing to Execute within"
                 name="serviceZone"
      
               >
                 <Input
                   style={{ height: "48px" }}
-                  placeholder="Enter Service Zone"
+                  placeholder="Enter Willing to Execute within"
                 />
               </Form.Item>
             </div>
