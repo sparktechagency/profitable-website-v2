@@ -3,9 +3,11 @@ import React, { Suspense } from "react";
 import TermsAndConditionsPage from "./TermsAndCondition";
 
 export const metadata = {
-  title: "Terms and Conditions : Profitable Business For Sale",
+  title: "Terms and Conditions | Profitable Business For Sale (PBFS) ",
   description:
-    "Review PBFS’s Terms & Conditions: your rights, obligations and guidelines when using our site for franchise & business listings.",
+    "Review PBFS’s Terms & Conditions — understand your rights, obligations, and guidelines when using our platform for franchise and business listings. ",
+     alternates: {  canonical:"https://profitablebusinessesforsale.com/terms-and-conditions"
+     },
 };
 
 const Page = () => {

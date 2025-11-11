@@ -575,9 +575,9 @@ export default function AllBusinessFilterAnt() {
                   )}
 
                   <div className={viewMode === "list" ? "flex-1" : ""}>
-                    <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                    <h2 className="text-xl font-semibold text-gray-800 mb-2">
                       {business.title}
-                    </h3>
+                    </h2>
                     <p className="text-gray-600 mb-2">{business.location}</p>
                     <div className="mb-2">
                       <span className="text-blue-500">{business.category}</span>{" "}

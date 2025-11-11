@@ -8,9 +8,11 @@ import AboutPage from './AboutUsPage'
 
 
 export const metadata = {
-  title: "About Us - Buying & Selling Businesses at PBFS",
+  title: "About Us - PBFS | Buy & Sell Businesses Online ",
   description:
-    "PBFS connects aspiring entrepreneurs with profitable franchise & business opportunities globally—transparent listings, expert support, and your path to real ownership.",
+    " Learn about PBFS, the trusted online marketplace for buying, selling, and investing in profitable businesses. Discover our mission to empower entrepreneurs and business owners worldwide. ",
+   alternates: {  canonical: "https://profitablebusinessesforsale.com/about-us"
+   },
 };
 
 const Page = () => {

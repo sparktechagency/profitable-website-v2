@@ -184,10 +184,10 @@ const Review = () => {
                       />
                     </div>
                     <div>
-                      <h1 className="font-semibold text-gray-900">
+                      <h5 className="font-semibold text-gray-900">
                         {item?.name}
-                      </h1>
-                      <h2 className="text-sm text-gray-500">{item?.role}</h2>
+                      </h5>
+                      <p className="text-sm text-gray-500">{item?.role}</p>
                     </div>
                   </div>
                 </div>

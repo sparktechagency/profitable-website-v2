@@ -55,14 +55,14 @@ console.log(accessToken);
               <span className="text-[#0091FF]"> Worldwide</span>
             </h1>
 
-            <h2 className="text-white text-lg mb-8">
+            <p className="text-white text-lg mb-8">
               Connect with serious buyers, sellers, brokers, investors,
               franchisors, and business idea listers on{" "}
               <span className="font-semibold">
                 ProfitableBusinessesForSale.com
               </span>{" "}
               — the trusted marketplace that helps you grow.
-            </h2>
+            </p>
 
             <Link href={linkPath}>
               <button className="bg-[#0091FF] hover:bg-blue-600 text-white px-8 py-3 rounded text-lg">

@@ -3,9 +3,11 @@ import React, { Suspense } from "react";
 import FaqAssetSeller from "./FaqAssest";
 
 export const metadata = {
-  title: "PFBS FAQ’s of Business Assets for Sale & Buy Directory",
+  title: "Business Asset Lister FAQs | Questions About Listing Business Assets ",
   description:
-    "Explore PFBS’s Business assets for sale directory: your go-to FAQ & resource hub to buy or sell digital and physical business assets effortlessly",
+    "Find answers to common questions about listing and selling business assets, managing listings, subscriptions, visibility boosts, and connecting with buyers on PBFS. ",
+   alternates: {  canonical: "https://profitablebusinessesforsale.com/FaqAsset"
+   },
 };
 
 const Page = () => {

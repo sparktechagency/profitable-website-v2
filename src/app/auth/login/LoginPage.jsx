@@ -122,7 +122,7 @@ useEffect(() => {
           >
             <div style={{ width: "100%", margin: "0 auto" }}>
               <Title
-                level={2}
+                level={1}
                 style={{ marginBottom: "8px", color: "#1f2937" }}
               >
                 Login to Account

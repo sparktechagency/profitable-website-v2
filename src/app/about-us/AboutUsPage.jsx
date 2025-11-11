@@ -54,7 +54,7 @@ const AboutPage = () => {
                   className="rounded-2xl"
                 />
                 <div>
-                  <h1 className="text-2xl font-bold text-[#000000]">Our Mission</h1>
+                  <h3 className="text-2xl font-bold text-[#000000]">Our Mission</h3>
                   <p className="text-base text-[#000000]">
                     Our mission is simple: to <span className="font-semibold">empower entrepreneurs, investors, and business owners</span> by creating a smarter, streamlined way to explore new business opportunities or exit successfully. At PBFS, we believe business ownership should be more <span className="font-semibold">accessible, profitable, and rewarding</span> for everyone.
                   </p>
@@ -71,7 +71,7 @@ const AboutPage = () => {
                   className="rounded-2xl"
                 />
                 <div>
-                  <h1 className="text-2xl font-bold text-[#000000]">What We Do</h1>
+                  <h3 className="text-2xl font-bold text-[#000000]">What We Do</h3>
                   <p className="text-[#000000]">
                     At ProfitableBusinessesForSale.com, we provide more than just listings—we provide opportunities. Our platform allows:
                   </p>

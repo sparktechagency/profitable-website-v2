@@ -5,9 +5,11 @@ import ContactUs from './ContactUs'
 
 
 export const metadata = {
-  title: "Contact Us: Profitable Business For Sale",
+  title: "Contact Us | Profitable Business For Sale (PBFS) ",
   description:
-    "Reach PBFS via contact page — we’re here to guide your franchise & business purchase journey with personalized support and fast responses.",
+    "Reach PBFS via our contact page — we’re here to guide your franchise and business purchase journey with personalized support and fast responses. ",
+   alternates: {  canonical: "https://profitablebusinessesforsale.com/contact-us"
+   },
 };
 
 const Page = () => {

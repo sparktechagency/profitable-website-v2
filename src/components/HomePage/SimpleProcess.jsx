@@ -111,10 +111,10 @@ const SimpleProcess = () => {
           {/* Left side text */}
           <div className="flex justify-center items-center">
             <div className="text-center md:text-left">
-              <h1 className="md:text-6xl text-4xl pb-4 text-black font-bold">
+              <h3 className="md:text-6xl text-4xl pb-4 text-black font-bold">
                 ── Start Your <span className="text-[#22C55E]">Business</span>{" "}
                 Journey
-              </h1>
+              </h3>
               <p className="text-black text-xl pt-4">
                 Turn your business idea into a success story! Submit your
                 listing with a clear description and image ── and let motivated

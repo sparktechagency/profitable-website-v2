@@ -92,11 +92,11 @@ const Country = () => {
         <div className="w-full">
           <div className="md:grid grid-cols-2">
             <div className="md:pl-20 pl-4">
-              <h1 className="md:text-5xl text-3xl pb-4 font-bold text-black">
+              <h2 className="md:text-5xl text-3xl pb-4 font-bold text-black">
                 Profitable Businesses for{" "}
                 <br className="hidden md:block" /> Sale – Buy or Sell with
                 Confidence
-              </h1>
+              </h2>
               <p className="text-black">
                 Discover profitable businesses for sale worldwide. Our platform
                 connects serious buyers and motivated sellers, offering

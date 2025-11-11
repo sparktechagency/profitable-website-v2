@@ -5,9 +5,11 @@ import FaqBroker from './FaqBrokers'
 
 
 export const metadata = {
-  title: "Business Brokers Dubai – PBFS Broker FAQs",
+  title: "Broker FAQs | Common Questions About Broker Plans & Listings",
   description:
-    "Profitable Business For Sale FAQ for business brokers in Dubai. Learn how to list businesses, commission-free, and connect with buyers locally and online",
+    "Get answers to broker questions about listing multiple businesses, managing leads, subscription plans, upgrades, and PBFS platform features for professional brokers. ",
+      alternates: {  canonical:"https://profitablebusinessesforsale.com/FaqBrokers"
+      },
 };
 
 const Page = () => {

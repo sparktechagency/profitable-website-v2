@@ -16,6 +16,72 @@ const BlogDetails = () => {
     isError,
   } = useGetSingleFormatQuery({ formationId });
 
+  // Update meta tags when data loads
+  useEffect(() => {
+    if (singleData?.data) {
+      const formation = singleData.data;
+      
+      // Update document title
+      document.title = formation.metaTitle || formation.title || 'Formation Details';
+      
+      // Update meta description
+      let metaDescription = document.querySelector('meta[name="description"]');
+      if (!metaDescription) {
+        metaDescription = document.createElement('meta');
+        metaDescription.name = 'description';
+        document.head.appendChild(metaDescription);
+      }
+      metaDescription.setAttribute(
+        'content', 
+        formation.metaDescription || 
+        formation.detail?.replace(/<[^>]*>/g, '').substring(0, 160) || 
+        'Explore our comprehensive professional formation'
+      );
+
+      // Update meta keywords
+      let metaKeywords = document.querySelector('meta[name="keywords"]');
+      if (formation.metaKeywords) {
+        if (!metaKeywords) {
+          metaKeywords = document.createElement('meta');
+          metaKeywords.name = 'keywords';
+          document.head.appendChild(metaKeywords);
+        }
+        metaKeywords.setAttribute('content', formation.metaKeywords);
+      }
+
+      // Update Open Graph tags
+      const updateMetaTag = (property, content) => {
+        let metaTag = document.querySelector(`meta[property="${property}"]`);
+        if (!metaTag) {
+          metaTag = document.createElement('meta');
+          metaTag.setAttribute('property', property);
+          document.head.appendChild(metaTag);
+        }
+        metaTag.setAttribute('content', content);
+      };
+
+      if (formation.metaTitle || formation.title) {
+        updateMetaTag('og:title', formation.metaTitle || formation.title);
+        updateMetaTag('twitter:title', formation.metaTitle || formation.title);
+      }
+
+      if (formation.metaDescription || formation.detail) {
+        const desc = formation.metaDescription || formation.detail?.replace(/<[^>]*>/g, '').substring(0, 160);
+        updateMetaTag('og:description', desc);
+        updateMetaTag('twitter:description', desc);
+      }
+
+      if (formation.image) {
+        const imageUrlFull = `${imageUrl}/uploads/formation-image/${formation.image}`;
+        updateMetaTag('og:image', imageUrlFull);
+        updateMetaTag('twitter:image', imageUrlFull);
+      }
+
+      updateMetaTag('og:type', 'article');
+      updateMetaTag('twitter:card', 'summary_large_image');
+    }
+  }, [singleData, imageUrl]);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -48,10 +114,8 @@ const BlogDetails = () => {
             alt={formation?.title}
             width={800}
             height={600}
-            className="w-full  object-cover"
+            className="w-full object-cover"
           />
-
-          {/* Date & Time Display */}
         </div>
 
         {/* Right Side: Title + Description */}
@@ -62,9 +126,9 @@ const BlogDetails = () => {
           <h1 className="text-4xl md:text-4xl font-bold text-[#0091FF] mb-6">
             {formation?.title}
           </h1>
-         <div
-                dangerouslySetInnerHTML={{ __html: formation?.detail }}
-              />
+          <div
+            dangerouslySetInnerHTML={{ __html: formation?.detail }}
+          />
         </div>
       </div>
     </div>

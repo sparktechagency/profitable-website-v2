@@ -4,9 +4,11 @@ import Privecy from "./Privecy";
 
 
 export const metadata = {
-  title: "Privacy Policy — Profitable Business For Sale",
+  title: "Privacy Policy — Profitable Business For Sale (PBFS) ",
   description:
     "PBFS values your trust. Read our Privacy Policy to learn how we protect, use, and safeguard your data while exploring business opportunities.",
+  alternates: {  canonical:  "https://profitablebusinessesforsale.com/privacy-policy"
+  },
 };
 
 const Page = () => {

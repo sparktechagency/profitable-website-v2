@@ -3,9 +3,11 @@ import FaqInvestors from './FaqInvestor'
 
 
 export const metadata = {
-  title: "FAQ's For Startup Investment Oppurtunities in Dubai, UAE - PBFS",
+  title: "Investor FAQs | Questions About Investor Subscriptions & Opportunities ",
   description:
-    "PFBS connects you to UAE startup investment opportunities — invest in Dubai startups, explore where to find investors for startups UAE today",
+    "Find answers to investor questions about subscriptions, startup opportunities, business ideas, investor badges, privacy, matchmaking support, and using the PBFS platform. ",
+     alternates: {  canonical: "https://profitablebusinessesforsale.com/FaqInvestors"
+     },
 };
 
 const page = () => {

@@ -4,9 +4,10 @@ import React, { Suspense } from 'react'
 import FaqSeller from './FaqFranchise'
 
 export const metadata = {
-  title: "FAQ's of Franchise For Sale Online in Dubai, UAE - PBFS",
+  title: "Franchise Owner FAQs | Questions About Listing Franchise Opportunities ",
   description:
-    "At Profitable Business For Sale they sell UAE 's Cheap Franchise in Sale and solving all queries through their FAQ's",
+    "Get answers to common questions about listing and promoting franchise opportunities, managing listings, tracking performance, upgrades, and franchise support on PBFS. ",
+    canonical: "https://profitablebusinessesforsale.com/FaqFranchise"
 };
 
 const Page = () => {

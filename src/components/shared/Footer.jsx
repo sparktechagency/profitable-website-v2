@@ -117,18 +117,18 @@ const FooterSection = ({ section }) => {
 
   return (
     <div className="mt-6 sm:mt-0">
-      <h3 className="font-semibold text-lg sm:text-xl mb-4 sm:mb-6 lg:mb-8 text-white">
+      <h5 className="font-semibold text-lg sm:text-xl mb-4 sm:mb-6 lg:mb-8 text-white">
         {section.title}
-      </h3>
+      </h5>
       <ul className="space-y-2 sm:space-y-3">
         {section.links.map((link, index) => (
           <li key={index}>
-            <h1
+            <h6
               onClick={() => handleNavigation(link)}
               className="text-sm cursor-pointer hover:text-white/90 sm:text-base lg:text-lg transition-all duration-300 inline-block relative group"
             >
               {link.text}
-            </h1>
+            </h6>
           </li>
         ))}
       </ul>
@@ -158,9 +158,9 @@ const Footer = () => {
                 className="w-10 sm:w-12 md:w-[50px] flex-shrink-0 rounded-lg shadow-lg"
               />
               <div>
-                <h1 className="text-xl sm:text-2xl font-bold text-[#F59E0B]">
+                <p className="text-xl sm:text-2xl font-bold text-[#F59E0B]">
                   {company?.name}
-                </h1>
+                </p>
                 <p className="text-[#F59E0B] text-sm sm:text-base">
                   {company?.tagline}
                 </p>

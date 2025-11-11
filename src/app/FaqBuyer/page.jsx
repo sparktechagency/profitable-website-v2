@@ -3,9 +3,11 @@ import FaqBuyer from "./FaqBuyer";
 
 
 export const metadata = {
-  title: "Buy an Existing Business with PBFS – Buyer FAQs",
+  title: "Business Buying FAQs | Common Questions About Buying & Using PBFS ",
   description:
-    "Know all queries when buy a profitable business using PBFS. Access our comprehensive FAQs to guide your purchase, from valuation to closing the deal",
+    "Find answers to common buyer questions on PBFS. Learn how to register, contact sellers, access listings, manage subscriptions, request financials, and buy businesses easily. ",
+     alternates: {  canonical: "https://profitablebusinessesforsale.com/FaqBuyer"
+     },
 };
 
 

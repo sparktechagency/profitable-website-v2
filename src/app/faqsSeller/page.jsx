@@ -4,9 +4,11 @@ import FaqSeller from './FaqSeller'
 
 
 export const metadata = {
-  title: "PBFS – How to Sell your Business Online | UAE Businesses",
+  title: " Business Selling FAQs | Common Questions About Selling & Using PBFS  ",
   description:
-    "Find the solution related to your business with PBFS. Learn how to sell your business online and explore profitable Businesses For Sale in UAE.",
+    "Find answers to common questions about selling a business, managing listings, handling buyers, valuations, NDAs, upgrades, and using the PBFS platform. ",
+    alternates: {  canonical: "https://profitablebusinessesforsale.com/faqsSeller"
+    },
 };
 
 const Page = () => {

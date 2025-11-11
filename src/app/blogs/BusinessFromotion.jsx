@@ -63,9 +63,9 @@ const BusinessFormationPage = () => {
                 {/* Service Content */}
                 <div className="p-6 flex-1 flex flex-col">
                   <div className="flex-1">
-                    <h3 className="text-xl font-bold text-gray-900 mb-2 line-clamp-2">
+                    <h2 className="text-xl font-bold text-gray-900 mb-2 line-clamp-2">
                       {service?.title}
-                    </h3>
+                    </h2>
 
                     {/* Date & Time Display */}
                     <p className="text-gray-400 text-sm mb-2">

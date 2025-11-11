@@ -188,9 +188,9 @@ const Navbar = () => {
                     className="w-[50px]"
                   />
                   <div>
-                    <h1 className="text-2xl font-bold text-[#F59E0B]">
+                    <p className="text-2xl font-bold text-[#F59E0B]">
                       P B F S
-                    </h1>
+                    </p>
                     <p className="text-[#F59E0B]">From Listings to Legacy</p>
                   </div>
                 </div>
@@ -358,9 +358,9 @@ const Navbar = () => {
                       className="w-[50px]"
                     />
                     <div>
-                      <h1 className="text-2xl font-bold text-[#F59E0B]">
+                      <p className="text-2xl font-bold text-[#F59E0B]">
                         P B S F
-                      </h1>
+                      </p>
                       <p className="text-[#F59E0B]">From Listings to Legacy</p>
                     </div>
                   </div>

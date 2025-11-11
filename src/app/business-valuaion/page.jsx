@@ -1,19 +1,12 @@
+// src/app/blog/[id]/page.jsx
 import React, { Suspense } from 'react'
+import BlogDetails from './BlogDetails'
 
-import BusinessValuationPage from './BusinessValuationPage'
-
-
-
-export const metadata = {
-  title: "Get Your Business Valuations - PBFS",
-  description:
-    "Learn how PBFS assesses business value using industry-standard methods like SDE, EBITDA, and market comparables for accurate pricing.",
-};
 const Page = () => {
   return (
     <div>
-       <Suspense fallback={<p>loading..</p>}>
-        <BusinessValuationPage></BusinessValuationPage>
+      <Suspense fallback={<p>Loading...</p>}>
+        <BlogDetails />
       </Suspense>
     </div>
   )

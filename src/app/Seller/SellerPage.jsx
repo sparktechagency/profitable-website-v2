@@ -292,9 +292,9 @@ const onFinish = async (values) => {
                   <div className="flex items-center gap-3">
                     <Image src={Logo} alt="Logo" width={50} height={50} />
                     <div>
-                      <h1 className="text-2xl font-bold text-[#F59E0B]">
+                      <p className="text-2xl font-bold text-[#F59E0B]">
                         P B F S
-                      </h1>
+                      </p>
                       <p className="text-[#F59E0B]">From Listings to Legacy</p>
                     </div>
                   </div>
