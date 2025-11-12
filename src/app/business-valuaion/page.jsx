@@ -1,12 +1,13 @@
 // src/app/blog/[id]/page.jsx
 import React, { Suspense } from 'react'
-import BlogDetails from './BlogDetails'
+import BusinessValuationPage from './BusinessValuationPage'
+
 
 const Page = () => {
   return (
     <div>
       <Suspense fallback={<p>Loading...</p>}>
-        <BlogDetails />
+        <BusinessValuationPage></BusinessValuationPage>
       </Suspense>
     </div>
   )

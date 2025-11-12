@@ -68,7 +68,7 @@ const Card = ({ title, description, state, router }) => {
             onClick={() => router.push(`/auth/signUp?role=${encodeURIComponent(state)}`)}
             className="mt-4 sm:px-12 sm:py-6 py-4 text-base bg-[#0091FF] text-white hover:!bg-[#0091FF]/80 hover:!text-white border-none font-semibold"
           >
-            Get Started
+            Sign up
           </Button>
         </div>
       </div>
