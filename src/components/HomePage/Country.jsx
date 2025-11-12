@@ -108,9 +108,9 @@ const Country = () => {
 
             <div className="md:flex pl-4 md:pl-0 md:pt-0 pt-4 justify-end">
               <div>
-                <h1 className="md:text-4xl text-xl font-bold pb-4 text-black">
+                <h5 className="md:text-4xl text-xl font-bold pb-4 text-black">
                   Subscribe Now
-                </h1>
+                </h5>
                 <div className="flex gap-3">
                   <input
                     value={email}

@@ -82,12 +82,12 @@ const BusinessCard = () => {
               <h2 className="md:text-2xl text-lg font-bold text-blue-500">
                 Popular Business
               </h2>
-              <h1 className="text-gray-600 text-sm md:max-w-3xl">
+              <p className="text-gray-600 text-sm md:max-w-3xl">
                 Buy a business that’s built for success. Explore the most
                 profitable and popular businesses for sale in the UAE, USA, UK,
                 Australia, India, and beyond, curated for entrepreneurs and
                 investors looking for ready-to-run opportunities.
-              </h1>
+              </p>
             </div>
           </div>
           <Link
@@ -152,12 +152,12 @@ const BusinessCard = () => {
               <h2 className="md:text-2xl text-lg font-bold text-blue-500">
                 Featured Businesses
               </h2>
-              <h1 className="text-gray-600 text-sm max-w-3xl">
+              <p className="text-gray-600 text-sm max-w-3xl">
                 Discover verified and high-performing businesses for sale across
                 multiple industries. Each listing is screened for profitability
                 and growth potential, ideal for serious buyers ready to invest and
                 expand.
-              </h1>
+              </p>
             </div>
           </div>
           <Link
@@ -230,12 +230,12 @@ const BusinessCard = () => {
               <h2 className="md:text-2xl text-lg font-bold text-blue-500">
                 Featured Business Assets
               </h2>
-              <h1 className="text-gray-600 text-sm max-w-3xl">
+              <p className="text-gray-600 text-sm max-w-3xl">
                 Find business assets for sale including equipment, licenses,
                 brands, and intellectual property. Perfect for startups, expanding
                 companies, or entrepreneurs seeking cost-effective investment
                 opportunities.
-              </h1>
+              </p>
             </div>
           </div>
           <Link
@@ -308,12 +308,12 @@ const BusinessCard = () => {
               <h2 className="md:text-2xl text-lg font-bold text-blue-500">
                 Featured Franchises
               </h2>
-              <h1 className="text-gray-600 text-sm max-w-3xl">
+              <p className="text-gray-600 text-sm max-w-3xl">
                 Explore franchise opportunities from trusted global brands.
                 Whether you want to start a franchise in the UAE, USA, or other
                 international markets, PBFS connects you with proven, scalable
                 business models for long-term success.
-              </h1>
+              </p>
             </div>
           </div>
           <Link
@@ -387,12 +387,12 @@ const BusinessCard = () => {
                   <h2 className="text-2xl font-bold text-blue-500">
                     Business Ideas (Investor - Only Listings)
                   </h2>
-                  <h1 className="text-gray-600 text-sm max-w-3xl">
+                  <p className="text-gray-600 text-sm max-w-3xl">
                     Browse innovative business ideas and startup concepts
                     submitted by aspiring entrepreneurs. Connect with investors
                     and partners who can turn visionary ideas into profitable
                     ventures.
-                  </h1>
+                  </p>
                 </div>
               </div>
               <Link
