@@ -103,7 +103,7 @@ const InterestBuyerDetailss = () => {
           <p className="text-base">{data?.data?.interestedUser?.sector}</p>
         </div>
         <div>
-          <h4 className="text-sm text-gray-500 font-medium mb-1">— Service Zone:</h4>
+          <h4 className="text-sm text-gray-500 font-medium mb-1">— Willing to Execute within:</h4>
           <p className="text-base">{data?.data?.interestedUser?.serviceZone}</p>
         </div>
         <div>
@@ -111,7 +111,7 @@ const InterestBuyerDetailss = () => {
           <p className="text-base">{data?.data?.interestedUser?.email}</p>
         </div>
         <div>
-          <h4 className="text-sm text-gray-500 font-medium mb-1">— Activity:</h4>
+          <h4 className="text-sm text-gray-500 font-medium mb-1">— Intended Offer:</h4>
           <p className="text-base">{data?.data?.interestedUser?.activity}</p>
         </div>
       </div>

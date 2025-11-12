@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import { usePostInterestFormationMutation } from "@/redux/Api/businessApi";
 import { useGetProfileQuery } from "@/redux/Api/userApi";
 import { Form, Input, Select, Button, message, Spin } from "antd";
@@ -7,26 +7,21 @@ import { useForm } from "antd/es/form/Form";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
-
 const { TextArea } = Input;
 
 export default function InterenstFormation({ formationId }) {
-    useEffect(() => {
+  useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
- const [loading, setLoading] = useState(false);
-  const [addInterest] = usePostInterestFormationMutation()
-   const { data: profileData, isLoading: profileLoading } = useGetProfileQuery();
+  const [loading, setLoading] = useState(false);
+  const [addInterest] = usePostInterestFormationMutation();
+  const { data: profileData, isLoading: profileLoading } = useGetProfileQuery();
 
   const userId = profileData?.data?._id;
 
   const [form] = useForm();
 
-
-
- 
   const email = profileData?.data?.email;
- 
 
   useEffect(() => {
     if (profileData?.data) {
@@ -39,33 +34,31 @@ export default function InterenstFormation({ formationId }) {
     }
   }, [profileData, form]);
 
-
-  const onFinish = async(values) => {
-const data = {
+  const onFinish = async (values) => {
+    const data = {
       userId: userId,
       name: values?.name,
       email: values?.email,
-      countryCode: values?.countryCode, 
-      activity: values?.activity, 
+      countryCode: values?.countryCode,
+      activity: values?.activity,
       serviceZone: values?.serviceZone,
       message: values?.message,
-      
+
       formationId: formationId,
     };
-setLoading(true);
+    setLoading(true);
     try {
       const res = await addInterest(data).unwrap();
-     
-        toast.success(res?.message);
-        form.resetFields();
-    setLoading(false);
+
+      toast.success(res?.message);
+      form.resetFields();
+      setLoading(false);
     } catch (error) {
       console.error(error);
       setLoading(false);
       toast.error(error?.data?.message || "Failed to schedule call.");
     }
   };
-
 
   return (
     <div className="max-w-2xl mx-auto">
@@ -94,7 +87,7 @@ setLoading(true);
         </div>
 
         <div className="p-6">
-           <Form
+          <Form
             form={form}
             layout="vertical"
             onFinish={onFinish}
@@ -150,11 +143,7 @@ setLoading(true);
 
             {/* Sector and Activity */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <Form.Item
-                label="Sector"
-                name="sector"
-           
-              >
+              <Form.Item label="Sector" name="sector">
                 <Select style={{ height: "48px" }} placeholder="Select One">
                   <Select.Option value="food-beverage">
                     Food & Beverage
@@ -169,19 +158,15 @@ setLoading(true);
                 </Select>
               </Form.Item>
 
-              <Form.Item
-                label="Intended Offer"
-                name="activity"
-            
-              >
+              <Form.Item label="Intended Offer" name="activity">
                 <Input
                   style={{ height: "48px" }}
-                  placeholder="Enter Intended Offer"
+                  placeholder="Please write the amount you are willing to offer"
                 />
               </Form.Item>
             </div>
 
-            {/* Email and Service Zone */}
+        
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <Form.Item
                 label="Email"
@@ -194,47 +179,39 @@ setLoading(true);
                 <Input style={{ height: "48px" }} placeholder="Enter Email" />
               </Form.Item>
 
-              <Form.Item
-                label="Willing to Execute within"
-                name="serviceZone"
-     
-              >
+              <Form.Item label="Willing to Execute within" name="serviceZone">
                 <Input
                   style={{ height: "48px" }}
-                  placeholder="Enter Willing to Execute within"
+                  placeholder="Please write the timeline in months i.e. 1 month, 2 months .."
                 />
               </Form.Item>
             </div>
 
             {/* Message */}
-            <Form.Item
-              label="Message"
-              name="message"
-
-            >
+            <Form.Item label="Message" name="message">
               <TextArea placeholder="Enter Your Message Here" rows={5} />
             </Form.Item>
 
             {/* Submit Button */}
             <Form.Item>
-               <button
-                    className={`w-full py-3 rounded text-white flex justify-center items-center gap-2 transition-all duration-300 ${
-                      loading
-                        ? "bg-blue-400 cursor-not-allowed"
-                        : "bg-[#3b82f6] hover:bg-blue-500"
-                    }`}
-                    type="submit"
-                    disabled={loading}
-                  >
-                    {loading ? (
-                      <>
-                        <Spin size="small" />
-                        <span>Submitting...</span>
-                      </>
-                    ) : (
-                      "Submit"
-                    )}
-                  </button>
+              <button
+                className={`w-full py-3 rounded text-white flex justify-center items-center gap-2 transition-all duration-300 ${
+                  loading
+                    ? "bg-blue-400 cursor-not-allowed"
+                    : "bg-[#3b82f6] hover:bg-blue-500"
+                }`}
+                type="submit"
+                disabled={loading}
+              >
+                {loading ? (
+                  <>
+                    <Spin size="small" />
+                    <span>Submitting...</span>
+                  </>
+                ) : (
+                  "Submit"
+                )}
+              </button>
             </Form.Item>
           </Form>
         </div>

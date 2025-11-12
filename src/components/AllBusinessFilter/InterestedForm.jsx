@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import { useAddInterestMutation } from "@/redux/Api/businessApi";
 import { useGetProfileQuery } from "@/redux/Api/userApi";
 import { Form, Input, Select, Button, message, Spin } from "antd";
@@ -11,13 +11,14 @@ import "react-phone-input-2/lib/style.css";
 const { TextArea } = Input;
 
 export default function InterestForm({ businessId, businessRole }) {
- useEffect(() => {
+  useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-   const [loading, setLoading] = useState(false);
-     const [contactNo, setContactNo] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [contactNo, setContactNo] = useState("");
   const [addInterest] = useAddInterestMutation();
-  const isBrowser = typeof window !== 'undefined' && typeof localStorage !== 'undefined';
+  const isBrowser =
+    typeof window !== "undefined" && typeof localStorage !== "undefined";
   const user = isBrowser ? JSON.parse(localStorage.getItem("user")) : null;
   const userId = user?._id;
   const { data: profileData, isLoading: profileLoading } = useGetProfileQuery();
@@ -25,20 +26,20 @@ export default function InterestForm({ businessId, businessRole }) {
   const email = profileData?.data?.email;
 
   const [form] = useForm();
-useEffect(() => {
-  if (profileData?.data) {
-    const admin = profileData?.data;
-    const mobileStr = String(admin?.mobile || "").replace(/^\+880/, "0");
-    
-    form.setFieldsValue({
-      name: admin?.name,
-      email: admin?.email,
-      mobile: mobileStr,
-    });
-    
-    setContactNo(mobileStr);
-  }
-}, [profileData, form]);
+  useEffect(() => {
+    if (profileData?.data) {
+      const admin = profileData?.data;
+      const mobileStr = String(admin?.mobile || "").replace(/^\+880/, "0");
+
+      form.setFieldsValue({
+        name: admin?.name,
+        email: admin?.email,
+        mobile: mobileStr,
+      });
+
+      setContactNo(mobileStr);
+    }
+  }, [profileData, form]);
   const onFinish = async (values) => {
     const data = {
       userId: userId,
@@ -52,7 +53,7 @@ useEffect(() => {
       businessId: businessId,
       sector: values.sector,
     };
-setLoading(true);
+    setLoading(true);
     try {
       const res = await addInterest(data).unwrap();
 
@@ -112,35 +113,43 @@ setLoading(true);
               <Input style={{ height: "48px" }} placeholder="Enter Full Name" />
             </Form.Item>
 
-            
-            <div className="">
-            <Form.Item
-  label="Phone Number"
-  name="mobile"
-  rules={[
-    { required: true, message: "Please enter your phone number!" },
-  ]}
->
-  <ReactPhoneInput
-    country="bd" 
-    value={contactNo}
-    onChange={(value) => {
-      setContactNo(value);
-      form.setFieldsValue({ mobile: value }); 
-    }}
-    inputStyle={{ width: "100%", height: "48px" }}
-    placeholder="Enter phone number"
-  />
-</Form.Item>
+            <div className="grid grid-cols-2 gap-4">
+                <Form.Item
+                label="Email"
+                name="email"
+                rules={[
+                  { required: true, message: "Please enter email" },
+                  { type: "email", message: "Invalid email address" },
+                ]}
+              >
+                <Input style={{ height: "48px" }} placeholder="Enter Email" />
+              </Form.Item>
+              <Form.Item
+                label="Phone Number"
+                name="mobile"
+                rules={[
+                  {
+                    required: true,
+                    message: "Please enter your phone number!",
+                  },
+                ]}
+              >
+                <ReactPhoneInput
+                  country="bd"
+                  value={contactNo}
+                  onChange={(value) => {
+                    setContactNo(value);
+                    form.setFieldsValue({ mobile: value });
+                  }}
+                  inputStyle={{ width: "100%", height: "48px" }}
+                  placeholder="Enter phone number"
+                />
+              </Form.Item>
             </div>
 
             {/* Sector and Activity */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <Form.Item
-                label="Sector"
-                name="sector"
-           
-              >
+            <div className="">
+              <Form.Item label="Sector" name="sector">
                 <Select style={{ height: "48px" }} placeholder="Select One">
                   <Select.Option value="food-beverage">
                     Food & Beverage
@@ -155,72 +164,49 @@ setLoading(true);
                 </Select>
               </Form.Item>
 
-              <Form.Item
-                label="Intended Offer"
-                name="activity"
-            
-              >
+              <Form.Item label="Intended Offer" name="activity">
                 <Input
                   style={{ height: "48px" }}
-                  placeholder="Enter Intended Offer"
+                  placeholder="Please write the amount you are willing to offer"
                 />
               </Form.Item>
             </div>
 
-            {/* Email and Service Zone */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <Form.Item
-                label="Email"
-                name="email"
-                rules={[
-                  { required: true, message: "Please enter email" },
-                  { type: "email", message: "Invalid email address" },
-                ]}
-              >
-                <Input style={{ height: "48px" }} placeholder="Enter Email" />
-              </Form.Item>
-
-              <Form.Item
-                label="Willing to Execute within"
-                name="serviceZone"
-     
-              >
+   
+            <div className="">
+              <Form.Item label="Willing to Execute within" name="serviceZone">
                 <Input
                   style={{ height: "48px" }}
-                  placeholder="Enter Willing to Execute within"
+                  placeholder="Please write the timeline in months i.e. 1 month, 2 months .."
                 />
               </Form.Item>
             </div>
 
             {/* Message */}
-            <Form.Item
-              label="Message"
-              name="message"
-
-            >
+            <Form.Item label="Message" name="message">
               <TextArea placeholder="Enter Your Message Here" rows={5} />
             </Form.Item>
 
             {/* Submit Button */}
             <Form.Item>
-               <button
-                    className={`w-full py-3 rounded text-white flex justify-center items-center gap-2 transition-all duration-300 ${
-                      loading
-                        ? "bg-blue-400 cursor-not-allowed"
-                        : "bg-[#3b82f6] hover:bg-blue-500"
-                    }`}
-                    type="submit"
-                    disabled={loading}
-                  >
-                    {loading ? (
-                      <>
-                        <Spin size="small" />
-                        <span>Submitting...</span>
-                      </>
-                    ) : (
-                      "Submit"
-                    )}
-                  </button>
+              <button
+                className={`w-full py-3 rounded text-white flex justify-center items-center gap-2 transition-all duration-300 ${
+                  loading
+                    ? "bg-blue-400 cursor-not-allowed"
+                    : "bg-[#3b82f6] hover:bg-blue-500"
+                }`}
+                type="submit"
+                disabled={loading}
+              >
+                {loading ? (
+                  <>
+                    <Spin size="small" />
+                    <span>Submitting...</span>
+                  </>
+                ) : (
+                  "Submit"
+                )}
+              </button>
             </Form.Item>
           </Form>
         </div>
