@@ -45,6 +45,7 @@ export default function RootLayout({ children }) {
             })(window,document,'script','dataLayer','GTM-N4TGRV75');
           `}
         </Script>
+        
 
         {/* ✅ Google Ads Tracking Script */}
         <Script
