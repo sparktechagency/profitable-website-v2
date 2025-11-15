@@ -61,6 +61,7 @@ export default function RootLayout({ children }) {
             gtag('config', 'AW-17657274805');
           `}
         </Script>
+        
       </head>
 
       <body

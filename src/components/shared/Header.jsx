@@ -20,9 +20,9 @@ export default function Header({ title, description }) {
             <div className="absolute top-0 left-0 w-2 h-full bg-[#22C55E] z-[-1] rounded-r-full"></div>
 
             <div className="ml-5">
-              <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#0091FF] mb-2 leading-tight">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#0091FF] mb-2 leading-tight">
                 {title}
-              </h1>
+              </h2>
               <p className="text-lg md:text-xl text-white leading-relaxed max-w-2xl">
                 {description}
               </p>

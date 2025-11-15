@@ -12,7 +12,7 @@ export const metadata = {
     "Business for sale UAE",
     "Buy business in Dubai",
   ],
-  alternates: {  canonical: "https://www.profitablebusinessesforsale.com/"
+  alternates: {  canonical: "https://profitablebusinessesforsale.com/"
   },
 };
 export default function Home() {

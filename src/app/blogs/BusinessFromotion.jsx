@@ -11,7 +11,7 @@ const BusinessFormationPage = () => {
   const { data: getAllFormat, isLoading, isError } = useGetAllFormateQuery();
   console.log(getAllFormat);
 
-  // ✅ Function to create SEO-friendly slugs
+  // Function to create SEO-friendly slugs
   const createSlug = (title) => {
     return title
       ?.toLowerCase()
