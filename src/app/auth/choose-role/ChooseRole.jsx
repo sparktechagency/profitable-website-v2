@@ -11,13 +11,13 @@ function ChooseRole() {
   const router = useRouter();
 
   const data = [
-    { title: 'Buyer', description: 'Find the perfect business to buy and connect directly with sellers.', state: 'Buyer' },
-    { title: 'Seller', description: 'List your business today and reach thousands of serious buyers worldwide.', state: 'Seller' },
-    { title: 'Broker', description: 'List multiple businesses, manage inquiries, and close deals faster with PBFS.', state: 'Broker' },
-    { title: 'Franchise Seller', description: 'List your franchise, gain visibility, and connect with serious buyers in just a few clicks.', state: 'Francise Seller' },
-    { title: 'Investor', description: 'Discover exclusive investment opportunities and connect with verified business sellers and idea listers worldwide.', state: 'Investor' },
-    { title: 'Business Idea Lister', description: 'Turn your business concept into reality by showcasing it to global buyers and investors.', state: 'Business Idea Lister' },
-    { title: 'Asset Seller', description: 'List and sell your business assets—equipment, inventory, or licenses—directly to serious buyers.', state: 'Asset Seller' },
+    { title: 'a Buyer', description: 'Find the perfect business to buy and connect directly with sellers.', state: 'Buyer' },
+    { title: 'a Seller', description: 'List your business today and reach thousands of serious buyers worldwide.', state: 'Seller' },
+    { title: 'a Broker', description: 'List multiple businesses, manage inquiries, and close deals faster with PBFS.', state: 'Broker' },
+    { title: 'a Franchise Seller', description: 'List your franchise, gain visibility, and connect with serious buyers in just a few clicks.', state: 'Francise Seller' },
+    { title: 'an Investor', description: 'Discover exclusive investment opportunities and connect with verified business sellers and idea listers worldwide.', state: 'Investor' },
+    { title: 'a Business Idea Lister', description: 'Turn your business concept into reality by showcasing it to global buyers and investors.', state: 'Business Idea Lister' },
+    { title: 'an Asset Seller', description: 'List and sell your business assets—equipment, inventory, or licenses—directly to serious buyers.', state: 'Asset Seller' },
   ];
 
   return (
@@ -60,7 +60,7 @@ const Card = ({ title, description, state, router }) => {
       <div className="sm:w-3/5 w-full h-[200px] mt-12 sm:mt-0 sm:h-full relative">
         <div className="absolute backdrop-blur-sm border border-gray-200 bg-white shadow h-fit py-[42px] px-[20px] sm:right-20 flex items-start justify-center flex-col top-1/2 transform -translate-y-1/2 w-full rounded">
           <h1 className="font-bold sm:text-4xl text-2xl">
-            Become a{' '}
+            Become {' '}
             <span className="text-[#172554] font-bold sm:text-4xl text-2xl">{title}</span>
           </h1>
           <p className="text-black font-bold text-base">{description}</p>
