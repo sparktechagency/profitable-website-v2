@@ -12,9 +12,9 @@ import Review from "@/components/HomePage/Review";
 import SimpleProcess from "@/components/HomePage/SimpleProcess";
 
 export const metadata = {
-  title: "PBFS – Best Website to Sell a Business",
+  title: "Most Trusted Platform to Buy or Sell a Business Online | PBFS  ",
   description:
-    " Explore Our Profitable Businesses For Sale. Buy or sell your business confidently on the best website for profitable business deals.",
+    " Explore top businesses for sale across the Globe with PBFS. Buy or sell a profitable business easily with expert business brokers. Find trusted opportunities near you today. ",
   keywords: [
     "Best website to sell a business, Profitable Business For Sale Dubai",
   ],
