@@ -57,10 +57,11 @@ const MyBusinessDetails = () => {
   const checkUserId = profileData?.data?._id;
   const checkBusinessId = businessDetails?.data?.business?.user;
 
+
   const handleSoldToggle = async () => {
     try {
       const newStatus = !businessDetails?.data?.business?.isSold;
-      const res = await updateSold({ businessId, isSold: newStatus }).unwrap();
+      const res = await updateSold({ businessId: businessDetails?.data?.business?._id, isSold: newStatus }).unwrap();
       toast.success(res?.message);
     } catch (err) {
       toast.error(err?.data?.message);
@@ -236,7 +237,7 @@ const MyBusinessDetails = () => {
                       ) {
                         toast.error("Please buy subscription");
                       } else {
-                        window.location.href = `/interestBuyer/${businessDetails?.data?.business?._id}`;
+                        window.location.href = `/interestBuyer/${businessDetails?.data?.business?.slug}`;
                       }
                     }}
                     className={`px-4 py-1 rounded text-white transition-all ${
@@ -246,7 +247,9 @@ const MyBusinessDetails = () => {
                         : "bg-[#0091FF] hover:bg-[#0091FF]"
                     }`}
                   >
-                    {role === "Business Idea Lister" ? "Interested Investor" : "Interested Buyers"}
+                    {role === "Business Idea Lister"
+                      ? "Interested Investor"
+                      : "Interested Buyers"}
                   </button>
                 </div>
               )}
@@ -262,7 +265,7 @@ const MyBusinessDetails = () => {
                   businessDetails?.data?.business?.businessRole !==
                     "Business Idea Lister")) && (
                 <Link
-                  href={`/business-details-with-form/${businessDetails?.data?.business?._id}`}
+                  href={`/business-details-with-form/${businessDetails?.data?.business?.slug}`}
                 >
                   <button className="bg-[#0091FF] hover:bg-[#0091FF] text-white px-5 py-1 rounded">
                     Interested

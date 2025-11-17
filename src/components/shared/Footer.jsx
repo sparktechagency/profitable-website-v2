@@ -63,13 +63,13 @@ const footerConfig = {
     {
       title: "FAQs",
       links: [
-        { text: "Seller FAQs", to: "/faqsSeller" },
-        { text: "Buyer FAQs", to: "/FaqBuyer" },
-        { text: "Broker FAQs", to: "/FaqBrokers" },
-        { text: "Investor FAQs", to: "/FaqInvestors" },
-        { text: "Business Idea Lister FAQs", to: "/FaqBusiness" },
-        { text: "Business Asset Lister FAQs", to: "/FaqAsset" },
-        { text: "Franchisor FAQs", to: "/FaqFranchise" },
+        { text: "Seller FAQs", to: "/faq-seller" },
+        { text: "Buyer FAQs", to: "/faq-buyer" },
+        { text: "Broker FAQs", to: "/faq-brokers" },
+        { text: "Investor FAQs", to: "/faq-investors" },
+        { text: "Business Idea Lister FAQs", to: "/faq-business" },
+        { text: "Business Asset Lister FAQs", to: "/faq-asset" },
+        { text: "Franchisor FAQs", to: "/faq-franchise" },
       ],
     },
     {

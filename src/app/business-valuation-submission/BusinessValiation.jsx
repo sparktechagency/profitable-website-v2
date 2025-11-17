@@ -97,7 +97,7 @@ export default function BusinessValuationSubmission() {
             Back To Homepage
           </Link>
           <Link
-            href="/business-valuaion"
+            href="/business-valuation"
             className="flex-1 bg-[#0091FF] text-white px-5 py-2 whitespace-nowrap rounded-md"
           >
             Submit Another Valuation

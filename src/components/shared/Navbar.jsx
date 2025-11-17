@@ -183,9 +183,9 @@ const Navbar = () => {
                   <Image
                     src={Logo}
                     alt="Logo"
-                    width={150}
-                    height={150}
-                    className="w-[50px]"
+                    width={200}
+                    height={200}
+                    className="w-[80px]"
                   />
                   <div>
                     <p className="text-2xl font-bold text-[#F59E0B]">
@@ -201,7 +201,7 @@ const Navbar = () => {
               onClick={() => setMobileMenuOpen(false)}
             >
               {hasToken && role !== "Buyer" && role !== "Investor" && (
-                <button className="w-fit hidden md:block px-4 py-2 bg-[#22C55E] text-white text-center rounded-lg font-medium">
+                <button className="block md:px-4 md:py-2 px-2 py-1 bg-[#22C55E] text-white text-center rounded-lg md:font-medium">
                   List Your Business
                 </button>
               )}
@@ -372,16 +372,7 @@ const Navbar = () => {
                   </button>
                 </div>
 
-                <Link
-                  href="/myBusiness/details"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {hasToken && role !== "Buyer" && role !== "Investor" && (
-                    <button className="block w-full md:hidden bg-[#22C55E] text-white text-center py-3 rounded-lg font-medium">
-                      List Your Business
-                    </button>
-                  )}
-                </Link>
+           
                 <nav className="space-y-2 mt-4">
                   {navItems.map((item, index) => (
                     <MobileNavItem

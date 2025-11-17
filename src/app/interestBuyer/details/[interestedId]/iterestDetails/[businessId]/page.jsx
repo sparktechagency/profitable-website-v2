@@ -77,7 +77,7 @@ const InterestBuyerDetailss = () => {
               <span className="font-semibold">{data?.data?.business?.askingPrice}</span>
             </p>
           </div>
-          <Link href={`/details/${data?.data?.business?._id}`}>
+          <Link href={`/details/${data?.data?.business?.slug}`}>
             <button className="mt-4 w-max bg-blue-500 text-white text-sm px-4 py-2 rounded hover:bg-blue-600">
               View Details
             </button>

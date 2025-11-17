@@ -592,7 +592,7 @@ export default function AllBusinessFilterAnt() {
                         {business.askingPrice}
                       </span>
                     </p>
-                    <Link href={`/details/${business?._id}`}>
+                    <Link href={`/details/${business?.slug}`}>
                       <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md transition-colors">
                         View Details
                       </button>

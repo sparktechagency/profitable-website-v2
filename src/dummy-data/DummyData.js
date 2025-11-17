@@ -153,7 +153,7 @@ export const menuItems = {
     },
     {
       name: 'Get Business Valuations',
-      path: '/business-valuaion',
+      path: '/business-valuation',
     },
   ],
 };
