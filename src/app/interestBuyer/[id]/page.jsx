@@ -41,10 +41,10 @@ const InterestedBuyer = () => {
           {interestedUsers.map((buyer) => (
             <div
               key={buyer?._id}
-              className="flex items-center justify-between p-4 bg-white shadow rounded-xl hover:shadow-md transition-all"
+              className="md:flex items-center justify-between p-4 bg-white shadow rounded-xl hover:shadow-md transition-all"
             >
               {/* Left Section */}
-              <div className="flex items-center space-x-4">
+              <div className="md:flex items-center md:space-x-4 ">
                 <div className="relative w-14 h-14">
                   <Image
                     src={`${imageUrl}/uploads/profile-image/${buyer?.userId?.image}`}
@@ -53,7 +53,7 @@ const InterestedBuyer = () => {
                     className="object-cover rounded-full"
                   />
                 </div>
-                <div>
+                <div className="">
                   <h3 className="text-lg font-semibold">
                     {buyer?.userId?.name}
                   </h3>
@@ -61,13 +61,13 @@ const InterestedBuyer = () => {
                     {buyer?.userId?.email}
                   </p>
                 </div>
-                <span className="text-xs bg-blue-100 text-blue-600 font-medium px-2 py-1 rounded ml-2">
+                <span className="text-xs bg-blue-100 text-blue-600 font-medium px-2 py-1 rounded md:ml-2 ">
                   {buyer?.userId?.role || "N/A"}
                 </span>
               </div>
 
               {/* Middle Section */}
-              <div className="hidden md:block text-sm text-gray-700">
+              <div className="md:my-0 my-5 text-sm text-gray-700">
                 <p className="font-medium">Interested On</p>
                 <p className="text-blue-500">{businessTitle}</p>
               </div>

@@ -1,18 +1,17 @@
+"use client";
 
-'use client';
-
-import { useParams } from "next/navigation"; 
+import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
 import { useGetSingleIterestUserQuery } from "@/redux/Api/businessApi";
 import { Navigate } from "@/components/shared/Navigate";
 import InterestForm from "@/components/AllBusinessFilter/InterestedForm";
 import { imageUrl } from "@/redux/Api/baseApi";
-import Image from "next/image"; 
+import Image from "next/image";
 
 const libraries = ["places"];
 const mapContainerStyle = { width: "100%", height: "300px" };
-const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY; 
+const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
 
 export default function BussinessDetailsWithForm() {
   useEffect(() => {
@@ -64,9 +63,9 @@ export default function BussinessDetailsWithForm() {
               className="w-full h-[500px] object-cover"
               src={`${imageUrl}/Uploads/business-image/${businessDetails?.data?.business?.image}`}
               alt={businessDetails?.data?.business?.title || "Business image"}
-              width={800} // Estimated width for full-width image
-              height={500} // Match h-[500px]
-              priority={true} // Prioritize as main image
+              width={800} 
+              height={500} 
+              priority={true} 
             />
             <div className="pt-11">
               <button className="bg-[#C1E1FF] border border-[#0091FF] px-2 py-2 rounded">
@@ -113,7 +112,7 @@ export default function BussinessDetailsWithForm() {
             <div className="w-full">
               <InterestForm
                 businessRole={businessDetails?.data?.business?.businessRole}
-                businessId={businessId}
+                businessId={businessDetails?.data?.business?._id}
               />
             </div>
           </div>

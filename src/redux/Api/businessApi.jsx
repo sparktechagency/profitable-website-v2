@@ -35,7 +35,7 @@ const businessApi = baseApi.injectEndpoints({
     getSingleIterestUser: builder.query({
       query: ({ businessId }) => {
         return {
-          url: `/business/get-single-business-with-users?businessId=${businessId}`,
+          url: `/business/get-single-business-with-users?slug=${businessId}`,
           method: "GET",
         };
       },

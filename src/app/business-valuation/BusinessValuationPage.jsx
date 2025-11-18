@@ -116,7 +116,7 @@ const BusinessValuationPage = () => {
       toast.success(res.message || "Submitted successfully");
       setLoading(false);
       form.resetFields();
-      router.push("/business-valuaion-submission");
+      router.push("/business-valuation-submission");
     } catch (error) {
       console.error(error);
       setLoading(false);

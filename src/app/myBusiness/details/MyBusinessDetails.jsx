@@ -20,6 +20,7 @@ const MyBusiness = () => {
 
   const [deleteBusinesss] = useDeleteBusinessMutation();
   const { data: businessData, isLoading } = useGetAllBusinessQuery();
+  console.log(businessData)
   const isBrowser = typeof window !== "undefined" && typeof localStorage !== "undefined";
   const hasAccessToken = isBrowser && localStorage.getItem("accessToken");
   const user = isBrowser ? JSON.parse(localStorage.getItem("user")) : null;
@@ -105,7 +106,7 @@ if (role === "Seller") {
                   {item?.businessId?.askingPrice}
                 </span>
               </p>
-              <Link href={`/details/${item?.businessId?._id}`}>
+              <Link href={`/details/${item?.businessId?.slug}`}>
                 <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md transition-colors">
                   View Details
                 </button>
@@ -155,7 +156,7 @@ if (role === "Seller") {
                 Starting from{" "}
                 <span className="font-semibold">{item?.askingPrice}</span>
               </p>
-              <Link href={`/details/${item?._id}`}>
+              <Link href={`/details/${item?.slug}`}>
                 <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md transition-colors">
                   View Details
                 </button>
@@ -217,7 +218,7 @@ if (role === "Seller") {
                   {item?.businessId?.askingPrice}
                 </span>
               </p>
-              <Link href={`/details/${item?.businessId?._id}`}>
+              <Link href={`/details/${item?.businessId?.slug}`}>
                 <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md transition-colors">
                   View Details
                 </button>
@@ -272,27 +273,25 @@ if (role === "Seller") {
               <span className="font-semibold">{item?.askingPrice}</span>
             </p>
            <div className="grid grid-cols-2 gap-4">
-             <Link href={`/details/${item?._id}`}>
+             <Link href={`/details/${item?.slug}`}>
               <button className="bg-blue-500 hover:bg-blue-600 text-white w-full py-2 rounded-md transition-colors">
                 View Details
               </button>
             </Link>
-        
-             <button className="bg-blue-600  text-white w-full py-2 rounded-md transition-colors">
-                Interested Buyer
-              </button>
-           </div>
-               <Popconfirm
+          <Popconfirm
               title="Are you sure you want to delete this Business?"
               onConfirm={() => handleDeletebusiness(item?._id)}
               okText="Yes"
               cancelText="No"
               okType="danger"
             >
-              <button className="bg-red-600  text-white w-full mt-4 py-2 rounded-md transition-colors">
+              <button className="bg-red-600  text-white w-full  py-2 rounded-md transition-colors">
                 Delete
               </button>
             </Popconfirm>
+            
+           </div>
+             
           </div>
         </div>
       );
