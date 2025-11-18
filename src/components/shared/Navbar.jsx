@@ -176,7 +176,7 @@ const Navbar = () => {
         }`}
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-3 border-b border-gray-100">
+          <div className="flex justify-between items-center py-1 border-b border-gray-100">
             <Link href="/">
               <div className="flex items-center space-x-4">
                 <div className="flex items-center gap-3">
@@ -185,7 +185,7 @@ const Navbar = () => {
                     alt="Logo"
                     width={200}
                     height={200}
-                    className="w-[80px]"
+                    className="w-[78px]"
                   />
                   <div>
                     <p className="text-2xl font-bold text-[#F59E0B]">
