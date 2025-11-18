@@ -3,7 +3,7 @@ import LoginPage from "./LoginPage";
 
 // ✅ Add this metadata export
 export const metadata = {
-  title: ": Top Business Opportunities – PBFS Login Portal ",
+  title: "Top Business Opportunities – PBFS Login Portal ",
   description:
     "Access the latest business opportunities with PBFS. Login to explore profitable businesses, franchises, and investment ventures easily and securely. ",
   alternates: {
