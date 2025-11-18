@@ -10,7 +10,7 @@ import {
   message,
   Spin,
 } from "antd";
-
+//f
 const { Title, Paragraph, Text } = Typography;
 
 const Buyer = () => {
