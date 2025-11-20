@@ -183,6 +183,7 @@ const Navbar = () => {
                   <Image
                     src={Logo}
                     alt="Logo"
+                    unoptimized={true}
                     width={200}
                     height={200}
                     className="w-[78px]"
