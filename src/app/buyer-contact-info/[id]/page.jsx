@@ -58,8 +58,8 @@ const Page = () => {
       <div className="grid lg:grid-cols-2 gap-10 lg:gap-5">
         {/* Left Side - Profile Section */}
         <div className="p-5">
-          <div className="flex items-start gap-6">
-            <div className="bg-gray-200 rounded-full">
+          <div className="md:flex items-start gap-6">
+            <div className=" rounded-full">
               {userData?.image ? (
                 <Image
                   src={`${imageUrl}/Uploads/profile-image/${userData?.image}`}

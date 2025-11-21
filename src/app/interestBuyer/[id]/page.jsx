@@ -7,7 +7,7 @@ import { useParams } from "next/navigation";
 import { useGetSingleIterestUserQuery } from "@/redux/Api/businessApi";
 import { imageUrl } from "@/redux/Api/baseApi";
 import { Navigate } from "@/components/shared/Navigate";
-
+import img from "../../../../public/Home/user.png";
 const InterestedBuyer = () => {
   const { id: businessId } = useParams();
 
@@ -37,23 +37,34 @@ const InterestedBuyer = () => {
       {interestedUsers.length === 0 ? (
         <p className="text-gray-500 h-[60vh]">No interested buyers yet.</p>
       ) : (
-        <div className="space-y-4">
+        <div className=" grid lg:grid-cols-4 md:grid-cols-2 gap-4">
           {interestedUsers.map((buyer) => (
             <div
               key={buyer?._id}
-              className="md:flex items-center justify-between p-4 bg-white shadow rounded-xl hover:shadow-md transition-all"
+              className="  p-4 bg-white shadow rounded-xl hover:shadow-md transition-all"
             >
               {/* Left Section */}
-              <div className="md:flex items-center md:space-x-4 ">
-                <div className="relative w-14 h-14">
-                  <Image
-                    src={`${imageUrl}/uploads/profile-image/${buyer?.userId?.image}`}
-                    alt={buyer?.userId?.name || "User Image"}
-                    fill
-                    className="object-cover rounded-full"
-                  />
-                </div>
+              <div className="  ">
                 <div className="">
+                  {buyer?.userId?.image ? (
+                    <Image
+                      src={`${imageUrl}/uploads/profile-image/${buyer?.userId?.image}`}
+                      alt={buyer?.userId?.name || "User Image"}
+                      fill
+                      className="object-cover rounded-full"
+                    />
+                  ) : (
+                    <Image
+                      src={img}
+                      alt="User avatar"
+                      className="w-[80px] h-[80px] rounded-full object-cover"
+                      width={100}
+                      height={100}
+                      priority={true}
+                    />
+                  )}
+                </div>
+                <div className="mt-4 mb-2">
                   <h3 className="text-lg font-semibold">
                     {buyer?.userId?.name}
                   </h3>
@@ -61,13 +72,12 @@ const InterestedBuyer = () => {
                     {buyer?.userId?.email}
                   </p>
                 </div>
-                <span className="text-xs bg-blue-100 text-blue-600 font-medium px-2 py-1 rounded md:ml-2 ">
-                  {buyer?.userId?.role || "N/A"}
-                </span>
               </div>
-
+              <span className="text-xs bg-blue-100 text-blue-600 font-medium px-2 py-1 rounded ">
+                {buyer?.userId?.role || "N/A"}
+              </span>
               {/* Middle Section */}
-              <div className="md:my-0 my-5 text-sm text-gray-700">
+              <div className="my-4 text-sm text-gray-700">
                 <p className="font-medium">Interested On</p>
                 <p className="text-blue-500">{businessTitle}</p>
               </div>
