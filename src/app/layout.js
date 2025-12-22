@@ -23,7 +23,7 @@ const geistMono = localFont({
 export const metadata = {
   title: "Connecting buyers and sellers of businesses Globally",
   icons: {
-    icon: "/vercel.svg",
+    icon: "/favicon.ico",
   },
 };
 
