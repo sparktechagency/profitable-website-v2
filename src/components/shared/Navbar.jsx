@@ -189,9 +189,7 @@ const Navbar = () => {
                     className="w-[78px]"
                   />
                   <div>
-                    <p className="text-2xl font-bold text-[#F59E0B]">
-                      P B F S
-                    </p>
+                    <p className="text-2xl font-bold text-[#F59E0B]">P B F S</p>
                     <p className="text-[#F59E0B]">From Listings to Legacy</p>
                   </div>
                 </div>
@@ -291,14 +289,26 @@ const Navbar = () => {
               </button>
 
               {!accessToken ? (
-                <div className="flex items-center space-x-3">
-                  <Link href="/auth/login">
-                    <button className="flex items-center bg-[#0091FF] space-x-2 px-4 py-2 text-white rounded transition-colors">
-                      <User className="w-4 h-4" />
-                      <span>Login</span>
-                    </button>
-                  </Link>
-                </div>
+                <>
+                  <div className="flex gap-2">
+                    <div className="flex items-center space-x-3">
+                      <Link href="/auth/login">
+                        <button className="flex items-center border text-[#0091FF] border-[#0091FF] space-x-2 px-2 py-2  rounded transition-colors">
+                          <User className="w-4 h-4" />
+                          <span>Sign Up</span>
+                        </button>
+                      </Link>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                      <Link href="/auth/login">
+                        <button className="flex items-center bg-[#0091FF] space-x-2 px-4 py-2 text-white rounded transition-colors">
+                          <User className="w-4 h-4" />
+                          <span>Login</span>
+                        </button>
+                      </Link>
+                    </div>
+                  </div>
+                </>
               ) : (
                 <div className="flex items-center space-x-3">
                   <button
@@ -373,7 +383,6 @@ const Navbar = () => {
                   </button>
                 </div>
 
-           
                 <nav className="space-y-2 mt-4">
                   {navItems.map((item, index) => (
                     <MobileNavItem

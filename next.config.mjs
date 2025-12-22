@@ -1,7 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Remote images configuration
-  images: {
+    images: {
     remotePatterns: [
       // Live server - lowercase uploads
       {
@@ -52,14 +51,74 @@ const nextConfig = {
     formats: ["image/avif", "image/webp"],
   },
 
+  // Permanent 301 redirects for SEO
+  async redirects() {
+    return [
+      // Old FAQ pages to new ones
+      {
+        source: "/seller-faq",
+        destination: "/faq-seller",
+        permanent: true,
+      },
+      {
+        source: "/buyer-faq",
+        destination: "/faq-buyer",
+        permanent: true,
+      },
 
+      // Redirect www to non-www
+      {
+        source: "/:path*",
+        has: [
+          {
+            type: "host",
+            value: "www.profitablebusinessesforsale.com",
+          },
+        ],
+        destination: "https://profitablebusinessesforsale.com/:path*",
+        permanent: true,
+      },
 
- 
+      // Redirect HTTP non-www to HTTPS non-www
+      {
+        source: "/:path*",
+        has: [
+          {
+            type: "header",
+            key: "x-forwarded-proto",
+            value: "http",
+          },
+          {
+            type: "host",
+            value: "profitablebusinessesforsale.com",
+          },
+        ],
+        destination: "https://profitablebusinessesforsale.com/:path*",
+        permanent: true,
+      },
+
+      // Redirect HTTP www to HTTPS non-www
+      {
+        source: "/:path*",
+        has: [
+          {
+            type: "header",
+            key: "x-forwarded-proto",
+            value: "http",
+          },
+          {
+            type: "host",
+            value: "www.profitablebusinessesforsale.com",
+          },
+        ],
+        destination: "https://profitablebusinessesforsale.com/:path*",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
-
-
 
 // /** @type {import('next').NextConfig} */
 // const nextConfig = {

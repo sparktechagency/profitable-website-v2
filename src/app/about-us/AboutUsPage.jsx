@@ -12,7 +12,7 @@ const AboutPage = () => {
         description="Discover who we are, what we do, and why we're passionate about connecting buyers and sellers around the world."
       />
 
-      <section className="overflow-hidden pt-20 pb-10">
+      <section className="overflow-hidden md:pt-20 pb-10">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
             {/* Left Side Image */}
@@ -28,11 +28,11 @@ const AboutPage = () => {
 
             {/* Right Side Text */}
             <div>
-              <span className="block mb-4 text-3xl font-semibold text-[#0091FF]">
+              <span className=" mb-4 md:text-3xl text-2xl font-semibold text-[#0091FF]">
                 About Us ProfitableBusinessesForSale.com (PBFS)
               </span>
 
-              <h2 className="mb-5 text-3xl font-bold text-dark sm:text-[40px]/[48px]">
+              <h2 className="mb-5 md:text-3xl font-bold text-dark text-xl">
                 Your Trusted Partner in <span className="text-[#22C55E]">Buying</span> & <span className="text-[#22C55E]">Selling Businesses Online</span>
               </h2>
 
