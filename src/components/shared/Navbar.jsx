@@ -292,7 +292,7 @@ const Navbar = () => {
                 <>
                   <div className="flex gap-2">
                     <div className="flex items-center space-x-3">
-                      <Link href="/auth/login">
+                      <Link href="/auth/choose-role">
                         <button className="flex items-center border text-[#0091FF] border-[#0091FF] space-x-2 px-2 py-2  rounded transition-colors">
                           <User className="w-4 h-4" />
                           <span>Sign Up</span>
