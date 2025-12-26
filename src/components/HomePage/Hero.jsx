@@ -64,11 +64,11 @@ console.log(accessToken);
               — the trusted marketplace that helps you grow.
             </p>
 
-            <Link href={linkPath}>
+            {/* <Link href={linkPath}>
               <button className="bg-[#0091FF] hover:bg-blue-600 text-white px-8 py-3 rounded text-lg">
                 Get Started
               </button>
-            </Link>
+            </Link> */}
           </div>
         </div>
       </section>

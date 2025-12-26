@@ -7,6 +7,7 @@ import { Toaster } from "react-hot-toast";
 import { SocketProvider } from "@/components/context/ContextProvider";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import WhatsappBadge from "@/components/HomePage/WatsappBradge";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -111,6 +112,8 @@ export default function RootLayout({ children }) {
             })();
           `}
         </Script>
+        
+<WhatsappBadge/>
       </body>
     </html>
   );
