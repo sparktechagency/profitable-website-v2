@@ -46,7 +46,6 @@ export default function RootLayout({ children }) {
             })(window,document,'script','dataLayer','GTM-N4TGRV75');
           `}
         </Script>
-        
 
         {/* ✅ Google Ads Tracking Script */}
         <Script
@@ -63,7 +62,6 @@ export default function RootLayout({ children }) {
             gtag('config', 'AW-17657274805');
           `}
         </Script>
-        
       </head>
 
       <body
@@ -112,8 +110,8 @@ export default function RootLayout({ children }) {
             })();
           `}
         </Script>
-        
-<WhatsappBadge/>
+
+        <WhatsappBadge />
       </body>
     </html>
   );

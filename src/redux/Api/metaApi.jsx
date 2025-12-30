@@ -94,6 +94,21 @@ const businessApi = baseApi.injectEndpoints({
       },
       providesTags: ["terms"],
     }),
+
+
+  getRefundPolicy: builder.query({
+      query: () => {
+        return {
+          url: "/home/get-refund-policy",
+          method: "GET",
+        };
+      },
+      providesTags: ["terms"],
+    }),
+
+  
+
+
     postSubscriber: builder.mutation({
       query: (email) => {
         return {
@@ -204,5 +219,6 @@ export const {
   useGetNotificationQuery,
   useDeleteNotificationMutation,
   useGetUnreadNotificationQuery,
-  useUpdateNotificationMutation
+  useUpdateNotificationMutation,
+  useGetRefundPolicyQuery
 } = businessApi;

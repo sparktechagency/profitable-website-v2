@@ -50,7 +50,7 @@ console.log(accessToken);
           <div className="max-w-4xl">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
               Buy, Sell & Invest in{" "}
-              <span className="text-[#22C55E]">Business</span>, Franchises,
+              <span className="text-[#22C55E]">Businesses</span>, Franchises,
               Assets & Business Ideas
               <span className="text-[#0091FF]"> Worldwide</span>
             </h1>
