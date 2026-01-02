@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import React, { useState } from "react";
 import BrokerAdd from "@/components/subscription/BrokerAdd";
 import AddSubPlane from "@/components/subscription/AddSubPlane";
@@ -23,7 +23,9 @@ const SubscriptionPlan = () => {
   return (
     <div className="py-16">
       <Header
-        title={`Subscription Plans for ${userRole || "User"}`}
+        title={`Subscription Plans for ${
+          userRole === "Francise Seller" ? "Franchise Seller" : userRole
+        }`}
         description="Unlock premium features and connect with top listings tailored to your investment goals."
       />
 
@@ -42,7 +44,7 @@ const SubscriptionPlan = () => {
                     {plan?.subscriptionPlanType}
                   </h3>
                   <p className="text-sm text-gray-500 mb-4">
-                    {plan?.subscriptionPlanRole}
+                    {plan?.subscriptionPlanRole === 'Francise Seller' ? "Franchise Seller" : plan?.subscriptionPlanRole}
                   </p>
                   <h2 className="text-4xl font-bold mb-4">
                     {userRole === "Broker" ? "" : `$ ${plan?.price}`}

@@ -242,6 +242,7 @@ if (role === "Seller") {
     }
 
     // For all other roles: Render only sold card
+    
     if (!isBusinessCard) {
       return (
         <div
@@ -362,7 +363,7 @@ if (role === "Seller") {
             renderCard={renderCard}
           />
           <Section
-            title={`Previous Business(es) that have been Sold`}
+            title={`Previous Business(es) that have been Sold `}
             data={mySoldBusiness}
             renderCard={renderCard}
           />
@@ -398,11 +399,19 @@ if (role === "Seller") {
             data={myBusiness}
             renderCard={renderCard}
           />
+          
           <Section
-            title={soldTitle}
-            data={mySoldBusiness}
-            renderCard={renderCard}
-          />
+  title={
+    <span>
+      {soldTitle}<br />
+      <span className="text-gray-500 text-sm font-normal">
+        Note : Sold business will be deleted after 30 days
+      </span>
+    </span>
+  }
+  data={mySoldBusiness}
+  renderCard={renderCard}
+/>
         </>
       )}
     </div>
@@ -431,10 +440,5 @@ const Section = ({ title, data, renderCard }) => (
 
 export default MyBusiness;
 
-//seller == Current Business(es) Listed for Sale  -  Previous Business(es) that have been Sold
-// broker == Current Business(es) Listed for Sale - Previous Business(es) that have been Sold
-// francise == Current Franchise(es) Listed for Sale  -  Previous Franchise(es) that have been Sold
-// assets == Current Asset(s) Listed for Sale  -  Previous Asset(s) that have been Sold
-// Idea lister == Current Business Ideas Listed  -  Past Business Idea Listings
 
 

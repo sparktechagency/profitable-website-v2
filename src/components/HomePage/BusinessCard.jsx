@@ -59,7 +59,8 @@ const BusinessCard = () => {
 
   const mostBusiness = MostbusinessData?.data || [];
 
-  const isBrowser = typeof window !== "undefined" && typeof localStorage !== "undefined";
+  const isBrowser =
+    typeof window !== "undefined" && typeof localStorage !== "undefined";
   const hasAccessToken = isBrowser ? localStorage.getItem("accessToken") : null;
 
   if (isLoading) return <p className="text-center mt-10">Loading...</p>;
@@ -117,11 +118,12 @@ const BusinessCard = () => {
         <Splide options={splideOptions} aria-label="Popular Businesses Slider">
           {mostBusiness?.length > 0 ? (
             mostBusiness.map((business) => (
-              <SplideSlide className='border border-[#0091FF] bg-cover bg-center rounded' key={business._id} style={{ backgroundImage: `url(${backCard.src})` }}>
-                <div
-                  className=" "
-                  
-                >
+              <SplideSlide
+                className="border border-[#0091FF] bg-cover bg-center rounded"
+                key={business._id}
+                style={{ backgroundImage: `url(${backCard.src})` }}
+              >
+                <div className=" ">
                   <div className="h-48 relative">
                     <Image
                       src={
@@ -142,12 +144,19 @@ const BusinessCard = () => {
                     </h3>
                     <p className="text-gray-600 mb-2">{business?.location}</p>
                     <div className="mb-2">
-                      <span className="text-blue-500">{business?.category}</span> ||{" "}
-                      <span className="text-[#D97706]">{business?.subCategory}</span>
+                      <span className="text-blue-500">
+                        {business?.category}
+                      </span>{" "}
+                      ||{" "}
+                      <span className="text-[#D97706]">
+                        {business?.subCategory}
+                      </span>
                     </div>
                     <p className="text-gray-800 mb-4">
                       Starting from{" "}
-                      <span className="font-semibold">{business?.askingPrice}</span>
+                      <span className="font-semibold">
+                        {business?.askingPrice}
+                      </span>
                     </p>
                     <Link href={`/details/${business?.slug}`}>
                       <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md transition-colors">
@@ -192,11 +201,12 @@ const BusinessCard = () => {
         <Splide options={splideOptions} aria-label="Featured Businesses Slider">
           {interestData?.data?.length > 0 ? (
             interestData.data.map((business) => (
-              <SplideSlide className="border border-[#0091FF] bg-cover bg-center rounded"
-                  style={{ backgroundImage: `url(${backCard.src})` }} key={business._id}>
-                <div
-                  
-                >
+              <SplideSlide
+                className="border border-[#0091FF] bg-cover bg-center rounded"
+                style={{ backgroundImage: `url(${backCard.src})` }}
+                key={business._id}
+              >
+                <div>
                   <div className="h-48 relative">
                     <Image
                       src={`${imageUrl}/Uploads/business-image/${business?.image}`}
@@ -213,12 +223,19 @@ const BusinessCard = () => {
                     </h3>
                     <p className="text-gray-600 mb-2">{business?.location}</p>
                     <div className="mb-2">
-                      <span className="text-blue-500">{business?.category}</span> ||{" "}
-                      <span className="text-[#D97706]">{business?.subCategory}</span>
+                      <span className="text-blue-500">
+                        {business?.category}
+                      </span>{" "}
+                      ||{" "}
+                      <span className="text-[#D97706]">
+                        {business?.subCategory}
+                      </span>
                     </div>
                     <p className="text-gray-800 mb-4">
                       Starting from{" "}
-                      <span className="font-semibold">{business?.askingPrice}</span>
+                      <span className="font-semibold">
+                        {business?.askingPrice}
+                      </span>
                     </p>
                     <Link href={`/details/${business?.slug}`}>
                       <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md transition-colors">
@@ -263,11 +280,12 @@ const BusinessCard = () => {
         <Splide options={splideOptions} aria-label="Business Assets Slider">
           {interestDataa?.data?.length > 0 ? (
             interestDataa.data.map((business) => (
-              <SplideSlide  className="border border-[#0091FF] bg-cover bg-center rounded"
-                  style={{ backgroundImage: `url(${backCard.src})` }} key={business._id}>
-                <div
-                 
-                >
+              <SplideSlide
+                className="border border-[#0091FF] bg-cover bg-center rounded"
+                style={{ backgroundImage: `url(${backCard.src})` }}
+                key={business._id}
+              >
+                <div>
                   <div className="h-48 relative">
                     <Image
                       src={`${imageUrl}/Uploads/business-image/${business?.image}`}
@@ -284,12 +302,19 @@ const BusinessCard = () => {
                     </h3>
                     <p className="text-gray-600 mb-2">{business?.location}</p>
                     <div className="mb-2">
-                      <span className="text-blue-500">{business?.category}</span> ||{" "}
-                      <span className="text-[#D97706]">{business?.subCategory}</span>
+                      <span className="text-blue-500">
+                        {business?.category}
+                      </span>{" "}
+                      ||{" "}
+                      <span className="text-[#D97706]">
+                        {business?.subCategory}
+                      </span>
                     </div>
                     <p className="text-gray-800 mb-4">
                       Starting from{" "}
-                      <span className="font-semibold">{business?.askingPrice}</span>
+                      <span className="font-semibold">
+                        {business?.askingPrice}
+                      </span>
                     </p>
                     <Link href={`/details/${business?.slug}`}>
                       <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md transition-colors">
@@ -333,11 +358,12 @@ const BusinessCard = () => {
         <Splide options={splideOptions} aria-label="Franchises Slider">
           {interestDataaa?.data?.length > 0 ? (
             interestDataaa.data.map((business) => (
-              <SplideSlide  className="border border-[#0091FF] bg-cover bg-center rounded"
-                  style={{ backgroundImage: `url(${backCard.src})` }} key={business._id}>
-                <div
-                 
-                >
+              <SplideSlide
+                className="border border-[#0091FF] bg-cover bg-center rounded"
+                style={{ backgroundImage: `url(${backCard.src})` }}
+                key={business._id}
+              >
+                <div>
                   <div className="h-48 relative">
                     <Image
                       src={`${imageUrl}/Uploads/business-image/${business?.image}`}
@@ -354,12 +380,19 @@ const BusinessCard = () => {
                     </h3>
                     <p className="text-gray-600 mb-2">{business?.location}</p>
                     <div className="mb-2">
-                      <span className="text-blue-500">{business?.category}</span> ||{" "}
-                      <span className="text-[#D97706]">{business?.subCategory}</span>
+                      <span className="text-blue-500">
+                        {business?.category}
+                      </span>{" "}
+                      ||{" "}
+                      <span className="text-[#D97706]">
+                        {business?.subCategory}
+                      </span>
                     </div>
                     <p className="text-gray-800 mb-4">
                       Starting from{" "}
-                      <span className="font-semibold">{business?.askingPrice}</span>
+                      <span className="font-semibold">
+                        {business?.askingPrice}
+                      </span>
                     </p>
                     <Link href={`/details/${business?.slug}`}>
                       <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md transition-colors">
@@ -389,7 +422,8 @@ const BusinessCard = () => {
                   Business Ideas (Investor - Only Listings)
                 </h2>
                 <p className="text-gray-600 text-sm max-w-3xl">
-                  Browse innovative business ideas and startup concepts submitted by aspiring entrepreneurs.
+                  Browse innovative business ideas and startup concepts
+                  submitted by aspiring entrepreneurs.
                 </p>
               </div>
             </div>
@@ -404,11 +438,12 @@ const BusinessCard = () => {
           <Splide options={splideOptions} aria-label="Business Ideas Slider">
             {interestDataaaa?.data?.length > 0 ? (
               interestDataaaa.data.map((business) => (
-                <SplideSlide  className="border border-[#0091FF] bg-cover bg-center rounded"
-                    style={{ backgroundImage: `url(${backCard.src})` }} key={business._id}>
-                  <div
-                   
-                  >
+                <SplideSlide
+                  className="border border-[#0091FF] bg-cover bg-center rounded"
+                  style={{ backgroundImage: `url(${backCard.src})` }}
+                  key={business._id}
+                >
+                  <div>
                     <div className="h-48 relative">
                       <Image
                         src={`${imageUrl}/Uploads/business-image/${business?.image}`}
@@ -425,12 +460,19 @@ const BusinessCard = () => {
                       </h3>
                       <p className="text-gray-600 mb-2">{business?.location}</p>
                       <div className="mb-2">
-                        <span className="text-blue-500">{business?.category}</span> ||{" "}
-                        <span className="text-[#D97706]">{business?.subCategory}</span>
+                        <span className="text-blue-500">
+                          {business?.category}
+                        </span>{" "}
+                        ||{" "}
+                        <span className="text-[#D97706]">
+                          {business?.subCategory}
+                        </span>
                       </div>
                       <p className="text-gray-800 mb-4">
                         Starting from{" "}
-                        <span className="font-semibold">{business?.askingPrice}</span>
+                        <span className="font-semibold">
+                          {business?.askingPrice}
+                        </span>
                       </p>
                       <Link href={`/details/${business?.slug}`}>
                         <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md transition-colors">
