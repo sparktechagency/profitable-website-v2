@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import {
   Button,
   ConfigProvider,
@@ -10,15 +10,15 @@ import {
   Spin,
 } from "antd";
 
-
 import { IoCameraOutline } from "react-icons/io5";
 import { useEffect, useState } from "react";
 
-
-
 import { Country } from "country-state-city";
 import { Navigate } from "@/components/shared/Navigate";
-import { useGetProfileQuery, useUpdateProfileMutation } from "@/redux/Api/userApi";
+import {
+  useGetProfileQuery,
+  useUpdateProfileMutation,
+} from "@/redux/Api/userApi";
 import { imageUrl } from "@/redux/Api/baseApi";
 import { useRouter } from "next/navigation";
 
@@ -29,7 +29,7 @@ const EditProfile = () => {
     window.scrollTo(0, 0);
   }, []);
   const { data: profileData, isLoading } = useGetProfileQuery();
- const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const [updateProfile] = useUpdateProfileMutation();
   const [image, setImage] = useState();
@@ -37,6 +37,7 @@ const EditProfile = () => {
     const file = e.target.files[0];
     setImage(file);
   };
+
   const router = useRouter();
   const [countries, setCountries] = useState([]);
 
@@ -62,7 +63,6 @@ const EditProfile = () => {
       toast.success(res.data.message);
       setLoading(false);
       router.push("/profilePage");
-   
     } catch (e) {
       setLoading(false);
       toast.error("Image max 1 mb");
@@ -91,33 +91,36 @@ const EditProfile = () => {
         <Form form={form} onFinish={handleSubmit} layout="vertical">
           <div className="text-center mb-6">
             <div className="relative w-[140px] h-[124px] mx-auto">
-                <input
-                type="file"
-                onChange={handleImageChange}
-                id="img"
-                style={{ display: "none" }}
-              />
+  <input
+    type="file"
+    onChange={handleImageChange}
+    id="img"
+    style={{ display: "none" }}
+  />
 
-              {/* ✅ Use Next.js Image */}
-              <Image
-                src={
-                  image
-                    ? URL.createObjectURL(image)
-                    : `${imageUrl}/uploads/profile-image/${profileData?.data?.image}`
-                }
-                alt="Admin Profile"
-                width={140}
-                height={140}
-                className="rounded-full object-cover"
-              />
+  {/* ✅ Use Next.js Image */}
+  <Image
+    src={
+      image
+        ? URL.createObjectURL(image)
+        : profileData?.data?.image
+        ? `${imageUrl}/uploads/profile-image/${profileData?.data?.image}`
+        : "https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y"
+    }
+    alt="Admin Profile"
+    width={140}
+    height={140}
+    className="rounded-full w-[140px] h-[140px] object-cover"
+  />
 
-              <label
-                htmlFor="img"
-                className="absolute top-[80px] -right-2 bg-white rounded-full w-8 h-8 flex items-center justify-center cursor-pointer"
-              >
-                <IoCameraOutline className="text-black " />
-              </label>
-            </div>
+  <label
+    htmlFor="img"
+    className="absolute top-[80px] -right-2 bg-white rounded-full w-8 h-8 flex items-center justify-center cursor-pointer"
+  >
+    <IoCameraOutline className="text-black" />
+  </label>
+</div>
+
 
             <p className="text-lg font-semibold mt-4">
               {profileData?.data?.name}
@@ -186,7 +189,7 @@ const EditProfile = () => {
                   label={country?.name}
                 >
                   <div className="flex items-center gap-2">
-                 <Image
+                    <Image
                       src={`https://flagcdn.com/w20/${country?.isoCode.toLowerCase()}.png`}
                       alt={country?.name}
                       width={20}
@@ -210,23 +213,23 @@ const EditProfile = () => {
 
           <Form.Item className=" pt-3">
             <button
-                    className={`w-[200px] py-3 rounded text-white flex justify-center items-center gap-2 transition-all duration-300 ${
-                      loading
-                        ? "bg-blue-400 cursor-not-allowed"
-                        : "bg-[#3b82f6] hover:bg-blue-500"
-                    }`}
-                    type="submit"
-                    disabled={loading}
-                  >
-                    {loading ? (
-                      <>
-                        <Spin size="small" />
-                        <span>Submitting...</span>
-                      </>
-                    ) : (
-                      "Update Profile"
-                    )}
-                  </button>
+              className={`w-[200px] py-3 rounded text-white flex justify-center items-center gap-2 transition-all duration-300 ${
+                loading
+                  ? "bg-blue-400 cursor-not-allowed"
+                  : "bg-[#3b82f6] hover:bg-blue-500"
+              }`}
+              type="submit"
+              disabled={loading}
+            >
+              {loading ? (
+                <>
+                  <Spin size="small" />
+                  <span>Submitting...</span>
+                </>
+              ) : (
+                "Update Profile"
+              )}
+            </button>
           </Form.Item>
         </Form>
       </div>
