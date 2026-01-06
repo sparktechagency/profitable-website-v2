@@ -41,7 +41,7 @@ const SubscriptionPlan = () => {
               >
                 <div>
                   <h3 className="text-xl font-semibold mb-2">
-                    {plan?.subscriptionPlanType}
+                    {plan?.subscriptionPlanType === "1 Months" ? "1 Month" : plan?.subscriptionPlanType}
                   </h3>
                   <p className="text-sm text-gray-500 mb-4">
                     {plan?.subscriptionPlanRole === 'Francise Seller' ? "Franchise Seller" : plan?.subscriptionPlanRole}
