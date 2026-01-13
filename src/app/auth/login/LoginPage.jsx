@@ -220,7 +220,7 @@ useEffect(() => {
 
                 <Form.Item>
                   <button
-                    className={`w-full py-3 rounded text-white flex justify-center items-center gap-2 transition-all duration-300 ${
+                    className={`login-btn w-full py-3 rounded text-white flex justify-center items-center gap-2 transition-all duration-300 ${
                       loading
                         ? "bg-blue-400 cursor-not-allowed"
                         : "bg-[#3b82f6] hover:bg-blue-500"

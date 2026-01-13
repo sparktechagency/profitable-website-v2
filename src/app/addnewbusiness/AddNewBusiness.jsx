@@ -140,7 +140,7 @@ const router = useRouter();
       if (res.data?.message) {
         toast.success(res.data?.message);
         setLoading(false);
-            router.push("/myBusiness/details");
+            router.push("/addnewbusiness/sent-successfull");
        
       } else {
         toast.error(res?.error?.data?.message);
@@ -287,7 +287,7 @@ useEffect(() => {
                     <InboxOutlined />
                   </p>
                   <p className="text-gray-600 text-sm mt-2">
-                    Click or drag file <br /> Max 1 MB — Only PNG & JPG
+                    Click or drag file <br /> 
                   </p>
                   <span className="text-blue-500 font-semibold mt-1 inline-block">
                     + Upload

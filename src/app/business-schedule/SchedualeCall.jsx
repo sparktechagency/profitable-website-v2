@@ -7,6 +7,7 @@ import { useState } from "react";
 import { useGetProfileQuery } from "@/redux/Api/userApi";
 import { usePostScheduleMutation } from "@/redux/Api/metaApi";
 import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
 
 const { Option } = Select;
 
@@ -20,7 +21,7 @@ const SchedualeCall = () => {
   const [contactNo, setContactNo] = useState("");
   const [addSchedule] = usePostScheduleMutation();
   const [form] = Form.useForm();
-
+ const router = useRouter();
   // const navigate = useNavigate();
 
   const handleSearch = async (values) => {
@@ -42,6 +43,7 @@ const SchedualeCall = () => {
       toast.success(res?.message);
       setLoading(false);
       form.resetFields();
+router.push("/business-schedule/sent-successfull");
     } catch (error) {
       console.error(error);
       setLoading(false);

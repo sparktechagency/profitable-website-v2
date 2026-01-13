@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import ReactPhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
+import { useRouter } from "next/navigation";
 const { TextArea } = Input;
 
 export default function InterestForm({ businessId, businessRole }) {
@@ -22,7 +23,7 @@ export default function InterestForm({ businessId, businessRole }) {
   const user = isBrowser ? JSON.parse(localStorage.getItem("user")) : null;
   const userId = user?._id;
   const { data: profileData, isLoading: profileLoading } = useGetProfileQuery();
-
+ const router = useRouter();
   const email = profileData?.data?.email;
 
   const [form] = useForm();
@@ -60,6 +61,7 @@ export default function InterestForm({ businessId, businessRole }) {
       toast.success(res?.message);
       form.resetFields();
       setLoading(false);
+      router.push("/business-details-with-form/sent-successfull");
     } catch (error) {
       console.error(error);
       setLoading(false);
