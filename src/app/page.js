@@ -8,9 +8,9 @@ import Review from "@/components/HomePage/Review";
 import SimpleProcess from "@/components/HomePage/SimpleProcess";
  
 export const metadata = {
-  title: "Most Trusted Platform to Buy or Sell a Business Online | PBFS",
+  title: "Most Trusted Platform to Buy or Sell a Business in UAE | PBFS",
   description:
-    "Explore top businesses for sale across the Globe with PBFS. Buy or sell a profitable business easily with expert business brokers. Find trusted opportunities near you today.",
+    "Buy or Sell Profitable businesses in UAE with PBFS. Explore verified businesses for sale, connect with trusted brokers, and close deals confidently. ",
   keywords: [
     "Best website to sell a business, Profitable Business For Sale Dubai",
   ],
@@ -24,9 +24,9 @@ export const metadata = {
   openGraph: {
     type: "website",
     url: "https://profitablebusinessesforsale.com/",
-    title: "Most Trusted Platform to Buy or Sell a Business Online | PBFS",
+    title: "Most Trusted Platform to Buy or Sell a Business in UAE | PBFS",
     description:
-      "Explore top businesses for sale across the Globe with PBFS. Buy or sell a profitable business easily with expert business brokers. Find trusted opportunities near you today.",
+      "Buy or Sell Profitable businesses in UAE with PBFS. Explore verified businesses for sale, connect with trusted brokers, and close deals confidently. ",
     images: [
       "https://profitablebusinessesforsale.com/_next/static/media/logo2.e768ec83.png",
     ],
@@ -38,9 +38,9 @@ export const metadata = {
     card: "summary_large_image",
     domain: "profitablebusinessesforsale.com",
     url: "https://profitablebusinessesforsale.com/",
-    title: "Most Trusted Platform to Buy or Sell a Business Online | PBFS",
+    title: "Most Trusted Platform to Buy or Sell a Business in UAE | PBFS",
     description:
-      "Explore top businesses for sale across the Globe with PBFS. Buy or sell a profitable business easily with expert business brokers. Find trusted opportunities near you today.",
+      "Buy or Sell Profitable businesses in UAE with PBFS. Explore verified businesses for sale, connect with trusted brokers, and close deals confidently. ",
     images:
       "https://profitablebusinessesforsale.com/_next/static/media/logo2.e768ec83.png",
   },
