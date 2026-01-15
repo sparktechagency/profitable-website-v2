@@ -1,7 +1,6 @@
 import React from 'react';
 import { CheckCircle } from 'lucide-react';
-import { Link } from 'react-router-dom';
-
+import Link from 'next/link';
 const SuccessPage = () => {
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
@@ -36,14 +35,14 @@ const SuccessPage = () => {
           <p>
             If your matter is urgent, please feel free to reach out to us directly via email
             <Link
-              to="mailto:info@profitablebusinessesforsale.com"
+              href="mailto:info@profitablebusinessesforsale.com"
               className="text-green-600 hover:text-green-700 font-medium mx-1 break-all"
             >
               info@profitablebusinessesforsale.com
             </Link>
             or WhatsApp
             <Link
-              to="https://wa.me/971522294008"
+              href="https://wa.me/971522294008"
               target="_blank"
               rel="noopener noreferrer"
               className="text-green-600 hover:text-green-700 font-medium mx-1"
@@ -65,14 +64,14 @@ const SuccessPage = () => {
         {/* Quick action buttons */}
         <div className="bg-gray-50 px-8 py-8 border-t flex flex-col sm:flex-row gap-4 justify-center">
           <Link
-            to="/"
+            href="/"
             className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-lg font-medium transition-colors shadow-sm text-center"
           >
             Back to Home
           </Link>
 
           <Link
-            to={-1}
+            href={-1}
             className="bg-white border-2 border-green-600 text-green-700 hover:bg-green-50 px-8 py-3 rounded-lg font-medium transition-colors text-center"
           >
             Previous page
