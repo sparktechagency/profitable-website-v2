@@ -17,8 +17,9 @@ export default function ClientLayout({ children }) {
     pathname === "/signUp" ||
     pathname === "/signIn/forgot" ||
     pathname === "/business-schedule/sent-successfull" ||
-    pathname === "/addnewbusiness/sent-successfull" ||
-      pathname === "/business-details-with-form/sent-successfull" ||
+  
+ 
+    pathname === "/contact-us/sent-successfull" ||
     pathname === "/signIn/verify" ||
     pathname === "/signIn/newpass" ||
     pathname === "/signUp/done" ||
