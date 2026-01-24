@@ -1,13 +1,5 @@
 'use client';
 import React from 'react';
-<<<<<<< HEAD
-import { CheckCircle, Mail, Phone } from 'lucide-react';
-
-const SuccessPage = () => {
-  return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4 ">
-      <div className="max-w-3xl w-full border rounded-2xl  overflow-hidden">
-=======
 import { CheckCircle } from 'lucide-react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -17,7 +9,6 @@ const SuccessPage = () => {
     <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
       <div className="max-w-3xl w-full border rounded-2xl overflow-hidden">
 
->>>>>>> 91966b119e5ee6f8ff78fe789e47aaa5c66be93d
         {/* Success indicator header */}
         <div className="bg-green-600 px-8 py-10 text-center">
           <div className="inline-flex items-center justify-center w-16 h-16 bg-white rounded-full mb-6 shadow-md">
@@ -28,90 +19,43 @@ const SuccessPage = () => {
           </h1>
         </div>
 
-<<<<<<< HEAD
-        {/* Main content - exact text preserved */}
-=======
         {/* Main content */}
->>>>>>> 91966b119e5ee6f8ff78fe789e47aaa5c66be93d
         <div className="p-8 md:p-12 space-y-6 text-gray-700 leading-relaxed text-lg">
           <p>
             Thank you for getting in touch with <strong>ProfitableBusinessesForSale.com (PBFS)</strong>.
           </p>
-<<<<<<< HEAD
-          
-=======
-
->>>>>>> 91966b119e5ee6f8ff78fe789e47aaa5c66be93d
           <p>
             We appreciate your interest and are delighted to assist you with buying or selling a business or
             franchise.
           </p>
-<<<<<<< HEAD
-          
-=======
-
->>>>>>> 91966b119e5ee6f8ff78fe789e47aaa5c66be93d
           <p>
             One of our dedicated representatives will review your inquiry and contact you shortly with the next
             steps.
           </p>
-<<<<<<< HEAD
-          
-          <p>
-            If your matter is urgent, please feel free to reach out to us directly via email
-            <a 
-=======
 
           <p>
             If your matter is urgent, please feel free to reach out to us directly via email
             <Link
->>>>>>> 91966b119e5ee6f8ff78fe789e47aaa5c66be93d
               href="mailto:info@profitablebusinessesforsale.com"
               className="text-green-600 hover:text-green-700 font-medium mx-1 break-all"
             >
               info@profitablebusinessesforsale.com
-<<<<<<< HEAD
-            </a>
-            or WhatsApp
-            <a 
-=======
             </Link>
             or WhatsApp
             <Link
->>>>>>> 91966b119e5ee6f8ff78fe789e47aaa5c66be93d
               href="https://wa.me/971522294008"
               target="_blank"
               rel="noopener noreferrer"
               className="text-green-600 hover:text-green-700 font-medium mx-1"
             >
               +971 52 229 4008
-<<<<<<< HEAD
-            </a>.
-          </p>
-          
-=======
             </Link>.
           </p>
 
->>>>>>> 91966b119e5ee6f8ff78fe789e47aaa5c66be93d
           <p>
             We look forward to supporting you on your business journey.
           </p>
 
-<<<<<<< HEAD
-            <p>Regards, <br />
-Team- PBFS
-
-
- </p>
-        </div>
-
-      
-
-        {/* Quick action buttons */}
-        <div className="bg-gray-50 px-8 py-8 border-t flex flex-col sm:flex-row gap-4 justify-center">
-          <a
-=======
           <p>
             Regards,<br />
             Team- PBFS
@@ -121,26 +65,10 @@ Team- PBFS
         {/* Quick action buttons */}
         <div className="bg-gray-50 px-8 py-8 border-t flex flex-col sm:flex-row gap-4 justify-center">
           <Link
->>>>>>> 91966b119e5ee6f8ff78fe789e47aaa5c66be93d
             href="/"
             className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-lg font-medium transition-colors shadow-sm text-center"
           >
             Back to Home
-<<<<<<< HEAD
-          </a>
-          
-          <a
-            href="mailto:info@profitablebusinessesforsale.com"
-            className="bg-white border-2 border-green-600 text-green-700 hover:bg-green-50 px-8 py-3 rounded-lg font-medium transition-colors text-center"
-          >
-            Previous page
-          </a>
-        </div>
-
-
-
-        {/* Small footer */}
-=======
           </Link>
 
           <button
@@ -152,7 +80,6 @@ Team- PBFS
         </div>
 
         {/* Footer */}
->>>>>>> 91966b119e5ee6f8ff78fe789e47aaa5c66be93d
         <div className="text-center py-5 text-sm text-gray-500 bg-white border-t">
           © {new Date().getFullYear()} ProfitableBusinessesForSale.com
         </div>
@@ -161,8 +88,4 @@ Team- PBFS
   );
 };
 
-<<<<<<< HEAD
 export default SuccessPage;
-=======
-export default SuccessPage;
->>>>>>> 91966b119e5ee6f8ff78fe789e47aaa5c66be93d
