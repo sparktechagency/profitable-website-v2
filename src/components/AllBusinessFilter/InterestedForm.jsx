@@ -61,11 +61,7 @@ export default function InterestForm({ businessId, businessRole }) {
       toast.success(res?.message);
       form.resetFields();
       setLoading(false);
-<<<<<<< HEAD
-      router.push("/business-details-with-form/sent-successfull");
-=======
       
->>>>>>> 91966b119e5ee6f8ff78fe789e47aaa5c66be93d
     } catch (error) {
       console.error(error);
       setLoading(false);
