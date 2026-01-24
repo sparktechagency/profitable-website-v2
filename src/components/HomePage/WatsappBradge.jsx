@@ -11,7 +11,11 @@ const WhatsappBadge = () => {
   const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
 
   return (
+<<<<<<< HEAD
+    <div className="fixed bottom-4 right-4 z-50">
+=======
     <div className="fixed bottom-36  right-4 z-50">
+>>>>>>> 91966b119e5ee6f8ff78fe789e47aaa5c66be93d
       <a
         href={whatsappLink}
         target="_blank"
