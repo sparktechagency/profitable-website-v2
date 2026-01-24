@@ -1,7 +1,10 @@
+'use client';
 import React from 'react';
 import { CheckCircle } from 'lucide-react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 const SuccessPage = () => {
+  const router = useRouter();
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
       <div className="max-w-3xl w-full border rounded-2xl overflow-hidden">
@@ -70,12 +73,12 @@ const SuccessPage = () => {
             Back to Home
           </Link>
 
-          <Link
-            href={-1}
+          <button
+          onClick={() => router.back()} 
             className="bg-white border-2 border-green-600 text-green-700 hover:bg-green-50 px-8 py-3 rounded-lg font-medium transition-colors text-center"
           >
             Previous page
-          </Link>
+          </button>
         </div>
 
         {/* Footer */}

@@ -22,7 +22,6 @@ const businessApi = baseApi.injectEndpoints({
       providesTags: ["updateProfile"],
     }),
 
-
     // getAllBusiness: builder.query({
     //     query: () => {
     //         return {
@@ -95,8 +94,7 @@ const businessApi = baseApi.injectEndpoints({
       providesTags: ["terms"],
     }),
 
-
-  getRefundPolicy: builder.query({
+    getRefundPolicy: builder.query({
       query: () => {
         return {
           url: "/home/get-refund-policy",
@@ -105,9 +103,6 @@ const businessApi = baseApi.injectEndpoints({
       },
       providesTags: ["terms"],
     }),
-
-  
-
 
     postSubscriber: builder.mutation({
       query: (email) => {
@@ -161,12 +156,11 @@ const businessApi = baseApi.injectEndpoints({
       providesTags: ["updateProfile"],
     }),
 
-     updateNotification: builder.mutation({
+    updateNotification: builder.mutation({
       query: ({ role, notificationId }) => {
         return {
           url: `/notification/update-notification?role=${role}&notificationId=${notificationId}`,
           method: "PATCH",
-          
         };
       },
       invalidatesTags: ["updateProfile"],
@@ -220,5 +214,5 @@ export const {
   useDeleteNotificationMutation,
   useGetUnreadNotificationQuery,
   useUpdateNotificationMutation,
-  useGetRefundPolicyQuery
+  useGetRefundPolicyQuery,
 } = businessApi;
