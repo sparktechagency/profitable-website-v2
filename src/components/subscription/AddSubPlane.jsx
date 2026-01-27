@@ -112,7 +112,11 @@ const AddSubPlane = ({ openAddModal, setOpenAddModal, subscriptionId }) => {
     >
       <div className="mt-4 mb-6">
         <h2 className="text-center text-xl font-semibold mb-6">
+<<<<<<< HEAD
           Subscription: {subscriptionId?.duration}
+=======
+          Subscription: {subscriptionId?.duration === "1 Months" ? "1 Month" : subscriptionId?.duration}
+>>>>>>> 95f6486588c6095631ed7e6c94932ab3f200e4d9
         </h2>
 
         <Form form={form} onFinish={handleSubmit} layout="vertical">

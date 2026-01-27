@@ -22,7 +22,10 @@ const businessApi = baseApi.injectEndpoints({
       providesTags: ["updateProfile"],
     }),
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 95f6486588c6095631ed7e6c94932ab3f200e4d9
     // getAllBusiness: builder.query({
     //     query: () => {
     //         return {
@@ -95,8 +98,12 @@ const businessApi = baseApi.injectEndpoints({
       providesTags: ["terms"],
     }),
 
+<<<<<<< HEAD
 
   getRefundPolicy: builder.query({
+=======
+    getRefundPolicy: builder.query({
+>>>>>>> 95f6486588c6095631ed7e6c94932ab3f200e4d9
       query: () => {
         return {
           url: "/home/get-refund-policy",
@@ -106,9 +113,12 @@ const businessApi = baseApi.injectEndpoints({
       providesTags: ["terms"],
     }),
 
+<<<<<<< HEAD
   
 
 
+=======
+>>>>>>> 95f6486588c6095631ed7e6c94932ab3f200e4d9
     postSubscriber: builder.mutation({
       query: (email) => {
         return {
@@ -161,12 +171,19 @@ const businessApi = baseApi.injectEndpoints({
       providesTags: ["updateProfile"],
     }),
 
+<<<<<<< HEAD
      updateNotification: builder.mutation({
+=======
+    updateNotification: builder.mutation({
+>>>>>>> 95f6486588c6095631ed7e6c94932ab3f200e4d9
       query: ({ role, notificationId }) => {
         return {
           url: `/notification/update-notification?role=${role}&notificationId=${notificationId}`,
           method: "PATCH",
+<<<<<<< HEAD
           
+=======
+>>>>>>> 95f6486588c6095631ed7e6c94932ab3f200e4d9
         };
       },
       invalidatesTags: ["updateProfile"],
@@ -220,5 +237,9 @@ export const {
   useDeleteNotificationMutation,
   useGetUnreadNotificationQuery,
   useUpdateNotificationMutation,
+<<<<<<< HEAD
   useGetRefundPolicyQuery
+=======
+  useGetRefundPolicyQuery,
+>>>>>>> 95f6486588c6095631ed7e6c94932ab3f200e4d9
 } = businessApi;

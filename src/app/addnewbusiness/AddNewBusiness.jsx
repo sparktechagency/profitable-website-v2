@@ -140,7 +140,11 @@ const router = useRouter();
       if (res.data?.message) {
         toast.success(res.data?.message);
         setLoading(false);
+<<<<<<< HEAD
             router.push("/addnewbusiness/sent-successfull");
+=======
+            router.push("/myBusiness/details");
+>>>>>>> 95f6486588c6095631ed7e6c94932ab3f200e4d9
        
       } else {
         toast.error(res?.error?.data?.message);
