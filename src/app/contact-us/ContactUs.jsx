@@ -13,20 +13,14 @@ import { toast } from "react-toastify";
 import ReactPhoneInput from "react-phone-input-2";
 
 import "react-phone-input-2/lib/style.css";
-<<<<<<< HEAD
-=======
 import { useRouter } from "next/navigation";
->>>>>>> 95f6486588c6095631ed7e6c94932ab3f200e4d9
 export default function ContactUs() {
   const [form] = Form.useForm();
   const { data: profileData } = useGetProfileQuery();
   const [addContact] = useAddContactMutation();
   const [loading, setLoading] = useState(false);
   const [contactNo, setContactNo] = useState("");
-<<<<<<< HEAD
-=======
   const router = useRouter()
->>>>>>> 95f6486588c6095631ed7e6c94932ab3f200e4d9
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -57,13 +51,9 @@ export default function ContactUs() {
     try {
       const res = await addContact(values).unwrap();
       toast.success(res?.message);
-<<<<<<< HEAD
-      setLoading(false);
-=======
       router.push("/contact-us/sent-successfull");
       setLoading(false);
 
->>>>>>> 95f6486588c6095631ed7e6c94932ab3f200e4d9
       form.resetFields();
     } catch (error) {
       setLoading(false);

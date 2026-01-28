@@ -7,14 +7,7 @@ import React from 'react';
 const FranchiseSale = () => {
   return (
     <div>
-<<<<<<< HEAD
       <Header/>
-=======
-      <Header
-        title="Buy a Profitable Franchise Business in Dubai  "
-        description="Explore profitable franchise businesses for sale in Dubai with PBFS. Discover verified franchise opportunities from trusted brands across the UAE, ideal for first-time buyers and experienced investors.  "
-      />
->>>>>>> 95f6486588c6095631ed7e6c94932ab3f200e4d9
 
       <section className="overflow-hidden md:pt-20 pb-10">
         <div className="container mx-auto px-4">

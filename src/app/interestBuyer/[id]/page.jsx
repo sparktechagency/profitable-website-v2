@@ -21,11 +21,7 @@ const InterestedBuyer = () => {
 
   const businessTitle = businessDetails?.data?.business?.title;
   const interestedUsers = businessDetails?.data?.interestedUsers || [];
-<<<<<<< HEAD
-
-=======
 console.log(interestedUsers)
->>>>>>> 95f6486588c6095631ed7e6c94932ab3f200e4d9
   if (isLoading) {
     return (
       <div className="flex justify-center items-center h-screen">
@@ -54,12 +50,8 @@ console.log(interestedUsers)
                     <Image
                       src={`${imageUrl}/uploads/profile-image/${buyer?.userId?.image}`}
                       alt={buyer?.userId?.name || "User Image"}
-<<<<<<< HEAD
-                      fill
-=======
                       width={100}
                       height={100}
->>>>>>> 95f6486588c6095631ed7e6c94932ab3f200e4d9
                       className="object-cover rounded-full"
                     />
                   ) : (
