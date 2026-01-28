@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:where(.css-dev-only-do-not-override-7ny38l).ant-collapse-ghost
+  > .ant-collapse-item {
+  border-bottom: 1px solid rgb(214, 214, 214);
+  padding: 10px 0px;
+}
+
+:where(.css-dev-only-do-not-override-7ny38l).ant-collapse
+  > .ant-collapse-item
+  > .ant-collapse-header
+  .ant-collapse-header-text {
+  margin-inline-end: auto;
+  font-weight: 500;
+  font-size: 17px;
+}
+
+.no-scrollbar {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+.scrach_sec {
+    padding: 40px 0px;
+    background: #f8f8f8;
+    margin-bottom: 40px;
+}
+body.__variable_1e4310.bg-white.__variable_c3aa02 p.text-lg.md\:text-xl.text-white.leading-relaxed.max-w-2xl {
+    max-width: 100%;
+}
