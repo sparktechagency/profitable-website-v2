@@ -2,7 +2,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { ChevronDown, Menu, X, Globe, User, LogOut } from "lucide-react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { useSearchParams } from "next/navigation";
 import Logo from "../../../public/Home/logo2.png";
 import BusinessIcon from "../../../public/nav-icons/BusinessIcon";
@@ -12,8 +11,7 @@ import CrownIcon from "../../../public/nav-icons/CrownIcon";
 import SettingIcon from "../../../public/nav-icons/SettingIcon";
 import NdaIcon from "../../../public/nav-icons/NdaIcon";
 import HelpIcon from "../../../public/nav-icons/HelpIcon";
-import InfoIcon from "../../../public/nav-icons/InfoIcon";
-import { message, Popconfirm } from "antd";
+import { Popconfirm } from "antd";
 import world from "../../../public/Home/world.png";
 import { menuItems } from "@/dummy-data/DummyData";
 import { useGetUnreadNotificationQuery } from "@/redux/Api/metaApi";
@@ -36,11 +34,10 @@ const countryFlags = {
 
 const Navbar = () => {
   const searchParams = useSearchParams();
-
   const { data: profileData, isLoading } = useGetProfileQuery();
   const role = profileData?.data?.role;
   const isBrowser =
-    typeof window !== "undefined" && typeof localStorage !== "undefined";
+  typeof window !== "undefined" && typeof localStorage !== "undefined";
   const accessToken = isBrowser ? localStorage.getItem("accessToken") : null;
   const users = profileData?.data;
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -95,7 +92,7 @@ const Navbar = () => {
 
   const handleSelect = (country) => {
     window.location.href = `/businesses-for-sale?country=${country.isoCode}`;
-    setCountryModalOpen(false); // Close country modal on selection
+    setCountryModalOpen(false);
   };
 
   const navItems = [
@@ -250,9 +247,9 @@ const Navbar = () => {
                               item.key === "selling" && subitem?.state
                                 ? {
                                     pathname: subitem?.path,
-                                    query: { role: subitem.state }, // Pass state as role query param only for selling
+                                    query: { role: subitem.state },
                                   }
-                                : subitem?.path // Use original path for other submenus (e.g., buying)
+                                : subitem?.path
                             }
                             className="block p-3 rounded-lg hover:bg-gray-50 transition-colors group"
                           >
@@ -389,7 +386,7 @@ const Navbar = () => {
                       key={item?.key}
                       item={item}
                       onClose={() => setMobileMenuOpen(false)}
-                      custom={index} // Pass index for staggered animation
+                      custom={index}
                     />
                   ))}
                 </nav>
@@ -475,59 +472,63 @@ const Navbar = () => {
                           },
                         ]
                       : role === "Broker"
-                      ? [
-                          {
-                            icon: BusinessIcon,
-                            label: "Listed Businesses",
-                            path: "/myBusiness/details",
-                          },
-                        ]
-                      : role === "Asset Seller"
-                      ? [
-                          {
-                            icon: BusinessIcon,
-                            label: "Listed Business Asset(s)",
-                            path: "/myBusiness/details",
-                          },
-                        ]
-                      : role === "Business Idea Lister"
-                      ? [
-                          {
-                            icon: BusinessIcon,
-                            label: "Listed Idea(s)",
-                            path: "/myBusiness/details",
-                          },
-                        ]
-                      : role === "Francise Seller"
-                      ? [
-                          {
-                            icon: BusinessIcon,
-                            label: "Listed Franchise(s)",
-                            path: "/myBusiness/details",
-                          },
-                        ]
-                      : [
-                          {
-                            icon: BusinessIcon,
-                            label: "Listed Businesses",
-                            path: "/myBusiness/details",
-                          },
-                        ]),
+                        ? [
+                            {
+                              icon: BusinessIcon,
+                              label: "Listed Businesses",
+                              path: "/myBusiness/details",
+                            },
+                          ]
+                        : role === "Asset Seller"
+                          ? [
+                              {
+                                icon: BusinessIcon,
+                                label: "Listed Business Asset(s)",
+                                path: "/myBusiness/details",
+                              },
+                            ]
+                          : role === "Business Idea Lister"
+                            ? [
+                                {
+                                  icon: BusinessIcon,
+                                  label: "Listed Idea(s)",
+                                  path: "/myBusiness/details",
+                                },
+                              ]
+                            : role === "Francise Seller"
+                              ? [
+                                  {
+                                    icon: BusinessIcon,
+                                    label: "Listed Franchise(s)",
+                                    path: "/myBusiness/details",
+                                  },
+                                ]
+                              : [
+                                  {
+                                    icon: BusinessIcon,
+                                    label: "Listed Businesses",
+                                    path: "/myBusiness/details",
+                                  },
+                                ]),
                     { icon: MessageIcon, label: "Message", path: "/chat" },
                     {
                       icon: BelIcon,
                       label: "Notification",
                       path: "/notification",
                       showBadge: true,
-                    },!profileData?.data?.subscriptionPlan && profileData?.data?.subscriptionPlanPrice === 0 ? {
-                      icon: CrownIcon,
-                      label: "Subscription ( No Subscription )",
-                      path: "/subscription",
-                    } : {
-                      icon: CrownIcon,
-                      label: "Subscription",
-                      path: "/subscription",                                                                                                              
                     },
+                    !profileData?.data?.subscriptionPlan &&
+                    profileData?.data?.subscriptionPlanPrice === 0
+                      ? {
+                          icon: CrownIcon,
+                          label: "Subscription ( No Subscription )",
+                          path: "/subscription",
+                        }
+                      : {
+                          icon: CrownIcon,
+                          label: "Subscription",
+                          path: "/subscription",
+                        },
                     {
                       icon: SettingIcon,
                       label: "Profile Settings",
