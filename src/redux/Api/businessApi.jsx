@@ -73,9 +73,9 @@ const businessApi = baseApi.injectEndpoints({
     }),
 
     getSingleBusinessContact: builder.query({
-      query: ({ userId }) => {
+      query: ({ userId,businessName }) => {
         return {
-          url: `/user/seller-detail?userId=${userId}`,
+          url: `/user/seller-detail?userId=${userId}&businessName=${businessName}`,
           method: "GET",
         };
       },

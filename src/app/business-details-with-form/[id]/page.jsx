@@ -81,6 +81,10 @@ export default function BussinessDetailsWithForm() {
                 </p>
                 <p>
                   <span className="font-semibold">Price:</span>{" "}
+                  ${businessDetails?.data?.business?.price}
+                </p>
+                <p>
+                  <span className="font-semibold">Asking Price:</span>{" "}
                   {businessDetails?.data?.business?.askingPrice}
                 </p>
                 <p>

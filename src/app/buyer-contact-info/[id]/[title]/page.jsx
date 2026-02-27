@@ -6,21 +6,23 @@ import { Mail, Phone, MapPin } from "lucide-react";
 import { useParams, useRouter } from "next/navigation"; // Replace react-router-dom useParams and useNavigate
 import { useState, useCallback, useEffect } from "react";
 import Image from "next/image"; // Import Image from next/image
-import img from "../../../../public/Home/user.png";
-import { useGetSingleBusinessContactQuery } from "@/redux/Api/businessApi";
+import img from "../../../../../public/Home/user.png";
+
 import { useGetProfileQuery } from "@/redux/Api/userApi";
 import { useSocket } from "@/components/context/ContextProvider";
 import { imageUrl } from "@/redux/Api/baseApi";
 import toast from "react-hot-toast";
+import { useGetSingleBusinessContactQuery } from "@/redux/Api/businessApi";
 
 const Page = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const { id } = useParams();
+  const { id, title } = useParams();
+  console.log(id, title)
   const { data: singleContactUser } = useGetSingleBusinessContactQuery({
-    userId: id,
+    userId: id,businessName: title
   });
   const userData = singleContactUser?.data;
   console.log(userData);

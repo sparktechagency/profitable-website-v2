@@ -115,7 +115,7 @@ const EditNewBusiness = () => {
     const id = businessId;
     const user = businessDetails?.data?.business?.user;
     const oldData = businessDetails?.data?.business;
-
+console.log(first)
     setLoading(true);
 
     try {

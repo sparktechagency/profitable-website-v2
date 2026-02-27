@@ -55,7 +55,7 @@ const MyBusinessDetails = () => {
   console.log("first", businessDetails);
   const [updateSold] = useUpdateSoldMutation();
   const checkUserId = profileData?.data?._id;
-  const checkBusinessId = businessDetails?.data?.business?.user;
+  const checkBusinessId = businessDetails?.data?.business?.user?._id;
 
 
   const handleSoldToggle = async () => {
@@ -143,10 +143,10 @@ const MyBusinessDetails = () => {
                 />
               </div>
               <h1 className="font-semibold text-3xl py-3">
-                Inquiries Received
+                Contact Views
               </h1>
               <h2 className="text-[#22C55E] font-semibold text-xl">
-                {businessDetails?.data?.interestedUsers?.length ?? "0"}
+                {businessDetails?.data?.business?.user?.buyerViewCount || '0'}
               </h2>
             </div>
           </div>
@@ -180,6 +180,10 @@ const MyBusinessDetails = () => {
             </p>
             <p>
               <span className="font-semibold">Price:</span>{" "}
+              ${businessDetails?.data?.business?.price}
+            </p>
+            <p>
+              <span className="font-semibold">Asking Price:</span>{" "}
               {businessDetails?.data?.business?.askingPrice}
             </p>
             <p>
@@ -300,7 +304,7 @@ const MyBusinessDetails = () => {
                   ) : (
                     // ✅ Active button (normal link)
                     <Link
-                      href={`/buyer-contact-info/${businessDetails?.data?.business?.user}`}
+                      href={`/buyer-contact-info/${businessDetails?.data?.business?.user?._id}/${businessDetails?.data?.business?.title}`}
                     >
                       <button className="px-5 py-1 rounded text-white bg-[#0091FF] hover:bg-[#0077DD] transition-all">
                         Contact

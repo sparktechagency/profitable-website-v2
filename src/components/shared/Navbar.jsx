@@ -519,11 +519,14 @@ const Navbar = () => {
                       label: "Notification",
                       path: "/notification",
                       showBadge: true,
-                    },
-                    {
+                    },!profileData?.data?.subscriptionPlan && profileData?.data?.subscriptionPlanPrice === 0 ? {
+                      icon: CrownIcon,
+                      label: "Subscription ( No Subscription )",
+                      path: "/subscription",
+                    } : {
                       icon: CrownIcon,
                       label: "Subscription",
-                      path: "/subscription",
+                      path: "/subscription",                                                                                                              
                     },
                     {
                       icon: SettingIcon,
