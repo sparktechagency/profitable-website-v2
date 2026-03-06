@@ -1,5 +1,5 @@
 export default async function sitemap() {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_MAIN_URL || "https://profitablebusinessesforsale.com";
+  const baseUrl = "https://profitablebusinessesforsale.com";
 
   // 🔥 Fetch Blogs from API
   let blogs = [];
@@ -23,7 +23,7 @@ export default async function sitemap() {
 
   // ✅ Static Routes
   const staticRoutes = [
-    "/",
+    "",
     "/about-us",
     "/business-schedule",
     "/business-valuation",
@@ -45,8 +45,8 @@ export default async function sitemap() {
     "/faq-asset",
     "/faq-franchise",
     "/profilePage",
-    "Seller",
-    "addnewbusiness"
+    "/Seller",
+    "/addnewbusiness"
   ];
 
   const staticUrls = staticRoutes.map((route) => ({
