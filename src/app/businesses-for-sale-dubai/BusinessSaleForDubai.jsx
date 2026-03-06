@@ -7,7 +7,11 @@ import React from "react";
 const BusinessSale = () => {
   return (
     <div>
-      <Header />
+         <Header
+              title="Business for Sale in Dubai: Your Gateway to Profitable Ventures"
+              description="Discover verified and profitable businesses for sale across Dubai and the UAE. From small startups to established enterprises and franchises, PBFS connects serious buyers with genuine opportunities backed by transparent details and expert support."
+            />
+      
       <section className="overflow-hidden md:pt-20 pb-10">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
