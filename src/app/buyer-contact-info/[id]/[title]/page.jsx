@@ -22,7 +22,7 @@ const Page = () => {
   const { id, title } = useParams();
   console.log(id, title)
   const { data: singleContactUser } = useGetSingleBusinessContactQuery({
-    userId: id,businessName: title
+    userId: id,businessId: title
   });
   const userData = singleContactUser?.data;
   console.log(userData);
