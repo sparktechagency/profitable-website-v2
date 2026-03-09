@@ -19,7 +19,7 @@ export default async function sitemap() {
   let listings = [];
   try {
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_MAIN_URL}/business/filter-business`,
+      `${process.env.NEXT_PUBLIC_BASE_MAIN_URL}/business/filter-business?page=1&limit=10000`,
       { cache: "no-store" }
     );
 
