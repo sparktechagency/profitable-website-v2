@@ -3,20 +3,25 @@ export default async function sitemap() {
 
   // 🔥 Fetch Blogs from API
   let blogs = [];
-  try {
-    const blogsRes = await fetch(`${baseUrl}/blogs`, { cache: "no-store" });
-    const blogsData = await blogsRes.json();
-    blogs = blogsData?.data || []; // safe fallback
+ try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_MAIN_URL}/formation/get-all-format-website`,
+      { cache: "no-store" }
+    );
+
+    const data = await res.json();
+    blogs = data?.data || [];
   } catch (error) {
-    console.error("Error fetching blogs:", error);
+    console.error("Blog fetch error:", error);
   }
+
 
   // 🔥 Fetch Listings from API
   let listings = [];
   try {
-    const listingsRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/businesses`, { cache: "no-store" });
+    const listingsRes = await fetch(`${process.env.NEXT_PUBLIC_BASE_MAIN_URL}/business/filter-business`, { cache: "no-store" });
     const listingsData = await listingsRes.json();
-    listings = listingsData?.data || []; // safe fallback
+    listings = listingsData?.data || []; 
   } catch (error) {
     console.error("Error fetching listings:", error);
   }
@@ -57,16 +62,18 @@ export default async function sitemap() {
   }));
 
   // ✅ Dynamic Blog Pages
-  const blogUrls = blogs.map((blog) => ({
+const blogUrls = blogs.map((blog) => ({
     url: `${baseUrl}/blog/${blog.slug}`,
-    lastModified: blog.updatedAt ? new Date(blog.updatedAt) : new Date(),
+    lastModified: blog.updatedAt
+      ? new Date(blog.updatedAt)
+      : new Date(),
     changeFrequency: "weekly",
     priority: 0.7,
   }));
-
+console.log(blogUrls)
   // ✅ Dynamic Business Listing Pages
   const listingUrls = listings.map((item) => ({
-    url: `${baseUrl}/details/${item.slug}`,
+    url: `${baseUrl}/business/get-single-business-with-users/${item.slug}`,
     lastModified: item.updatedAt ? new Date(item.updatedAt) : new Date(),
     changeFrequency: "weekly",
     priority: 0.9,
