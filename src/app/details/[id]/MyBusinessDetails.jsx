@@ -207,7 +207,7 @@ const MyBusinessDetails = () => {
               <div className="flex justify-center">
                 <Image src={img1} alt="Total Views" width={48} height={48} />
               </div>
-              <h1 className="font-semibold text-3xl py-3">Total Views</h1>
+              <h2 className="font-semibold text-3xl py-3">Total Views</h2>
               <h2 className="text-[#22C55E] font-semibold text-xl">
                 {businessDetails?.data?.business?.views ?? "0"}
               </h2>
@@ -217,7 +217,7 @@ const MyBusinessDetails = () => {
               <div className="flex justify-center">
                 <Image src={img2} alt="Total Interests" width={48} height={48} />
               </div>
-              <h1 className="font-semibold text-3xl py-3">Total Interests</h1>
+              <h2 className="font-semibold text-3xl py-3">Total Interests</h2>
               <h2 className="text-[#22C55E] font-semibold text-xl">
                 {businessDetails?.data?.interestedUsers?.length ?? "0"}
               </h2>
@@ -227,9 +227,9 @@ const MyBusinessDetails = () => {
               <div className="flex justify-center">
                 <Image src={img3} alt="Inquiries Received" width={48} height={48} />
               </div>
-              <h1 className="font-semibold text-3xl py-3">
+              <h3 className="font-semibold text-3xl py-3">
                 Inquiries Received
-              </h1>
+              </h3>
               <h2 className="text-[#22C55E] font-semibold text-xl">
                 {businessDetails?.data?.interestedUsers?.length ?? "0"}
               </h2>
@@ -260,7 +260,7 @@ const MyBusinessDetails = () => {
               : business?.businessRole}
           </button>
 
-          <h1 className="text-2xl text-[#0091FF]">{business?.title}</h1>
+          <p className="text-2xl text-[#0091FF]">{business?.title}</p>
 
           <div className="space-y-2 my-3">
 
@@ -307,7 +307,7 @@ const MyBusinessDetails = () => {
       </div>
 
       {/* Map */}
-      <h1 className="text-[#0091FF] font-bold text-3xl mt-9">Location</h1>
+      <h3 className="text-[#0091FF] font-bold text-3xl mt-9">Location</h3>
 
       <p className="mb-4">{business?.countryName}</p>
 
