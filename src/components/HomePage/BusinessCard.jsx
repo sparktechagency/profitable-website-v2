@@ -44,7 +44,7 @@ const BusinessCard = () => {
   const { data: interestDataaaa } = useGetMostViewBusinessIdeaQuery({
     country: selectedCountry,
   });
-
+console.log(interestDataaaa)
   const {
     data: businessData,
     isLoading,
@@ -88,7 +88,7 @@ const BusinessCard = () => {
       640: { perPage: 1 },
     },
   };
-
+console.log(interestData)
   return (
     <div className="lg:mt-16 mt-11">
       {/*================ Popular Businesses Section ================*/}
@@ -153,9 +153,15 @@ const BusinessCard = () => {
                       </span>
                     </div>
                     <p className="text-gray-800 mb-4">
-                      Starting from{" "}
+                      Asking Price :{" "}
                       <span className="font-semibold">
-                        {business?.askingPrice}
+                        ${business?.askingPrice}
+                      </span>
+                    </p>
+                      <p className="text-gray-800 mb-4">
+                      Price :{" "}
+                      <span className="font-semibold">
+                        ${business?.price}
                       </span>
                     </p>
                     <Link href={`/details/${business?.slug}`}>
@@ -231,12 +237,19 @@ const BusinessCard = () => {
                         {business?.subCategory}
                       </span>
                     </div>
-                    <p className="text-gray-800 mb-4">
-                      Starting from{" "}
+                      <p className="text-gray-800 mb-4">
+                      Asking Price :{" "}
                       <span className="font-semibold">
-                        {business?.askingPrice}
+                        ${business?.askingPrice}
                       </span>
                     </p>
+                      <p className="text-gray-800 mb-4">
+                      Price :{" "}
+                      <span className="font-semibold">
+                        ${business?.price}
+                      </span>
+                    </p>
+                    
                     <Link href={`/details/${business?.slug}`}>
                       <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md transition-colors">
                         View Details
@@ -310,10 +323,16 @@ const BusinessCard = () => {
                         {business?.subCategory}
                       </span>
                     </div>
-                    <p className="text-gray-800 mb-4">
-                      Starting from{" "}
+                     <p className="text-gray-800 mb-4">
+                      Asking Price :{" "}
                       <span className="font-semibold">
-                        {business?.askingPrice}
+                        ${business?.askingPrice}
+                      </span>
+                    </p>
+                      <p className="text-gray-800 mb-4">
+                      Price :{" "}
+                      <span className="font-semibold">
+                        ${business?.price}
                       </span>
                     </p>
                     <Link href={`/details/${business?.slug}`}>
@@ -388,10 +407,16 @@ const BusinessCard = () => {
                         {business?.subCategory}
                       </span>
                     </div>
-                    <p className="text-gray-800 mb-4">
-                      Starting from{" "}
+                      <p className="text-gray-800 mb-4">
+                      Asking Price :{" "}
                       <span className="font-semibold">
-                        {business?.askingPrice}
+                        ${business?.askingPrice}
+                      </span>
+                    </p>
+                      <p className="text-gray-800 mb-4">
+                      Price :{" "}
+                      <span className="font-semibold">
+                        ${business?.price}
                       </span>
                     </p>
                     <Link href={`/details/${business?.slug}`}>
@@ -468,12 +493,18 @@ const BusinessCard = () => {
                           {business?.subCategory}
                         </span>
                       </div>
+                       <p className="text-gray-800 mb-4">
+                      Asking Price :{" "}
+                      <span className="font-semibold">
+                        ${business?.askingPrice}
+                      </span>
+                    </p>
                       <p className="text-gray-800 mb-4">
-                        Starting from{" "}
-                        <span className="font-semibold">
-                          {business?.askingPrice}
-                        </span>
-                      </p>
+                      Price :{" "}
+                      <span className="font-semibold">
+                        ${business?.price}
+                      </span>
+                    </p>
                       <Link href={`/details/${business?.slug}`}>
                         <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md transition-colors">
                           View Details
