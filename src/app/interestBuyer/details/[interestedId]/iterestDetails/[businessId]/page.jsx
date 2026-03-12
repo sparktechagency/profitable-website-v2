@@ -93,9 +93,16 @@ const InterestBuyerDetailss = () => {
               || {data?.data?.business?.subCategory}
             </span>
             <p className="text-sm mt-2">
-              Starting from{" "}
+              Asking Price :{" "}
               <span className="font-semibold">
                 {data?.data?.business?.askingPrice}
+              </span>
+            </p>
+
+            <p className="text-sm mt-2">
+              Price :{" "}
+              <span className="font-semibold">
+                ${data?.data?.business?.price}
               </span>
             </p>
           </div>

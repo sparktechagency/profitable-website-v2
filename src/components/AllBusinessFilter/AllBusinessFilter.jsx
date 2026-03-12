@@ -587,9 +587,15 @@ export default function AllBusinessFilterAnt() {
                       </span>
                     </div>
                     <p className="text-gray-800 mb-4">
-                      Starting from{" "}
+                      Asking Price :{" "}
                       <span className="font-semibold">
                         {business.askingPrice}
+                      </span>
+                    </p>
+                    <p className="text-gray-800 mb-4">
+                      Price :{" "}
+                      <span className="font-semibold">
+                        ${business.price}
                       </span>
                     </p>
                     <Link href={`/details/${business?.slug}`}>

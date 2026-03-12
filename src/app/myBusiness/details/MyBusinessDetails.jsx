@@ -101,11 +101,19 @@ if (role === "Seller") {
                 </span>
               </div>
               <p className="text-gray-800 mb-4">
-                Starting from{" "}
+                Asking Price :{" "}
                 <span className="font-semibold">
                   {item?.businessId?.askingPrice}
                 </span>
               </p>
+
+<p className="text-gray-800 mb-4">
+               Price :{" "}
+                <span className="font-semibold">
+                  ${item?.businessId?.price}
+                </span>
+              </p>
+
               <Link href={`/details/${item?.businessId?.slug}`}>
                 <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md transition-colors">
                   View Details
@@ -153,8 +161,13 @@ if (role === "Seller") {
                 <span className="text-[#D97706]">{item?.subCategory}</span>
               </div>
               <p className="text-gray-800 mb-4">
-                Starting from{" "}
+                Asking Price :{" "}
                 <span className="font-semibold">{item?.askingPrice}</span>
+              </p>
+
+               <p className="text-gray-800 mb-4">
+                Price :{" "}
+                <span className="font-semibold">${item?.price}</span>
               </p>
               <Link href={`/details/${item?.slug}`}>
                 <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md transition-colors">
@@ -213,11 +226,20 @@ if (role === "Seller") {
                 </span>
               </div>
               <p className="text-gray-800 mb-4">
-                Starting from{" "}
+                Asking Price :{" "}
                 <span className="font-semibold">
                   {item?.businessId?.askingPrice}
                 </span>
               </p>
+
+ <p className="text-gray-800 mb-4">
+                Price :{" "}
+                <span className="font-semibold">
+                  ${item?.businessId?.price}
+                </span>
+              </p>
+
+
               <Link href={`/details/${item?.businessId?.slug}`}>
                 <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md transition-colors">
                   View Details
@@ -269,10 +291,15 @@ if (role === "Seller") {
               <span className="text-blue-500">{item?.category}</span> ||{" "}
               <span className="text-[#D97706]">{item?.subCategory}</span>
             </div>
-            <p className="text-gray-800 mb-4">
-              Starting from{" "}
-              <span className="font-semibold">{item?.askingPrice}</span>
-            </p>
+             <p className="text-gray-800 mb-4">
+                Asking Price :{" "}
+                <span className="font-semibold">{item?.askingPrice}</span>
+              </p>
+
+               <p className="text-gray-800 mb-4">
+                Price :{" "}
+                <span className="font-semibold">${item?.price}</span>
+              </p>
            <div className="grid grid-cols-2 gap-4">
              <Link href={`/details/${item?.slug}`}>
               <button className="bg-blue-500 hover:bg-blue-600 text-white w-full py-2 rounded-md transition-colors">
