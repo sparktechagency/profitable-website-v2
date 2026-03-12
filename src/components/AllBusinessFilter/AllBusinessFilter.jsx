@@ -164,7 +164,7 @@ export default function AllBusinessFilterAnt() {
 
   const [currentPage, setCurrentPage] = useState(1);
 
-  const pageSize = 10;
+  const pageSize = 100;
   const { data: businessFilter } = useGetAllBusinesFilterQuery({
     category: selectedCategory,
     location: selectedLocation,

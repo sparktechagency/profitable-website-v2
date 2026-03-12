@@ -155,7 +155,7 @@ console.log(interestData)
                     <p className="text-gray-800 mb-4">
                       Asking Price :{" "}
                       <span className="font-semibold">
-                        ${business?.askingPrice}
+                        {business?.askingPrice}
                       </span>
                     </p>
                       <p className="text-gray-800 mb-4">
@@ -240,7 +240,7 @@ console.log(interestData)
                       <p className="text-gray-800 mb-4">
                       Asking Price :{" "}
                       <span className="font-semibold">
-                        ${business?.askingPrice}
+                        {business?.askingPrice}
                       </span>
                     </p>
                       <p className="text-gray-800 mb-4">
@@ -326,7 +326,7 @@ console.log(interestData)
                      <p className="text-gray-800 mb-4">
                       Asking Price :{" "}
                       <span className="font-semibold">
-                        ${business?.askingPrice}
+                        {business?.askingPrice}
                       </span>
                     </p>
                       <p className="text-gray-800 mb-4">
@@ -410,7 +410,7 @@ console.log(interestData)
                       <p className="text-gray-800 mb-4">
                       Asking Price :{" "}
                       <span className="font-semibold">
-                        ${business?.askingPrice}
+                        {business?.askingPrice}
                       </span>
                     </p>
                       <p className="text-gray-800 mb-4">
@@ -496,7 +496,7 @@ console.log(interestData)
                        <p className="text-gray-800 mb-4">
                       Asking Price :{" "}
                       <span className="font-semibold">
-                        ${business?.askingPrice}
+                        {business?.askingPrice}
                       </span>
                     </p>
                       <p className="text-gray-800 mb-4">
