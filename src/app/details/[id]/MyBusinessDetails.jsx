@@ -5,12 +5,12 @@ import img1 from "../../../../public/Home/mm.png";
 import img2 from "../../../../public/Home/nn.png";
 import img3 from "../../../../public/Home/oo.png";
 
-import Link from "next/link"; // Replace react-router-dom Link
-import { useParams } from "next/navigation"; // Replace react-router-dom useParams
+import Link from "next/link";
+import { useParams } from "next/navigation";
 
 import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
 import { Lock } from "lucide-react";
-import Image from "next/image"; // Import Image from next/image
+import Image from "next/image";
 import { useGetProfileQuery } from "@/redux/Api/userApi";
 import {
   useGetSingleIterestUserQuery,
@@ -38,36 +38,127 @@ const MyBusinessDetails = () => {
     typeof window !== "undefined" && typeof localStorage !== "undefined"
       ? JSON.parse(localStorage.getItem("user"))
       : null;
+
   const hasAccessToken =
     typeof window !== "undefined" && typeof localStorage !== "undefined"
       ? localStorage.getItem("accessToken")
       : null;
 
   const { data: profileData, isLoading: profileLoading } = useGetProfileQuery();
+
   const price = profileData?.data?.subscriptionPlanPrice;
   const role = profileData?.data?.role;
-  const { id: businessId } = useParams(); // Use Next.js useParams
+
+  const { id: businessId } = useParams();
 
   const { data: businessDetails } = useGetSingleIterestUserQuery({
     businessId,
   });
 
-  console.log("first", businessDetails);
   const [updateSold] = useUpdateSoldMutation();
+
   const checkUserId = profileData?.data?._id;
- 
   const checkBusinessId = businessDetails?.data?.business?.user?._id;
 
+  /* =========================
+        SEO META TAG UPDATE
+  ========================== */
+
+  useEffect(() => {
+    if (businessDetails?.data?.business) {
+      const business = businessDetails.data.business;
+
+      document.title =
+        business.metaTitle || business.title || "Business Details";
+
+      let metaDescription = document.querySelector('meta[name="description"]');
+
+      if (!metaDescription) {
+        metaDescription = document.createElement("meta");
+        metaDescription.name = "description";
+        document.head.appendChild(metaDescription);
+      }
+
+      metaDescription.setAttribute(
+        "content",
+        business.metaDescription ||
+          business.description?.replace(/<[^>]*>/g, "").substring(0, 160) ||
+          "Explore profitable business opportunities"
+      );
+
+      if (business.metaKeywords) {
+        let metaKeywords = document.querySelector('meta[name="keywords"]');
+
+        if (!metaKeywords) {
+          metaKeywords = document.createElement("meta");
+          metaKeywords.name = "keywords";
+          document.head.appendChild(metaKeywords);
+        }
+
+        metaKeywords.setAttribute(
+          "content",
+          Array.isArray(business.metaKeywords)
+            ? business.metaKeywords.join(", ")
+            : business.metaKeywords
+        );
+      }
+
+      const updateMetaTag = (property, content) => {
+        let metaTag = document.querySelector(`meta[property="${property}"]`);
+
+        if (!metaTag) {
+          metaTag = document.createElement("meta");
+          metaTag.setAttribute("property", property);
+          document.head.appendChild(metaTag);
+        }
+
+        metaTag.setAttribute("content", content);
+      };
+
+      const imageFull = `${imageUrl}/Uploads/business-image/${business.image}`;
+
+      updateMetaTag("og:title", business.metaTitle || business.title);
+      updateMetaTag(
+        "og:description",
+        business.metaDescription ||
+          business.description?.replace(/<[^>]*>/g, "").substring(0, 160)
+      );
+      updateMetaTag("og:image", imageFull);
+      updateMetaTag("og:type", "website");
+
+      updateMetaTag("twitter:title", business.metaTitle || business.title);
+      updateMetaTag(
+        "twitter:description",
+        business.metaDescription ||
+          business.description?.replace(/<[^>]*>/g, "").substring(0, 160)
+      );
+      updateMetaTag("twitter:image", imageFull);
+      updateMetaTag("twitter:card", "summary_large_image");
+    }
+  }, [businessDetails]);
+
+  /* =========================
+        SOLD BUTTON
+  ========================== */
 
   const handleSoldToggle = async () => {
     try {
       const newStatus = !businessDetails?.data?.business?.isSold;
-      const res = await updateSold({ businessId: businessDetails?.data?.business?._id, isSold: newStatus }).unwrap();
+
+      const res = await updateSold({
+        businessId: businessDetails?.data?.business?._id,
+        isSold: newStatus,
+      }).unwrap();
+
       toast.success(res?.message);
     } catch (err) {
       toast.error(err?.data?.message);
     }
   };
+
+  /* =========================
+        GOOGLE MAP
+  ========================== */
 
   const [center, setCenter] = useState(null);
 
@@ -79,37 +170,42 @@ const MyBusinessDetails = () => {
     const country = businessDetails?.data?.business?.countryName || "";
 
     const address = `${city}, ${state}, ${country}`.trim();
+
     if (!address) return;
 
     const geocoder = new window.google.maps.Geocoder();
+
     geocoder.geocode({ address }, (results, status) => {
       if (status === "OK" && results[0]) {
         const loc = results[0].geometry.location;
-        setCenter({ lat: loc.lat(), lng: loc.lng() });
+
+        setCenter({
+          lat: loc.lat(),
+          lng: loc.lng(),
+        });
       }
     });
   }, [businessDetails, isLoaded]);
 
   if (!isLoaded) return <div>Loading map...</div>;
-  console.log(businessDetails?.data);
+
+  const business = businessDetails?.data?.business;
+
   return (
     <div className="container m-auto pb-20 lg:mt-8 mt-16 lg:px-0 px-4">
-      <Navigate title={businessDetails?.data?.business?.title}></Navigate>
+
+      <Navigate title={business?.title}></Navigate>
+
       {role &&
         role !== "Buyer" &&
         role !== "Investor" &&
         hasAccessToken &&
         checkUserId === checkBusinessId && (
           <div className="lg:grid grid-cols-3 gap-9">
+
             <div className="bg-white shadow p-4 text-center rounded">
               <div className="flex justify-center">
-                <Image
-                  src={img1}
-                  alt="Total Views"
-                  width={48} // Estimated width based on typical icon size
-                  height={48} // Estimated height
-                  className="object-contain"
-                />
+                <Image src={img1} alt="Total Views" width={48} height={48} />
               </div>
               <h1 className="font-semibold text-3xl py-3">Total Views</h1>
               <h2 className="text-[#22C55E] font-semibold text-xl">
@@ -119,13 +215,7 @@ const MyBusinessDetails = () => {
 
             <div className="bg-white shadow p-4 text-center rounded">
               <div className="flex justify-center">
-                <Image
-                  src={img2}
-                  alt="Total Interests"
-                  width={48}
-                  height={48}
-                  className="object-contain"
-                />
+                <Image src={img2} alt="Total Interests" width={48} height={48} />
               </div>
               <h1 className="font-semibold text-3xl py-3">Total Interests</h1>
               <h2 className="text-[#22C55E] font-semibold text-xl">
@@ -135,94 +225,100 @@ const MyBusinessDetails = () => {
 
             <div className="bg-white shadow p-4 text-center rounded">
               <div className="flex justify-center">
-                <Image
-                  src={img3}
-                  alt="Inquiries Received"
-                  width={48}
-                  height={48}
-                  className="object-contain"
-                />
+                <Image src={img3} alt="Inquiries Received" width={48} height={48} />
               </div>
               <h1 className="font-semibold text-3xl py-3">
-              
                 Contact Views
               </h1>
               <h2 className="text-[#22C55E] font-semibold text-xl">
-               
                 {businessDetails?.data?.business?.buyerViewCount || '0'}
               </h2>
             </div>
+
           </div>
         )}
 
+      {/* Image + Info */}
       <div className="lg:grid grid-cols-2 gap-4 pt-11">
+
         <div>
           <Image
             className="w-full object-cover"
-            src={`${imageUrl}/Uploads/business-image/${businessDetails?.data?.business?.image}`}
+            src={`${imageUrl}/Uploads/business-image/${business?.image}`}
             alt="main business"
-            width={600} // Estimated width based on full-width image
-            height={400} // Estimated height
-            priority={true} // Prioritize as main image
+            width={600}
+            height={400}
+            priority
           />
         </div>
 
         <div className="mt-5 lg:mt-0">
+
           <button className="bg-[#C1E1FF] border border-[#0091FF] px-2 py-2 rounded">
-            {businessDetails?.data?.business?.businessRole === "Francise Seller"
+            {business?.businessRole === "Francise Seller"
               ? "Franchise Seller"
-              : businessDetails?.data?.business?.businessRole}
+              : business?.businessRole}
           </button>
-          <h1 className="text-2xl text-[#0091FF]">
-            {businessDetails?.data?.business?.title}
-          </h1>
+
+          <h2 className="text-2xl text-[#0091FF]">{business?.title}</h2>
+
           <div className="space-y-2 my-3">
+
             <p>
               <span className="font-semibold">Business Type:</span>{" "}
-              {businessDetails?.data?.business?.businessType}
+              {business?.businessType}
             </p>
+
             <p>
               <span className="font-semibold">Price:</span>{" "}
-              ${businessDetails?.data?.business?.price}
+              ${business?.price}
             </p>
+
             <p>
               <span className="font-semibold">Asking Price:</span>{" "}
-              {businessDetails?.data?.business?.askingPrice}
+              {business?.askingPrice}
             </p>
+
             <p>
               <span className="font-semibold">Business Type:</span>{" "}
-              {businessDetails?.data?.business?.businessType}
+              {business?.businessType}
             </p>
+
             <p>
               <span className="font-semibold">Country:</span>{" "}
-              {businessDetails?.data?.business?.countryName},{" "}
-              {businessDetails?.data?.business?.city},{" "}
-              {businessDetails?.data?.business?.state}
+              {business?.countryName}, {business?.city}, {business?.state}
             </p>
+
             <p>
               <span className="font-semibold">Reason:</span>{" "}
-              {businessDetails?.data?.business?.reason}
+              {business?.reason}
             </p>
+
             <p>
               <span className="font-semibold">Ownership Type:</span>{" "}
-              {businessDetails?.data?.business?.ownerShipType}
+              {business?.ownerShipType}
             </p>
+
           </div>
-          <div className="flex gap-5">
+
+          {/* Buttons Section */}
+          <div className="flex gap-5 flex-wrap">
+            {/* Edit Button - for business owner */}
             {role &&
               role !== "Buyer" &&
               role !== "Investor" &&
               hasAccessToken &&
               checkUserId === checkBusinessId && (
                 <Link
-                  href={`/EditNewBusiness/${businessDetails?.data?.business?._id}`}
+                  href={`/EditNewBusiness/${business?._id}`}
                 >
                   <button className="bg-[#0091FF] px-4 py-1 rounded text-white">
-                    Edit {businessDetails?.data?.business?.title}
+                    Edit {business?.title}
                   </button>
                 </Link>
               )}
 
+            {/* Interested Buyers/Investors Button - for business owner */}
             {role &&
               hasAccessToken &&
               checkUserId === checkBusinessId &&
@@ -244,7 +340,7 @@ const MyBusinessDetails = () => {
                       ) {
                         toast.error("Please buy subscription");
                       } else {
-                        window.location.href = `/interestBuyer/${businessDetails?.data?.business?.slug}`;
+                        window.location.href = `/interestBuyer/${business?.slug}`;
                       }
                     }}
                     className={`px-4 py-1 rounded text-white transition-all ${
@@ -261,18 +357,17 @@ const MyBusinessDetails = () => {
                 </div>
               )}
 
+            {/* Interested Button - for buyers/investors viewing business */}
             {role &&
               hasAccessToken &&
               checkUserId !== checkBusinessId &&
               ((role === "Buyer" &&
-                businessDetails?.data?.business?.businessRole !==
-                  "Business Idea Lister") ||
+                business?.businessRole !== "Business Idea Lister") ||
                 role === "Investor" ||
                 (role === "Broker" &&
-                  businessDetails?.data?.business?.businessRole !==
-                    "Business Idea Lister")) && (
+                  business?.businessRole !== "Business Idea Lister")) && (
                 <Link
-                  href={`/business-details-with-form/${businessDetails?.data?.business?.slug}`}
+                  href={`/business-details-with-form/${business?.slug}`}
                 >
                   <button className="bg-[#0091FF] hover:bg-[#0091FF] text-white px-5 py-1 rounded">
                     Interested
@@ -280,16 +375,15 @@ const MyBusinessDetails = () => {
                 </Link>
               )}
 
+            {/* Contact Button - for buyers/investors viewing business */}
             {role &&
               hasAccessToken &&
               checkUserId !== checkBusinessId &&
               ((role === "Buyer" &&
-                businessDetails?.data?.business?.businessRole !==
-                  "Business Idea Lister") ||
+                business?.businessRole !== "Business Idea Lister") ||
                 role === "Investor" ||
                 (role === "Broker" &&
-                  businessDetails?.data?.business?.businessRole !==
-                    "Business Idea Lister")) && (
+                  business?.businessRole !== "Business Idea Lister")) && (
                 <div className="relative inline-block">
                   {(price === 0 || price === null) && (
                     <div className="absolute -top-3 -right-3 bg-white rounded-full shadow p-1">
@@ -305,10 +399,8 @@ const MyBusinessDetails = () => {
                       Contact
                     </button>
                   ) : (
-                    // ✅ Active button (normal link)
                     <Link
-                      
-                      href={`/buyer-contact-info/${businessDetails?.data?.business?.user?._id}/${businessDetails?.data?.business?._id}`}
+                      href={`/buyer-contact-info/${business?.user?._id}/${business?._id}`}
                     >
                       <button className="px-5 py-1 rounded text-white bg-[#0091FF] hover:bg-[#0077DD] transition-all">
                         Contact
@@ -318,6 +410,7 @@ const MyBusinessDetails = () => {
                 </div>
               )}
 
+            {/* Sold/Unsold Toggle Button - for business owner */}
             {role &&
               role !== "Buyer" &&
               role !== "Investor" &&
@@ -327,24 +420,30 @@ const MyBusinessDetails = () => {
                   onClick={handleSoldToggle}
                   className="bg-[#0091FF] hover:bg-[#0091FF] text-white px-5 py-1 rounded"
                 >
-                  {businessDetails?.data?.business?.isSold ? "Unsold" : "Sold"}
+                  {business?.isSold ? "Unsold" : "Sold"}
                 </button>
               )}
           </div>
+
         </div>
+
       </div>
+
+      {/* Description */}
       <div className="mt-3">
         <span className="font-semibold">Description: </span>
         <div
           dangerouslySetInnerHTML={{
-            __html: businessDetails?.data?.business?.description,
+            __html: business?.description,
           }}
           className="text-gray-700"
         />
       </div>
 
-      <h1 className="text-[#0091FF] font-bold text-3xl mt-9">Location</h1>
-      <p className="mb-4">{businessDetails?.data?.business?.countryName}</p>
+      {/* Map */}
+      <h2 className="text-[#0091FF] font-bold text-3xl mt-9">Location</h2>
+
+      <p className="mb-4">{business?.countryName}</p>
 
       <GoogleMap
         mapContainerStyle={mapContainerStyle}
@@ -353,6 +452,7 @@ const MyBusinessDetails = () => {
       >
         {center && <Marker position={center} />}
       </GoogleMap>
+
     </div>
   );
 };
