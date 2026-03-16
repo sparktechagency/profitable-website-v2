@@ -44,7 +44,7 @@ const MyBusinessDetails = () => {
       ? localStorage.getItem("accessToken")
       : null;
 
-  const { data: profileData } = useGetProfileQuery();
+  const { data: profileData, isLoading: profileLoading } = useGetProfileQuery();
 
   const price = profileData?.data?.subscriptionPlanPrice;
   const role = profileData?.data?.role;
@@ -58,7 +58,7 @@ const MyBusinessDetails = () => {
   const [updateSold] = useUpdateSoldMutation();
 
   const checkUserId = profileData?.data?._id;
-  const checkBusinessId = businessDetails?.data?.business?.user;
+  const checkBusinessId = businessDetails?.data?.business?.user?._id;
 
   /* =========================
         SEO META TAG UPDATE
@@ -207,7 +207,7 @@ const MyBusinessDetails = () => {
               <div className="flex justify-center">
                 <Image src={img1} alt="Total Views" width={48} height={48} />
               </div>
-              <h2 className="font-semibold text-3xl py-3">Total Views</h2>
+              <h1 className="font-semibold text-3xl py-3">Total Views</h1>
               <h2 className="text-[#22C55E] font-semibold text-xl">
                 {businessDetails?.data?.business?.views ?? "0"}
               </h2>
@@ -217,7 +217,7 @@ const MyBusinessDetails = () => {
               <div className="flex justify-center">
                 <Image src={img2} alt="Total Interests" width={48} height={48} />
               </div>
-              <h2 className="font-semibold text-3xl py-3">Total Interests</h2>
+              <h1 className="font-semibold text-3xl py-3">Total Interests</h1>
               <h2 className="text-[#22C55E] font-semibold text-xl">
                 {businessDetails?.data?.interestedUsers?.length ?? "0"}
               </h2>
@@ -227,11 +227,11 @@ const MyBusinessDetails = () => {
               <div className="flex justify-center">
                 <Image src={img3} alt="Inquiries Received" width={48} height={48} />
               </div>
-              <h3 className="font-semibold text-3xl py-3">
-                Inquiries Received
-              </h3>
+              <h1 className="font-semibold text-3xl py-3">
+                Contact Views
+              </h1>
               <h2 className="text-[#22C55E] font-semibold text-xl">
-                {businessDetails?.data?.interestedUsers?.length ?? "0"}
+                {businessDetails?.data?.business?.buyerViewCount || '0'}
               </h2>
             </div>
 
@@ -260,7 +260,7 @@ const MyBusinessDetails = () => {
               : business?.businessRole}
           </button>
 
-          <p className="text-2xl text-[#0091FF]">{business?.title}</p>
+          <h2 className="text-2xl text-[#0091FF]">{business?.title}</h2>
 
           <div className="space-y-2 my-3">
 
@@ -271,7 +271,17 @@ const MyBusinessDetails = () => {
 
             <p>
               <span className="font-semibold">Price:</span>{" "}
+              ${business?.price}
+            </p>
+
+            <p>
+              <span className="font-semibold">Asking Price:</span>{" "}
               {business?.askingPrice}
+            </p>
+
+            <p>
+              <span className="font-semibold">Business Type:</span>{" "}
+              {business?.businessType}
             </p>
 
             <p>
@@ -291,6 +301,130 @@ const MyBusinessDetails = () => {
 
           </div>
 
+          {/* Buttons Section */}
+          <div className="flex gap-5 flex-wrap">
+            {/* Edit Button - for business owner */}
+            {role &&
+              role !== "Buyer" &&
+              role !== "Investor" &&
+              hasAccessToken &&
+              checkUserId === checkBusinessId && (
+                <Link
+                  href={`/EditNewBusiness/${business?._id}`}
+                >
+                  <button className="bg-[#0091FF] px-4 py-1 rounded text-white">
+                    Edit {business?.title}
+                  </button>
+                </Link>
+              )}
+
+            {/* Interested Buyers/Investors Button - for business owner */}
+            {role &&
+              hasAccessToken &&
+              checkUserId === checkBusinessId &&
+              role !== "Buyer" &&
+              role !== "Investor" && (
+                <div className="relative inline-block">
+                  {(price === 0 || price === null) &&
+                    !(role === "Business Idea Lister" && price === 0) && (
+                      <div className="absolute -top-3 -right-3 bg-white rounded-full shadow p-1">
+                        <Lock className="w-4 h-4 text-gray-400" />
+                      </div>
+                    )}
+
+                  <button
+                    onClick={() => {
+                      if (
+                        (price === 0 || price === null) &&
+                        !(role === "Business Idea Lister" && price === 0)
+                      ) {
+                        toast.error("Please buy subscription");
+                      } else {
+                        window.location.href = `/interestBuyer/${business?.slug}`;
+                      }
+                    }}
+                    className={`px-4 py-1 rounded text-white transition-all ${
+                      (price === 0 || price === null) &&
+                      !(role === "Business Idea Lister" && price === 0)
+                        ? "bg-gray-400 hover:bg-gray-400"
+                        : "bg-[#0091FF] hover:bg-[#0091FF]"
+                    }`}
+                  >
+                    {role === "Business Idea Lister"
+                      ? "Interested Investor"
+                      : "Interested Buyers"}
+                  </button>
+                </div>
+              )}
+
+            {/* Interested Button - for buyers/investors viewing business */}
+            {role &&
+              hasAccessToken &&
+              checkUserId !== checkBusinessId &&
+              ((role === "Buyer" &&
+                business?.businessRole !== "Business Idea Lister") ||
+                role === "Investor" ||
+                (role === "Broker" &&
+                  business?.businessRole !== "Business Idea Lister")) && (
+                <Link
+                  href={`/business-details-with-form/${business?.slug}`}
+                >
+                  <button className="bg-[#0091FF] hover:bg-[#0091FF] text-white px-5 py-1 rounded">
+                    Interested
+                  </button>
+                </Link>
+              )}
+
+            {/* Contact Button - for buyers/investors viewing business */}
+            {role &&
+              hasAccessToken &&
+              checkUserId !== checkBusinessId &&
+              ((role === "Buyer" &&
+                business?.businessRole !== "Business Idea Lister") ||
+                role === "Investor" ||
+                (role === "Broker" &&
+                  business?.businessRole !== "Business Idea Lister")) && (
+                <div className="relative inline-block">
+                  {(price === 0 || price === null) && (
+                    <div className="absolute -top-3 -right-3 bg-white rounded-full shadow p-1">
+                      <Lock className="w-4 h-4 text-gray-400" />
+                    </div>
+                  )}
+
+                  {price === 0 || price === null ? (
+                    <button
+                      onClick={() => toast.error("Please buy subscription")}
+                      className="px-5 py-1 rounded text-white bg-gray-400 cursor-not-allowed"
+                    >
+                      Contact
+                    </button>
+                  ) : (
+                    <Link
+                      href={`/buyer-contact-info/${business?.user?._id}/${business?._id}`}
+                    >
+                      <button className="px-5 py-1 rounded text-white bg-[#0091FF] hover:bg-[#0077DD] transition-all">
+                        Contact
+                      </button>
+                    </Link>
+                  )}
+                </div>
+              )}
+
+            {/* Sold/Unsold Toggle Button - for business owner */}
+            {role &&
+              role !== "Buyer" &&
+              role !== "Investor" &&
+              hasAccessToken &&
+              checkUserId === checkBusinessId && (
+                <button
+                  onClick={handleSoldToggle}
+                  className="bg-[#0091FF] hover:bg-[#0091FF] text-white px-5 py-1 rounded"
+                >
+                  {business?.isSold ? "Unsold" : "Sold"}
+                </button>
+              )}
+          </div>
+
         </div>
 
       </div>
@@ -307,7 +441,7 @@ const MyBusinessDetails = () => {
       </div>
 
       {/* Map */}
-      <h3 className="text-[#0091FF] font-bold text-3xl mt-9">Location</h3>
+      <h2 className="text-[#0091FF] font-bold text-3xl mt-9">Location</h2>
 
       <p className="mb-4">{business?.countryName}</p>
 
