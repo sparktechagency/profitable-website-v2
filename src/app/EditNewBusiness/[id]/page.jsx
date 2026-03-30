@@ -34,7 +34,7 @@ const EditNewBusiness = () => {
   const [updateSingleData] = useUpdateSingleMutation();
   const { data: businessDetails } = useGetSingleBusinessQuery({ businessId });
   const { data: profileData, isLoading: profileLoading } = useGetProfileQuery();
-
+console.log(businessDetails)
   const role = profileData?.data?.role;
   const [countries, setCountries] = useState([]);
   const [states, setStates] = useState([]);
@@ -115,7 +115,7 @@ const EditNewBusiness = () => {
     const id = businessId;
     const user = businessDetails?.data?.business?.user;
     const oldData = businessDetails?.data?.business;
-console.log(first)
+
     setLoading(true);
 
     try {
@@ -277,14 +277,15 @@ console.log(first)
     }
   }, [businessDetails, countries, form]);
 
-  useEffect(() => {
-    if (categorie?.data?.length) {
-      const defaultCategory = categorie?.data[0];
-      setSelectedCategory(defaultCategory?.categoryName);
-      setSubCategories(defaultCategory?.subCategories || []);
-      form.setFieldsValue({ category: defaultCategory?.categoryName });
-    }
-  }, [categorie, form]);
+useEffect(() => {
+  if (categorie?.data?.length && businessDetails?.data) {
+    const existingCategory = businessDetails?.data?.business?.category;
+    const matchedCategory = categorie?.data?.find(
+      (cat) => cat?.categoryName === existingCategory
+    );
+    setSubCategories(matchedCategory?.subCategories || []);
+  }
+}, [categorie, businessDetails]);
 
   return (
     <div className="container m-auto lg:mt-8 mt-16 lg:px-0 px-4 pb-20 ">
