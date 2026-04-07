@@ -17,7 +17,7 @@ export const Navigate = ({ title }) => {
             alignItems: "center",
           }}
         >
-          <h1
+          <p
             onClick={() => router.back()} 
             className="flex gap-4 cursor-pointer"
           >
@@ -25,7 +25,7 @@ export const Navigate = ({ title }) => {
               <FaArrowLeft />
             </button>
             <span className="text-lg font-semibold">{title}</span>
-          </h1>
+          </p>
         </div>
       </div>
     </div>

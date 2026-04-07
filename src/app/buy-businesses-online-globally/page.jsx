@@ -6,9 +6,9 @@ import BusinessGloble from './BuyBusinessesOnlineGlobally';
 
 
 export const metadata = {
-  title: "Businesses for Sale USA | Buy Profitable Opportunities in USA ",
+  title: "Buy Businesses Online Globally | Global Business Marketplace",
   description:
-    "Explore verified businesses for sale across the United States with Profitable Businesses for Sale (PBFS). Discover profitable companies, small businesses, and investment opportunities across industries. Compare listings and start your journey to business ownership today.",
+    "Explore global business opportunities. Buy businesses, franchises, and startups worldwide on a trusted international marketplace for investors.",
    alternates: {  canonical: "https://profitablebusinessesforsale.com/buy-businesses-online-globally"
    },
 };

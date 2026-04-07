@@ -6,9 +6,9 @@ import AssetsSale from './BuyBusinessAssetsForSaleUae';
 
 
 export const metadata = {
-  title: "Businesses for Sale USA | Buy Profitable Opportunities in USA ",
+  title: "Buy Business Assets for Sale UAE | PBFS Marketplace  ",
   description:
-    "Explore verified businesses for sale across the United States with Profitable Businesses for Sale (PBFS). Discover profitable companies, small businesses, and investment opportunities across industries. Compare listings and start your journey to business ownership today.",
+    "Buy business assets for sale UAE including equipment, vehicles & digital assets. Explore verified listings on PBFS and reduce startup costs today.",
    alternates: {  canonical: "https://profitablebusinessesforsale.com/buy-business-assets-for-sale-uae/"
    },
 };

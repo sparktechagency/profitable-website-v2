@@ -6,9 +6,9 @@ import ExistingDubai from './ExistingBusinessForSaleDubai';
 
 
 export const metadata = {
-  title: "Businesses for Sale USA | Buy Profitable Opportunities in USA ",
+  title: "Existing Business for Sale Dubai | Buy Profitable Businesses Dubai ",
   description:
-    "Explore verified businesses for sale across the United States with Profitable Businesses for Sale (PBFS). Discover profitable companies, small businesses, and investment opportunities across industries. Compare listings and start your journey to business ownership today.",
+    "Explore existing business for sale Dubai. Find verified opportunities, franchises, and profitable businesses in Dubai’s growing market on PBFS.",
    alternates: {  canonical: "https://profitablebusinessesforsale.com/existing-business-for-sale-dubai"
    },
 };

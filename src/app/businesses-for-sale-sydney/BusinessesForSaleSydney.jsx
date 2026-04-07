@@ -259,7 +259,7 @@ const BusinessSaleSydney = () => {
                 Finding reliable opportunities requires access to trusted platforms.
               </p>
               <p className="mb-5 text-base text-[#000000]">
-                A <a href="https://profitablebusinessesforsale.com/buy-businesses-online-globally" className="text-[#22C55E] underline">global business marketplace</a> such as Profitable Businesses for Sale (PBFS) helps investors discover profitable ventures across industries and regions.
+                <a href="https://profitablebusinessesforsale.com/buy-businesses-online-globally" className="text-[#22C55E] underline">global business marketplace</a> such as Profitable Businesses for Sale (PBFS) helps investors discover profitable ventures across industries and regions.
               </p>
               <p className="mb-5 text-base text-[#000000]">The platform allows buyers to:</p>
               <ul className="mb-5 text-base text-[#000000] list-disc pl-5">

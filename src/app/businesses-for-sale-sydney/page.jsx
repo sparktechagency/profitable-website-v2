@@ -6,9 +6,9 @@ import BusinessSaleSydney from './BusinessesForSaleSydney';
 
 
 export const metadata = {
-  title: "Businesses for Sale USA | Buy Profitable Opportunities in USA ",
+  title: "Businesses for Sale Sydney | Buy Business Australia ",
   description:
-    "Explore verified businesses for sale across the United States with Profitable Businesses for Sale (PBFS). Discover profitable companies, small businesses, and investment opportunities across industries. Compare listings and start your journey to business ownership today.",
+    "Discover businesses for sale in Sydney. Explore verified listings, franchises & profitable opportunities across Australia on PBFS's global marketplace. ",
    alternates: {  canonical: " https://profitablebusinessesforsale.com/businesses-for-sale-sydney"
    },
 };
