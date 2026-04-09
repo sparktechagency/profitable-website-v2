@@ -27,10 +27,10 @@ const RestaurantSale = () => {
             </div>
             <div>
               <h2 className="mb-5 md:text-3xl font-bold text-dark text-xl">
-                Discover Profitable Restaurant Opportunities in Dubai's Thriving Food Industry
+                Discover Profitable Restaurant Opportunities in Dubai&apos;s Thriving Food Industry
               </h2>
               <p className="mb-5 text-base text-[#000000]">
-                Dubai is one of the world's top culinary destinations, known for its diverse food culture, luxury dining experiences, and booming hospitality sector. For entrepreneurs and investors, finding a restaurant for sale in Dubai presents an exciting opportunity to enter a high-demand industry with strong growth potential.
+                Dubai is one of the world&apos;s top culinary destinations, known for its diverse food culture, luxury dining experiences, and booming hospitality sector. For entrepreneurs and investors, finding a restaurant for sale in Dubai presents an exciting opportunity to enter a high-demand industry with strong growth potential.
               </p>
               <p className="mb-5 text-base text-[#000000]">
                 Instead of starting from scratch, buying an existing restaurant allows you to step into a fully operational business with established customers, trained staff, and proven systems. This significantly reduces setup time and risk while increasing the chances of immediate returns.
@@ -56,7 +56,7 @@ const RestaurantSale = () => {
                 Why Buy a Restaurant in <span className="text-[#22C55E]">Dubai</span>?
               </h2>
               <p className="mb-5 text-base text-[#000000]">
-                Dubai's food and beverage industry is one of the fastest-growing sectors in the region. With millions of tourists visiting every year and a multicultural population, demand for dining experiences remains consistently high.
+                Dubai&apos;s food and beverage industry is one of the fastest-growing sectors in the region. With millions of tourists visiting every year and a multicultural population, demand for dining experiences remains consistently high.
               </p>
               <p className="mb-5 text-base text-[#000000]">
                 Many investors choose to explore a restaurant for sale in Dubai because it offers a quicker path to profitability compared to launching a new restaurant.
@@ -95,7 +95,7 @@ const RestaurantSale = () => {
                 Types of <span className="text-[#22C55E]">Restaurants for Sale</span> in Dubai
               </h2>
               <p className="mb-5 text-base text-[#000000]">
-                Dubai's diverse culinary scene offers a wide range of restaurant concepts to choose from.
+                Dubai&apos;s diverse culinary scene offers a wide range of restaurant concepts to choose from.
               </p>
 
               <h3 className="mb-5 md:text-2xl font-bold text-dark text-lg">
@@ -175,7 +175,7 @@ const RestaurantSale = () => {
                 <li>Strong online demand</li>
               </ul>
               <p className="text-[#000000]">
-                Cloud kitchens are gaining popularity in Dubai's digital food delivery market.
+                Cloud kitchens are gaining popularity in Dubai&apos;s digital food delivery market.
               </p>
 
               <h2 className="mb-5 mt-8 md:text-3xl font-bold text-dark text-xl">
@@ -439,7 +439,7 @@ const RestaurantSale = () => {
             </p>
 
             <h2 className="mb-5 md:text-3xl font-bold text-dark text-xl">
-              Future Trends in Dubai's Restaurant Industry
+              Future Trends in Dubai&apos;s Restaurant Industry
             </h2>
             <p className="mb-5 text-base text-[#000000]">
               The restaurant industry in Dubai continues to evolve. Key trends:
@@ -479,7 +479,7 @@ const RestaurantSale = () => {
               },
               {
                 q: "Is buying a restaurant profitable in Dubai?",
-                a: "Yes. Dubai's strong tourism industry and diverse population create consistent demand for dining, making restaurants potentially profitable.",
+                a: "Yes. Dubai&apos;s strong tourism industry and diverse population create consistent demand for dining, making restaurants potentially profitable.",
               },
               {
                 q: "How long does it take to buy a restaurant?",
@@ -527,7 +527,7 @@ const RestaurantSale = () => {
               Start Your Restaurant Business in Dubai Today
             </h2>
             <p className="mb-5 text-base text-[#000000]">
-              Dubai's thriving food industry offers incredible opportunities for entrepreneurs and investors. With high demand, diverse cuisine options, and strong growth potential, buying an existing restaurant can be a rewarding investment.
+              Dubai&apos;s thriving food industry offers incredible opportunities for entrepreneurs and investors. With high demand, diverse cuisine options, and strong growth potential, buying an existing restaurant can be a rewarding investment.
             </p>
             <p className="mb-5 text-base text-[#000000]">
               If you are searching for a restaurant for sale in Dubai, using a trusted global business marketplace can help you find the right opportunity.
